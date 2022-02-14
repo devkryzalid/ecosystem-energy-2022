@@ -38,7 +38,10 @@ function redirect_archive_template($template)
  * Put here every register function that are in /post_types/*.php files
  */
 function register_post_types() {
-	sample_custom_post_type();
+	news_custom_post_type();
+	industry_post_type();
+	case_study_post_type();
+	expertise_post_type();
 }
 
 
@@ -65,7 +68,7 @@ function customize_default_wp_post_type($args, $post_type)
 				'all_items'                => 'Toutes les perspectives',
 				'view_item'                => 'Voir la perspective',
 				'search_items'             => 'Trouver une perspective',
-				'menu_name'                => 'Perspective',
+				'menu_name'                => 'Perspectives',
 				'name_admin_bar'           => 'Perspective',
 			],
 			'has_archive' => true,

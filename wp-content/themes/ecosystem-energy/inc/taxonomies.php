@@ -37,5 +37,6 @@ function register_taxonomies() {
         'show_in_rest'      => true
 	];
 	
-	sample_type_taxonomy($labelsGlobal, $argsGlobal);
+	localization_taxonomy($labelsGlobal, $argsGlobal);
+    industry_taxonomy($labelsGlobal, $argsGlobal);
 }
