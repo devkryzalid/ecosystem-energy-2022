@@ -277,7 +277,9 @@ if ( wickedFoldersSettings.isElementorActive ) {
 
 				this.model.on( 'change:selected', function( state ){
 					var selected = state.get( 'selected' ),
-						folder = this.collection.get( selected );
+						folder = this.collection.get( selected ),
+						state = this.options.controller.state(),
+						acfField = _.get( state, ['frame', 'acf', 'data', 'field'], false );
 
 					// TODO: fix folder tree state model so a selected folder always
 					// exists
@@ -287,6 +289,15 @@ if ( wickedFoldersSettings.isElementorActive ) {
 					});
 
 					this.options.controller.state().set( 'wickedSelectedFolder', folder );
+
+					// Persist ACF field, otherwise ACF will apply
+					// clear_acf_errors_for_core_requests on the backend to
+					// the request and ACF errors (such as size restrictions)
+					// won't be persisted. Set silently to prevent triggering an
+					// additional query
+					if ( acfField ) {
+						this.options.props.set( '_acfuploader', acfField, { silent: true } );
+					}
 
 					if ( '0' == folder.id ) {
 						this.options.props.unset( 'wicked_folder_type', { silent: true } );
@@ -1103,7 +1114,8 @@ if ( wickedFoldersSettings.isElementorActive ) {
 	                        return {
 	                            per_page: perPage,
 	                            search: params.term,
-	                            page: page
+	                            page: page,
+								wf_include_users_without_posts: true
 	                        };
 	                    },
 	                    transport: function( params, success, failure ){
@@ -1638,7 +1650,11 @@ if ( wickedFoldersSettings.isElementorActive ) {
 				// deleting it here. Logic has been added below to filter
 				// attachments by date so that the date filter still works.
 				// See Query.initialize for order filter function.
-				delete attachments.mirroring.filters.order;
+
+				// Update 10-12-2021: This is causing problems with the 'load
+				// more' functionality added in WordPress 5.8. Unable to
+				// reproduce the issue noted above so removing for now.
+				//delete attachments.mirroring.filters.order;
 
 				if ( ! _.isUndefined( attachments.mirroring.props ) ) {
 					year = attachments.mirroring.props.get( 'year' );

@@ -96,7 +96,7 @@ $hooks_filters = [
 	'use_block_editor_for_post_type' => [
 		10 => ['name' => 'disable_gutenberg', 'args' => 1],
 	],
-	'allowed_block_types' => [
+	'allowed_block_types_all' => [
 		10 => ['name' => 'gutenberg_allowed_block_types', 'args' => 1],
 	],
 	'upload_mimes' => [
@@ -166,8 +166,8 @@ function set_current_language($locale)
 	}
 	$split = explode('/', $_SERVER['REQUEST_URI']);
 	if ($split[1] == 'ajax') {
-		if ($split[2] == 'en') {
-			return 'en_US';
+		if ($split[2] == 'fr') {
+			return 'fr_FR';
 		}
 	}
 	return $locale;

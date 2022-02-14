@@ -4,7 +4,7 @@
 Plugin Name: Wicked Folders Pro
 Plugin URI: https://wickedplugins.com/wicked-folders/
 Description: Organize your media library, pages and custom post types into folders.
-Version: 2.23.4
+Version: 2.23.7
 Author: Wicked Plugins
 Author URI: https://wickedplugins.com/
 Text Domain: wicked-folders

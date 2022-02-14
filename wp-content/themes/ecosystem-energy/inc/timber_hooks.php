@@ -12,9 +12,6 @@
 function add_to_context( $context ) {
 	// Menus
 	$context['menu_primary'] = new \Timber\Menu( 'menu-primary', [ 'depth' => 4 ] );
-	$context['menu_secondary'] = new \Timber\Menu( 'menu-secondary' );
-	$context['menu_footer'] = new \Timber\Menu( 'menu-footer' );
-	$context['submenu_footer'] = new \Timber\Menu( 'submenu-footer' );
 
 	/*
      * Create a custom breadcrumb

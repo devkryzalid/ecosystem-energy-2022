@@ -59,41 +59,41 @@
             <?php foreach ( $roles->roles as $key => $role ) : ?>
                 <tr>
                     <td class="all">
-                        <input type="hidden" name="role[]" value="<?php echo $key; ?>" />
-                        <input id="wf-permission-<?php echo $key; ?>-all" type="checkbox" name="all[]" value="1" <?php echo _wicked_folders_all_permissions_checkbox_helper( $permissions, $key ); ?> title="<?php _e( 'Select all permissions for this row', 'wicked-folders' ); ?>" />
+                        <input type="hidden" name="role[]" value="<?php echo esc_attr( $key ); ?>" />
+                        <input id="wf-permission-<?php echo esc_attr( $key ); ?>-all" type="checkbox" name="all[]" value="1" <?php echo _wicked_folders_all_permissions_checkbox_helper( $permissions, $key ); ?> title="<?php _e( 'Select all permissions for this row', 'wicked-folders' ); ?>" />
                     </td>
                     <td class="name">
-                        <label for="wf-permission-<?php echo $key; ?>-all">
-                            <?php echo $role['name']; ?>
+                        <label for="wf-permission-<?php echo esc_attr( $key ); ?>-all">
+                            <?php echo esc_html( $role['name'] ); ?>
                         </label>
                     </td>
                     <td class="permission">
-                        <input id="wf-permission-<?php echo $key; ?>-create" type="checkbox" name="<?php echo $key; ?>_create" value="1" <?php echo _wicked_folders_permission_checkbox_helper( $permissions, $key, 'create' ); ?> />
-                        <label for="wf-permission-<?php echo $key; ?>-create" class="screen-reader-text">
+                        <input id="wf-permission-<?php echo esc_attr( $key ); ?>-create" type="checkbox" name="<?php echo esc_attr( $key ); ?>_create" value="1" <?php echo _wicked_folders_permission_checkbox_helper( $permissions, $key, 'create' ); ?> />
+                        <label for="wf-permission-<?php echo esc_attr( $key ); ?>-create" class="screen-reader-text">
                             <?php _e( sprintf( '%s: Create Folders', $role['name'] ), 'wicked-folders' ) ?>
                         </label>
                     </td>
                     <td class="permission">
-                        <input id="wf-permission-<?php echo $key; ?>-view" type="checkbox" name="<?php echo $key; ?>_view_others" value="1" <?php echo _wicked_folders_permission_checkbox_helper( $permissions, $key, 'view_others' ); ?> />
-                        <label for="wf-permission-<?php echo $key; ?>-view" class="screen-reader-text">
+                        <input id="wf-permission-<?php echo esc_attr( $key ); ?>-view" type="checkbox" name="<?php echo esc_attr( $key ); ?>_view_others" value="1" <?php echo _wicked_folders_permission_checkbox_helper( $permissions, $key, 'view_others' ); ?> />
+                        <label for="wf-permission-<?php echo esc_attr( $key ); ?>-view" class="screen-reader-text">
                             <?php _e( sprintf( '%s: View Others Folders', $role['name'] ), 'wicked-folders' ) ?>
                         </label>
                     </td>
                     <td class="permission">
-                        <input id="wf-permission-<?php echo $key; ?>-edit" type="checkbox" name="<?php echo $key; ?>_edit_others" value="1" <?php echo _wicked_folders_permission_checkbox_helper( $permissions, $key, 'edit_others' ); ?> />
-                        <label for="wf-permission-<?php echo $key; ?>-edit" class="screen-reader-text">
+                        <input id="wf-permission-<?php echo esc_attr( $key ); ?>-edit" type="checkbox" name="<?php echo esc_attr( $key ); ?>_edit_others" value="1" <?php echo _wicked_folders_permission_checkbox_helper( $permissions, $key, 'edit_others' ); ?> />
+                        <label for="wf-permission-<?php echo esc_attr( $key ); ?>-edit" class="screen-reader-text">
                             <?php _e( sprintf( '%s: Edit Others Folders', $role['name'] ), 'wicked-folders' ) ?>
                         </label>
                     </td>
                     <td class="permission">
-                        <input id="wf-permission-<?php echo $key; ?>-delete" type="checkbox" name="<?php echo $key; ?>_delete_others" value="1" <?php echo _wicked_folders_permission_checkbox_helper( $permissions, $key, 'delete_others' ); ?> />
-                        <label for="wf-permission-<?php echo $key; ?>-delete" class="screen-reader-text">
+                        <input id="wf-permission-<?php echo esc_attr( $key ); ?>-delete" type="checkbox" name="<?php echo esc_attr( $key ); ?>_delete_others" value="1" <?php echo _wicked_folders_permission_checkbox_helper( $permissions, $key, 'delete_others' ); ?> />
+                        <label for="wf-permission-<?php echo esc_attr( $key ); ?>-delete" class="screen-reader-text">
                             <?php _e( sprintf( '%s: Delete Others Folders', $role['name'] ), 'wicked-folders' ) ?>
                         </label>
                     </td>
                     <td class="permission">
-                        <input id="wf-permission-<?php echo $key; ?>-assign" type="checkbox" name="<?php echo $key; ?>_assign_others" value="1" <?php echo _wicked_folders_permission_checkbox_helper( $permissions, $key, 'assign_others' ); ?> />
-                        <label for="wf-permission-<?php echo $key; ?>-assign" class="screen-reader-text">
+                        <input id="wf-permission-<?php echo esc_attr( $key ); ?>-assign" type="checkbox" name="<?php echo esc_attr( $key ); ?>_assign_others" value="1" <?php echo _wicked_folders_permission_checkbox_helper( $permissions, $key, 'assign_others' ); ?> />
+                        <label for="wf-permission-<?php echo esc_attr( $key ); ?>-assign" class="screen-reader-text">
                             <?php _e( sprintf( '%s: Assign Others Folders', $role['name'] ), 'wicked-folders' ) ?>
                         </label>
                     </td>

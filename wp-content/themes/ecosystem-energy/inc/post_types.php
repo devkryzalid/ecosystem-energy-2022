@@ -60,13 +60,13 @@ function customize_default_wp_post_type($args, $post_type)
 	if ($post_type == "post") {
 		$custom_args = [
 			'labels' => [
-				'name'                     => 'Nouvelles',
-				'singular_name'            => 'Nouvelle',
-				'all_items'                => 'Toutes les nouvelles',
-				'view_item'                => 'Voir la nouvelle',
-				'search_items'             => 'Trouver une nouvelle',
-				'menu_name'                => 'Nouvelle',
-				'name_admin_bar'           => 'Nouvelle',
+				'name'                     => 'Perspectives',
+				'singular_name'            => 'Perspectives',
+				'all_items'                => 'Toutes les perspectives',
+				'view_item'                => 'Voir la perspective',
+				'search_items'             => 'Trouver une perspective',
+				'menu_name'                => 'Perspective',
+				'name_admin_bar'           => 'Perspective',
 			],
 			'has_archive' => true,
 		];
@@ -91,7 +91,7 @@ function change_nouvelle_links($post_link, $id = 0)
 	$post = get_post($id);
 
 	if (is_object($post) && $post->post_type == 'post') {
-		return home_url('/nouvelles/' . $post->post_name . '/');
+		return home_url('/perspectives/' . $post->post_name . '/');
 	}
 
 	return $post_link;
@@ -100,7 +100,7 @@ function change_nouvelle_links($post_link, $id = 0)
 function change_nouvelle_archive_link($link, $post_type)
 {
 	if ('post' == $post_type) {
-		return '/nouvelles/';
+		return '/perspectives/';
 	}
 	return $link;
 }

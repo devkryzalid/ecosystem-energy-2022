@@ -209,6 +209,10 @@ final class Wicked_Folders_Pro_Admin {
 
 		$modal_folder_pane_params = array_merge( $folder_pane_params, $modal_folder_pane_params );
 
+		wp_enqueue_script( 'wicked-folders-admin' );
+		wp_enqueue_script( 'wicked-folders-app' );
+		wp_enqueue_style( 'wicked-folders-admin' );
+
 		wp_enqueue_script( 'wicked-folders-select2' );
 		wp_enqueue_style( 'wicked-folders-select2' );
 
@@ -295,7 +299,7 @@ final class Wicked_Folders_Pro_Admin {
 
     public static function manage_media_custom_column( $column_name, $post_id ) {
 		if ( 'wicked_move' == $column_name ) {
-			echo '<div class="wicked-move-multiple" data-object-id="' . $post_id . '"><span class="wicked-move-file dashicons dashicons-move"></span><div class="wicked-items"><div class="wicked-item" data-object-id="' . $post_id . '">' . get_the_title() . '</div></div>';
+			echo '<div class="wicked-move-multiple" data-object-id="' . esc_attr( $post_id ) . '"><span class="wicked-move-file dashicons dashicons-move"></span><div class="wicked-items"><div class="wicked-item" data-object-id="' . esc_attr( $post_id ) . '">' . get_the_title() . '</div></div>';
 		}
 		if ( 'wicked_sort' == $column_name ) {
 			echo '<a class="wicked-sort" href="#"><span class="dashicons dashicons-menu"></span></a>';
@@ -397,7 +401,7 @@ final class Wicked_Folders_Pro_Admin {
 		// WARNING: this function is used in both multisite and non-multisite
 		// instances. Be careful when adding new pro options.
 
-		$action = isset( $_REQUEST['action'] ) ? $_REQUEST['action'] : false;
+		$action = isset( $_REQUEST['action'] ) ? sanitize_key( $_REQUEST['action'] ) : false;
 
 		// Save settings
 		if ( 'wicked_folders_save_settings' == $action && wp_verify_nonce( $_REQUEST['nonce'], 'wicked_folders_save_settings' ) ) {
@@ -412,7 +416,7 @@ final class Wicked_Folders_Pro_Admin {
 			// Handle activate requests
 			if ( isset( $_POST['activate_license'] ) ) {
 				$existing_license_key 	= get_site_option( 'wicked_folders_pro_license_key', false );
-				$new_license_key 		= trim( $_POST['wicked_folders_pro_license_key'] );
+				$new_license_key 		= trim( sanitize_text_field( $_POST['wicked_folders_pro_license_key'] ) );
 				$license_data 			= get_site_option( 'wicked_folders_pro_license_data', false );
 				$expired 				= Wicked_Folders_Pro::is_license_expired();
 
@@ -465,15 +469,17 @@ final class Wicked_Folders_Pro_Admin {
 	}
 
 	public function save_folder_collection_policy_assignments() {
-		$action 			= isset( $_POST['action'] ) ? $_POST['action'] : false;
+		$action 			= isset( $_POST['action'] ) ? sanitize_key( $_POST['action'] ) : false;
 		$taxonomy_policies 	= array();
 
 		// Save settings
 		if ( 'wicked_folders_save_folder_collection_policy_assignments' == $action && wp_verify_nonce( $_POST['nonce'], 'wicked_folders_save_folder_collection_policy_assignments' ) ) {
 			if ( isset( $_POST['wf_taxonomy'] ) && is_array( $_POST['wf_taxonomy'] ) ) {
-				foreach ( $_POST['wf_taxonomy'] as $index => $taxonomy ) {
+				$taxonomies = array_map( 'sanitize_key', $_POST['wf_taxonomy'] );
+
+				foreach ( $taxonomies as $index => $taxonomy ) {
 					if ( ! empty( $_POST['wf_policy'][ $index ] ) ) {
-						$taxonomy_policies[ $taxonomy ] = $_POST['wf_policy'][ $index ];
+						$taxonomy_policies[ $taxonomy ] = sanitize_text_field( $_POST['wf_policy'][ $index ] );
 					}
 				}
 
@@ -492,8 +498,7 @@ final class Wicked_Folders_Pro_Admin {
 			$terms = '';
 
 			if ( is_array( $_REQUEST['changes']['wickedFolders'] ) ) {
-				$terms = $_REQUEST['changes']['wickedFolders'];
-				$terms = array_map( 'intval', $terms );
+				$terms = array_map( 'intval', $_REQUEST['changes']['wickedFolders'] );
 			}
 
 			wp_set_object_terms( $post_id, $terms, 'wf_attachment_folders' );
@@ -504,9 +509,9 @@ final class Wicked_Folders_Pro_Admin {
 		//if ( isset( $_REQUEST['action'] ) && 'upload-attachment' == $_REQUEST['action'] && ! empty( $_REQUEST['wicked_folder_id'] ) ) {
 		if ( ! empty( $_REQUEST['wicked_folder_id'] ) ) {
 			if ( is_array( $_REQUEST['wicked_folder_id'] ) ) {
-				$terms = $_REQUEST['wicked_folder_id'];
+				$terms = array_map( 'absint', $_REQUEST['wicked_folder_id'] );
 			} else {
-				$terms = array( $_REQUEST['wicked_folder_id'] );
+				$terms = array( absint( $_REQUEST['wicked_folder_id'] ) );
 			}
 			$terms = array_map( 'intval', $terms );
 			wp_set_object_terms( $post_id, $terms, 'wf_attachment_folders' );
@@ -528,22 +533,24 @@ final class Wicked_Folders_Pro_Admin {
 			}
 		}
 
-		echo '<div id="wicked-upload-folder-ui">';
-		wp_dropdown_categories( array(
-			'orderby'           => 'name',
-			'order'             => 'ASC',
-			'show_option_none'  => __( 'Assign to folder...', 'wicked-folders' ),
-			'taxonomy'          => 'wf_attachment_folders',
-			'depth'             => 0,
-			'hierarchical'      => true,
-			'hide_empty'        => false,
-			'option_none_value' => 0,
-			'name' 				=> 'wicked_upload_folder',
-			'id' 				=> 'wicked-upload-folder',
-			'selected' 			=> $folder_id,
-			'include' 			=> $folder_ids,
-		) );
-		echo '</div>';
+		if ( Wicked_Folders::enabled_for( 'attachment' ) ) {
+			echo '<div id="wicked-upload-folder-ui">';
+			wp_dropdown_categories( array(
+				'orderby'           => 'name',
+				'order'             => 'ASC',
+				'show_option_none'  => __( 'Assign to folder...', 'wicked-folders' ),
+				'taxonomy'          => 'wf_attachment_folders',
+				'depth'             => 0,
+				'hierarchical'      => true,
+				'hide_empty'        => false,
+				'option_none_value' => 0,
+				'name' 				=> 'wicked_upload_folder',
+				'id' 				=> 'wicked-upload-folder',
+				'selected' 			=> $folder_id,
+				'include' 			=> $folder_ids,
+			) );
+			echo '</div>';
+		}
 	}
 
 	public static function network_settings_page() {
@@ -561,7 +568,7 @@ final class Wicked_Folders_Pro_Admin {
 		if ( 'wicked_move' == $column_name ) {
 			$title = get_the_author_meta( 'user_login', $user_id );
 
-			$value = '<div class="wicked-move-multiple" data-object-id="' . $user_id . '"><span class="wicked-move-file dashicons dashicons-move"></span><div class="wicked-items"><div class="wicked-item" data-object-id="' . $user_id . '">' . $title . '</div></div>';
+			$value = '<div class="wicked-move-multiple" data-object-id="' . esc_attr( $user_id ) . '"><span class="wicked-move-file dashicons dashicons-move"></span><div class="wicked-items"><div class="wicked-item" data-object-id="' . esc_attr( $user_id ) . '">' . esc_html( $title ) . '</div></div>';
 		}
 
 		return $value;
@@ -577,7 +584,7 @@ final class Wicked_Folders_Pro_Admin {
 		if ( 'wicked_move' == $column_name ) {
 			$title = $plugin_details['Name'];
 
-			echo '<div class="wicked-move-multiple" data-object-id="' . $id . '"><span class="wicked-move-file dashicons dashicons-move"></span><div class="wicked-items"><div class="wicked-item" data-object-id="' . $id . '">' . $title . '</div></div>';
+			echo '<div class="wicked-move-multiple" data-object-id="' . esc_attr( $id ) . '"><span class="wicked-move-file dashicons dashicons-move"></span><div class="wicked-items"><div class="wicked-item" data-object-id="' . esc_attr( $id ) . '">' . esc_html( $title ) . '</div></div>';
 		}
 	}
 
@@ -597,7 +604,7 @@ final class Wicked_Folders_Pro_Admin {
 
 		$post_type 	= Wicked_Folders::get_user_post_type_name();
 		$taxonomy 	= Wicked_Folders::get_tax_name( $post_type );
-		$folder_id 	= isset( $_GET[ "wicked_{$post_type}_folder_filter" ] ) ? $_GET[ "wicked_{$post_type}_folder_filter" ] : false;
+		$folder_id 	= isset( $_GET[ "wicked_{$post_type}_folder_filter" ] ) ? sanitize_text_field( $_GET[ "wicked_{$post_type}_folder_filter" ] ) : false;
 		$state 		= new Wicked_Folders_Screen_State( $current_screen->id, get_current_user_id() );
 		$folders 	= Wicked_Folders::get_folders( $post_type, $taxonomy );
 
@@ -664,7 +671,7 @@ final class Wicked_Folders_Pro_Admin {
 		$filtered_plugins 	= array();
 		$post_type 			= Wicked_Folders::get_plugin_post_type_name();
 		$taxonomy 			= Wicked_Folders::get_tax_name( $post_type );
-		$folder_id 			= isset( $_GET[ "wicked_{$post_type}_folder_filter" ] ) ? $_GET[ "wicked_{$post_type}_folder_filter" ] : false;
+		$folder_id 			= isset( $_GET[ "wicked_{$post_type}_folder_filter" ] ) ? sanitize_text_field( $_GET[ "wicked_{$post_type}_folder_filter" ] ) : false;
 		$state 				= new Wicked_Folders_Screen_State( $current_screen->id, get_current_user_id() );
 
 		if ( false === $folder_id && ! empty( $state->folder ) ) {
@@ -686,7 +693,11 @@ final class Wicked_Folders_Pro_Admin {
 					", $taxonomy, $folder_id
 				)
 			);
-
+// 			print_r($object_ids);
+// 			echo '---';
+// 			print_r($ids);
+// print_r($plugins);
+// exit();
 			// Filter out plugins that aren't assigned to the folder
 			foreach ( $plugins as $key => $plugin ) {
 				if ( isset( $ids[ $key ] ) ) {
@@ -698,7 +709,8 @@ final class Wicked_Folders_Pro_Admin {
 				}
 			}
 		}
-
+// print_r($filtered_plugins);
+// exit();
 		if ( 'unassigned_dynamic_folder' == $folder_id ) {
 			// Get IDs of plugins assigned to at least one folder
 			$object_ids = $wpdb->get_col(
@@ -722,7 +734,8 @@ final class Wicked_Folders_Pro_Admin {
 				}
 			}
 		}
-
+		// print_r($filtered_plugins);
+		// exit();
 		return $filtered_plugins;
 	}
 
@@ -747,7 +760,7 @@ final class Wicked_Folders_Pro_Admin {
 		$filtered_items 	= array();
 		$post_type 			= Wicked_Folders::get_gravity_forms_form_post_type_name();
 		$taxonomy 			= Wicked_Folders::get_tax_name( $post_type );
-		$folder_id 			= isset( $_GET[ "wicked_{$post_type}_folder_filter" ] ) ? $_GET[ "wicked_{$post_type}_folder_filter" ] : false;
+		$folder_id 			= isset( $_GET[ "wicked_{$post_type}_folder_filter" ] ) ? sanitize_text_field( $_GET[ "wicked_{$post_type}_folder_filter" ] ) : false;
 		$state 				= new Wicked_Folders_Screen_State( $current_screen->id, get_current_user_id() );
 
 		if ( false === $folder_id && ! empty( $state->folder ) ) {
@@ -856,7 +869,7 @@ final class Wicked_Folders_Pro_Admin {
 		$id 	= $item->id;
 		$title 	= $item->title;
 
-		echo '<div class="wicked-move-multiple" data-object-id="' . $id . '"><span class="wicked-move-file dashicons dashicons-move"></span><div class="wicked-items"><div class="wicked-item" data-object-id="' . $id . '">' . $title . '</div></div>';
+		echo '<div class="wicked-move-multiple" data-object-id="' . esc_attr( $id ) . '"><span class="wicked-move-file dashicons dashicons-move"></span><div class="wicked-items"><div class="wicked-item" data-object-id="' . esc_attr( $id ) . '">' . esc_html( $title ) . '</div></div>';
 	}
 
 	public function gform_entries_field_value( $value, $form_id, $field_id, $entry ) {
@@ -865,7 +878,7 @@ final class Wicked_Folders_Pro_Admin {
 		$id 	= $entry['id'];
 		$title 	= 'Entry ID #' . $id;
 
-		$value = '<div class="wicked-move-multiple" data-object-id="' . $id . '"><span class="wicked-move-file dashicons dashicons-move"></span><div class="wicked-items"><div class="wicked-item" data-object-id="' . $id . '">' . $title . '</div></div>';
+		$value = '<div class="wicked-move-multiple" data-object-id="' . esc_attr( $id ) . '"><span class="wicked-move-file dashicons dashicons-move"></span><div class="wicked-items"><div class="wicked-item" data-object-id="' . esc_attr( $id ) . '">' . esc_html( $title ) . '</div></div>';
 
 		return $value;
 	}
@@ -884,7 +897,7 @@ final class Wicked_Folders_Pro_Admin {
 
 		$post_type 			= Wicked_Folders::get_gravity_forms_entry_post_type_name();
 		$taxonomy 			= Wicked_Folders::get_tax_name( $post_type );
-		$folder_id 			= isset( $_GET[ "wicked_{$post_type}_folder_filter" ] ) ? $_GET[ "wicked_{$post_type}_folder_filter" ] : false;
+		$folder_id 			= isset( $_GET[ "wicked_{$post_type}_folder_filter" ] ) ? sanitize_text_field( $_GET[ "wicked_{$post_type}_folder_filter" ] ) : false;
 		$state 				= new Wicked_Folders_Screen_State( $current_screen->id, get_current_user_id() );
 
 		if ( false === $folder_id && ! empty( $state->folder ) ) {
@@ -1046,7 +1059,9 @@ final class Wicked_Folders_Pro_Admin {
 
 		// Sanity check
 		if ( isset( $_POST['role'] ) && is_array( $_POST['role'] ) ) {
-			foreach ( $_POST['role'] as $index => $role ) {
+			$roles = array_map( 'sanitize_key', $_POST['role'] );
+
+			foreach ( $roles as $index => $role ) {
 				$permissions[] = array(
 					'role' 			=> $role,
 					'create' 		=> isset( $_POST[ "{$role}_create" ] ),
@@ -1106,19 +1121,24 @@ final class Wicked_Folders_Pro_Admin {
 			$policies 	= array();
 			$user_id 	= get_current_user_id();
 
-			for ( $i = count( $terms ) - 1; $i > -1; $i-- ) {
-				$term 		= $terms[ $i ];
-				$taxonomy 	= $term->taxonomy;
+			// For some reason $terms isn't always an array of term objects.
+			// Only perform this logic if we're working with an array of term
+			// objects.
+			if ( isset( $terms[0] ) && is_a( $terms[0], 'WP_Term' ) ) {
+				for ( $i = count( $terms ) - 1; $i > -1; $i-- ) {
+					$term 		= $terms[ $i ];
+					$taxonomy 	= $term->taxonomy;
 
-				if ( ! isset( $policies[ $taxonomy ] ) ) {
-					$policies[ $term->taxonomy ] = Wicked_Folders_Folder_Collection_Policy::get_taxonomy_policy( $taxonomy );
-				}
+					if ( ! isset( $policies[ $taxonomy ] ) ) {
+						$policies[ $term->taxonomy ] = Wicked_Folders_Folder_Collection_Policy::get_taxonomy_policy( $taxonomy );
+					}
 
-				$policy = $policies[ $taxonomy ];
+					$policy = $policies[ $taxonomy ];
 
-				if ( $policy ) {
-					if ( ! $policy->can_view( $term->term_id, $user_id ) ) {
-						unset( $terms[ $i ] );
+					if ( $policy ) {
+						if ( ! $policy->can_view( $term->term_id, $user_id ) ) {
+							unset( $terms[ $i ] );
+						}
 					}
 				}
 			}
@@ -1132,7 +1152,7 @@ final class Wicked_Folders_Pro_Admin {
 	 */
 	public function map_meta_cap( $caps, $cap, $user_id, $args ) {
 		if ( isset( $_POST['action'] ) && 'add-tag' == $_POST['action'] && isset( $_POST['taxonomy'] ) ) {
-			$policy = Wicked_Folders_Folder_Collection_Policy::get_taxonomy_policy( $_POST['taxonomy'] );
+			$policy = Wicked_Folders_Folder_Collection_Policy::get_taxonomy_policy( sanitize_key( $_POST['taxonomy'] ) );
 
 			if ( $policy && ! $policy->can_create( $user_id ) ) {
 				if ( false !== $key = array_search( 'manage_categories', $caps ) ) {
@@ -1196,7 +1216,7 @@ final class Wicked_Folders_Pro_Admin {
 
 		$post_type 			= 'tablepress_table';
 		$taxonomy 			= Wicked_Folders::get_tax_name( $post_type );
-		$folder_id 			= isset( $_GET[ "wicked_{$post_type}_folder_filter" ] ) ? $_GET[ "wicked_{$post_type}_folder_filter" ] : false;
+		$folder_id 			= isset( $_GET[ "wicked_{$post_type}_folder_filter" ] ) ? sanitize_text_field( $_GET[ "wicked_{$post_type}_folder_filter" ] ) : false;
 		$state 				= new Wicked_Folders_Screen_State( $current_screen->id, get_current_user_id() );
 		$map 				= array();
 		$tablepress_data 	= get_option( 'tablepress_tables', '' );

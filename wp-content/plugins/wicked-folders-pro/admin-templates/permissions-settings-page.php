@@ -15,7 +15,7 @@
                 <tr>
                     <td class="title column-title has-row-actions column-primary page-title">
                         <strong>
-                            <a class="row-title" href="<?php echo get_edit_post_link( $policy->ID ); ?>"><?php echo $policy->post_title; ?></a>
+                            <a class="row-title" href="<?php echo get_edit_post_link( $policy->ID ); ?>"><?php echo esc_html( $policy->post_title ); ?></a>
                         </strong>
                         <div class="row-actions">
                             <span>
@@ -60,17 +60,17 @@
             <?php foreach ( $post_types as $post_type ) : $taxonomy = Wicked_Folders::get_tax_name( $post_type->name ); ?>
                 <tr>
                     <td>
-                        <label for="<?php echo $post_type->name; ?>_policy">
-                            <?php echo $post_type->label; ?>
+                        <label for="<?php echo esc_attr( $post_type->name ); ?>_policy">
+                            <?php echo esc_html( $post_type->label ); ?>
                         </label>
                     </td>
                     <td>
-                        <input type="hidden" name="wf_taxonomy[]" value="<?php echo $taxonomy; ?>" />
-                        <select id="<?php echo $post_type->name; ?>_policy" name="wf_policy[]">
+                        <input type="hidden" name="wf_taxonomy[]" value="<?php echo esc_attr( $taxonomy ); ?>" />
+                        <select id="<?php echo esc_attr( $post_type->name ); ?>_policy" name="wf_policy[]">
                             <option value="">(<?php _e( 'none', 'wicked-folders' ); ?>)</option>
                             <?php foreach ( $policies as $policy ) : ?>
-                                <option value="<?php echo $policy->ID; ?>"<?php if ( isset( $taxonomy_policies[ $taxonomy ] ) && $policy->ID == $taxonomy_policies[ $taxonomy ] ) echo ' selected'; ?>>
-                                    <?php echo $policy->post_title; ?>
+                                <option value="<?php echo esc_attr( $policy->ID ); ?>"<?php if ( isset( $taxonomy_policies[ $taxonomy ] ) && $policy->ID == $taxonomy_policies[ $taxonomy ] ) echo ' selected'; ?>>
+                                    <?php echo esc_html( $policy->post_title ); ?>
                                 </option>
                             <?php endforeach; ?>
                         </select>

@@ -37,6 +37,7 @@ final class Wicked_Folders_Pro {
 		add_filter( 'wicked_folders_enable_create', 		array( $this, 'wicked_folders_enable_create' ), 10, 3 );
 		add_filter( 'manage_admin_page_wf_attachment_folders_columns', 			array( 'Wicked_Folders_Pro_Admin', 'manage_media_columns' ) );
 		add_filter( 'manage_admin_page_wf_attachment_folders_sortable_columns', array( 'Wicked_Folders_Pro_Admin', 'manage_upload_sortable_columns' ) );
+		add_filter( 'rest_user_query', 						array( $this, 'rest_user_query' ), 10, 2 );
 
 		// WooCommerce filters
 		add_filter( 'manage_product_posts_columns', 		array( $core_admin, 'manage_posts_columns' ), 20 );
@@ -61,17 +62,21 @@ final class Wicked_Folders_Pro {
 		add_filter( 'mailpoet_conflict_resolver_whitelist_script', 	array( $this, 'mailpoet_conflict_resolver_whitelist_script' ) );
 		add_filter( 'mailpoet_conflict_resolver_whitelist_style', 	array( $this, 'mailpoet_conflict_resolver_whitelist_style' ) );
 
+		// MemberPress support
+		add_filter( 'manage_edit-memberpressproduct_columns', array( $core_admin, 'manage_posts_columns' ) );
+
 		add_action( 'admin_init',							array( $pro_admin, 'admin_init' ) );
         add_action( 'manage_media_custom_column', 			array( 'Wicked_Folders_Pro_Admin', 'manage_media_custom_column' ), 10, 2);
         add_action( 'admin_menu',							array( 'Wicked_Folders_Pro_Admin', 'admin_menu' ), 20000 );
 		add_action( 'admin_enqueue_scripts',				array( 'Wicked_Folders_Pro_Admin', 'admin_enqueue_scripts' ) );
         add_action( 'wp_enqueue_media', 					array( 'Wicked_Folders_Pro_Admin', 'wp_enqueue_media' ) );
 		add_action( 'restrict_manage_posts', 				array( 'Wicked_Folders_Pro_Admin', 'restrict_manage_posts' ), 10 );
-		add_action( 'add_attachment',						array( 'Wicked_Folders_Pro_Admin', 'save_attachment' ) );
-		add_action( 'edit_attachment',						array( 'Wicked_Folders_Pro_Admin', 'save_attachment' ) );
+		add_action( 'add_attachment',						array( 'Wicked_Folders_Pro_Admin', 'save_attachment' ), 5 );
+		add_action( 'edit_attachment',						array( 'Wicked_Folders_Pro_Admin', 'save_attachment' ), 5 );
 		add_action( 'post-plupload-upload-ui', 				array( 'Wicked_Folders_Pro_Admin', 'post_plupload_upload_ui' ) );
 		add_action( 'network_admin_menu',					array( 'Wicked_Folders_Pro_Admin', 'network_admin_menu' ), 20000 );
 		add_action( 'set_object_terms', 					array( $this, 'set_object_terms' ), 10, 6 );
+		add_action( 'wpml_after_duplicate_attachment', 		array( $this, 'wpml_after_duplicate_attachment' ), 10, 2 );
 
         // Work-around to get folders page to work for attachments
         if ( Wicked_Folders_Admin::is_folders_page() && 'attachment' == Wicked_Folders_Admin::folder_page_post_type() ) {
@@ -126,7 +131,7 @@ final class Wicked_Folders_Pro {
         }
 
 		// Enable dynamic folders for media by default
-		if ( ! in_array( 'attachment', $dynamic_post_types ) ) {
+		if ( empty( $dynamic_post_types ) && ! in_array( 'attachment', $dynamic_post_types ) ) {
             $dynamic_post_types[] = 'attachment';
             update_option( 'wicked_folders_dynamic_folder_post_types', $dynamic_post_types );
         }
@@ -370,16 +375,16 @@ final class Wicked_Folders_Pro {
 			if ( 'valid' == $license_data->license ) {
 				$expiration = strtotime( $license_data->expires );
 				if ( 'lifetime' == $license_data->expires ) {
-					$license_status = '<span class="wicked-folders-okay">' . __( 'Valid', 'wicked-folders' ) . '</span>';
+					$license_status = __( 'Valid', 'wicked-folders' );
 				} else if ( time() > $expiration ) {
-					$license_status = '<span class="wicked-folders-not-okay">' . __( 'Expired', 'wicked-folders' ) . '</span>';
+					$license_status = __( 'Expired', 'wicked-folders' );
 				} else {
-					$license_status = '<span class="wicked-folders-okay">' . sprintf( __( 'Valid. Expires %1$s.', 'wicked-folders' ), date( 'F j, Y', $expiration ) ). '</span>';
+					$license_status = sprintf( __( 'Valid. Expires %1$s.', 'wicked-folders' ), date( 'F j, Y', $expiration ) );
 				}
 			} else if ( 'expired' == $license_data->license ) {
-				$license_status = '<span class="wicked-folders-not-okay">' . __( 'Expired', 'wicked-folders' ) . '</span>';
+				$license_status = __( 'Expired', 'wicked-folders' );
 			} else {
-				$license_status = '<span class="wicked-folders-not-okay">' . __( 'Invalid', 'wicked-folders' ) . '</span>';
+				$license_status = __( 'Invalid', 'wicked-folders' );
 			}
 		}
 
@@ -413,8 +418,6 @@ final class Wicked_Folders_Pro {
         $file 	= false;
         $files  = array(
             'Wicked_Folders_Pro_Admin'       				=> 'lib/class-wicked-folders-pro-admin.php',
-            'Wicked_Folders_Pro_WP_Media_List_Table'   		=> 'lib/class-wicked-folders-pro-wp-media-list-table.php',
-			'Wicked_Folders_Pro_Media_List_Table'   		=> 'lib/class-wicked-folders-pro-media-list-table.php',
 			'Wicked_Folders_Media_Extension_Dynamic_Folder' => 'lib/class-wicked-folders-media-extension-dynamic-folder.php',
 			'Wicked_Folders_Folder_Collection_Policy' 		=> 'lib/class-wicked-folders-folder-collection-policy.php',
 			'Wicked_Folders_Permission_Policy' 				=> 'lib/class-wicked-folders-permission-policy.php',
@@ -907,5 +910,46 @@ final class Wicked_Folders_Pro {
 		}
 
 		return $args;
+	}
+
+	/**
+	 * WordPress 'rest_user_query' filter.  By default, WordPress only includes
+	 * users who have published posts.  Checks the request params and removes
+	 * the published post requirement if needed so anyone can be selected from
+	 * the folder owner dropdown.
+	 */
+	public function rest_user_query( $args, $request ) {
+		if ( 'true' == $request->get_param( 'wf_include_users_without_posts' ) ) {
+			 unset( $args['has_published_posts'] );
+		}
+
+		return $args;
+	}
+
+	/**
+	 * This action is run after WPML duplicates an attachment.  Copy the folder
+	 * assignments from the source attachment over to the duplicated
+	 * attachment.
+	 */
+	public function wpml_after_duplicate_attachment( $attachment_id, $duplicated_attachment_id ) {
+		try {
+			$taxonomy 	= 'wf_attachment_folders';
+			$folder_ids = wp_get_object_terms( $attachment_id, $taxonomy, array(
+			    'fields' => 'ids',
+			) );
+
+			$result = wp_set_object_terms( $duplicated_attachment_id, $folder_ids, $taxonomy, true );
+
+			if ( is_wp_error( $result ) ) {
+				throw new Exception( $result->get_error_message() );
+			}
+		} catch ( Exception $e ) {
+			error_log(
+				sprintf(
+					__( 'Error duplicating attachment to folders: %s', 'wicked-folders' ),
+            		$e->getMessage()
+				)
+			);
+		}
 	}
 }

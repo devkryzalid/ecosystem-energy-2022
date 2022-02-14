@@ -12,13 +12,13 @@
                         </th>
                         <td>
                             <?php if ( ! apply_filters( 'wicked_folders_mask_license_key', true ) ) : ?>
-                                <p class="code"><?php echo $license_key; ?></p>
+                                <p class="code"><?php echo esc_html( $license_key ); ?></p>
                             <?php endif; ?>
                             <?php if ( ! $valid_license ) : ?>
-                                <input type="text" id="wicked-folders-pro-license-key" class="regular-text" name="wicked_folders_pro_license_key" value="<?php echo $license_key; ?>" />
+                                <input type="text" id="wicked-folders-pro-license-key" class="regular-text" name="wicked_folders_pro_license_key" value="<?php echo esc_attr( $license_key ); ?>" />
                             <?php endif; ?>
                             <?php if ( $license_status ) : ?>
-                                <div class="wicked-folders-license-status"><?php echo $license_status; ?></div>
+                                <div class="wicked-folders-license-status"><?php echo esc_html( $license_status ); ?></div>
                             <?php endif; ?>
                             <?php if ( $valid_license ) : ?>
                                 <input name="deactivate_license" id="deactivate-license" class="button" value="<?php _e( 'Deactivate License', 'wicked-folders' ); ?>" type="submit" />

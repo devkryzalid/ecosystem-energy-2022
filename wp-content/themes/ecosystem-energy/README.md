@@ -35,8 +35,8 @@ Pre-install plugins
 * ACF (Admin customization)
 * YOAST (SEO support)
 * Wicked folder (Organize Medias and pages in Folder)
-* itheme security
-* WP-Rocket (cache and optimisation)
+* Gravity Form 2
+* WPML
 
 ## Documentations
 [Timber](https://timber.github.io/docs/)
