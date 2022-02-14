@@ -1,0 +1,26 @@
+{% extends 'base.twig' %}
+{% block content %}
+    <div class="container">
+        <div class="list-ctn -style-2">
+            {% for post in posts %}
+                <article class="article">
+                    <div class="img-ctn">
+                        <div class="date-ctn">
+                            <span class="day">{{ post.date('j') }}</span>
+                            <span class="month">{{ post.date('F') }}</span>
+                        </div>
+                        <div class="categories">
+                            <ul>
+                                {% for term in post.terms  %}
+                                    <li>{{ term }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="article-title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
+                    <div class="article-extract">{{ post.content|truncate(12, '...')}}</div>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

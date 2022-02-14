@@ -1,0 +1,155 @@
+/**
+* Style only call in Administration
+*/
+
+$primaryFont: 'Montserrat', Helvetica, Arial, sans-serif;
+$textColor: black;
+$complementaryColor: black;
+
+.editor-post-title{
+    .editor-post-title__input{
+        font-family: $primaryFont !important;
+        color: $textColor !important;
+    }    
+}
+
+.wp-block {
+    max-width: 80% !important;
+}
+
+.editor-styles-wrapper {
+
+    font-family: $primaryFont !important;
+    color: $textColor !important;
+    font-size: 16px;
+
+    h1,h2,h3,h4,h5{
+        font-weight: bold !important;
+        color: $textColor !important;
+    }
+
+    /*** Block Boutons ***/
+    
+    .wp-block-button__link{
+    }
+
+
+    /*** Block Google Maps ***/
+
+    .gmap-wrapper{
+        width: 100%;
+        height: 200px;
+        background-color:rgba(45, 162, 183, 0.2);
+
+        .acf-map{
+            width: 100%;
+			height: 100%;
+			position: relative;
+			
+			&:after{
+				position: absolute;
+				content: "Google Maps";
+				width: 100px;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+			}
+        }
+    }
+
+    /*** Block Custom Gallery ***/
+
+    .custom-gallery-ctn{
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin: 20px 0;
+    
+        .part-gallery{
+            width: calc(50% - 20px);
+            
+            .img-ctn{
+                width: 100%;
+    
+                img{
+                    width: 100%;
+                }
+            }
+    
+            &.part-2{
+                margin-left: 40px;
+                .img-ctn:first-child{
+                    margin-bottom: 40px;
+                }
+            }
+        }
+
+    }
+
+    /*** Block Slider ***/
+
+    .content-slider-ctn{
+        .swiper-wrapper{
+            display: flex;
+            flex-wrap: wrap;
+
+            .swiper-slide{
+                margin-right: 15px;
+                width: calc(100% / 3 - 10px);
+
+                &:nth-child(3n){
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+
+    /*** Block Accordion ***/
+
+    .content-accordion-ctn{
+        background-color: #E7F0F4;
+        padding: 20px 30px;
+        transition: all 0.5s ease;
+    
+        .title{
+            font-size: 18px;
+            font-weight: 800;
+            color: $textColor;
+            margin: 0;
+            padding-right: 40px;
+            position: relative
+        }
+    
+        .inner{
+            height: 100%;
+            overflow: hidden;
+            transition: all 0.5s ease;
+    
+            div{
+                padding: 15px 0;
+            }
+        }
+    }
+
+
+    /*** Block Block ***/
+
+    .wp-block-quote{
+    }
+
+    /*** Block File ***/
+
+    .wp-block-file{
+        display: flex;
+        align-items: center;
+        margin: 20px auto;
+    
+    
+        .wp-block-file__button{
+    
+        }
+    }
+    
+   
+}

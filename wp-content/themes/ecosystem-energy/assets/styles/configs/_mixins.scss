@@ -1,0 +1,68 @@
+// transition
+@mixin transition($transition) {
+  transition: $transition;
+  -o-transition: $transition;
+  -moz-transition: $transition;
+  -webkit-transition: $transition;
+}
+
+// transform
+@mixin transform($transform) {
+  transform: $transform;
+  -o-transform: $transform;
+  -ms-transform: $transform;
+  -moz-transform: $transform;
+  -webkit-transform: $transform;
+}
+
+// animation
+@mixin animation($animation) {
+  animation: #{$animation};   
+  -o-animation: #{$animation};
+  -moz-animation: #{$animation};
+  -webkit-animation: #{$animation};
+}
+
+// Keyframes
+@mixin keyframes($animation-name) {
+  @keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin fontSize($size, $line-height: auto) {
+  font-size: #{$size}px; //Fallback in px
+  font-size: calculateRem($size);
+
+  @if($line-height != auto){
+    line-height: #{$line-height}px;
+    line-height: calculateRem($line-height);
+  }
+}
+
+@function calculateRem($size) {
+  $remSize: $size / 16;
+  @return #{$remSize}rem;
+}
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}

@@ -1,0 +1,31 @@
+{% set images = fields["slider_images"] %}
+
+{% if images %}
+    <div class="content-slider-ctn">
+        <!-- Slider main container -->
+        <div class="swiper-container">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                {% for image in images %}
+                    
+                    <div class="swiper-slide slide-img">
+                        <img src="{{image['sizes']['slider-large']}}" alt="">
+                    </div>   
+                    
+                {% endfor %}
+
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- If we need navigation buttons -->
+
+        </div>
+
+        <div class="navigation-ctn">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+{% endif %}

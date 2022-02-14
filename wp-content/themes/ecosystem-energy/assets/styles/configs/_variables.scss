@@ -1,0 +1,24 @@
+// Colors
+$green: #5DDCA5;
+$blue: #2DA2B7;
+$darkBlue: #2B527C;
+$yellow: #FBCB33;
+$yellowAlt: #FBBF00;
+$orange: #E76236;
+
+$titleColor: $darkBlue;
+$textColor: #3D5C7C;
+
+//Font
+
+@import url('https://fonts.googleapis.com/css?family=Muli:400,600,700,800,900&display=swap');
+$primaryFont: 'Muli', Helvetica, Arial, sans-serif;
+
+//Transitions
+$basicTransition: all 0.4s ease;
+
+//Responsive
+$tablet-large: 992px;
+$tablet: 768px;
+$mobile: 425px;
+$xs-mobile: 320px;

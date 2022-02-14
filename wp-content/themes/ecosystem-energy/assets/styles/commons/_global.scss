@@ -1,0 +1,62 @@
+html {
+	scroll-behavior: smooth;
+}
+
+body{
+
+	&.no-scroll{
+		overflow: hidden;
+		height: 100%;
+  		width: 100%;
+	}
+}
+
+h1{
+	@include fontSize(48, 56);
+}
+
+h2{
+	@include fontSize(36, 45);
+}
+
+h3{
+	@include fontSize(22, 28);
+}
+
+h4{
+	@include fontSize(20, 24);
+}
+
+h5{
+	@include fontSize(18, 22);
+}
+
+p{
+	@include fontSize(16, 25);
+}
+
+@media (max-width: $mobile){
+	h1{
+		@include fontSize(32, 38);
+	}
+	
+	h2{
+		@include fontSize(24, 29);
+	}
+	
+	h3{
+		@include fontSize(22, 27);
+	}
+
+	p{
+		@include fontSize(14,22);
+	}
+}
+
+b, strong{
+	font-weight: 700;
+}
+
+a{
+	transition: $basicTransition;
+}
