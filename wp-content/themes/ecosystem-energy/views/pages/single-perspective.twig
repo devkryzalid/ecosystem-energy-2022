@@ -1,0 +1,23 @@
+{% extends 'base.twig' %}
+{% block content %}
+    <img class="" src="{{ post.thumbnail.src('large') }}" alt="{{ post[0].thumbnail.title }}">
+    {% if category %}
+        <p class="category">{{category.name}}</p>
+    {% endif %}
+    <h1>{{post.title}} - {{post.post_date|date("F d, Y")}}</h1>
+    {% if tags|length > 0 %}
+        <p>
+            {% for tag in tags %}
+                {{  tag.name }}
+            {% endfor %}
+        </p> 
+    {% endif %}
+    <div>
+        {{post.content}}
+    </div>
+    <div>
+        {{author.user_avatar}}
+        <p>{{author.user_firstname}} {{author.user_lastname}}</p>
+        <p> {{author.user_description}}</p>
+    </div>
+{% endblock %}

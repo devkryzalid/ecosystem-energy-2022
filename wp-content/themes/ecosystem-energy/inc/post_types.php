@@ -42,6 +42,7 @@ function register_post_types() {
 	industry_post_type();
 	case_study_post_type();
 	expertise_post_type();
+	award_custom_post_type();
 }
 
 
@@ -83,7 +84,7 @@ function customize_default_wp_post_type($args, $post_type)
 function add_rewrite_rules($wp_rewrite)
 {
 	$new_rules = array(
-		'nouvelles/(.+?)/?$' => 'index.php?post_type=post&name=' . $wp_rewrite->preg_index(1),
+		'perspectives/(.+?)/?$' => 'index.php?post_type=post&name=' . $wp_rewrite->preg_index(1),
 	);
 
 	$wp_rewrite->rules = $new_rules + $wp_rewrite->rules;

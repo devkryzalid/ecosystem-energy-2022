@@ -193,3 +193,24 @@ function mailtrap($phpmailer)
 		$phpmailer->Password = '3c0244a1dafdd6';
 	}
 }
+
+/**
+ * Add Config Options Page for Theme (Custom with ACF)
+ */
+if (function_exists('acf_add_options_page')) {
+	acf_add_options_page(array(
+		 'page_title' => 'Paramètres du thème Ecosystem-energy',
+		 'menu_title' => 'Thème Config',
+		 'menu_slug'  => 'theme-general-settings',
+		 // limit acces for only admin and super_admin
+		 'capability' => 'manage_options',
+		 'redirect'   => true
+	));
+	
+	// Footer Option Page
+	acf_add_options_sub_page(array(
+		 'page_title'  => 'Paramètres Global',
+		 'menu_title'  => 'Paramètres Global',
+		 'parent_slug' => 'theme-general-settings',
+	));
+}

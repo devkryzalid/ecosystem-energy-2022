@@ -1,0 +1,27 @@
+{% extends 'base.twig' %}
+{% block content %}
+    <div>
+        {% if previous|length > 0%}
+            <a href="{{ previous.link  }}">Previous</a>
+        {% endif %}
+        {% if next|length > 0 %}
+            <a href="{{ next.link  }}">next</a>            
+        {% endif %}
+    </div>
+    <h1>{{post.title}}</h1>
+    <div>
+        {{post.content}}
+    </div>
+
+    <div>
+        {% if case_studies|length > 0%}
+            {% for case_study in case_studies %}
+                <li>
+                    <p>{{ case_study.title }}</p>
+                    <p>{{ case_study.preview.read_more(false)  }}</p>
+                    <img class="" src="{{ case_study.thumbnail.src('medium') }}" alt="{{ case_study.thumbnail.title }}">
+                </li>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
