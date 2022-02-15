@@ -1,0 +1,30 @@
+{% extends 'base.twig' %}
+{% block content %}
+    <h1>{{post.title}}</h1>
+    <div>
+        {{post.content}}
+    </div>
+
+    {% if leaders_list|length > 0%}
+        <div>
+            <ul>
+                {% for leader in leaders_list %}
+                    <li>
+                        <h3>{{ leader.title }}</h3>
+                        <p>{{ leader.status }}</p>
+                        <p>{{ leader.content }}</p>
+                        <img class="" src="{{ leader.image.link }}" alt="{{ leader.image.title }}">
+                        {% if leader.social_link|length > 0%}
+                            <ul>
+                                {% for social_link in leader.social_link %}
+                                    <li><a href="{{ social_link.link }}">{{ social_link.type.value }} - {{ social_link.type.label }}</a></li>
+                                {% endfor %}  
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}  
+            </ul> 
+        </div>
+    {% endif %}
+
+{% endblock %}

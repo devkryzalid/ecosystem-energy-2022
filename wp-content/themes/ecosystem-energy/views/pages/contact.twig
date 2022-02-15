@@ -1,0 +1,23 @@
+{% extends 'base.twig' %}
+{% block content %}
+    <h1>{{post.title}}</h1>
+    <div>
+        {{post.content}}
+    </div>
+
+    {% if offices_list|length > 0%}
+        <div>
+            <ul>
+                {% for office in offices_list %}
+                    <li>
+                        <h3>{{ office.title }}</h3>
+                        <p>{{ office.phone }}</p>
+                        <p>{{ office.fax }}</p>
+                        <p>{{ office.address }}</p>
+                    </li>
+                {% endfor %}  
+            </ul> 
+        </div>
+    {% endif %}
+
+{% endblock %}
