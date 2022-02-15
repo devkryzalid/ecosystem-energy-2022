@@ -1,0 +1,53 @@
+{% extends 'base.twig' %}
+{% block content %}
+    <h3>{{ industry.name }}</h3>
+    <h1>{{post.title}}</h1>
+
+    <div>
+        <p>Outcomes</p>
+        {% if outcomes_list|length > 0%}
+            {% for outcome in outcomes_list %}
+                <li>
+                    <p>{{ outcome.content }}</p>
+                </li>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div>
+        <p>Awards</p>
+        {% if awards_list|length > 0%}
+            {% for award in awards_list %}
+                <li>
+                    <p>{{ award.title }} - {{ award.organization }} - {{ award.year }}</p>
+                </li>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div>
+        {{post.content}}
+    </div>
+
+    <div>
+        {% if related_case_studies|length > 0%}
+            {% for case_study in related_case_studies %}
+                <li>
+                    <p>{{ case_study.title }}</p>
+                    <img class="" src="{{ case_study.thumbnail.src('medium') }}" alt="{{ case_study.thumbnail.title }}">
+                </li>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div>
+        {% if related_industry|length > 0%}
+            <li>
+                <p>{{ related_industry[0].title }}</p>
+                <p>{{ related_industry[0].preview.read_more(false)  }}</p>
+                <img class="" src="{{ related_industry[0].thumbnail.src('medium') }}" alt="{{ related_industry[0].thumbnail.title }}">
+            </li>
+        {% endif %}
+    </div>
+    
+{% endblock %}

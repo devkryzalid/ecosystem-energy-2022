@@ -71,7 +71,7 @@
                     "collapsed": "field_620aa4c059cf6",
                     "min": 0,
                     "max": 12,
-                    "layout": "table",
+                    "layout": "block",
                     "button_label": "",
                     "sub_fields": [
                         {
@@ -87,7 +87,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "url",
+                            "return_format": "array",
                             "preview_size": "medium",
                             "library": "all",
                             "min_width": "",
@@ -152,7 +152,7 @@
                     "collapsed": "",
                     "min": 0,
                     "max": 0,
-                    "layout": "table",
+                    "layout": "block",
                     "button_label": "",
                     "sub_fields": [
                         {
@@ -168,7 +168,7 @@
                                 "class": "",
                                 "id": ""
                             },
-                            "return_format": "url",
+                            "return_format": "array",
                             "preview_size": "medium",
                             "library": "all",
                             "min_width": "",
@@ -237,7 +237,7 @@
             "collapsed": "field_620aa883b3130",
             "min": 0,
             "max": 0,
-            "layout": "table",
+            "layout": "block",
             "button_label": "",
             "sub_fields": [
                 {
@@ -318,5 +318,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1644869189
+    "modified": 1644876784
 }

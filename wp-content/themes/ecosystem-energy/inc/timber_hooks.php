@@ -12,6 +12,11 @@
 function add_to_context( $context ) {
 	// Menus
 	$context['menu_primary'] = new \Timber\Menu( 'menu-primary', [ 'depth' => 4 ] );
+	// Theme configs
+	$context['theme_infos']     = get_field('infos', 'options');
+	$context['social_networks'] = get_field('social_networks', 'options');
+	$context['cta_contact']     = get_field('cta_contact', 'options');
+	$context['static_links']    = get_field('static_links', 'options');
 
 	/*
      * Create a custom breadcrumb

@@ -43,82 +43,23 @@
             ]
         },
         {
-            "key": "field_620ab1f063804",
-            "label": "Récompenses",
-            "name": "awards_list",
-            "type": "repeater",
+            "key": "field_620bbcb87cf7e",
+            "label": "Projet vedette de l'industrie",
+            "name": "featured",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "30",
                 "class": "",
                 "id": ""
             },
-            "collapsed": "field_620ab28d63805",
-            "min": 0,
-            "max": 0,
-            "layout": "table",
-            "button_label": "",
-            "sub_fields": [
-                {
-                    "key": "field_620ab28d63805",
-                    "label": "Titre",
-                    "name": "title",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_620ab2f563806",
-                    "label": "Organisation",
-                    "name": "organization",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "70",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_620ab30a63807",
-                    "label": "Année",
-                    "name": "year",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "30",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                }
-            ]
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         },
         {
             "key": "field_620ab3a9ee859",
@@ -129,7 +70,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "70",
                 "class": "",
                 "id": ""
             },
@@ -143,31 +84,6 @@
             "elements": "",
             "min": "",
             "max": 1,
-            "return_format": "object"
-        },
-        {
-            "key": "field_620ab45cee85a",
-            "label": "Relation Expertises",
-            "name": "related_expertises",
-            "type": "relationship",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "expertise"
-            ],
-            "taxonomy": "",
-            "filters": [
-                "search"
-            ],
-            "elements": "",
-            "min": "",
-            "max": "",
             "return_format": "object"
         }
     ],
@@ -189,5 +105,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1644869708
+    "modified": 1644949625
 }

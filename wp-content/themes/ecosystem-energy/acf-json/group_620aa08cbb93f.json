@@ -1,10 +1,10 @@
 {
     "key": "group_620aa08cbb93f",
-    "title": "Nouvelle - Champs supplémentaires",
+    "title": "Auteur\/Autrice",
     "fields": [
         {
             "key": "field_620aa099953bb",
-            "label": "Auteur\/Autrice",
+            "label": "Utilisateur",
             "name": "author",
             "type": "user",
             "instructions": "",
@@ -26,7 +26,7 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "news"
+                "value": "post"
             }
         ]
     ],
@@ -39,5 +39,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1644869227
+    "modified": 1644944384
 }

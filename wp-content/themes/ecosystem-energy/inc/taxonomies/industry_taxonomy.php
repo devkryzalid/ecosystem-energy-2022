@@ -15,5 +15,5 @@ function industry_taxonomy($labelsGlobal, $argsGlobal)
         'rewrite' => ['slug' => __('case-studies-industries', 'ecosystem-energy')],
     ];
 
-    register_taxonomy('industry', ['case_study'], array_merge($argsGlobal, $args));
+    register_taxonomy('industry_tax', ['case_study', 'post'], array_merge($argsGlobal, $args));
 }

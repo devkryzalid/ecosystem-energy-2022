@@ -1,0 +1,58 @@
+{% extends 'base.twig' %}
+{% block content %}
+    <h1>{{post.title}}</h1>
+    <div>
+        {{post.content}}
+    </div>
+
+    <div>
+        <p>{{ clients_block.title }}</p>
+        <p>{{ clients_block.content }}</p>
+        {% if clients_block.clients_list|length > 0%}
+            {% for client in clients_block.clients_list %}
+                <img class="" src="{{ client.image.link }}" alt="{{ client.image.title }}">
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div>
+        <p>{{ featured_blocks.title }}</p>
+        {% if featured_blocks.block_list|length > 0%}
+            {% for bloc in featured_blocks.block_list %}
+                <li>
+                    <p>{{ bloc.title }}</p>
+                    <p>{{ bloc.content }}</p>
+                    <img class="" src="{{ bloc.image.link }}" alt="{{ bloc.image.title }}">
+                </li>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div>
+        {% if informations_blocks|length > 0%}
+            {% for bloc in informations_blocks %}
+                <li>
+                    <p>{{ bloc.title }}</p>
+                    <p>{{ bloc.column_1 }}</p>
+                    <p>{{ bloc.column_2 }}</p>
+                </li>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    {% if featured_case_study|length > 0 %}
+        <p>FEATURED - {{ featured_case_study[0].title }}</p>
+        <p>{{ featured_case_study[0].preview.read_more(false)  }}</p>
+        <img class="" src="{{ featured_case_study[0].thumbnail.src('medium') }}" alt="{{ featured_case_study[0].thumbnail.title }}">
+    {% endif %}
+
+    {% if case_studies|length > 0%}
+        {% for case_study in case_studies %}
+            <li>
+                <p>{{ case_study.title }}</p>
+                <p>{{ case_study.preview.read_more(false)  }}</p>
+                <img class="" src="{{ case_study.thumbnail.src('medium') }}" alt="{{ case_study.thumbnail.title }}">
+            </li>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
