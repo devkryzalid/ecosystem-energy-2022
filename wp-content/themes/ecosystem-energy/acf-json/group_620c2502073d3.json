@@ -91,7 +91,7 @@
             {
                 "param": "page_template",
                 "operator": "==",
-                "value": "templates\/expertises.php"
+                "value": "templates\/archive-expertise.php"
             }
         ]
     ],
@@ -104,5 +104,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1644963661
+    "modified": 1645030516
 }

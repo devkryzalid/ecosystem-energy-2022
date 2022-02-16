@@ -1,6 +1,7 @@
 {% extends 'base.twig' %}
 {% block content %}
     <div class="container">
+        <h2>NEWS</h2>
         <div class="categories">
             <ul>
                 {% for locale in locales %}
@@ -10,14 +11,7 @@
                 {% endfor %}
             </ul>
         </div>
-        <hr>
-        <div class="categories">
-            <ul>
-                {% for category in categories %}
-                    {{ category.term_id }} -  {{ category.name }}
-                {% endfor %}
-            </ul>
-        </div>
+      
         <div class="list-ctn -style-2">
             {% for post in posts %}
                 <article class="article">
@@ -30,7 +24,6 @@
                     <h3 class="article-title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
                     <div class="article-extract">{{ post.content|truncate(12, '...')}}</div>
                     <img class="" src="{{ post.thumbnail.src('medium') }}" alt="{{ post.thumbnail.title }}">
-
                 </article>
             {% endfor %}
         </div>

@@ -2,6 +2,9 @@
 /*
  *	Template Name: Awards
  */
+$limit   = empty($_GET['limit']) ? -1 : $_GET['limit'];
+$paged   = empty($_GET['paged']) ? 1 : $_GET['paged'];
+
 $context = Timber::context();
 $timber_post = new Timber\Post();
 $context['post'] = $timber_post;
@@ -12,7 +15,8 @@ $awards = new Timber\PostQuery([
    'orderby'         => 'year',
    'order'           => 'ASC',
    'suppress_filter' => true,
-   'posts_per_page'  => -1,
+   'paged'           => $paged,
+   'posts_per_page'  => $limit,
 ]);
 $awardByYears = [];
 foreach ($awards as $award) {

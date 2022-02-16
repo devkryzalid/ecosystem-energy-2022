@@ -1,30 +1,41 @@
 <?php
-$limit   = empty($_GET['limit']) ? 6 : $_GET['limit'];
-$paged   = empty($_GET['paged']) ? 1 : $_GET['paged'];
-$context['limit'] = $limit;
-$context['paged'] = $paged;
-
 global $paged;
-if ( ! isset( $paged ) || ! $paged ) {
-	$paged = 1;
-}
+
+$limit             = empty($_GET['limit']) ? 10 : $_GET['limit'];
+$paged             = empty($_GET['paged']) ? 1 : $_GET['paged'];
+$selected_category = $_GET ? get_term_by('id', $_GET['category'], 'category') : null;
+$timber_post       = new Timber\Post();
+
+$context['params'] = $_GET;
+$context['limit']  = $limit;
+$context['paged']  = $paged;
+$context['post']   = $timber_post;
+
 /**
  * Query arguments
  */
 $args = [
-	'posts_per_page' => 12,
-	'orderby' => [
-		'ID' => 'ASC',
-	],
-	'paged' => $paged,
+    'post_type'       => 'post',
+    'post_status'     => 'publish',
+    'orderby'         => 'publish_date',
+    'order'           => 'DESC',
+    'suppress_filter' => true,
+    'paged'           => $paged,
+    'posts_per_page'  => $limit,
 ];
+
 /**
  * Timber context assignments
  */
-$context['params'] = $_GET;
 $context['posts'] = new Timber\PostQuery( $args );
-$timber_post = new Timber\Post();
+
+// Get locales
+$context['locales'] = get_terms( [ 'taxonomy' => 'localization' ] );
+// TODO filter by local
+
+// Get category if expertise
 $context['categories'] = get_terms( [ 'taxonomy' => 'category' ] );
-$context['post'] = $timber_post;
+
+// TODO Filter if there is a selected category
 
 Timber::render( 'pages/index.twig', $context );

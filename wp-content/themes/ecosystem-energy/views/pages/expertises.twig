@@ -1,8 +1,34 @@
 {% extends 'base.twig' %}
 {% block content %}
-    <img class="" src="{{ post.thumbnail.src('large') }}" alt="{{ post[0].thumbnail.title }}">
-    <h1>{{post.title}}</h1>
+v    <h1>{{post.title}}</h1>
     <div>
         {{post.content}}
     </div>
+
+    {% if featured_content|length > 0%}
+        <div>
+            <ul>
+                {% for bloc in featured_content %}
+                    <li>
+                        <h3>{{ bloc.title }}</h3>
+                        <p>{{ bloc.content }}</p>
+                        <img class="" src="{{ bloc.image.link }}" alt="{{ bloc.image.title }}">
+                    </li>
+                {% endfor %}  
+            </ul> 
+        </div>
+    {% endif %}
+
+    {% if expertises|length > 0%}
+        <div>
+            <ul>
+                {% for expertise in expertises %}
+                    <li>
+                        <h3>{{ expertise.title }}</h3>
+                        <img class="" src="{{ expertise.thumbnail.src('large') }}" alt="{{ expertise.thumbnail.title }}">
+                    </li>
+                {% endfor %}  
+            </ul> 
+        </div>
+    {% endif %}
 {% endblock %}
