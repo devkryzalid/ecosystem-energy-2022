@@ -10,6 +10,7 @@ $timber_post = new Timber\Post();
 
 $context['post']             = $timber_post;
 $context['featured_content'] = $timber_post->meta('featured_content');
+
 /**
  * Query arguments
  */

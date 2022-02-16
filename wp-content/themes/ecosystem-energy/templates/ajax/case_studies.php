@@ -1,18 +1,13 @@
 <?php
-/*
- *	Template Name: Projets
- */
-$limit      = empty($_GET['limit']) ? -1 : $_GET['limit'];
-$paged      = empty($_GET['paged']) ? 9 : $_GET['paged'];
-$locales    = empty($_GET['locale']) ? [] : $_GET['locale'];
-$industries = empty($_GET['industry']) ? [] : $_GET['industry'];
+global $params;
+do_action('wpml_switch_language', $params['lang']);
+// set the query strings
+$limit      = empty($params['limit']) ? -1 : $params['limit'];
+$paged      = empty($params['paged']) ? 9 : $params['paged'];
+$locales    = empty($params['locale']) ? [] : $params['locale'];
+$industries = empty($params['industry']) ? [] : $params['industry'];
 
 $context = Timber::context();
-
-$timber_post = new Timber\Post();
-$context['post']      = $timber_post;
-$context['limit']     = $limit;
-$context['paged']     = $paged;
 
 $args = [
    'post_type'       => 'case_study',
@@ -44,6 +39,19 @@ if (!empty($industries) && $industries != '') {
     ];
 }
 
-$context['case_studies'] = new Timber\PostQuery($args);
+/**
+ * Get post and render view (return)
+ */
+$posts = new Timber\PostQuery($args);
 
-Timber::render( array( 'pages/case_studies.twig' ), $context );
+if ($posts->found_posts > 0) {
+    $response = '';
+    $response .= Timber::compile('partials/lists/case_studies.twig', ['posts' => $posts]);
+    $message = $response;
+} else {
+    $message = Timber::compile('partials/lists/no-result-item.twig');
+}
+
+wp_reset_query();
+wp_reset_postdata();
+return wp_send_json($message);
