@@ -1,0 +1,8 @@
+{% extends 'base.twig' %}
+{% block content %}
+    <img class="" src="{{ post.thumbnail.src('large') }}" alt="{{ post[0].thumbnail.title }}">
+    <h1>{{post.title}}</h1>
+    <div>
+        {{post.content}}
+    </div>
+{% endblock %}

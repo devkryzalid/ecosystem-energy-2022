@@ -1,4 +1,81 @@
 {% extends 'base.twig' %}
 {% block content %}
-    <h1>Kryzalid Wordpress BoilerPlate</h1>
+    {% if home_hero %}
+    <div>
+        <h1>{{ home_hero.title }}</h1>
+        <p>{{ home_hero.content }}</p>
+        <button><a href="{{ home_hero.button.url }}" target="{{ home_hero.button.target }}">{{ home_hero.button.title }}</a></button>
+    </div>
+    {% endif %}
+    
+    {% if sectors %}
+    <div>
+        <h2>{{ sectors.title }}</h2>
+        <p>{{ sectors.content }}</p>
+        {% if industries|length > 0 %}
+            <ul>
+                {% for industry in industries %}
+                    <li>
+                        <p>{{ industry.title }}</p>
+                        <img class="" src="{{ industry.thumbnail.src('medium') }}" alt="{{ industry.thumbnail.title }}">
+                        <a href="{{ industry.link  }}">lien</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {% if news %}
+    <div>
+        <h3>{{ news.title }}</h3>
+        <p>{{news.post_date|date("F d, Y")}}</p>
+        <a href="{{ news.link  }}">lien</a>
+    </div>
+    {% endif %}
+
+    {% if perspective %}
+    <div>
+        <h3>{{ perspective.title }}</h3>
+        <p>{{perspective.post_date|date("F d, Y")}}</p>
+        <a href="{{ perspective.link  }}">lien</a>
+    </div>
+    {% endif %}
+
+    {% if featured_block %}
+    <div>
+        <h3>{{ featured_block.upper_title }}</h3>
+        <h2>{{ featured_block.title }}</h2>
+        <p>{{ featured_block.content }}</p>
+        <button><a href="{{ featured_block.button.url }}" target="{{ featured_block.button.target }}">{{ featured_block.button.title }}</a></button>
+        <img class="" src="{{ featured_block.image.link }}" alt="{{ featured_block.image.title }}">
+    </div>
+    {% endif %}
+
+    <div>
+        <h2>Featured case studies</h2>
+        {% if case_studies|length > 0%}
+            <ul>
+                {% for case_study in case_studies %}
+                    <li>
+                        <p>{{ case_study.industry }}</p>
+                        <p>{{ case_study.case_study.title }}</p>
+                        <p>{{ case_study.case_study.preview.read_more(false)  }}</p>
+                        <img class="" src="{{ case_study.case_study.thumbnail.src('medium') }}" alt="{{ case_study.case_study.thumbnail.title }}">
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+    {% if career_block %}
+    <div>
+        <h3>{{ career_block.upper_title }}</h3>
+        <h2>{{ career_block.title }}</h2>
+        <p>{{ career_block.content }}</p>
+        <button><a href="{{ career_block.button.url }}" target="{{ career_block.button.target }}">{{ career_block.button.title }}</a></button>
+        <img class="" src="{{ career_block.image.link }}" alt="{{ career_block.image.title }}">
+    </div>
+    {% endif %}
+
 {% endblock %}
