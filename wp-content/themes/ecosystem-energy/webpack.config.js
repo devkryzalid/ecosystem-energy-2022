@@ -1,9 +1,10 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+
 var path = require('path');
 
 // Used for hot-reload css
-const localDomain = 'http://ecosystem.local';
+const localDomain = 'http://localhost';
 
 // Build all page scripts as separate files, named after the template
 // These files will be automatically loaded on a same-name template
@@ -26,6 +27,11 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'scripts/[name].js',
+    // Hash assets and keep the same folder structure in output
+    assetModuleFilename: p => {
+      const filepath = path.dirname(p.filename).split('/').slice(1).join('/');
+      return `${ filepath }/[name].[hash][ext][query]`;
+    },
     clean: true
   },
   plugins: [
@@ -46,7 +52,7 @@ module.exports = {
       {
         test: /\.s?[c]ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-      },
+      }
     ]
   },
 };
