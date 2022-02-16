@@ -25,7 +25,7 @@ export default class AjaxForm {
   constructor ({ 
     formId = defaultFormId, 
     containerId = defaultContainerId,
-    settingsId = defaultSettingsId 
+    settingsId = defaultSettingsId,
     }, onDataChangeCallback, onLoadChangeCallback
   ) {
     // Set form and container DOM elements
@@ -33,7 +33,7 @@ export default class AjaxForm {
     this.contentContainer = document.getElementById(containerId);
 
     // Get form settings from hidden input
-    const { url, limit } = this.formContainer.querySelector('#' + settingsId).dataset;
+    const { url, limit } = this.formContainer.getElementById(settingsId).dataset;
     this.url = url;
     this.limit = limit;
 
@@ -52,7 +52,7 @@ export default class AjaxForm {
 
     const params = this.getFormData();
     const { data } = await this.fetchAjax(params);
-    this.updateUrl(params);
+    this.updateCurrentUrl(params);
 
     this.toggleLoading(false);
     this.updateContentHtml(data.html);
@@ -97,7 +97,7 @@ export default class AjaxForm {
   }
 
   // Replace current url param string with new params
-  updateUrl = params => {
+  updateCurrentUrl = params => {
     const searchParams = new URLSearchParams(params).toString();
     const urlPrefix = this.currentUrlPrefix();
     const title = 'Ajax';

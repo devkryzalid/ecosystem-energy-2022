@@ -1,4 +1,7 @@
 /*
-  Main Js file, call on each page of the site 
+  Main Js file, called on every page of the site 
 */
-import './utils/jsBlockLink.js';
+import './utils/jsBlockLink';
+import Menu from './utils/menu';
+
+const menu = new Menu();

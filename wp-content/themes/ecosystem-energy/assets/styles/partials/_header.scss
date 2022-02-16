@@ -1,0 +1,40 @@
+#header {
+  @include flex();
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: $header-height;
+
+  .logo {
+    width: 235px;
+    height: 62px;
+    background-image: url('/assets/images/logo-ecosystem-temp.png');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+  }
+
+  nav.top-menu {
+    @include flex();
+    margin-left: auto;
+    z-index: 800;
+
+    a {
+      padding: 20px;
+      @include fontSize(16, 22, 600);
+    }
+  }
+}
+
+// 
+body.menu-open #header {
+  a { color: white; }
+}
+
+.page-container.grey #header {
+  background-color: $lightgrey;
+}
+
+.page-container.blue-head #header {
+  background-color: $blue;
+  a { color: white; }
+}

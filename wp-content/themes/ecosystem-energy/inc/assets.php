@@ -11,12 +11,12 @@ function adding_scripts_and_styles() {
 	$template = get_page_template_slug( $post->ID );
 
 	// -- Main JS
-	wp_enqueue_script( 'site-main', get_template_directory_uri() . '/dist/scripts/app.js', array(), true );
+	wp_enqueue_script( 'site-main', get_template_directory_uri() . '/dist/scripts/app.js', array(), true, true );
 
   // -- Page-specific JS
   $page_specific_script_file = get_template_directory_uri() . '/dist/scripts/pages/' . $template . '.js';
   if (file_exists($page_specific_script_file)) {
-    wp_enqueue_script( 'site-main', $page_specific_script_file, array(), true );
+    wp_enqueue_script( 'site-main', $page_specific_script_file, array(), true, true );
   }
 
 	// -- Wysiwyg block Js
@@ -37,7 +37,8 @@ function be_gutenberg_scripts() {
 		get_stylesheet_directory_uri() . '/assets/scripts/editor.js',
 		array('wp-blocks', 'wp-dom'),
 		filemtime(get_stylesheet_directory() . '/assets/scripts/editor.js'),
-		true
+		true,
+    true
 	);
 }
 

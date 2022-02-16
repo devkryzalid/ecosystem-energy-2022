@@ -3,7 +3,6 @@
   Search a href="" in a block
   Better for SEO
 */
-console.log('BLOP');
 document.querySelectorAll(".jsBlockLink").forEach(element => {
   element.addEventListener('click', event => {
     const link = event.currentTarget.querySelectorAll('a:not(.jsIgnoreBlockLink)')[0];

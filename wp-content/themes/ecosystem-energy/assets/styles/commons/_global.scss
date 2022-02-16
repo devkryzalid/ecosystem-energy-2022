@@ -1,62 +1,77 @@
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-body{
+body {
+  @include fontSize(19, 29, 400, -0.38);
+  padding-top: $header-height;
 
-	&.no-scroll{
-		overflow: hidden;
-		height: 100%;
-  		width: 100%;
-	}
+  &.menu-open {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+  }
 }
 
-h1{
-	@include fontSize(48, 56);
+* {
+  font-family: $primaryFont;
+  color: $textColor;
 }
 
-h2{
-	@include fontSize(36, 45);
+h1 {
+  @include fontSize(62, 50, 600, -0.89);
 }
 
-h3{
-	@include fontSize(22, 28);
+h2 {
+  @include fontSize(42, 38);
 }
 
-h4{
-	@include fontSize(20, 24);
+h3 {
+  @include fontSize(26, 34, 600);
 }
 
-h5{
-	@include fontSize(18, 22);
+// h4 {
+// 	@include fontSize(20, 24);
+// }
+
+// h5 {
+// 	@include fontSize(18, 22);
+// }
+
+// p {
+// @include fontSize(19, 29, 400, -0.38);
+// }
+
+@media (max-width: $mobile) {
+  h1 {
+    @include fontSize(32, 38);
+  }
+
+  h2 {
+    @include fontSize(24, 29);
+  }
+
+  h3 {
+    @include fontSize(22, 27);
+  }
+
+  // p {
+  // 	@include fontSize(14,22);
+  // }
 }
 
-p{
-	@include fontSize(16, 25);
+b,
+strong {
+  font-weight: 700;
 }
 
-@media (max-width: $mobile){
-	h1{
-		@include fontSize(32, 38);
-	}
-	
-	h2{
-		@include fontSize(24, 29);
-	}
-	
-	h3{
-		@include fontSize(22, 27);
-	}
-
-	p{
-		@include fontSize(14,22);
-	}
+a {
+  transition: $basicTransition;
 }
 
-b, strong{
-	font-weight: 700;
+// Page overrides
+.page-container.grey {
+  background-color: $lightgrey;
 }
 
-a{
-	transition: $basicTransition;
-}
+#wpadminbar { display: none !important; }

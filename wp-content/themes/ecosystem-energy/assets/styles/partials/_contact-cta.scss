@@ -1,0 +1,16 @@
+.contact-cta {
+  margin: 100px 0;
+
+  .container {
+    .title { 
+      max-width: 600px;
+      margin: 0 auto 80px;
+      @include fontSize(60, 70, 500, -1);
+      text-align: center;
+    }
+
+    .btn {
+      margin: auto;
+    }
+  }
+}
