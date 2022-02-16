@@ -1,0 +1,27 @@
+.btn {
+  @include flex();
+  width: max-content;
+  min-height: 57px;
+  padding: 10px 55px;
+  background-color: $yellow;
+  border-radius: 28.5px;
+  @include fontSize(20, 27, 600);
+  color: $darkgrey;
+  transition: $buttonTransition;
+
+  &.transparent {
+      background: none;
+      border: 1px solid rgba(73, 72, 67, 0.4);
+  }
+
+  &.circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+  }
+
+  &:hover {
+    background-color: $blue;
+    color: $yellow;
+  }
+}

@@ -1,0 +1,18 @@
+.filters {
+  .container {
+    @include flex(flex-start, flex-start);
+    padding: 20px 0;
+    border-top: 1px solid $borderColor;
+  }
+
+  .filter-group {
+    @include flex(flex-start, flex-start);
+    flex-wrap: wrap;
+
+    .title {
+      flex-basis: 100%;
+      margin-bottom: 20px;
+      @include fontSize(20, 27, 500, -0.4);
+    }
+  }
+}

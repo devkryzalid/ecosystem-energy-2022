@@ -1,0 +1,57 @@
+#menu {
+  @include flex(center, flex-start);
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80%;
+  height: 100vh;
+  background-color: $blue;
+  z-index: 700;
+
+  #primary-menu {
+    padding: 200px 120px;
+    height: 100%;
+
+    a {
+      display: block;
+      @include fontSize(48, 65, 500);
+      color: $yellow;
+      cursor: pointer;
+
+      &.secondary-link {
+        &::after {
+          content: '>';
+          margin-left: 10px;
+        }
+      }
+    }
+
+    .secondary-menu {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 40%;
+      height: 100vh;
+      padding: 200px 120px;
+      background-color: rgba(white, 0.03);
+
+      &:not(.show) {
+        display: none;
+      }
+
+      li {
+        padding: 15px 0;
+      }
+
+      a {
+        display: block;
+        @include fontSize(22, 30, 500, -0.3);
+        color: white;
+      }
+    }
+  }
+
+  &:not(.show) {
+    display: none;
+  }
+}

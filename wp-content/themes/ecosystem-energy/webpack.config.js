@@ -5,7 +5,8 @@ var path = require('path');
 // Used for hot-reload css
 const localDomain = 'http://ecosystem.local';
 
-// Build all page scripts as separate files
+// Build all page scripts as separate files, named after the template
+// These files will be automatically loaded on a same-name template
 const pages = require('glob')
   // Fetch all page-specific script files
   .sync(__dirname + "/assets/scripts/pages/*.js")
@@ -36,8 +37,9 @@ module.exports = {
     new BrowserSyncPlugin({
       proxy: localDomain,
       files: [ 'dist/*.scss' ],
-      injectCss: true,
-    }, { reload: false, }),
+      injectCss: true, 
+      open: false,
+    }, { reload: false }),
   ],
   module: {
     rules: [

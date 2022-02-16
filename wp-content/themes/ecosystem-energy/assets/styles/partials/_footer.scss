@@ -1,0 +1,30 @@
+#footer {
+  margin-top: 100px;
+  
+  .container {
+    @include flex(center, space-between);
+    flex-wrap: wrap;
+  }
+
+  nav {
+    @include flex(center);
+
+    a {
+      padding: 10px;
+      @include fontSize(18, 24, 500);
+    }
+  }
+
+  .sub-footer {
+    @include flex(center, space-between);
+    flex-basis: 100%;
+    margin-top: 40px;
+    padding: 30px 0 50px;
+    border-top: 1px solid $borderColor;
+
+    div { 
+      padding: 10px;
+      @include fontSize(14, 19);
+    }
+  }
+}

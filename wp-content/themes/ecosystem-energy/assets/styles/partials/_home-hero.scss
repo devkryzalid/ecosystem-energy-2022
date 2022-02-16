@@ -1,0 +1,12 @@
+.home-hero {
+  @include flex(center, space-between);
+
+  h1.title {
+    @include fontSize(85, 90, 600, -0.85);
+  }
+
+  .text-ctn {
+    flex-basis: 30%;
+    border: 1px solid #666;
+  }
+}

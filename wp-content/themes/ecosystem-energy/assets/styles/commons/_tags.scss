@@ -1,0 +1,20 @@
+.tag {
+  @include flex();
+  width: max-content;
+  min-height: 40px;
+  margin-right: 8px;
+  padding: 8px 20px;
+  background-color: white;
+  border-radius: 20px;
+  @include fontSize(15, 21, 500, -0.3);
+  color: $darkgrey;
+  transition: $buttonTransition;
+
+  &.selected {
+    background-color: $yellow;
+  }
+
+  &:hover {
+    background-color: $yellow;
+  }
+}

@@ -1,24 +1,25 @@
 // Colors
-$green: #5DDCA5;
-$blue: #2DA2B7;
-$darkBlue: #2B527C;
-$yellow: #FBCB33;
-$yellowAlt: #FBBF00;
-$orange: #E76236;
+$blue: #242C3E;
+$yellow: #FAB900;
+$darkgrey: #494843;
+$lightgrey: #F6F6F4;
 
-$titleColor: $darkBlue;
-$textColor: #3D5C7C;
+$textColor: $darkgrey;
+$borderColor: rgba($darkgrey, 0.2);
 
-//Font
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap');
+$primaryFont: 'Manrope', serif;
 
-@import url('https://fonts.googleapis.com/css?family=Muli:400,600,700,800,900&display=swap');
-$primaryFont: 'Muli', Helvetica, Arial, sans-serif;
-
-//Transitions
+// Transitions
 $basicTransition: all 0.4s ease;
+$buttonTransition: all 0.4s ease;
 
-//Responsive
+// Responsive
 $tablet-large: 992px;
 $tablet: 768px;
 $mobile: 425px;
 $xs-mobile: 320px;
+
+//
+$header-height: 90px;
