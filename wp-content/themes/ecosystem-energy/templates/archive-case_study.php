@@ -5,8 +5,8 @@
 $limit      = empty($_GET['limit']) ? 9 : $_GET['limit'];
 $paged      = empty($_GET['paged']) ? 1 : $_GET['paged'];
 $locales    = empty($_GET['locale']) ? [] : $_GET['locale'];
-$industries = empty($_GET['industry']) ? [] : $_GET['industry'];
-$featured   = empty($_GET['industry']) ? [] : $_GET['industry'];
+$industries = empty($_GET['industries']) ? [] : $_GET['industries'];
+$featured   = empty($_GET['featured']) ? [] : $_GET['featured'];
 
 $context = Timber::context();
 
