@@ -14,7 +14,7 @@ Routes::map('/ajax/:lang/perspectives', function ($params) {
    Routes::load('templates/ajax/perspectives.php', array_merge($params, $_POST), 200);
 });
 
-Routes::map('/ajax/:lang/case_studies', function ($params) {
+Routes::map('/ajax/:lang/case-studies', function ($params) {
    Routes::load('templates/ajax/case_studies.php', array_merge($params, $_POST), 200);
 });
 

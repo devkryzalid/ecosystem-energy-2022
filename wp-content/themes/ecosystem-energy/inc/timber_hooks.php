@@ -17,6 +17,7 @@ function add_to_context( $context ) {
 	$context['social_networks'] = get_field('social_networks', 'options');
 	$context['cta_contact']     = get_field('cta_contact', 'options');
 	$context['static_links']    = get_field('static_links', 'options');
+	$context['current_lang']    = ICL_LANGUAGE_CODE;
 
 	/*
      * Create a custom breadcrumb

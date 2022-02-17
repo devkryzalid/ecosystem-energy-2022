@@ -3,7 +3,7 @@
 {% block content %}
 
   <form id="ajax-form">
-    <input type="hidden" id="ajax-settings" data-url="{{ site.language == 'en-CA' ? '/ajax/en/case_studies' : '/ajax/fr/case_studies' }}" data-limit="1">
+    <input type="hidden" id="ajax-settings" data-url="/ajax/{{ current_lang }}/case-studies" data-limit="1">
 
     <input type="checkbox" name="industry" value="57" />
     <input type="checkbox" name="industry" value="58" />
