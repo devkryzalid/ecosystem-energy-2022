@@ -1,14 +1,39 @@
 <header id="header">
 
-  <div class="logo"></div>
+  {# SEARCH FIELD #}
+  <div id="search-pane">
+    <input type="text" placeholder="Search..." />
+    <a id="search-close">CLOSE</a>
+  </div>
 
-  <nav class="top-menu" style="position:relative">
-    <a>Country</a>
-    <a>Language</a>
-    <a>Search</a>
-    <a id="menu-toggle">Menu</a>
-  </nav>
+  {# COUNTRY SELECTOR #}
+  <div id="country-pane">
+    <p>Blablabla</p>
+    
+    <label for="">Canada
+      <input type="radio" name="country" value="canada" />
+    </label>
+    
+    <label for="">US
+      <input type="radio" name="country" value="us" />
+    </label>
 
-  {% include 'partials/menu.twig' %}
+    <a id="country-set" class="blue btn">Confirm</a>
+    <a id="country-close">CLOSE</a>
+  </div>
+
+  {# LOGO AND TOP NAV #}
+  <div id="main-pane" class="show">
+    <div id="logo"></div>
+
+    <nav id="top-menu">
+      <a id="country-toggle">Country</a>
+      <a id="language-toggle">Language</a>
+      <a id="search-toggle">Search</a>
+      <a id="menu-toggle">Menu</a>
+    </nav>
+  </div>
+
+  {% include 'partials/menu.twig' with { items: menu_primary.items } %}
 
 </header>

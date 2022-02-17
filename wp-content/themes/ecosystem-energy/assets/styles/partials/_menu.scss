@@ -3,14 +3,30 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 80%;
+  width: 100%;
   height: 100vh;
   background-color: $blue;
   z-index: 700;
+  transition: $basicTransition;
+
+  ul { padding: 0; }
+
+  #menu-image {
+    width: 20%;
+    height: 100%;
+    background-image: url('/assets/images/temp1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
 
   #primary-menu {
-    padding: 200px 120px;
+    position: absolute;
+    right: 0;
+    width: 80%;
     height: 100%;
+    padding: 200px 0;
+
+    li { padding-left: 120px; }
 
     a {
       display: block;
@@ -30,14 +46,13 @@
       position: absolute;
       top: 0;
       right: 0;
-      left: 40%;
+      width: 50%;
       height: 100vh;
-      padding: 200px 120px;
       background-color: rgba(white, 0.03);
+      transition: $basicTransition;
+      overflow: hidden;
 
-      &:not(.show) {
-        display: none;
-      }
+      &:not(.show) { width: 0 !important; }
 
       li {
         padding: 15px 0;
@@ -52,6 +67,6 @@
   }
 
   &:not(.show) {
-    display: none;
+    width: 0 !important;
   }
 }

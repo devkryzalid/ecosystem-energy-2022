@@ -1,12 +1,17 @@
 export default class Menu {
+  // Header class reference (for callbacks)
+  header;
+
   // DOM elements
   body = document.body;
   container = document.getElementById('menu');
   button = document.getElementById('menu-toggle');
   
-  active = false;
+  visible = false;
 
-  constructor () {
+  constructor (headerRef) {
+    this.header = headerRef;
+    
     // Add click listener to burger/close menu button
     this.button.addEventListener('click', () => this.toggle());
 
@@ -21,11 +26,11 @@ export default class Menu {
     this.closeAllSecondaryMenus();
 
     // Set forced value if available, otherwise set to opposite of current value
-    this.active = forcedValue === null
-      ? !this.active
+    this.visible = forcedValue === null
+      ? !this.visible
       : !!forcedValue;
 
-    if (this.active) this.openMainMenu();
+    if (this.visible) this.openMainMenu();
     else this.closeMainMenu();
   }
 

@@ -1,0 +1,16 @@
+{% block content %}
+	<div class="block-list">
+    <div class="container grid">
+      {% for cs in items %}
+      
+        {% include 'partials/block-item.twig' with { 
+          title: cs.title,
+          description: cs.preview.read_more(false),
+          url: cs.link,
+          image: cs.thumbnail,
+        } %}
+
+      {% endfor %}
+	  </div>
+	</div>
+{% endblock %}

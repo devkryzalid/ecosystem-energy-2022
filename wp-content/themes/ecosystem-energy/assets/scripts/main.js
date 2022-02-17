@@ -1,8 +1,7 @@
-/*
-  Main Js file, called on every page of the site 
-*/
+// Import common libraries
 import './utils/aos';
 import './utils/jsBlockLink';
-import Menu from './utils/menu';
 
-const menu = new Menu();
+// Initialize header, which manages search field, country toggler and menu 
+import Header from './header/header';
+const header = new Header();

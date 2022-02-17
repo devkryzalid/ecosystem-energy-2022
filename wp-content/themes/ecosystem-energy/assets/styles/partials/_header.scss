@@ -1,39 +1,90 @@
 #header {
-  @include flex();
   position: fixed;
   top: 0;
   width: 100%;
-  height: $header-height;
 
-  .logo {
-    width: 235px;
-    height: 62px;
-    background-image: url('/assets/images/logos/logo-ecosystem-temp.png');
-    background-size: auto 100%;
-    background-repeat: no-repeat;
+  .yellow-pane {
+    position: relative;
+    @include flex();
+    width: 100%;
+    height: $header-height;
+    padding: 0 50px;
+    background-color: $yellow;
+    transition: $basicTransition;
+    overflow: hidden;
+    
+    &:not(.show) { height: 0 !important; }
   }
 
-  nav.top-menu {
-    @include flex();
-    margin-left: auto;
-    z-index: 800;
+  #search-pane {
+    @extend .yellow-pane;
+    z-index: 900;
+
+    input {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      border: 0 none;
+      background: none;
+      @include fontSize(62, 85);
+
+      &:focus, &:focus-visible { outline: none; }
+    }
 
     a {
-      padding: 20px;
-      @include fontSize(16, 22, 600);
+      height: 40%;
     }
+  }
+
+  #country-pane {
+    @extend .yellow-pane;
+    justify-content: space-between;
+    z-index: 901;
+
+    .btn { margin-left: auto; }
+  }
+
+  #main-pane {
+    @include flex();
+    height: $header-height;
+    transition: $basicTransition;
+    overflow: hidden;
+
+    #logo {
+      width: 300px;
+      height: 100%;
+      background-image: url('/assets/images/logos/logo-ecosystem-temp.png');
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+
+    #top-menu {
+      position: relative;
+      @include flex();
+      height: 100%;
+      margin-left: auto;
+      z-index: 800;
+      overflow: hidden;
+
+      a {
+        padding: 20px;
+        @include fontSize(16, 22, 600);
+      }
+    }
+
+    &:not(.show) { height: 0 !important; }
   }
 }
 
-// 
+// White links when menu is open
 body.menu-open #header {
   a { color: white; }
 }
 
+// Global page modifiers
 .page-container.grey #header {
   background-color: $lightgrey;
 }
-
 .page-container.blue-head #header {
   background-color: $blue;
   a { color: white; }

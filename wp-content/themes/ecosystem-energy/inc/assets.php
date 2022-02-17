@@ -7,17 +7,19 @@
  * Call .css and .js files
  */
 function adding_scripts_and_styles() {
-	global $post;
-	$template = get_page_template_slug( $post->ID );
-
 	// -- Main JS
 	wp_enqueue_script( 'site-main', get_template_directory_uri() . '/dist/scripts/app.js', array(), true, true );
 
   // -- Page-specific JS
-  $page_specific_script_file = get_template_directory_uri() . '/dist/scripts/pages/' . $template . '.js';
-  if (file_exists($page_specific_script_file)) {
-    wp_enqueue_script( 'site-main', $page_specific_script_file, array(), true, true );
-  }
+	// global $post;
+  // print_r($post);
+  // $root = $_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/ecosystem-energy';
+  // $script_name = str_replace('_', '-', $post->post_type);
+  // $script_file = '/dist/scripts/pages/' . $script_name . '.js';
+
+  // if (file_exists($root . $script_file)) {
+  //   wp_enqueue_script( 'site-page', get_template_directory_uri() . $script_file, array(), true, true );
+  // }
 
 	// -- Wysiwyg block Js
 	// wp_enqueue_script( 'site-custom-wysiwyg', get_template_directory_uri() . '/dist/scripts/utils/wysiwyg-blocks.min.js', array( 'jquery' ), true );

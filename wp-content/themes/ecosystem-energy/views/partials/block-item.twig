@@ -1,0 +1,12 @@
+<div class="block-item {% if featured %}featured{% endif %}">
+  <div class="image">
+    <img src="{{ image.src('medium') }}" alt="{{ image.title }}" />
+  </div>
+
+  <div class="content">
+    {% if section %}<div class="section">{{ section }}</div> {% endif %}
+    <h3 class="title">{{ title }}</h3>
+    <div class="description">{{ description }}</div>
+    <div class="footer">{{ date }}</div>
+  </div>
+</div>

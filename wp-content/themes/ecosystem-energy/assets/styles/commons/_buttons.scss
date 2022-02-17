@@ -8,6 +8,16 @@
   @include fontSize(20, 27, 600);
   color: $darkgrey;
   transition: $buttonTransition;
+  cursor: pointer;
+
+  &.blue {
+    background-color: $blue;
+    color: $yellow;
+
+    &:hover {
+      color: white;
+    }
+  }
 
   &.transparent {
       background: none;

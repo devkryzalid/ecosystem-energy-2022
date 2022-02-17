@@ -5,6 +5,7 @@ import axios from 'axios';
 const defaultFormId = 'ajax-form'
 const defaultContainerId = 'ajax-content'
 const defaultSettingsId = 'ajax-settings'
+
 const loadingClass = 'loading';
 const innerClass = 'inner';
 
@@ -12,8 +13,10 @@ export default class AjaxForm {
   // DOM containers for form and ajax html results
   formContainer;
   contentContainer;
+  innerContainer;
 
   loading = false;
+  error = false;
 
   url;
   limit;
@@ -22,18 +25,22 @@ export default class AjaxForm {
   onDataChange = () => {};
   onLoadChange = () => {};
 
-  constructor ({ 
-    formId = defaultFormId, 
-    containerId = defaultContainerId,
-    settingsId = defaultSettingsId,
-    }, onDataChangeCallback, onLoadChangeCallback
+  constructor (
+    { formId = defaultFormId, containerId = defaultContainerId, settingsId = defaultSettingsId } = {}, 
+    onDataChangeCallback = null, onLoadChangeCallback = null
   ) {
     // Set form and container DOM elements
     this.formContainer = document.getElementById(formId);
+    if (!this.formContainer) console.log('Error - Ajax form container #' + formId + ' can\'t be found');
+
     this.contentContainer = document.getElementById(containerId);
+    if (!this.contentContainer) console.log('Error - Ajax content container #' + containerId + ' can\'t be found');
+
+    this.innerContainer = this.contentContainer.querySelector('.' + innerClass);
+    if (!this.innerContainer) console.log('Error - Ajax .inner content container can\'t be found');
 
     // Get form settings from hidden input
-    const { url, limit } = this.formContainer.getElementById(settingsId).dataset;
+    const { url, limit } = document.getElementById(settingsId).dataset;
     this.url = url;
     this.limit = limit;
 
@@ -55,7 +62,7 @@ export default class AjaxForm {
     this.updateCurrentUrl(params);
 
     this.toggleLoading(false);
-    this.updateContentHtml(data.html);
+    this.updateContentHtml(data);
     this.onDataChange(data);
 
   }
@@ -68,13 +75,14 @@ export default class AjaxForm {
 
   // Axios ajax call
   fetchAjax = async data => {
+    console.log('AJAX REQUEST:', this.url, data);
     return await axios.post(this.url, data)
       .then(response => { 
-        // console.log('RESPONSE:', response); 
+        console.log('AJAX RESPONSE:', response); 
         return response;
       })
       .catch(error => { 
-        console.log('ERROR:', error); 
+        console.log('AJAX ERROR:', error); 
         return false;
       });
   }
@@ -93,7 +101,7 @@ export default class AjaxForm {
 
   // Update the content container with new html content
   updateContentHtml = (html = '') => {
-    this.contentContainer.querySelector('.' + innerClass).innerHTML = html;
+    this.innerContainer.innerHTML = html;
   }
 
   // Replace current url param string with new params

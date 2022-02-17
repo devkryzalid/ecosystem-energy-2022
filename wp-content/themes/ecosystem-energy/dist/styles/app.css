@@ -2000,7 +2000,6 @@ body {
   line-height: 29px;
   line-height: 1.8125rem;
   letter-spacing: -0.38px;
-  padding-top: 90px;
 }
 body.menu-open {
   overflow: hidden;
@@ -2079,6 +2078,10 @@ a {
 
 .page-container.grey {
   background-color: #F6F6F4;
+}
+
+.page {
+  padding-top: 90px;
 }
 
 #wpadminbar {
@@ -2660,6 +2663,14 @@ h3 {
   letter-spacing: normal;
   color: #494843;
   transition: all 0.4s ease;
+  cursor: pointer;
+}
+.btn.blue {
+  background-color: #242C3E;
+  color: #FAB900;
+}
+.btn.blue:hover {
+  color: white;
 }
 .btn.transparent {
   background: none;
@@ -2718,31 +2729,83 @@ a.link::after, a.link::before {
 }
 
 #header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
   position: fixed;
   top: 0;
   width: 100%;
-  height: 90px;
 }
-#header .logo {
-  width: 235px;
-  height: 62px;
-  background-image: url(../images/logos/logo-ecosystem-temp.9092555280bee23df8b6.png);
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-}
-#header nav.top-menu {
+#header .yellow-pane, #header #country-pane, #header #search-pane {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 90px;
+  padding: 0 50px;
+  background-color: #FAB900;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+#header .yellow-pane:not(.show), #header #country-pane:not(.show), #header #search-pane:not(.show) {
+  height: 0 !important;
+}
+#header #search-pane {
+  z-index: 900;
+}
+#header #search-pane input {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0 none;
+  background: none;
+  font-size: 62px;
+  font-size: 3.875rem;
+  font-weight: initial;
+  line-height: 85px;
+  line-height: 5.3125rem;
+  letter-spacing: normal;
+}
+#header #search-pane input:focus, #header #search-pane input:focus-visible {
+  outline: none;
+}
+#header #search-pane a {
+  height: 40%;
+}
+#header #country-pane {
+  justify-content: space-between;
+  z-index: 901;
+}
+#header #country-pane .btn {
+  margin-left: auto;
+}
+#header #main-pane {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 90px;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+#header #main-pane #logo {
+  width: 300px;
+  height: 100%;
+  background-image: url(../images/logos/logo-ecosystem-temp.9092555280bee23df8b6.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+#header #main-pane #top-menu {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   margin-left: auto;
   z-index: 800;
+  overflow: hidden;
 }
-#header nav.top-menu a {
+#header #main-pane #top-menu a {
   padding: 20px;
   font-size: 16px;
   font-size: 1rem;
@@ -2750,6 +2813,9 @@ a.link::after, a.link::before {
   line-height: 22px;
   line-height: 1.375rem;
   letter-spacing: normal;
+}
+#header #main-pane:not(.show) {
+  height: 0 !important;
 }
 
 body.menu-open #header a {
@@ -2820,14 +2886,31 @@ body.menu-open #header a {
   position: absolute;
   top: 0;
   right: 0;
-  width: 80%;
+  width: 100%;
   height: 100vh;
   background-color: #242C3E;
   z-index: 700;
+  transition: all 0.4s ease;
+}
+#menu ul {
+  padding: 0;
+}
+#menu #menu-image {
+  width: 20%;
+  height: 100%;
+  background-image: url(../images/temp1.7e0b51cb53013fe814a5.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 #menu #primary-menu {
-  padding: 200px 120px;
+  position: absolute;
+  right: 0;
+  width: 80%;
   height: 100%;
+  padding: 200px 0;
+}
+#menu #primary-menu li {
+  padding-left: 120px;
 }
 #menu #primary-menu a {
   display: block;
@@ -2848,13 +2931,14 @@ body.menu-open #header a {
   position: absolute;
   top: 0;
   right: 0;
-  left: 40%;
+  width: 50%;
   height: 100vh;
-  padding: 200px 120px;
   background-color: rgba(255, 255, 255, 0.03);
+  transition: all 0.4s ease;
+  overflow: hidden;
 }
 #menu #primary-menu .secondary-menu:not(.show) {
-  display: none;
+  width: 0 !important;
 }
 #menu #primary-menu .secondary-menu li {
   padding: 15px 0;
@@ -2870,7 +2954,7 @@ body.menu-open #header a {
   color: white;
 }
 #menu:not(.show) {
-  display: none;
+  width: 0 !important;
 }
 
 .page-title .container {

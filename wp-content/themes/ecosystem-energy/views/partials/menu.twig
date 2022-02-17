@@ -1,16 +1,23 @@
 <div id="menu">
+  <div id="menu-image"></div>
   <ul id="primary-menu">
-    <li><a href="">About us</a></li>
-    <li>
-      <a class="secondary-link">Markets</a>
-      <ul class="secondary-menu">
-        <li><a class="">Subitem1</a></li>
-        <li><a class="">Subitem2</a></li>
-        <li><a class="">Subitem3</a></li>
-      </ul>
-    </li>
-    <li><a href="">Case studies</a></li>
-    <li><a href="">Expertises</a></li>
-    <li><a href="">Perspectives</a></li>
+    {% for item in items %}
+      <li>
+
+        <a class="{{ item.children ? 'secondary-link' : '' }}" href="{{ item.link }}">{{ item }}</a>
+        {% if item.children %}
+          <ul class="secondary-menu">
+
+            {% for subItem in item.children %}
+              <li>
+                <a target="{{ subItem.target }}" href="{{ subItem.link }}">{{ subItem.title }}</a>
+              </li>
+            {% endfor %}
+
+          </ul>
+        {% endif %}
+
+      </li>
+    {% endfor %}
   </ul>
 </div>

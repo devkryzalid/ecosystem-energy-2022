@@ -4,7 +4,6 @@ html {
 
 body {
   @include fontSize(19, 29, 400, -0.38);
-  padding-top: $header-height;
 
   &.menu-open {
     overflow: hidden;
@@ -72,6 +71,10 @@ a {
 // Page overrides
 .page-container.grey {
   background-color: $lightgrey;
+}
+
+.page {
+  padding-top: $header-height;
 }
 
 #wpadminbar { display: none !important; }

@@ -9,6 +9,50 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./assets/scripts/header/country.js":
+/*!******************************************!*\
+  !*** ./assets/scripts/header/country.js ***!
+  \******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": function() { return /* binding */ Country; }\n/* harmony export */ });\nclass Country {\n  // Header class reference (for callbacks)\n  header;\n\n  // DOM elements\n  countryElement = document.getElementById('country-pane');\n  countryToggleElement = document.getElementById('country-toggle');\n  countrySetElement = document.getElementById('country-set');\n  countryCloseElement = document.getElementById('country-close');\n\n  countryVisible = false;\n\n  constructor (headerRef) {\n    this.header = headerRef;\n\n    this.countryToggleElement.addEventListener('click', () => this.toggleCountry());\n    this.countrySetElement.addEventListener('click', () => console.log('BLOP'));\n    this.countryCloseElement.addEventListener('click', () => this.toggleCountry(false));\n  }\n\n  // Country display toggler\n  toggleCountry = (forcedValue = null) => {\n    // Hide similar panels\n    this.header.hideAllPanels();\n\n    // Set forced value if available, otherwise set to opposite of current value\n    const show = forcedValue === null\n      ? !this.countryVisible\n      : !!forcedValue;\n      \n    if (show) this.showCountry();\n    else this.hideCountry();\n  }\n\n  // \n  showCountry = () => {\n    this.countryVisible = true;\n    this.countryElement.classList.add('show');\n  }\n\n  // \n  hideCountry = () => {\n    this.countryVisible = false;\n    this.countryElement.classList.remove('show');\n  }\n}\n\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/header/country.js?");
+
+/***/ }),
+
+/***/ "./assets/scripts/header/header.js":
+/*!*****************************************!*\
+  !*** ./assets/scripts/header/header.js ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": function() { return /* binding */ Header; }\n/* harmony export */ });\n/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./menu */ \"./assets/scripts/header/menu.js\");\n/* harmony import */ var _search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./search */ \"./assets/scripts/header/search.js\");\n/* harmony import */ var _country__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./country */ \"./assets/scripts/header/country.js\");\n\n\n\n\nclass Header {\n  mainElement = document.getElementById('main-pane');\n\n  // Children js elements\n  menu;\n  search;\n  country;\n\n  previousScrollPosition = window.scrollY;\n  scrollOffset = 90;\n\n  constructor () {\n    // Initialize children\n    this.menu = new _menu__WEBPACK_IMPORTED_MODULE_0__[\"default\"](this);\n    this.search = new _search__WEBPACK_IMPORTED_MODULE_1__[\"default\"](this);\n    this.country = new _country__WEBPACK_IMPORTED_MODULE_2__[\"default\"](this);\n\n    // Change menu display on scroll\n    document.addEventListener('scroll', () => {\n      const { scrollY: pos } = window;\n      \n      // Show header if on top of the page\n      if (pos <= this.scrollOffset) this.showHeader();\n\n      // Else determine if it is shown or hidden, depending on scroll position\n      else {\n        if (this.previousScrollPosition <= pos) this.hideHeader();\n        else this.showHeader();\n      }\n      \n      this.previousScrollPosition = pos;\n    });\n  }\n\n  // Display management\n  showHeader = () => { this.mainElement.classList.add('show'); }\n  hideHeader = () => { this.mainElement.classList.remove('show'); }\n\n  // Callback from children element to manage panels display\n  hideAllPanels = () => { \n    this.search.hideSearch();\n    this.country.hideCountry();\n  }\n}\n\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/header/header.js?");
+
+/***/ }),
+
+/***/ "./assets/scripts/header/menu.js":
+/*!***************************************!*\
+  !*** ./assets/scripts/header/menu.js ***!
+  \***************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": function() { return /* binding */ Menu; }\n/* harmony export */ });\nclass Menu {\n  // Header class reference (for callbacks)\n  header;\n\n  // DOM elements\n  body = document.body;\n  container = document.getElementById('menu');\n  button = document.getElementById('menu-toggle');\n  \n  visible = false;\n\n  constructor (headerRef) {\n    this.header = headerRef;\n    \n    // Add click listener to burger/close menu button\n    this.button.addEventListener('click', () => this.toggle());\n\n    // Add click listener to all secondary menu triggers\n    document.querySelectorAll('.secondary-link').forEach(link => {\n      link.addEventListener('click', this.openSecondaryMenu)\n    })\n  }\n\n  // Menu display toggler\n  toggle = (forcedValue = null) => {\n    this.closeAllSecondaryMenus();\n\n    // Set forced value if available, otherwise set to opposite of current value\n    this.visible = forcedValue === null\n      ? !this.visible\n      : !!forcedValue;\n\n    if (this.visible) this.openMainMenu();\n    else this.closeMainMenu();\n  }\n\n  // Primary menu controls\n  openMainMenu = () => {\n    this.container.classList.add('show');\n    this.body.classList.add('menu-open');\n  }\n\n  closeMainMenu = () => {\n    this.container.classList.remove('show');\n    this.body.classList.remove('menu-open');\n  }\n\n  // Secondary menu controls\n  openSecondaryMenu = event => {\n    this.closeAllSecondaryMenus();\n    const menu = event.target.parentNode.querySelector('.secondary-menu');\n    menu.classList.add('show')\n  }\n\n  closeAllSecondaryMenus = () => {\n    document.querySelectorAll('.secondary-menu').forEach(menu => {\n      menu.classList.remove('show');\n    })\n  }\n}\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/header/menu.js?");
+
+/***/ }),
+
+/***/ "./assets/scripts/header/search.js":
+/*!*****************************************!*\
+  !*** ./assets/scripts/header/search.js ***!
+  \*****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": function() { return /* binding */ Search; }\n/* harmony export */ });\nclass Search {\n  // Header class reference (for callbacks)\n  header;\n\n  // DOM elements\n  searchElement = document.getElementById('search-pane');\n  searchToggleElement = document.getElementById('search-toggle');\n  searchCloseElement = document.getElementById('search-close');\n\n  searchVisible = false;\n\n  constructor (headerRef) {\n    this.header = headerRef;\n\n    this.searchToggleElement.addEventListener('click', () => this.toggleSearch());\n    this.searchCloseElement.addEventListener('click', () => this.toggleSearch(false));\n  }\n\n  // Search display toggler\n  toggleSearch = (forcedValue = null) => {\n    // Hide similar panels\n    this.header.hideAllPanels();\n    \n    // Set forced value if available, otherwise set to opposite of current value\n    const show = forcedValue === null\n      ? !this.searchVisible\n      : !!forcedValue;\n\n    if (show) this.showSearch();\n    else this.hideSearch();\n    console.log(this.searchVisible);\n  }\n\n  // Show top search element and focus on input field\n  showSearch = () => {\n    this.searchVisible = true;\n    this.searchElement.classList.add('show');\n    this.searchElement.querySelector('input').focus();\n  }\n\n  // Blur top search field input and hide element\n  hideSearch = () => {\n    this.searchVisible = false;\n    this.searchElement.querySelector('input').blur();\n    this.searchElement.classList.remove('show');\n  }\n}\n\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/header/search.js?");
+
+/***/ }),
+
 /***/ "./assets/scripts/main.js":
 /*!********************************!*\
   !*** ./assets/scripts/main.js ***!
@@ -16,7 +60,7 @@
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_aos__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/aos */ \"./assets/scripts/utils/aos.js\");\n/* harmony import */ var _utils_jsBlockLink__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/jsBlockLink */ \"./assets/scripts/utils/jsBlockLink.js\");\n/* harmony import */ var _utils_jsBlockLink__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_utils_jsBlockLink__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _utils_menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils/menu */ \"./assets/scripts/utils/menu.js\");\n/*\n  Main Js file, called on every page of the site \n*/\n\n\n\n\nconst menu = new _utils_menu__WEBPACK_IMPORTED_MODULE_2__[\"default\"]();\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_aos__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/aos */ \"./assets/scripts/utils/aos.js\");\n/* harmony import */ var _utils_jsBlockLink__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/jsBlockLink */ \"./assets/scripts/utils/jsBlockLink.js\");\n/* harmony import */ var _utils_jsBlockLink__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_utils_jsBlockLink__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _header_header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./header/header */ \"./assets/scripts/header/header.js\");\n// Import common libraries\n\n\n\n// Initialize header, which manages search field, country toggler and menu \n\nconst header = new _header_header__WEBPACK_IMPORTED_MODULE_2__[\"default\"]();\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/main.js?");
 
 /***/ }),
 
@@ -38,17 +82,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var aos_
 /***/ (function() {
 
 eval("/*\n  Add JsBlockLink method \n  Search a href=\"\" in a block\n  Better for SEO\n*/\ndocument.querySelectorAll(\".jsBlockLink\").forEach(element => {\n  element.addEventListener('click', event => {\n    const link = event.currentTarget.querySelectorAll('a:not(.jsIgnoreBlockLink)')[0];\n\n    if (!link.classList.contains('jsIgnoreBlockLink')) {\n      if ((link.getAttribute('target') && link.getAttribute('target') === '_blank') ||\n        event.ctrlKey ||\n        event.button === 1) {\n        window.open(link.getAttribute('href'));\n      }\n      else if (event.button === 0) {\n        document.location.href = link.getAttribute('href');\n      }\n    }\n    return false;\n  })\n})\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/utils/jsBlockLink.js?");
-
-/***/ }),
-
-/***/ "./assets/scripts/utils/menu.js":
-/*!**************************************!*\
-  !*** ./assets/scripts/utils/menu.js ***!
-  \**************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": function() { return /* binding */ Menu; }\n/* harmony export */ });\nclass Menu {\n  // DOM elements\n  body = document.body;\n  container = document.getElementById('menu');\n  button = document.getElementById('menu-toggle');\n  \n  active = false;\n\n  constructor () {\n    // Add click listener to burger/close menu button\n    this.button.addEventListener('click', () => this.toggle());\n\n    // Add click listener to all secondary menu triggers\n    document.querySelectorAll('.secondary-link').forEach(link => {\n      link.addEventListener('click', this.openSecondaryMenu)\n    })\n  }\n\n  // Menu display toggler\n  toggle = (forcedValue = null) => {\n    this.closeAllSecondaryMenus();\n\n    // Set forced value if available, otherwise set to opposite of current value\n    this.active = forcedValue === null\n      ? !this.active\n      : !!forcedValue;\n\n    if (this.active) this.openMainMenu();\n    else this.closeMainMenu();\n  }\n\n  // Primary menu controls\n  openMainMenu = () => {\n    this.container.classList.add('show');\n    this.body.classList.add('menu-open');\n  }\n\n  closeMainMenu = () => {\n    this.container.classList.remove('show');\n    this.body.classList.remove('menu-open');\n  }\n\n  // Secondary menu controls\n  openSecondaryMenu = event => {\n    this.closeAllSecondaryMenus();\n    const menu = event.target.parentNode.querySelector('.secondary-menu');\n    menu.classList.add('show')\n  }\n\n  closeAllSecondaryMenus = () => {\n    document.querySelectorAll('.secondary-menu').forEach(menu => {\n      menu.classList.remove('show');\n    })\n  }\n}\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/utils/menu.js?");
 
 /***/ }),
 

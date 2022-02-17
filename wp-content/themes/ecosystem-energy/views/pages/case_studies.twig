@@ -1,18 +1,26 @@
 {% extends 'base.twig' %}
-{% block content %}
-    <img class="" src="{{ post.thumbnail.src('large') }}" alt="{{ post.thumbnail.title }}">
-    <h1>{{post.title}}</h1>
-    <div>
-        {{post.content}}
-    </div>
 
-    <div class="list-ctn -style-2">
-        {% for p in case_studies %}
-            <article class="article">
-                <h3 class="article-title"><a href="{{ p.link }}">{{ p.title }}</a></h3>
-                <div class="article-extract">{{ p.preview.read_more(false) }}</div>
-                <img class="" src="{{ p.thumbnail.src('medium') }}" alt="{{ p.thumbnail.title }}">
-            </article>
-        {% endfor %}
+{% block content %}
+
+  <form id="ajax-form">
+    <input type="hidden" id="ajax-settings" data-url="{{ site.language == 'en-CA' ? '/ajax/en/case_studies' : '/ajax/fr/case_studies' }}" data-limit="1">
+
+    <input type="checkbox" name="industry" value="57" />
+    <input type="checkbox" name="industry" value="58" />
+    <input type="checkbox" name="industry" value="59" />
+    <input type="checkbox" name="industry" value="60" />
+  </form>
+
+  {% include 'partials/page-title.twig' with { title: post.title, text: post.content } %}
+
+  <div id="ajax-content">
+    <div class="inner">         
+      {% include 'lists/case_study_list.twig' with { items: case_studies } %}
     </div>
+  </div>
+
+{% endblock %}
+
+{% block specific_script %}
+	<script src="{{theme.link}}/dist/scripts/pages/case-studies.js"></script>
 {% endblock %}
