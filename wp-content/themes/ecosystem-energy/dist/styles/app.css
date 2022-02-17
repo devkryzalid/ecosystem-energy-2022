@@ -2732,6 +2732,7 @@ a.link::after, a.link::before {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 10;
 }
 #header .yellow-pane, #header #country-pane, #header #search-pane {
   position: relative;
@@ -2813,6 +2814,7 @@ a.link::after, a.link::before {
   line-height: 22px;
   line-height: 1.375rem;
   letter-spacing: normal;
+  cursor: pointer;
 }
 #header #main-pane:not(.show) {
   height: 0 !important;
@@ -2885,34 +2887,48 @@ body.menu-open #header a {
   justify-content: flex-start;
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
-  background-color: #242C3E;
+  background-color: #2A3244;
   z-index: 700;
-  transition: all 0.4s ease;
+  transition: all 0.5s ease-out;
+  transition-delay: 0ms;
 }
 #menu ul {
   padding: 0;
 }
 #menu #menu-image {
-  width: 20%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24vw;
   height: 100%;
   background-image: url(../images/temp1.7e0b51cb53013fe814a5.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  z-index: 1;
+  transition: all 0.5s ease-out;
+  transition-delay: 900ms;
 }
 #menu #primary-menu {
-  position: absolute;
-  right: 0;
-  width: 80%;
+  left: 0;
+  width: 100%;
   height: 100%;
-  padding: 200px 0;
+  padding: 150px 0;
+  background-color: #242C3E;
+  transition: all 0.4s ease-out;
+  transition-delay: 500ms;
 }
 #menu #primary-menu li {
-  padding-left: 120px;
+  padding-left: calc(24vw + 80px);
+  padding-right: calc((100% - 24vw) / 2 + 80px);
+  opacity: 1;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  transition-delay: 1300ms;
 }
-#menu #primary-menu a {
+#menu #primary-menu li a {
   display: block;
   font-size: 48px;
   font-size: 3rem;
@@ -2922,28 +2938,30 @@ body.menu-open #header a {
   letter-spacing: normal;
   color: #FAB900;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
-#menu #primary-menu a.secondary-link::after {
+#menu #primary-menu li a.secondary-link::after {
   content: ">";
   margin-left: 10px;
 }
-#menu #primary-menu .secondary-menu {
+#menu #primary-menu li a:hover {
+  color: white;
+}
+#menu #primary-menu li .secondary-menu {
   position: absolute;
   top: 0;
   right: 0;
-  width: 50%;
+  width: calc((100% - 24vw) / 2);
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.03);
+  padding: 150px 0;
+  background-color: #2A3244;
   transition: all 0.4s ease;
   overflow: hidden;
 }
-#menu #primary-menu .secondary-menu:not(.show) {
-  width: 0 !important;
+#menu #primary-menu li .secondary-menu li {
+  padding: 15px 50px;
 }
-#menu #primary-menu .secondary-menu li {
-  padding: 15px 0;
-}
-#menu #primary-menu .secondary-menu a {
+#menu #primary-menu li .secondary-menu a {
   display: block;
   font-size: 22px;
   font-size: 1.375rem;
@@ -2953,8 +2971,36 @@ body.menu-open #header a {
   letter-spacing: -0.3px;
   color: white;
 }
+#menu #primary-menu li.show a {
+  color: white;
+}
+#menu #primary-menu li:not(.show) .secondary-menu {
+  width: 0 !important;
+}
+#menu.-on {
+  transition: all 0.4s ease;
+  transition-delay: 600ms !important;
+}
+#menu.-on #menu-image {
+  transition: all 0.3s ease;
+  transition-delay: 300ms !important;
+}
+#menu.-on #primary-menu {
+  transition: all 0.4s ease;
+  transition-delay: 400ms !important;
+}
+#menu.-on #primary-menu li {
+  transition: all 0.2s ease;
+  transition-delay: 0ms !important;
+}
 #menu:not(.show) {
   width: 0 !important;
+}
+#menu:not(.show) #menu-image, #menu:not(.show) #primary-menu, #menu:not(.show) .secondary-menu {
+  width: 0 !important;
+}
+#menu:not(.show) li {
+  opacity: 0 !important;
 }
 
 .page-title .container {

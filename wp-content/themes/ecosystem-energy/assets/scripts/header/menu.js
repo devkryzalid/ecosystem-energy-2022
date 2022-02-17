@@ -6,8 +6,11 @@ export default class Menu {
   body = document.body;
   container = document.getElementById('menu');
   button = document.getElementById('menu-toggle');
+  primaryMenu = document.getElementById('primary-menu');
   
   visible = false;
+  open = false;
+  transition = false;
 
   constructor (headerRef) {
     this.header = headerRef;
@@ -23,6 +26,11 @@ export default class Menu {
 
   // Menu display toggler
   toggle = (forcedValue = null) => {
+    if (this.transition) {
+      if (this.open) this.onMenuClosed();
+      else this.onMenuComplete();
+    }
+
     this.closeAllSecondaryMenus();
 
     // Set forced value if available, otherwise set to opposite of current value
@@ -34,26 +42,47 @@ export default class Menu {
     else this.closeMainMenu();
   }
 
-  // Primary menu controls
+  // Show primary menu
   openMainMenu = () => {
+    this.transition = true;
     this.container.classList.add('show');
+    this.primaryMenu.addEventListener('transitionend', this.onMenuComplete);
     this.body.classList.add('menu-open');
   }
 
+  // Hide primary menu
   closeMainMenu = () => {
+    this.transition = true;
     this.container.classList.remove('show');
+    this.container.addEventListener('transitionend', this.onMenuClosed);
     this.body.classList.remove('menu-open');
+  }
+
+  // Switch on opened status (on transition end)
+  onMenuComplete = () => {
+    this.open = true;
+    this.transition = false;
+    this.container.classList.add('-on');
+    this.primaryMenu.removeEventListener('transitionend', this.onMenuComplete);
+  }
+
+  // Switch on closed status (on transition end)
+  onMenuClosed = () => {
+    this.open = false;
+    this.transition = false;
+    this.container.classList.remove('-on');
+    this.container.removeEventListener('transitionend', this.onMenuClosed);
   }
 
   // Secondary menu controls
   openSecondaryMenu = event => {
     this.closeAllSecondaryMenus();
-    const menu = event.target.parentNode.querySelector('.secondary-menu');
-    menu.classList.add('show')
+    const itemContainingMenu = event.target.parentNode;
+    itemContainingMenu.classList.add('show')
   }
 
   closeAllSecondaryMenus = () => {
-    document.querySelectorAll('.secondary-menu').forEach(menu => {
+    document.querySelectorAll('li.show').forEach(menu => {
       menu.classList.remove('show');
     })
   }
