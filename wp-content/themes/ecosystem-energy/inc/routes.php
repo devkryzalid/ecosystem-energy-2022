@@ -6,7 +6,6 @@
 /**
  * Ajax calls
  */
-// Job subcategories
 Routes::map('/ajax/:lang/news', function ($params) {
    Routes::load('templates/ajax/news.php', array_merge($params, $_POST), 200);
 });
@@ -21,4 +20,8 @@ Routes::map('/ajax/:lang/case_studies', function ($params) {
 
 Routes::map('/ajax/:lang/expertise/:id', function ($params) {
    Routes::load('templates/ajax/expertise.php', array_merge($params, $_POST), 200);
+});
+
+Routes::map('/ajax/:lang/search', function ($params) {
+   Routes::load('templates/ajax/search.php', array_merge($params, $_POST), 200);
 });
