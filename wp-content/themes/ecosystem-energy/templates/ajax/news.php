@@ -4,9 +4,10 @@ do_action('wpml_switch_language', $params['lang']);
 // set the query strings
 $limit  = empty($params['limit']) ? 9 : $params['limit'];
 $paged  = empty($params['page']) ? 1 : $params['page'];
-$locale = empty($params['locale']) ? $context['locale'] : $params['locale'];
 
 $context = Timber::context();
+$locale = empty($params['locale']) ? $context['current_locale'] : $params['locale'];
+
 $args = [
     'post_type'       => 'news',
     'post_status'     => 'publish',
@@ -18,7 +19,7 @@ $args = [
 ];
 
 // Filter by local
-if (!empty($locales) && $locale != '') {
+if (!empty($locales) && $locales != '' && $locales != 'n/a') {
     $localesTab = explode(',', $locales);
     $args['tax_query'][] = [
         'taxonomy' => 'localization',

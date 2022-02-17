@@ -10,7 +10,7 @@ $context = Timber::context();
 $limit      = empty($_GET['limit']) ? 10 : $_GET['limit'];
 $paged      = empty($_GET['paged']) ? 1 : $_GET['paged'];
 // Locale filter
-$locales    = empty($_GET['locale']) ? $context['locale'] : $_GET['locale'];
+$locales    = empty($_GET['locale']) ? $context['current_locale'] : $_GET['locale'];
 $categories = empty($_GET['category']) ? [] : $_GET['category'];
 
 $timber_post = new Timber\Post();
@@ -37,7 +37,7 @@ $context['locales'] = get_terms( [ 'taxonomy' => 'localization' ] );
 $context['categories'] = get_terms( [ 'taxonomy' => 'category' ] );
 
 // Filter by local
-if (!empty($locales) && $locale != '' && $locale != 'n/a') {
+if (!empty($locales) && $locales != '' && $locales != 'n/a') {
     $localesTab = explode(',', $locales);
     $args['tax_query'][] = [
         'taxonomy' => 'localization',

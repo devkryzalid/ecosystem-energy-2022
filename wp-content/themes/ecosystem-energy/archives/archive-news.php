@@ -17,7 +17,7 @@ $args = [
 ];
 
 // Filter by local
-if (!empty($locales) && $locale != '') {
+if (!empty($locales) && $locales != '' && $locales != 'n/a') {
     $localesTab = explode(',', $locales);
     $args['tax_query'][] = [
         'taxonomy' => 'localization',

@@ -4,10 +4,10 @@ do_action('wpml_switch_language', $params['lang']);
 // set the query strings
 $limit      = empty($params['limit']) ? 9 : $params['limit'];
 $paged      = empty($params['paged']) ? 1 : $params['paged'];
-$locales    = empty($params['locale']) ?  $context['locale']  : $params['locale'];
 $categories = empty($params['category']) ? [] : $params['category'];
 
 $context = Timber::context();
+$locales    = empty($params['locale']) ?  $context['current_locale']  : $params['locale'];
 
 /**
  * Query arguments
@@ -23,7 +23,7 @@ $args = [
 ];
 
 // Filter by local
-if (!empty($locales) && $locale != '') {
+if (!empty($locales) && $locales != '' && $locales != 'n/a') {
     $localesTab = explode(',', $locales);
     $args['tax_query'][] = [
         'taxonomy' => 'localization',

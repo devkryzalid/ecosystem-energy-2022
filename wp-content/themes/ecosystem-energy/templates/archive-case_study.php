@@ -7,14 +7,13 @@ $newLocale = empty($_GET['set_locale']) ? null : $_GET['set_locale'];
 if (isset($newLocale)) {
     set_current_locale_cookie($newLocale);
 }
+$context = Timber::context();
 
 $limit      = empty($_GET['limit']) ? 9 : $_GET['limit'];
 $paged      = empty($_GET['paged']) ? 1 : $_GET['paged'];
-$locales    = empty($_GET['locale']) ? $context['locale'] : $_GET['locale'];
+$locales    = empty($_GET['locale']) ? $context['current_locale'] : $_GET['locale'];
 $industries = empty($_GET['industries']) ? [] : $_GET['industries'];
 $featured   = empty($_GET['featured']) ? [] : $_GET['featured'];
-
-$context = Timber::context();
 
 $timber_post = new Timber\Post();
 $context['post']     = $timber_post;
@@ -33,7 +32,7 @@ $args = [
 ];
 
 // Filter by local
-if (!empty($locales) && $locale != '' && $locale != 'n/a') {
+if (!empty($locales) && $locales != '' && $locales != 'n/a') {
     $localesTab = explode(',', $locales);
     $args['tax_query'][] = [
         'taxonomy' => 'localization',
@@ -55,8 +54,10 @@ if (!empty($industries) && $industries != '') {
 // Get featured
 if (empty($featured)) {
     $featured = new Timber\PostQuery($args);
-    $context['featured'] = $featured[0];
-    $args['post__not_in'] = [$featured[0]->ID];
+    if (isset($featured[0])) {
+        $context['featured'] = $featured[0];
+        $args['post__not_in'] = [$featured[0]->ID];
+    }
     $args['posts_per_page'] = $limit;
 }
 
