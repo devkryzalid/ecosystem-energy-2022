@@ -4,7 +4,7 @@ do_action('wpml_switch_language', $params['lang']);
 // set the query strings
 $limit      = empty($params['limit']) ? 9 : $params['limit'];
 $paged      = empty($params['paged']) ? 1 : $params['paged'];
-$locales    = empty($params['locale']) ? [] : $params['locale'];
+$locales    = empty($params['locale']) ? $context['locale'] : $params['locale'];
 $industries = empty($params['industries']) ? [] : $params['industries'];
 $featured   = empty($params['featured']) ? [] : $params['featured'];
 

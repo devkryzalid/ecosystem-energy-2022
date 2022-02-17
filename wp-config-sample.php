@@ -87,6 +87,24 @@ $table_prefix = 'wp_';
  * @link https://fr.wordpress.org/support/article/debugging-in-wordpress/
  */
 define( 'WP_DEBUG', false );
+// define('AUTOSAVE_INTERVAL', 500);
+// // not important for a standar website
+// define('WP_POST_REVISIONS', false);
+// // WP is not a file saver
+// define('EMPTY_TRASH_DAYS', 5);
+// // no update without us
+// define('AUTOMATIC_UPDATER_DISABLED', false);
+// define('WP_AUTO_UPDATE_CORE', false);
+// // Admin doesn't modify a code
+// define('DISALLOW_FILE_EDIT', true);
+// it's already in htaccess but why not 
+//define('FORCE_SSL_ADMIN', false);
+// Add this line for block ajax are other call in other website
+// define('WP_HTTP_BLOCK_EXTERNAL', true);
+define('GOOGLE_MAP_API_KEY', '');
+/* Add any custom values between this line and the "stop editing" line. */
+
+// define('COOKIE_DOMAIN', 'http://ecosystem-energy-2022.local');
 
 /* C’est tout, ne touchez pas à ce qui suit ! Bonne publication. */
 

@@ -2,9 +2,15 @@
 /*
  *	Template Name: Projets
  */
+// Create ou change current_locale cookie
+$newLocale = empty($_GET['set_locale']) ? null : $_GET['set_locale'];
+if (isset($newLocale)) {
+    set_current_locale_cookie($newLocale);
+}
+
 $limit      = empty($_GET['limit']) ? 9 : $_GET['limit'];
 $paged      = empty($_GET['paged']) ? 1 : $_GET['paged'];
-$locales    = empty($_GET['locale']) ? [] : $_GET['locale'];
+$locales    = empty($_GET['locale']) ? $context['locale'] : $_GET['locale'];
 $industries = empty($_GET['industries']) ? [] : $_GET['industries'];
 $featured   = empty($_GET['featured']) ? [] : $_GET['featured'];
 
@@ -27,7 +33,7 @@ $args = [
 ];
 
 // Filter by local
-if (!empty($locales) && $locale != '') {
+if (!empty($locales) && $locale != '' && $locale != 'n/a') {
     $localesTab = explode(',', $locales);
     $args['tax_query'][] = [
         'taxonomy' => 'localization',

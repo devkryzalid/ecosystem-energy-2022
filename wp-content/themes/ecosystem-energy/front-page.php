@@ -1,4 +1,10 @@
 <?php
+// Create ou change current_locale cookie
+$newLocale = empty($_GET['set_locale']) ? null : $_GET['set_locale'];
+if (isset($newLocale)) {
+    set_current_locale_cookie($newLocale);
+}
+
 /**
  * The template for displaying the homepage.
  */
@@ -8,7 +14,7 @@ $context['post']           = $timber_post;
 $context['home_hero']      = $timber_post->meta('home-hero');
 $context['sectors']        = $timber_post->meta('sectors');
 $context['featured_block'] = $timber_post->meta('featured-block');
-$context['career_block']  = $timber_post->meta('career-block');
+$context['career_block']   = $timber_post->meta('career-block');
 
 // Get Industries
 $context['industries'] = new Timber\PostQuery([

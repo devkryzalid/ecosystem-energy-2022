@@ -1,13 +1,19 @@
 <?php
+// Create ou change current_locale cookie
+$newLocale = empty($_GET['set_locale']) ? null : $_GET['set_locale'];
+if (isset($newLocale)) {
+    set_current_locale_cookie($newLocale);
+}
+$context = Timber::context();
+
 // set the query strings
 $limit      = empty($_GET['limit']) ? 10 : $_GET['limit'];
 $paged      = empty($_GET['paged']) ? 1 : $_GET['paged'];
-$locales    = empty($_GET['locale']) ? [] : $_GET['locale'];
+// Locale filter
+$locales    = empty($_GET['locale']) ? $context['locale'] : $_GET['locale'];
 $categories = empty($_GET['category']) ? [] : $_GET['category'];
 
-$context = Timber::context();
 $timber_post = new Timber\Post();
-
 $context['post']  = $timber_post;
 $context['limit'] = $limit;
 $context['paged'] = $paged;
@@ -31,7 +37,7 @@ $context['locales'] = get_terms( [ 'taxonomy' => 'localization' ] );
 $context['categories'] = get_terms( [ 'taxonomy' => 'category' ] );
 
 // Filter by local
-if (!empty($locales) && $locale != '') {
+if (!empty($locales) && $locale != '' && $locale != 'n/a') {
     $localesTab = explode(',', $locales);
     $args['tax_query'][] = [
         'taxonomy' => 'localization',

@@ -4,7 +4,7 @@ do_action('wpml_switch_language', $params['lang']);
 // set the query strings
 $limit  = empty($params['limit']) ? 9 : $params['limit'];
 $paged  = empty($params['page']) ? 1 : $params['page'];
-$locale = empty($params['locale']) ? [] : $params['locale'];
+$locale = empty($params['locale']) ? $context['locale'] : $params['locale'];
 
 $context = Timber::context();
 $args = [

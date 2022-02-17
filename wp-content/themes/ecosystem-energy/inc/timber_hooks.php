@@ -18,6 +18,7 @@ function add_to_context( $context ) {
 	$context['cta_contact']     = get_field('cta_contact', 'options');
 	$context['static_links']    = get_field('static_links', 'options');
 	$context['current_lang']    = ICL_LANGUAGE_CODE;
+	$context['current_locale']  = !empty($_COOKIE['es_current_locale']) ? $_COOKIE['es_current_locale'] : 'n/a';
 
 	/*
      * Create a custom breadcrumb
@@ -52,4 +53,9 @@ function add_to_twig( $twig ) {
 	);
 
 	return $twig;
+}
+
+function set_current_locale_cookie($newLocale) {
+	setcookie('es_current_locale', $newLocale, strtotime("+1 minute"));
+	//setcookie('es_current_locale', $newLocale, strtotime("+1 year"));
 }
