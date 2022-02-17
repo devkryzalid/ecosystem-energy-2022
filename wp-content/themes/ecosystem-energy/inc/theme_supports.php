@@ -71,4 +71,6 @@ function theme_supports() {
 	add_theme_support( 'editor-color-palette' );
 	add_theme_support( 'disable-custom-colors' );
 
+	load_theme_textdomain('ecosystem-energy', get_template_directory() . '/languages');
+
 }
