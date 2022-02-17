@@ -1,16 +1,13 @@
 <?php
+global $params;
+do_action('wpml_switch_language', $params['lang']);
 // set the query strings
-$limit      = empty($_GET['limit']) ? 10 : $_GET['limit'];
-$paged      = empty($_GET['paged']) ? 1 : $_GET['paged'];
-$locales    = empty($_GET['locale']) ? [] : $_GET['locale'];
-$categories = empty($_GET['category']) ? [] : $_GET['category'];
+$limit      = empty($params['limit']) ? 9 : $params['limit'];
+$paged      = empty($params['paged']) ? 1 : $params['paged'];
+$locales    = empty($params['locale']) ? [] : $params['locale'];
+$categories = empty($params['category']) ? [] : $params['category'];
 
 $context = Timber::context();
-$timber_post = new Timber\Post();
-
-$context['post']  = $timber_post;
-$context['limit'] = $limit;
-$context['paged'] = $paged;
 
 /**
  * Query arguments
@@ -24,11 +21,6 @@ $args = [
     'paged'           => $paged,
     'posts_per_page'  => $limit,
 ];
-
-// Get locales
-$context['locales'] = get_terms( [ 'taxonomy' => 'localization' ] );
-// Get category
-$context['categories'] = get_terms( [ 'taxonomy' => 'category' ] );
 
 // Filter by local
 if (!empty($locales) && $locale != '') {
@@ -49,7 +41,19 @@ if (!empty($categories) && $categories != '') {
     ];
 }
 
-// Get Post
-$context['posts'] = new Timber\PostQuery( $args );
+/**
+ * Get post and render view (return)
+ */
+$posts = new Timber\PostQuery($args);
 
-Timber::render( 'pages/index.twig', $context );
+if ($posts->found_posts > 0) {
+    $response = '';
+    $response .= Timber::compile('partials/lists/perspectives.twig', ['posts' => $posts]);
+    $message = $response;
+} else {
+    $message = Timber::compile('partials/lists/no-result-item.twig');
+}
+
+wp_reset_query();
+wp_reset_postdata();
+return wp_send_json($message);
