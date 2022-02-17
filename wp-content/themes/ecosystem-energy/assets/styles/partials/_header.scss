@@ -2,6 +2,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 10;
 
   .yellow-pane {
     position: relative;
@@ -69,6 +70,7 @@
       a {
         padding: 20px;
         @include fontSize(16, 22, 600);
+        cursor: pointer;
       }
     }
 

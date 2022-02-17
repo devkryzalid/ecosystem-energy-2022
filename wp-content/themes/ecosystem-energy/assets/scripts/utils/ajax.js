@@ -75,8 +75,8 @@ export default class AjaxForm {
 
   // Axios ajax call
   fetchAjax = async data => {
-    console.log('AJAX REQUEST:', this.url, data);
-    return await axios.post(this.url, data)
+    console.log('AJAX REQUEST:', this.url, JSON.stringify(data));
+    return await axios.post(this.url, JSON.stringify(data))
       .then(response => { 
         console.log('AJAX RESPONSE:', response); 
         return response;

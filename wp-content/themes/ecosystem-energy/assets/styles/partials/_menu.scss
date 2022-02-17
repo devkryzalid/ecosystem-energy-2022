@@ -1,72 +1,147 @@
+$menu-image-width: 24vw;
+$menu-padding: 150px 0;
+
+$menu-transition: all 0.5s ease-out;
+$image-transition: all 0.5s ease-out;
+$primary-transition: all 0.4s ease-out;
+$text-transition: all 0.3s ease;
+
+$menu-transition-delay: 0ms;
+$image-transition-delay: 900ms;
+$primary-transition-delay: 500ms;
+$text-transition-delay: 1300ms;
+
+$menu-open-transition: all 0.4s ease;
+$image-open-transition: all 0.3s ease;
+$primary-open-transition: all 0.4s ease;
+$text-open-transition: all 0.2s ease;
+
+$menu-open-transition-delay: 600ms;
+$image-open-transition-delay: 300ms;
+$primary-open-transition-delay: 400ms;
+$text-open-transition-delay: 0ms;
+
 #menu {
   @include flex(center, flex-start);
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
-  background-color: $blue;
+  background-color: $altblue;
   z-index: 700;
-  transition: $basicTransition;
+  transition: $menu-transition;
+  transition-delay: $menu-transition-delay;
 
   ul { padding: 0; }
 
   #menu-image {
-    width: 20%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $menu-image-width;
     height: 100%;
     background-image: url('/assets/images/temp1.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    z-index: 1;
+    transition: $image-transition;
+    transition-delay: $image-transition-delay;
   }
 
   #primary-menu {
-    position: absolute;
-    right: 0;
-    width: 80%;
+    left: 0;
+    width: 100%;
     height: 100%;
-    padding: 200px 0;
+    padding: $menu-padding;
+    background-color: $blue;
+    transition: $primary-transition;
+    transition-delay: $primary-transition-delay;
 
-    li { padding-left: 120px; }
-
-    a {
-      display: block;
-      @include fontSize(48, 65, 500);
-      color: $yellow;
-      cursor: pointer;
-
-      &.secondary-link {
-        &::after {
-          content: '>';
-          margin-left: 10px;
-        }
-      }
-    }
-
-    .secondary-menu {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 50%;
-      height: 100vh;
-      background-color: rgba(white, 0.03);
-      transition: $basicTransition;
+    li { 
+      padding-left: calc($menu-image-width + 80px);
+      padding-right: calc((100% - $menu-image-width) / 2 + 80px);
+      opacity: 1;
       overflow: hidden;
-
-      &:not(.show) { width: 0 !important; }
-
-      li {
-        padding: 15px 0;
-      }
+      transition: $text-transition;
+      transition-delay: $text-transition-delay;
 
       a {
         display: block;
-        @include fontSize(22, 30, 500, -0.3);
-        color: white;
+        @include fontSize(48, 65, 500);
+        color: $yellow;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &.secondary-link {
+          &::after {
+            content: '>';
+            margin-left: 10px;
+          }
+        }
+
+        &:hover {
+          color: white;
+        }
+      }
+
+      .secondary-menu {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: calc((100% - $menu-image-width) / 2);
+        height: 100vh;
+        padding: $menu-padding;
+        background-color: $altblue;
+        transition: $basicTransition;
+        overflow: hidden;
+
+        li {
+          padding: 15px 50px;
+        }
+
+        a {
+          display: block;
+          @include fontSize(22, 30, 500, -0.3);
+          color: white;
+        }
+      }
+
+      &.show {
+        a { color: white; }
+      }
+
+      &:not(.show) { 
+        .secondary-menu { width: 0 !important; }
       }
     }
   }
 
+  // Menu is either fully opened or closing
+  &.-on {
+    transition: $menu-open-transition;
+    transition-delay: $menu-open-transition-delay !important;
+
+    #menu-image { 
+      transition: $image-open-transition;
+      transition-delay: $image-open-transition-delay !important; 
+    }
+
+    #primary-menu { 
+      transition: $primary-open-transition;
+      transition-delay: $primary-open-transition-delay !important;
+
+      li { 
+      transition: $text-open-transition;
+        transition-delay: $text-open-transition-delay !important;
+      }
+    }
+  }
+
+  // Menu is not triggered, so hide everything
   &:not(.show) {
     width: 0 !important;
+    #menu-image, #primary-menu, .secondary-menu { width: 0 !important; }
+    li { opacity: 0 !important; }
   }
 }
