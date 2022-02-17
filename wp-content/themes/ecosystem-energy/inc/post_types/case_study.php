@@ -37,7 +37,7 @@ function case_study_post_type()
         'show_in_admin_bar'   => true,
         'publicly_queryable'  => true,
         'exclude_from_search' => false,
-        'has_archive'         => true,
+        'has_archive'         => false,
         'query_var'           => true,
         'can_export'          => true,
         'rewrite'             => array('slug' => __('case-studies', 'ecosystem-energy'), 'with_front' => true),

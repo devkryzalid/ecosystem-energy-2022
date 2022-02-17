@@ -5,4 +5,14 @@
     <div>
         {{post.content}}
     </div>
+
+    <div class="list-ctn -style-2">
+        {% for p in case_studies %}
+            <article class="article">
+                <h3 class="article-title"><a href="{{ p.link }}">{{ p.title }}</a></h3>
+                <div class="article-extract">{{ p.preview.read_more(false) }}</div>
+                <img class="" src="{{ p.thumbnail.src('medium') }}" alt="{{ p.thumbnail.title }}">
+            </article>
+        {% endfor %}
+    </div>
 {% endblock %}
