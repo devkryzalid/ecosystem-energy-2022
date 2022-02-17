@@ -5,7 +5,7 @@ do_action('wpml_switch_language', $params['lang']);
 $limit      = empty($params['limit']) ? 9 : $params['limit'];
 $paged      = empty($params['paged']) ? 1 : $params['paged'];
 $industries = empty($params['industries']) ? [] : $params['industries'];
-$featured   = empty($params['featured']) ? [] : $params['featured'];
+$featured   = empty($params['featured']) ? '' : $params['featured'];
 
 $context = Timber::context();
 $locales = empty($params['locale']) ? $context['current_locale'] : $params['locale'];
@@ -59,7 +59,7 @@ if ($posts->found_posts > 0) {
     $response .= Timber::compile('lists/case_study_list.twig', ['items' => $posts]);
     $message  = $response;
 } else {
-    $message = Timber::compile('partials/lists/no-result-item.twig');
+    $message = Timber::compile('partials/no-results.twig');
 }
 
 wp_reset_query();

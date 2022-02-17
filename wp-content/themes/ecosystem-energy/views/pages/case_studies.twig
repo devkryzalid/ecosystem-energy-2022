@@ -2,16 +2,12 @@
 
 {% block content %}
 
-  <form id="ajax-form">
-    <input type="hidden" id="ajax-settings" data-url="/ajax/{{ current_lang }}/case-studies" data-limit="1">
+  {% include 'partials/page-title.twig' with { 
+    title: post.title, 
+    text: 'We have built a business that re-connects engineering design, construction and commissioning so every choice we make contributes to better project outcomes.' 
+  } %}
 
-    <input type="checkbox" name="industries" value="57" />
-    <input type="checkbox" name="industries" value="58" />
-    <input type="checkbox" name="industries" value="59" />
-    <input type="checkbox" name="industries" value="60" />
-  </form>
-
-  {% include 'partials/page-title.twig' with { title: post.title, text: post.content } %}
+  {% include 'filters/case-studies-filters.twig' with {} %}
 
   <div id="ajax-content">
     <div class="inner">         
