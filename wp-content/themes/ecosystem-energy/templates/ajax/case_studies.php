@@ -2,10 +2,11 @@
 global $params;
 do_action('wpml_switch_language', $params['lang']);
 // set the query strings
-$limit      = empty($params['limit']) ? -1 : $params['limit'];
-$paged      = empty($params['paged']) ? 9 : $params['paged'];
+$limit      = empty($params['limit']) ? 9 : $params['limit'];
+$paged      = empty($params['paged']) ? 1 : $params['paged'];
 $locales    = empty($params['locale']) ? [] : $params['locale'];
 $industries = empty($params['industry']) ? [] : $params['industry'];
+$featured   = empty($params['industry']) ? [] : $params['industry'];
 
 $context = Timber::context();
 
@@ -16,7 +17,7 @@ $args = [
    'order'           => 'DESC',
    'suppress_filter' => true,
    'paged'           => $paged,
-   'posts_per_page'  => $limit,
+   'posts_per_page'  => empty($featured) ? 1 : $limit,
 ];
 
 // Filter by local
@@ -39,6 +40,13 @@ if (!empty($industries) && $industries != '') {
     ];
 }
 
+// Get featured
+if (empty($featured)) {
+    $featured = new Timber\PostQuery($args);
+    $args['post__not_in'] = $featured[0]->ID;
+    $args['posts_per_page'] = $limit;
+}
+
 /**
  * Get post and render view (return)
  */
@@ -46,7 +54,7 @@ $posts = new Timber\PostQuery($args);
 
 if ($posts->found_posts > 0) {
     $response = '';
-    $response .= Timber::compile('partials/lists/case_studies.twig', ['posts' => $posts]);
+    $response .= Timber::compile('partials/lists/case_studies.twig', ['posts' => $posts, 'featured' => $featured[0]]);
     $message = $response;
 } else {
     $message = Timber::compile('partials/lists/no-result-item.twig');
