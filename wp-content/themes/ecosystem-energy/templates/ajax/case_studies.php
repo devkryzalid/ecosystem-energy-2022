@@ -54,11 +54,10 @@ if (empty($featured)) {
  * Get post and render view (return)
  */
 $posts = new Timber\PostQuery($args);
-dd($posts);
 if ($posts->found_posts > 0) {
     $response = '';
-    $response .= Timber::compile('partials/lists/case_studies.twig', ['posts' => $posts, 'featured' => $paged = 1 ? $featured[0]: null]);
-    $message = $response;
+    $response .= Timber::compile('lists/case_study_list.twig', ['items' => $posts]);
+    $message  = $response;
 } else {
     $message = Timber::compile('partials/lists/no-result-item.twig');
 }
