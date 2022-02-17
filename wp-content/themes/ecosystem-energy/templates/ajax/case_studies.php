@@ -5,8 +5,8 @@ do_action('wpml_switch_language', $params['lang']);
 $limit      = empty($params['limit']) ? 9 : $params['limit'];
 $paged      = empty($params['paged']) ? 1 : $params['paged'];
 $locales    = empty($params['locale']) ? [] : $params['locale'];
-$industries = empty($params['industry']) ? [] : $params['industry'];
-$featured   = empty($params['industry']) ? [] : $params['industry'];
+$industries = empty($params['industries']) ? [] : $params['industries'];
+$featured   = empty($params['featured']) ? [] : $params['featured'];
 
 $context = Timber::context();
 
