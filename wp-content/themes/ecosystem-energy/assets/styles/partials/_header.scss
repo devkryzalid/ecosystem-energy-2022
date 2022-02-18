@@ -4,6 +4,7 @@
   width: 100%;
   z-index: 10;
 
+  // Extendable class for top yellow panes
   .yellow-pane {
     position: relative;
     @include flex();
@@ -45,6 +46,7 @@
     .btn { margin-left: auto; }
   }
 
+  // "Primary" header
   #main-pane {
     @include flex();
     height: $header-height;
@@ -74,29 +76,29 @@
       }
     }
 
-    #menu-toggle {
-      position: relative;
-      width: 100px;
+    &:not(.show) { height: 0 !important; }
+  }
 
-      span {
-        position: absolute;
-        display: block;
-        width: 50px;
-        height: 3px;
-        background-color: $darkgrey;
-        transform: rotate(0deg);
+  // Shapeshifting menu icon
+  #menu-toggle {
+    position: relative;
+    width: 100px;
 
-        &.bar1 {
-          top: 14px;
-        }
+    span {
+      position: absolute;
+      display: block;
+      width: 50px;
+      height: 3px;
+      background-color: $darkgrey;
+      transform: rotate(0deg);
+      transition: transform 0.2s ease-out, top 0.2s ease-out, background-color 0.2s ease-out;
+      transition-delay: 600ms, 600ms, 0ms;
 
-        &.bar2 {
-          top: 22px;
-        }
-      }
+      &.bar1 { top: 14px; }
+      &.bar2 { top: 22px; }
     }
 
-    &:not(.show) { height: 0 !important; }
+    &:hover span { background-color: $yellow; }
   }
 }
 
@@ -104,9 +106,16 @@
 body.menu-open #header {
   a { color: white; }
 
+  // Turn menu burger icon into X
   #menu-toggle {
-    .bar1 { transform: rotate(45deg); }
-    .bar2 { transform: rotate(-45deg); }
+    span { 
+      top: 18px; 
+      background-color: $yellow;
+      &.bar1 { transform: rotate(45deg); }
+      &.bar2 { transform: rotate(-45deg); }
+    }
+
+    &:hover span { background-color: white; }
   }
 }
 
