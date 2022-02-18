@@ -35,6 +35,8 @@ $args = [
 $context['locales'] = get_terms( [ 'taxonomy' => 'localization' ] );
 // Get category
 $context['categories'] = get_terms( [ 'taxonomy' => 'category' ] );
+// Get industries tax
+$context['industries'] = get_terms( [ 'taxonomy' => 'industry_tax' ] );
 
 // Filter by local
 if (!empty($locales) && $locales != '' && $locales != 'n/a') {

@@ -21,6 +21,9 @@ $context['featured'] = null;
 $context['limit']    = $limit;
 $context['paged']    = $paged;
 
+// Get industries tax
+$context['industries'] = get_terms( [ 'taxonomy' => 'industry_tax' ] );
+
 $args = [
    'post_type'       => 'case_study',
    'post_status'     => 'publish',

@@ -1,10 +1,10 @@
 <div class="container">
   <form id="ajax-form">
     <input type="hidden" id="ajax-settings" data-url="/ajax/{{ current_lang }}/case-studies" data-limit="1">
-
-    <input type="checkbox" name="industries" value="57" />
-    <input type="checkbox" name="industries" value="58" />
-    <input type="checkbox" name="industries" value="59" />
-    <input type="checkbox" name="industries" value="60" />
+    {% for indus in industries %}
+      <label>{{ indus.name }}
+        <input type="checkbox" name="industries" value="{{ indus.term_id }}" />
+      </label>
+    {% endfor %}
   </form>
 </div>
