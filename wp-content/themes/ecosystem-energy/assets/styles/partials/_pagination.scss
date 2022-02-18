@@ -1,0 +1,20 @@
+#ajax-pagination {
+  @include flex();
+
+  .ajax-page {
+    @include flex();
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+
+    &.current {
+      border: 1px solid $yellow;
+    }
+
+    a {   
+      @include fontSize(25, 35);
+      text-align: center;
+      pointer-events: none;
+    }
+  }
+}

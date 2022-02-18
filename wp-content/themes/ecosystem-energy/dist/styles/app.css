@@ -3341,3 +3341,32 @@ body.menu-open #header #menu-toggle:hover span {
   flex-basis: 30%;
   border: 1px solid #666;
 }
+
+#ajax-pagination {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+#ajax-pagination .ajax-page {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+#ajax-pagination .ajax-page.current {
+  border: 1px solid #FAB900;
+}
+#ajax-pagination .ajax-page a {
+  font-size: 25px;
+  font-size: 1.5625rem;
+  font-weight: initial;
+  line-height: 35px;
+  line-height: 2.1875rem;
+  letter-spacing: normal;
+  text-align: center;
+  pointer-events: none;
+}

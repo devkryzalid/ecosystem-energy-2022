@@ -1,4 +1,5 @@
 {% block content %}
+
   {% if featured %}
     <div class="container">
       {% include 'partials/block-item.twig' with { 
@@ -27,4 +28,7 @@
       {% endfor %}
 	  </div>
 	</div>
+
+  {% include 'partials/pagination.twig' with { 'elements': items.pagination(5) } %}
+
 {% endblock %}
