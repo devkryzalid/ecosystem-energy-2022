@@ -19,8 +19,8 @@
       <div class="title">Sectors</div>
       {% for sector in industries %}
         <div>
-          <input id="industry-{{ sector.term_id }}" type="checkbox" name="industries" value="{{ sector.term_id }}" />
-          <label for="industry-{{ sector.term_id }}">{{ sector.name }}</label>
+          <input id="industries-{{ sector.term_id }}" type="checkbox" name="industries" value="{{ sector.term_id }}" />
+          <label for="industries-{{ sector.term_id }}">{{ sector.name }}</label>
         </div>
       {% endfor %}
     </div>

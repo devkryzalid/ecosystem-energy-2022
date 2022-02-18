@@ -1,17 +1,17 @@
 {% block content %}
-{% if featured %}
-  <div class="container">
-    {# <pre>{{ dump(featured) }}</pre> #}
-    {% include 'partials/block-item.twig' with { 
-      title: featured.title,
-      section: featured.meta('related_industry')[0].post_title,
-      description: featured.preview.read_more(false),
-      url: featured.link,
-      image: featured.thumbnail,
-      isFeatured: true
-    } %}
-  </div>
+  {% if featured %}
+    <div class="container">
+      {% include 'partials/block-item.twig' with { 
+        title: featured.title,
+        section: featured.meta('related_industry')[0].post_title,
+        description: featured.preview.read_more(false),
+        url: featured.link,
+        image: featured.thumbnail,
+        isFeatured: true
+      } %}
+    </div>
   {% endif %}
+
 	<div class="block-list">
     <div class="container grid">
       {% for cs in items %}

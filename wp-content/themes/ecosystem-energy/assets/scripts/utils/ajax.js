@@ -50,6 +50,9 @@ export default class AjaxForm {
 
     // Add change listener to form
     this.formContainer.addEventListener('change', this.onFormChange);
+
+    // Apply filters from url query string
+    this.toggleCheckFromUrl();
   }
 
   // Main form change callback
@@ -73,11 +76,21 @@ export default class AjaxForm {
     return [...pairs].reduce((params, [key, value]) => ({ ...params, [key]: [...(params[key] || []), value] }), {});
   }
 
+  //
+  toggleCheckFromUrl = () => {
+    new URL(window.location.href).searchParams.forEach((values, param) => {
+      values.split(',').forEach(id => {
+        const el = document.getElementById(`${param}-${id}`);
+        if (el) el.checked = true;
+      });
+    })
+  }
+
   // Axios ajax call
   fetchAjax = async data => {
     const query = new URLSearchParams(data).toString();
     console.log('AJAX REQUEST:', this.url, query);
-    
+
     return await axios.post(this.url, query)
       .then(response => { 
         console.log('AJAX RESPONSE:', response); 
