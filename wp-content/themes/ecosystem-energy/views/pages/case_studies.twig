@@ -11,24 +11,10 @@
 
   {% include 'filters/case-studies-filters.twig' with { industries: industries, featured: featured } %}
  
-        
-  {% if featured %}
-    <div class="container">
-      {# <pre>{{ dump(featured) }}</pre> #}
-      {% include 'partials/block-item.twig' with { 
-        title: featured.title,
-        section: featured.meta('related_industry')[0].post_title,
-        description: featured.preview.read_more(false),
-        url: featured.link,
-        image: featured.thumbnail,
-        isFeatured: true
-      } %}
-    </div>
-  {% endif %}
 
   <div id="ajax-content">
     <div class="inner">
-      {% include 'lists/case_study_list.twig' with { items: case_studies } %}
+      {% include 'lists/case_study_list.twig' with { items: case_studies, featured: featured } %}
     </div>
   </div>
 
