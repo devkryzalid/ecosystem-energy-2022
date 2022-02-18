@@ -470,7 +470,72 @@ template {
   display: none;
 }
 
-/** INSER ICON MOON STYLE HERE **/
+@font-face {
+  font-family: "icomoon";
+  src: url(../fonts/icomoon.f45b918ceb9237918f1e.eot?xag821);
+  src: url(../fonts/icomoon.f45b918ceb9237918f1e.eot?xag821#iefix) format("embedded-opentype"), url(../fonts/icomoon.0378f6aa031b852e8b8b.ttf?xag821) format("truetype"), url(../fonts/icomoon.3ec56dab77430e85b390.woff?xag821) format("woff"), url(../fonts/icomoon.619756721a2ba85695c5.svg?xag821#icomoon) format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+[class^=icon-], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-up:before {
+  content: "\e903";
+}
+
+.icon-awards:before {
+  content: "\e900";
+}
+
+.icon-symbol-eco:before {
+  content: "\e902";
+}
+
+.icon-close-medium:before {
+  content: "\e904";
+}
+
+.icon-close-small:before {
+  content: "\e905";
+}
+
+.icon-filter-close:before {
+  content: "\e906";
+}
+
+.icon-filter:before {
+  content: "\e907";
+}
+
+.icon-position-pin:before {
+  content: "\e908";
+}
+
+.icon-search:before {
+  content: "\e909";
+}
+
+.icon-small-arrow-left:before {
+  content: "\e90a";
+}
+
+.icon-small-arrow-right:before {
+  content: "\e90b";
+}
+
 @-ms-viewport {
   width: device-width;
 }
@@ -2816,12 +2881,36 @@ a.link::after, a.link::before {
   letter-spacing: normal;
   cursor: pointer;
 }
+#header #main-pane #menu-toggle {
+  position: relative;
+  width: 100px;
+}
+#header #main-pane #menu-toggle span {
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #494843;
+  transform: rotate(0deg);
+}
+#header #main-pane #menu-toggle span.bar1 {
+  top: 14px;
+}
+#header #main-pane #menu-toggle span.bar2 {
+  top: 22px;
+}
 #header #main-pane:not(.show) {
   height: 0 !important;
 }
 
 body.menu-open #header a {
   color: white;
+}
+body.menu-open #header #menu-toggle .bar1 {
+  transform: rotate(45deg);
+}
+body.menu-open #header #menu-toggle .bar2 {
+  transform: rotate(-45deg);
 }
 
 .page-container.grey #header {
@@ -2904,9 +2993,10 @@ body.menu-open #header a {
   left: 0;
   width: 24vw;
   height: 100%;
-  background-image: url(../images/temp1.7e0b51cb53013fe814a5.jpg);
+  background-image: url(../images/ui/menu-image.79fe574396a4827c0495.jpg);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position-x: center;
   z-index: 1;
   transition: all 0.5s ease-out;
   transition-delay: 900ms;
@@ -2919,6 +3009,7 @@ body.menu-open #header a {
   background-color: #242C3E;
   transition: all 0.4s ease-out;
   transition-delay: 500ms;
+  overflow: hidden;
 }
 #menu #primary-menu li {
   padding-left: calc(24vw + 80px);
@@ -3027,6 +3118,10 @@ body.menu-open #header a {
 .page-title .content {
   flex-basis: 50%;
 }
+.page-title .content .btn {
+  margin: 20px 0 0 auto;
+}
+
 .page-container.grey-head .page-title {
   background-color: #F6F6F4;
 }
@@ -3038,6 +3133,11 @@ body.menu-open #header a {
   color: white;
 }
 
+.filters {
+  transition: all 0.4s ease;
+  height: 150px;
+  overflow: hidden;
+}
 .filters .container {
   display: flex;
   flex-direction: row;
@@ -3063,6 +3163,38 @@ body.menu-open #header a {
   line-height: 1.6875rem;
   letter-spacing: -0.4px;
 }
+.filters .filter-group label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  margin: 0 10px 10px 0;
+  padding: 0 20px;
+  background-color: white;
+  border-radius: 20px;
+  font-size: 15px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 21px;
+  line-height: 1.3125rem;
+  letter-spacing: -0.3px;
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+.filters .filter-group input {
+  display: none;
+}
+.filters .filter-group input:checked + label {
+  background-color: #FAB900;
+}
+.filters .filter-group input:checked + label::after {
+  content: "x";
+  margin-left: 8px;
+}
+.filters:not(.show) {
+  height: 0 !important;
+}
 
 .block-list .container {
   padding: 0;
@@ -3084,6 +3216,7 @@ body.menu-open #header a {
   height: 100%;
 }
 .block-item .content {
+  min-height: 260px;
   padding-top: 30px;
   background-color: white;
 }

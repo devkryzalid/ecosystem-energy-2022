@@ -5,9 +5,10 @@
       
         {% include 'partials/block-item.twig' with { 
           title: cs.title,
+          section: cs.meta('related_industry')[0].post_title,
           description: cs.preview.read_more(false),
           url: cs.link,
-          image: cs.thumbnail,
+          image: cs.thumbnail
         } %}
 
       {% endfor %}

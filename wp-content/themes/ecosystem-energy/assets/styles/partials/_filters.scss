@@ -1,4 +1,8 @@
 .filters {
+  transition: $basicTransition;
+  height: 150px;
+  overflow: hidden;
+
   .container {
     @include flex(flex-start, flex-start);
     padding: 20px 0;
@@ -14,5 +18,30 @@
       margin-bottom: 20px;
       @include fontSize(20, 27, 500, -0.4);
     }
+
+    label {
+      @include flex();
+      height: 40px;
+      margin: 0 10px 10px 0;
+      padding: 0 20px;
+      background-color: white;
+      border-radius: 20px;
+      @include fontSize(15, 21, 500, -0.3);
+      transition: $basicTransition;
+      cursor: pointer;
+    }
+    
+    input {
+      display: none;
+      &:checked + label { 
+        background-color: $yellow; 
+        &::after {
+          content: 'x';
+          margin-left: 8px;
+        }
+      }
+    }
   }
+
+  &:not(.show) { height: 0 !important; }
 }

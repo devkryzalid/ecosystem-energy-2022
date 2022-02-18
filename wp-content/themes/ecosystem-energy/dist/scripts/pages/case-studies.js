@@ -16,7 +16,7 @@
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_ajax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/ajax */ \"./assets/scripts/utils/ajax.js\");\n\n\nconst form = new _utils_ajax__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/pages/case-studies.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_ajax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/ajax */ \"./assets/scripts/utils/ajax.js\");\n\n\nconst form = new _utils_ajax__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n\nlet showFilters = false;\nconst formElement = document.getElementById('ajax-form');\nconst btnElement = document.getElementById('toggle-filters');\n\nbtnElement.addEventListener('click', () => {\n  showFilters = !showFilters;\n  if (showFilters) formElement.classList.add('show');\n  else formElement.classList.remove('show');\n})\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/pages/case-studies.js?");
 
 /***/ }),
 

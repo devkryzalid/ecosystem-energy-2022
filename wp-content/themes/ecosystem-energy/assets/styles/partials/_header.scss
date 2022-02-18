@@ -74,6 +74,28 @@
       }
     }
 
+    #menu-toggle {
+      position: relative;
+      width: 100px;
+
+      span {
+        position: absolute;
+        display: block;
+        width: 50px;
+        height: 3px;
+        background-color: $darkgrey;
+        transform: rotate(0deg);
+
+        &.bar1 {
+          top: 14px;
+        }
+
+        &.bar2 {
+          top: 22px;
+        }
+      }
+    }
+
     &:not(.show) { height: 0 !important; }
   }
 }
@@ -81,6 +103,11 @@
 // White links when menu is open
 body.menu-open #header {
   a { color: white; }
+
+  #menu-toggle {
+    .bar1 { transform: rotate(45deg); }
+    .bar2 { transform: rotate(-45deg); }
+  }
 }
 
 // Global page modifiers

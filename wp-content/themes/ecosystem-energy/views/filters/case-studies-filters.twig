@@ -1,10 +1,29 @@
-<div class="container">
-  <form id="ajax-form">
-    <input type="hidden" id="ajax-settings" data-url="/ajax/{{ current_lang }}/case-studies" data-limit="1">
-    {% for indus in industries %}
-      <label>{{ indus.name }}
-        <input type="checkbox" name="industries" value="{{ indus.term_id }}" />
-      </label>
-    {% endfor %}
-  </form>
-</div>
+<form id="ajax-form" class="filters">
+  <div class="container">
+
+    <input type="hidden" id="ajax-settings" data-url="/ajax/{{ current_lang }}/case-studies" data-limit="1" data-featured="{{ featured }}">
+
+    <div class="filter-group">
+      <div class="title">Countries</div>
+        <div>
+          <input id="country-ca" type="checkbox" name="country" value="ca" />
+          <label for="country-ca">Canada</label>
+        </div>
+        <div>
+          <input id="country-us" type="checkbox" name="country" value="us" />
+          <label for="country-us">United States</label>
+        </div>
+    </div>
+
+    <div class="filter-group">
+      <div class="title">Sectors</div>
+      {% for sector in industries %}
+        <div>
+          <input id="industry-{{ sector.term_id }}" type="checkbox" name="industries" value="{{ sector.term_id }}" />
+          <label for="industry-{{ sector.term_id }}">{{ sector.name }}</label>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</form>
