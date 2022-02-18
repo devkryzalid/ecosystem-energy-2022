@@ -54,7 +54,7 @@ if (empty($featured)) {
  * Get post and render view (return)
  */
 $posts = new Timber\PostQuery($args);
-if ($posts->found_posts > 0) {
+if ($posts->found_posts > 0 || (isset($featured[0]) && $paged == 1)) {
     $response = '';
     $response .= Timber::compile(
         'lists/case_study_list.twig',
