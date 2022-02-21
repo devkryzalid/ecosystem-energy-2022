@@ -5,17 +5,16 @@ import axios from 'axios';
 const defaultFormId = 'ajax-form'
 const defaultContainerId = 'ajax-content'
 const defaultSettingsId = 'ajax-settings'
-const defaultPaginationId = 'ajax-pagination'
 
 const loadingClass = 'loading';
 const innerClass = 'inner';
+const paginationId = 'ajax-pagination'
 
 export default class AjaxForm {
   // DOM containers for form and ajax html results
   formContainer;
   contentContainer;
   innerContainer;
-  paginationContainer;
 
   loading = false;
   error = false;
@@ -24,12 +23,14 @@ export default class AjaxForm {
   limit;
   page;
 
+  previousParams;
+
   // Callbacks
   onDataChange = () => { };
   onLoadChange = () => { };
 
   constructor(
-    { formId = defaultFormId, containerId = defaultContainerId, settingsId = defaultSettingsId, paginationId = defaultPaginationId } = {},
+    { formId = defaultFormId, containerId = defaultContainerId, settingsId = defaultSettingsId } = {},
     onDataChangeCallback = null, onLoadChangeCallback = null
   ) {
     // Set form and container DOM elements
@@ -42,26 +43,23 @@ export default class AjaxForm {
     this.innerContainer = this.contentContainer.querySelector('.' + innerClass);
     if (!this.innerContainer) console.log('Error - Ajax .inner content container can\'t be found');
 
-    this.paginationContainer = document.getElementById(paginationId);
-    if (!this.paginationContainer) console.log('Error - Ajax pagination container can\'t be found');
-
     // Get form settings from hidden input
     const { url, limit, page = 1 } = document.getElementById(settingsId).dataset;
     this.url = url;
     this.limit = limit;
     this.page = page;
 
-    // Add callback if needed
+    // Attach callback functions if available
     if (onDataChangeCallback) this.onDataChange = onDataChangeCallback;
     if (onLoadChangeCallback) this.onLoadChange = onLoadChangeCallback;
 
-    // Add change listener to form
+    // Add change listener to form checkboxes
     this.formContainer.addEventListener('change', this.onFormChange);
 
     // Apply filters from url query string
-    this.toggleCheckFromUrl();
+    this.applyFiltersFromUrl();
 
-    // 
+    // Initialize pagination for non-ajax first load
     this.initPagination();
   }
 
@@ -85,14 +83,19 @@ export default class AjaxForm {
     // Fetch all current form values
     const pairs = new FormData(this.formContainer).entries();
     const params = [...pairs].reduce((params, [key, value]) => ({ ...params, [key]: [...(params[key] || []), value] }), {});
+
+    // Reset page to 1 if filters have been modified
+    const jsonParams = JSON.stringify(params);
+    if (this.previousParams && this.previousParams !== jsonParams) this.page = 1;
+    this.previousParams = jsonParams;
     
-    // Add paged property if needed
+    // Add paged param if needed
     if (this.page > 1) params.paged = this.page;
     return { ...params, limit: this.limit };
   }
 
   // Parse current url and check all checkboxes accordingly
-  toggleCheckFromUrl = () => {
+  applyFiltersFromUrl = () => {
     new URL(window.location.href).searchParams.forEach((values, param) => {
       values.split(',').forEach(id => {
         const el = document.getElementById(`${param}-${id}`);
@@ -104,11 +107,11 @@ export default class AjaxForm {
   // Axios ajax call
   fetchAjax = async data => {
     const query = new URLSearchParams(data).toString();
-    console.log('AJAX REQUEST:', this.url, query);
+    // console.log('AJAX REQUEST:', this.url, query);
 
     return await axios.post(this.url, query)
       .then(response => {
-        console.log('AJAX RESPONSE:', response);
+        // console.log('AJAX RESPONSE:', response);
         return response;
       })
       .catch(error => {
@@ -132,6 +135,7 @@ export default class AjaxForm {
   // Update the content container with new html content
   updateContentHtml = (html = '') => {
     this.innerContainer.innerHTML = html;
+    if (document.getElementById(paginationId)) this.initPagination();
   }
 
   // Replace current url param string with new params
@@ -150,25 +154,26 @@ export default class AjaxForm {
 
   // Fetch first part of current url, and remove trailing slash
   currentUrlPrefix = () => {
-    const urlPrefix = window.location.href.split('?')[0]
+    const urlPrefix = window.location.href.split('?')[0];
     return urlPrefix.slice(-1) === '/' ? urlPrefix.slice(0, -1) : urlPrefix;
   }
 
   // Set event listeners on pagination elements
   initPagination = () => {
-    if (this.paginationContainer) 
-      this.paginationContainer.querySelectorAll('.ajax-page').forEach(page => {
+    const container = document.getElementById(paginationId);
+    if (container) 
+      container.querySelectorAll('.ajax-page').forEach(page => {
         page.addEventListener('click', e => this.pageChange(e.target));
       });
   }
 
-  // 
+  // Change current page and trigger ajax fetch
   pageChange = pageElement => {
-    this.page = pageElement.getAttribute('value');
-
     document.querySelector('.ajax-page.current').classList.remove('current');
+
+    this.page = pageElement.getAttribute('value');
     pageElement.classList.add('current');
-    
+  
     this.onFormChange();
   }
 }

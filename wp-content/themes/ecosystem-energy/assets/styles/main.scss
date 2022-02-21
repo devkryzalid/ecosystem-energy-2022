@@ -15,12 +15,19 @@
 @import "commons/links";
 @import "commons/tags";
 
+// Main components
 @import "partials/header";
-@import "partials/footer";
 @import "partials/menu";
+@import "partials/footer";
+
+// Common elements
 @import "partials/page-title";
-@import "partials/filters";
-@import "partials/block";
 @import "partials/contact-cta";
-@import "partials/home-hero";
+
+// Ajax elements
+@import "partials/filters";
 @import "partials/pagination";
+@import "partials/block-list";
+
+// Page-specific
+@import "partials/home-hero";
