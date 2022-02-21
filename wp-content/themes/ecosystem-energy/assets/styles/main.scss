@@ -1,4 +1,5 @@
 @import '../../node_modules/aos/dist/aos.css';
+@import '../../node_modules/swiper/swiper.scss';
 
 @import "configs/reset";
 @import "configs/mixins";
@@ -14,6 +15,14 @@
 @import "commons/buttons";
 @import "commons/links";
 @import "commons/tags";
+
+// Gutenberg custom blocks
+@import "blocks/accordion";
+@import "blocks/color-block";
+@import "blocks/cta-block";
+@import "blocks/key-data";
+@import "blocks/slider";
+@import "blocks/slider-multiple";
 
 // Main components
 @import "partials/header";

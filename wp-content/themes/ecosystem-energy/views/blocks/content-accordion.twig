@@ -1,8 +1,11 @@
-<div class="content-accordion-ctn js-accordion">
-    <p class="title">{{ fields["title"] }}</p>
-    <div class="inner">
-        <div>
-            {{fields["content"]}}
-        </div>
-    </div>
+<div class="content-accordion-ctn">
+  <div class="title">
+    {{ fields.title }}
+    <i class="icon-filter plus"></i>
+    <i class="icon-close-small minus"></i>
+  </div>
+
+  <div class="content">
+    {{ fields.content }}
+  </div>
 </div>

@@ -1,0 +1,14 @@
+.content-key-data-ctn {
+  @include flex(center, space-between);
+  background-color: $lightgrey;
+  margin-bottom: 30px;
+  padding: 35px 30px;
+
+  .title {
+    @include fontSize(22, 30);
+  }
+
+  .value {
+    @include fontSize(35, 48, 500);
+  }
+}

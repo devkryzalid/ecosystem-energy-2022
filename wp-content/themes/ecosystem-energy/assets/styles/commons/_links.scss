@@ -1,179 +1,51 @@
 // Common
 a.link {
+  position: relative;
   display: inline-block;
+  margin-right: 10px;
   @include fontSize(19, 26, 600);
   color: $textColor;
   cursor: pointer;
 
   &::after,
   &::before {
-    // display: inline-block;
-    // position: relative;
-    // top: 0;
-    // left: 10px;
-    // content: none;
-    // font-family: 'icomoon' !important;
-    // font-size: 12px;
+    position: relative;
+    @extend .icomoon;
+    @include fontSize(15, 20, 400);
+    margin-left: 6px;
     color: $yellow;
     // transition: $linkTransition;
   }
 
-  // &::before {
-    // right: 10px;
-    // left: auto;
-  // }
-
-  // &:hover,
-  // &:hover::after,
-  // &:hover::before {
-    // color: $dark-red;
-  // }
+  &:hover,
+  &:hover::after,
+  &:hover::before {
+    color: $yellow;
+  }
 
   // ----- Specific link types
 
-  // Right-arrow link
-  // &.arrow {
-  //   margin-right: 10px;
+  &.internal {
+    &::after {
+      content: "\e903";
+    }
+  }
 
-  //   &::after {
-  //     content: "\e902";
-  //   }
+  &.external {
+    &::after {
+      content: "\e908";
+    }
+  }
 
-  //   &:hover::after {
-  //     left: 15px;
-  //   }
-  // }
+  &.download {
+    &::after {
+      content: "\e909";
+    }
+  }
 
-  // // Left-arrow link
-  // &.back {
-  //   margin-left: 10px;
-
-  //   &::before {
-  //     content: "\e901";
-  //   }
-
-  //   &:hover::before {
-  //     right: 15px;
-  //   }
-  // }
-
-  // // External link
-  // &.external {
-  //   &::after {
-  //     top: 3px;
-  //     content: "\e90c";
-  //     font-size: 20px;
-  //   }
-  // }
-
-  // // Download link
-  // &.download {
-  //   &::after {
-  //     content: "\e90a";
-  //     font-size: 20px;
-  //   }
-
-  //   &:hover::after {
-  //     top: 3px;
-  //   }
-  // }
-
-  // // Blue link with right arrow on yellow background, inverted on hover
-  // &.cta {
-  //   @extend a.link.arrow;
-  //   background-color: $yellow;
-  //   text-transform: none;
-  //   color: $primaryColor;
-
-  //   &::after {
-  //     color: $primaryColor;
-  //   }
-
-  //   &:hover {
-  //     background-color: $primaryColor;
-  //     color: $yellow;
-
-  //     &::after {
-  //       color: $yellow;
-  //     }
-  //   }
-  // }
-
-  // // Yellow link with right arrow
-  // &.banner {
-  //   @extend a.link.arrow;
-  //   color: $yellow;
-
-  //   &::after {
-  //     color: $yellow;
-  //   }
-
-  //   &:hover {
-  //     color: $yellow;
-
-  //     &::after {
-  //       color: $yellow;
-  //     }
-  //   }
-  // }
-
-  // // Square link with up arrow
-  // &.scroll {
-  //   width: 50px;
-  //   height: 50px;
-  //   background-color: #DCDEE5;
-
-  //   &::after {
-  //     top: 16px;
-  //     left: 14px;
-  //     content: "\e903";
-  //     color: $red;
-  //     font-size: 30px;
-  //   }
-
-  //   &:hover {
-  //     background-color: $dark-red;
-
-  //     &::after {
-  //       top: 12px;
-  //       color: white;
-  //     }
-  //   }
-  // }
-
-  // // Small grey link
-  // &.small {
-  //   @include fontSize(14, 16, 500);
-  //   color: $dark-grey;
-
-  //   &:hover,
-  //   &:hover::after {
-  //     color: $dark-red;
-  //   }
-  // }
-
-  // // Small grey link with down caret
-  // &.anchor {
-  //   @extend a.link.small;
-
-  //   &::after {
-  //     content: "\e900";
-  //     color: $red;
-  //   }
-
-  //   &:hover::after {
-  //     top: 4px;
-  //   }
-  // }
-
-  // &.disabled {
-  //   color: $grey;
-  //   cursor: default;
-
-  //   &::after,
-  //   &:hover,
-  //   &:hover::after {
-  //     color: $grey;
-  //   }
-  // }
+  &.video {
+    &::after {
+      content: "\e907";
+    }
+  }
 }

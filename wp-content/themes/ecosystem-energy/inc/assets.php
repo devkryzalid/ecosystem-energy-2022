@@ -48,6 +48,6 @@ function be_gutenberg_scripts() {
  * Registers an editor stylesheet for the theme.
  */
 function wpdocs_theme_add_editor_styles() {
-	wp_enqueue_style( 'site-admin-style', get_template_directory_uri() . '/editor-style.css', array() );
+	wp_enqueue_style( 'site-admin-style', get_template_directory_uri() . '/dist/styles/editor.css', array() );
 }
 add_action('enqueue_block_editor_assets', 'wpdocs_theme_add_editor_styles');

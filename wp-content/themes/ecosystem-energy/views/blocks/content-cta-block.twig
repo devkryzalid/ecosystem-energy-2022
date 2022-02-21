@@ -1,0 +1,11 @@
+<div class="cta-block">
+  <div class="image">
+    <img src="{{ fields.image.url }}" alt="{{ fields.image.title }}" />
+  </div>
+
+  <div class="content">
+    <h3 class="title">{{ fields.title }}</h3>
+    <div class="description">{{ fields.text }}</div>
+    {% if fields.link %}<a class="internal link" href="{{ fields.link.url }}">Link to page</a>{% endif %}
+  </div>
+</div>

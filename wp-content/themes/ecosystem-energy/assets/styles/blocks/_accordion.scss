@@ -1,0 +1,30 @@
+.content-accordion-ctn {
+  margin-bottom: 30px;
+  background-color: $lightgrey;
+  overflow: hidden;
+  transition: $basicTransition;
+
+  .title { 
+    position: relative;
+    padding: 30px 40px;
+    @include fontSize(22, 34, 600);
+    cursor: pointer;
+  }
+
+  .content {
+    padding: 30px 40px 75px 40px;
+  }
+
+  i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 30px 40px;
+    &.minus { display: none; }
+  }
+
+  &.open {
+    .plus { display: none; }
+    .minus { display: block; }
+  }
+}

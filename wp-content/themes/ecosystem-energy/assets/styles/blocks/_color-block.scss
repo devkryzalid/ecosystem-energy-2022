@@ -1,0 +1,18 @@
+.color-block {
+  margin-bottom: 80px;
+  padding: 60px 65px;
+
+  &.yellow {
+    background-color: $yellow;
+  }
+
+  &.blue {
+    background-color: $blue;
+    color: white;
+  }
+}
+
+.wp-block-columns .color-block {
+  padding-right: 30px;
+  padding-left: 30px;
+}

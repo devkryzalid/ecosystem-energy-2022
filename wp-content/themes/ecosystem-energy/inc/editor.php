@@ -21,6 +21,7 @@ function gutenberg_allowed_block_types( $allowed_blocks ) {
 		'core/paragraph',
 		'core/heading',
 		'core/list',
+		'core/columns',
 		'core/gallery',
 		'core/list',
 		'core/quote',
@@ -32,7 +33,7 @@ function gutenberg_allowed_block_types( $allowed_blocks ) {
 		'core/freeform',
 		'core/html',
 		'core/preformatted',
-		'core/buttons',
+		// 'core/buttons',
 		'core/text-columns',
 		'core/media-text',
 		'core/separator',
@@ -40,8 +41,14 @@ function gutenberg_allowed_block_types( $allowed_blocks ) {
 		'core/spacer',
 		'core/shortcode',
 
-		'acf/slider',
 		'acf/accordion',
+		'acf/button',
+		'acf/color-block',
+		'acf/cta-block',
+		'acf/key-data',
+		'acf/link',
+		'acf/slider',
+		'acf/slider-multiple',
 
 	);
 }

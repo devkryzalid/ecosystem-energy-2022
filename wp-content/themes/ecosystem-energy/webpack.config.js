@@ -21,7 +21,7 @@ const pages = require('glob')
 module.exports = {
   entry: {
     'app': ['./assets/scripts/main.js', './assets/styles/main.scss'],
-    'editor': './assets/scripts/editor.js',
+    'editor': ['./assets/scripts/editor.js', './assets/styles/editor.scss'],
     ...pages
   },
   output: {

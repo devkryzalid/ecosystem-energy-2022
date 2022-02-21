@@ -68,6 +68,11 @@ a {
   transition: $basicTransition;
 }
 
+hr {
+  margin: 75px 0;
+  color: rgba($darkgrey, 0.2);
+}
+
 // Page overrides
 .page-container.grey {
   background-color: $lightgrey;
@@ -75,6 +80,10 @@ a {
 
 .page {
   padding-top: $header-height;
+}
+
+.icomoon {
+  font-family: 'icomoon' !important;
 }
 
 #wpadminbar { display: none !important; }
