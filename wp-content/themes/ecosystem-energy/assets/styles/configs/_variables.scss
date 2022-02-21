@@ -1,9 +1,9 @@
 // Colors
-$blue: #242C3E;
-$altblue: #2A3244;
-$yellow: #FAB900;
-$darkgrey: #494843;
-$lightgrey: #F6F6F4;
+$blue: #242C3E;       // Regular blue
+$altblue: #2A3244;    // Used in menu
+$yellow: #FAB900;     // Regular yellow
+$darkgrey: #494843;   // Mostly text color
+$lightgrey: #F6F6F4;  // Page background color
 
 $textColor: $darkgrey;
 $borderColor: rgba($darkgrey, 0.2);
@@ -23,4 +23,5 @@ $mobile: 425px;
 $xs-mobile: 320px;
 
 //
-$header-height: 90px;
+$upper-header-height: 90px;
+$header-height: 125px;

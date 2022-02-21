@@ -3,28 +3,39 @@
   {# SEARCH FIELD #}
   <div id="search-pane">
     <input type="text" placeholder="Search..." />
-    <a id="search-close">CLOSE</a>
+    <a id="search-close"><i class="icon-close-medium"></i></a>
   </div>
 
   {# COUNTRY SELECTOR #}
   <div id="country-pane">
-    <p>Blablabla</p>
-    
-    <label for="">Canada
-      <input type="radio" name="country" value="canada" />
-    </label>
-    
-    <label for="">US
-      <input type="radio" name="country" value="us" />
-    </label>
+    <p>To read the appropriate content, please select your country :</p>
+
+    <div class="countries">
+      <label for="country-all">
+        <input id="country-all" type="radio" name="country" value="all" />
+        All
+      </label>
+      
+      <label for="country-canada">
+        <input id="country-canada" type="radio" name="country" value="canada" />
+        Canada
+      </label>
+      
+      <label for="country-us">
+        <input id="country-us" type="radio" name="country" value="us" />
+        US
+      </label>
+    </div>
 
     <a id="country-set" class="blue btn">Confirm</a>
-    <a id="country-close">CLOSE</a>
+    <a id="country-close"><i class="icon-close-medium"></i></a>
   </div>
 
   {# LOGO AND TOP NAV #}
   <div id="main-pane" class="show">
-    <div id="logo"></div>
+    <a id="logo" href="/">
+      <img src="{{ theme.link }}/assets/images/logos/logo-ecosystem.svg" alt="">
+    </a>
 
     <nav id="top-menu">
       <a id="country-toggle"><i class="icon-position-pin"></i> CANADA</a>
@@ -37,6 +48,7 @@
     </nav>
   </div>
 
+  {# MAIN MENU #}
   {% include 'partials/menu.twig' with { items: menu_primary.items } %}
 
 </header>
