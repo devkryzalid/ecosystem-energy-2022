@@ -15,6 +15,7 @@ $context['home_hero']      = $timber_post->meta('home-hero');
 $context['sectors']        = $timber_post->meta('sectors');
 $context['featured_block'] = $timber_post->meta('featured-block');
 $context['career_block']   = $timber_post->meta('career-block');
+$locales = empty($params['locale']) ? $context['current_locale'] : $params['locale'];
 
 // Get Industries
 $context['industries'] = new Timber\PostQuery([
@@ -26,25 +27,45 @@ $context['industries'] = new Timber\PostQuery([
    'posts_per_page'  => 6,
 ]);
 
-// Get last news
-$context['news'] = new Timber\PostQuery([
-   'post_type'       => 'news',
-   'post_status'     => 'publish',
-   'orderby'         => 'publish_date',
-   'order'           => 'DESC',
-   'suppress_filter' => true,
-   'posts_per_page'  => 1,
-]);
+// Get last news args
+$newsArgs = [
+    'post_type'       => 'news',
+    'post_status'     => 'publish',
+    'orderby'         => 'publish_date',
+    'order'           => 'DESC',
+    'suppress_filter' => true,
+    'posts_per_page'  => 1,
+];
 
-// Get perspective
-$context['perspective'] = new Timber\PostQuery([
-   'post_type'       => 'post',
-   'post_status'     => 'publish',
-   'orderby'         => 'publish_date',
-   'order'           => 'DESC',
-   'suppress_filter' => true,
-   'posts_per_page'  => 1,
-]);
+
+// Get perspective args
+$perspecArgs = [
+    'post_type'       => 'post',
+    'post_status'     => 'publish',
+    'orderby'         => 'publish_date',
+    'order'           => 'DESC',
+    'suppress_filter' => true,
+    'posts_per_page'  => 1,
+];
+
+// Filter news and perspective by local
+if (!empty($locales) && $locales != '' && $locales != 'n/a') {
+    $localesTab = explode(',', $locales);
+    $newsArgs['tax_query'][] = [
+        'taxonomy' => 'localization',
+        'field'    => 'term_id',
+        'terms'    => $localesTab
+    ];
+    $perspecArgs['tax_query'][] = [
+        'taxonomy' => 'localization',
+        'field'    => 'term_id',
+        'terms'    => $localesTab
+    ];
+}
+
+// Get last news and perspective
+$context['news'] = new Timber\PostQuery($newsArgs);
+$context['perspective'] = new Timber\PostQuery($perspecArgs);
 
 // Get Case studies
 $caseStudies = [];
@@ -72,5 +93,6 @@ foreach ($context['industries'] as $industry) {
         array_push($caseStudies, ['case_study' => $caseStudy[0], 'industry' => $industry->title]);
     }
 }
+
 $context['case_studies'] = $caseStudies;
 Timber::render( array( 'pages/front-page.twig' ), $context );
