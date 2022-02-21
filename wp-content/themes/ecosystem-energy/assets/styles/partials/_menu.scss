@@ -29,7 +29,7 @@ $text-open-transition-delay: 0ms;
   width: 100%;
   height: 100vh;
   background-color: $altblue;
-  z-index: 700;
+  z-index: 100;
   transition: $menu-transition;
   transition-delay: $menu-transition-delay;
 
@@ -45,6 +45,7 @@ $text-open-transition-delay: 0ms;
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
+    opacity: 0.25;
     z-index: 1;
     transition: $image-transition;
     transition-delay: $image-transition-delay;

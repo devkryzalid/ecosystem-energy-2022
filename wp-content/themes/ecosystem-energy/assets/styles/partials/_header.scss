@@ -103,8 +103,14 @@
     @include flex();
     height: $header-height;
     padding: 0 40px;
+    background-color: white;
     transition: $basicTransition;
     overflow: hidden;
+
+    #logo { 
+      z-index: 120; 
+      img.invert { display: none; }
+    }
 
     #top-menu {
       position: relative;
@@ -149,7 +155,13 @@
 
 // White links when menu is open
 body.menu-open #header {
-  a { color: white; }
+  a, a i { color: white; }
+
+  // Switch logo version when menu is open
+  #main-pane #logo { 
+    img.normal { display: none; }
+    img.invert { display: block; }
+  }
 
   // Turn menu burger icon into X
   #menu-toggle {
@@ -165,10 +177,10 @@ body.menu-open #header {
 }
 
 // Global page color modifiers
-.page-container.grey #header {
+.page-container.grey #header #main-pane {
   background-color: $lightgrey;
 }
-.page-container.blue-head #header {
+.page-container.blue-head #header #main-pane {
   background-color: $blue;
-  a { color: white; }
+  a, a i { color: white; }
 }
