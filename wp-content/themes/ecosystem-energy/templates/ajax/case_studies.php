@@ -7,7 +7,7 @@ $paged      = empty($params['paged']) ? 1 : $params['paged'];
 $industries = empty($params['industries']) ? [] : $params['industries'];
 $featured   = empty($params['featured']) ? '' : $params['featured'];
 $context = Timber::context();
-$locales = empty($params['locale']) ? $context['current_locale'] : $params['locale'];
+$locales = empty($params['filter_locale']) ? $context['current_locale'] : $params['filter_locale'];
 
 $args = [
    'post_type'       => 'case_study',

@@ -6,7 +6,7 @@ $limit  = empty($params['limit']) ? 9 : $params['limit'];
 $paged  = empty($params['page']) ? 1 : $params['page'];
 
 $context = Timber::context();
-$locale = empty($params['locale']) ? $context['current_locale'] : $params['locale'];
+$locale = empty($params['filter_locale']) ? $context['current_locale'] : $params['filter_locale'];
 
 $args = [
     'post_type'       => 'news',

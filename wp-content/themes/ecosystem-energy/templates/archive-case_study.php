@@ -11,7 +11,7 @@ $context = Timber::context();
 
 $limit      = empty($_GET['limit']) ? 9 : $_GET['limit'];
 $paged      = empty($_GET['paged']) ? 1 : $_GET['paged'];
-$locales    = empty($_GET['locale']) ? $context['current_locale'] : $_GET['locale'];
+$locales    = empty($_GET['filter_locale']) ? $context['current_locale'] : $_GET['filter_locale'];
 $industries = empty($_GET['industries']) ? [] : $_GET['industries'];
 $featured   = empty($_GET['featured']) ? [] : $_GET['featured'];
 

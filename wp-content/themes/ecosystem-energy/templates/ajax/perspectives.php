@@ -7,7 +7,7 @@ $paged      = empty($params['paged']) ? 1 : $params['paged'];
 $categories = empty($params['category']) ? [] : $params['category'];
 
 $context = Timber::context();
-$locales    = empty($params['locale']) ?  $context['current_locale']  : $params['locale'];
+$locales    = empty($params['filter_locale']) ?  $context['current_locale']  : $params['filter_locale'];
 
 /**
  * Query arguments

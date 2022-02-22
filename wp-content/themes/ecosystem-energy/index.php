@@ -10,7 +10,7 @@ $context = Timber::context();
 $limit      = empty($_GET['limit']) ? 10 : $_GET['limit'];
 $paged      = empty($_GET['paged']) ? 1 : $_GET['paged'];
 // Locale filter
-$locales    = empty($_GET['locale']) ? $context['current_locale'] : $_GET['locale'];
+$locales    = empty($_GET['filter_locale']) ? $context['current_locale'] : $_GET['filter_locale'];
 $categories = empty($_GET['category']) ? [] : $_GET['category'];
 
 $timber_post = new Timber\Post();
@@ -32,7 +32,7 @@ $args = [
 ];
 
 // Get locales
-$context['locales'] = get_terms( [ 'taxonomy' => 'localization' ] );
+// $context['locales'] = get_terms( [ 'taxonomy' => 'localization' ] );
 // Get category
 $context['categories'] = get_terms( [ 'taxonomy' => 'category' ] );
 // Get industries tax

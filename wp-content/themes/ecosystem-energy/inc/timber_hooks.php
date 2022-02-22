@@ -19,6 +19,7 @@ function add_to_context( $context ) {
 	$context['static_links']    = get_field('static_links', 'options');
 	$context['current_lang']    = ICL_LANGUAGE_CODE;
 	$context['current_locale']  = !empty($_COOKIE['es_current_locale']) ? $_COOKIE['es_current_locale'] : 'n/a';
+	$context['locales'] 			 = get_terms( [ 'taxonomy' => 'localization' ] );
 
 	/*
      * Create a custom breadcrumb

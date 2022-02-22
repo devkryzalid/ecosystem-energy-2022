@@ -15,7 +15,7 @@ $context['home_hero']      = $timber_post->meta('home-hero');
 $context['sectors']        = $timber_post->meta('sectors');
 $context['featured_block'] = $timber_post->meta('featured-block');
 $context['career_block']   = $timber_post->meta('career-block');
-$locales = empty($params['locale']) ? $context['current_locale'] : $params['locale'];
+$locales = empty($params['filter_locale']) ? $context['current_locale'] : $params['filter_locale'];
 
 // Get Industries
 $context['industries'] = new Timber\PostQuery([
