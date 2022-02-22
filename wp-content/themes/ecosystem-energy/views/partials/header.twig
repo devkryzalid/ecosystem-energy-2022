@@ -7,29 +7,37 @@
   </div>
 
   {# COUNTRY SELECTOR #}
-  <div id="country-pane">
+  <form id="country-pane" method="GET">
     <p>To read the appropriate content, please select your country :</p>
 
     <div class="countries">
+    {{ dump(current_locale) }}
       <label for="country-all">
-        <input id="country-all" type="radio" name="country" value="all" />
+        <input id="country-all" type="radio" name="set_locale" value="-1" />
         All
       </label>
+
+      {% for locale in locales %}
+        <label for="country-{{ locale.term_id }}">
+          <input id="country-{{ locale.term_id }}" type="radio" name="set_locale" value="{{ locale.term_id }}" />
+          {{ locale.name }}
+        </label>
+      {% endfor %}
       
-      <label for="country-canada">
-        <input id="country-canada" type="radio" name="country" value="canada" />
+      {# <label for="country-canada">
+        <input id="country-canada" type="radio" name="filter_locale" value="canada" />
         Canada
       </label>
       
       <label for="country-us">
-        <input id="country-us" type="radio" name="country" value="us" />
+        <input id="country-us" type="radio" name="filter_locale" value="us" />
         US
-      </label>
+      </label> #}
     </div>
 
-    <a id="country-set" class="blue btn">Confirm</a>
+    <button type="submit" id="country-set" class="blue btn">Confirm</button>
     <a id="country-close"><i class="icon-close-medium"></i></a>
-  </div>
+  </form>
 
   {# LOGO AND TOP NAV #}
   <div id="main-pane" class="show">

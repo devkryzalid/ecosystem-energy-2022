@@ -2247,8 +2247,8 @@ h1 {
   font-size: 62px;
   font-size: 3.875rem;
   font-weight: 600;
-  line-height: 50px;
-  line-height: 3.125rem;
+  line-height: 70px;
+  line-height: 4.375rem;
   letter-spacing: -0.89px;
 }
 
@@ -2894,6 +2894,7 @@ h3 {
   min-height: 57px;
   padding: 10px 55px;
   background-color: #FAB900;
+  border: 0px none;
   border-radius: 28.5px;
   font-size: 20px;
   font-size: 1.25rem;
@@ -3890,4 +3891,25 @@ body.menu-open #header #menu-toggle:hover span {
 .home-hero .text-ctn img {
   width: 100%;
   opacity: 0.1;
+}
+
+.post-hero-ctn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.post-hero-ctn > div {
+  flex-basis: 50%;
+}
+.post-hero-ctn .image-ctn img {
+  width: 100%;
+}
+.post-hero-ctn .content-ctn {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 100px;
 }
