@@ -7,6 +7,7 @@ use WPML\TM\Jobs\Utils\ElementLink;
 use WPML\FP\Obj;
 use WPML\TM\ATE\Review\ReviewStatus;
 use WPML\FP\Lst;
+use WPML\Element\API\Languages;
 
 /**
  * Created by OnTheGo Systems
@@ -72,6 +73,7 @@ class WPML_Translations_Queue_Jobs_Model {
 		$model['jobs'] = array();
 
 		foreach ( $this->translation_jobs as $job ) {
+			$job = $this->map_base_fields( $job );
 
 			// Show the job as "In progress" if the job was already translated and
 			// the translator then clicks edit and
@@ -93,10 +95,47 @@ class WPML_Translations_Queue_Jobs_Model {
 			$job->resignUrl    = $this->get_resign_url( $job );
 			$job->viewLink     = ReviewStatus::doesJobNeedReview( $job ) ? PreviewLink::getByJob( $job ) : $this->get_view_translation_link( $job );
 
+			$job->lang_text_with_flags = $this->get_language_pair( $job );
+
 			$model['jobs'][] = $job;
 		}
 
 		return $model;
+	}
+
+	/**
+	 * @param WPML_TM_Post_Job_Entity $job
+	 *
+	 * @return \stdClass
+	 */
+	private function map_base_fields( $job ) {
+		return (object) [
+			'job_id'               => (int) $job->get_translate_job_id(),
+			'batch_id'             => (int) $job->get_batch()->get_id(),
+			'element_type_prefix'  => explode( '_', $job->get_element_type() )[0],
+			'rid'                  => $job->get_rid(),
+			'translator_id'        => $job->get_translator_id(),
+			'translation_id'       => 'Missing - but perhaps is not needed',
+			'translated'           => $job->has_completed_translation(),
+			'manager_id'           => 'Missing - but perhaps is not needed',
+			'status'               => $job->get_status(),
+			'review_status'        => $job->get_review_status(),
+			'needs_update'         => $job->does_need_update(),
+			'translation_service'  => $job->get_translation_service(),
+			'ate_comm_retry_count' => 'Missing: perhaps not needed',
+			'trid'                 => $job->get_trid(),
+			'language_code'        => $job->get_target_language(),
+			'source_language_code' => $job->get_source_language(),
+			'original_doc_id'      => $job->get_original_element_id(),
+			'original_post_type'   => $job->get_element_type(),
+			'title'                => $job->get_job_title(),
+			'deadline_date'        => $job->get_deadline() ? $job->get_deadline()->format( 'Y-m-d H:i:s' ) : null,
+			'completed_date'       => $job->get_completed_date() ? $job->get_completed_date()->format( 'Y-m-d H:i:s' ) : null,
+			'editor'               => $job->get_editor(),
+			'editor_job_id'        => $job->get_editor_job_id(),
+			'automatic'            => $job->is_automatic(),
+			'post_title'           => $job->get_job_title(),
+		];
 	}
 
 	private function get_post_link( $job ) {
@@ -191,6 +230,36 @@ class WPML_Translations_Queue_Jobs_Model {
 		                  . $job->job_id );
 	}
 
+	/**
+	 * It outputs the HTML for displaying a language pair
+	 *
+	 * @param \stdClass $job
+	 *
+	 * @return string
+	 */
+	private function get_language_pair( $job ) {
+		global $sitepress;
+
+		$source = Languages::getLanguageDetails( $job->source_language_code );
+		$target = Languages::getLanguageDetails( $job->language_code );
+
+		$source_flag_image = $sitepress->get_flag_img( $job->source_language_code ) ?: '';
+		$target_flag_image = $sitepress->get_flag_img( $job->language_code ) ?: '';
+
+		$getName     = Obj::propOr( '', 'display_name' );
+		$source_name = $getName( $source );
+		$target_name = $getName( $target );
+
+		return <<<LANG_WITH_FLAG
+<span class="wpml-lang-with-flag">
+	<span class="wpml-title-flag js-otgs-popover-tooltip" title="$source_name">$source_flag_image</span><span class="wpml-lang-name">$source_name</span>
+</span>
+&raquo;
+<span class="wpml-lang-with-flag">
+	<span class="wpml-title-flag js-otgs-popover-tooltip" title="$target_name">$target_flag_image</span><span class="wpml-lang-name">$target_name</span>
+</span>
+LANG_WITH_FLAG;
+	}
 }
 
 

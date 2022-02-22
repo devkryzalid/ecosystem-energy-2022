@@ -67,16 +67,11 @@ class Loader implements \IWPML_Backend_Action {
 	}
 
 	public static function getData() {
-		$jobs = Jobs::getJobsWithStatus( [
+		$jobsToSync = Jobs::getJobsWithStatus( [
 			ICL_TM_WAITING_FOR_TRANSLATOR,
 			ICL_TM_IN_PROGRESS,
-			ICL_TM_COMPLETE,
 			ICL_TM_ATE_NEEDS_RETRY
 		] );
-		$jobsToSync = Fns::filter( Logic::complement( Logic::anyPass( [
-			ReviewStatus::doesJobNeedReview(),
-			Relation::propEq( 'status', ICL_TM_COMPLETE )
-		] ) ), $jobs );
 
 		$ateTab = admin_url( UIPage::getTMATE() );
 
@@ -91,7 +86,7 @@ class Loader implements \IWPML_Backend_Action {
 
 				'jobsToSync'       => $jobsToSync,
 				'totalJobsCount'   => Jobs::getTotal(),
-				'needsReviewCount' => count( Fns::filter( ReviewStatus::doesJobNeedReview(), $jobs ) ),
+				'needsReviewCount' => count( Jobs::getJobsWithStatus( [ ICL_TM_NEEDS_REVIEW ] ) ),
 
 				'shouldTranslateEverything' => Option::shouldTranslateEverything() && ! TranslateEverything::isEverythingProcessed( true ),
 
@@ -107,16 +102,6 @@ class Loader implements \IWPML_Backend_Action {
 		];
 	}
 
-	public static function getOnlyJobsCompletedInATE( $jobsToSync ) {
-		$isCompletedButNotDownloaded = pipe(
-			Obj::prop( 'jobId' ),
-			[ ReturnedJobsQueue::class, 'getStatus' ],
-			Relation::equals( ReturnedJobsQueue::STATUS_COMPLETED )
-		);
-
-		return Fns::filter( $isCompletedButNotDownloaded, $jobsToSync );
-	}
-
 	/**
 	 * @return bool
 	 */
@@ -125,8 +110,6 @@ class Loader implements \IWPML_Backend_Action {
 	}
 
 	/**
-	 * @param string $ateTab
-	 *
 	 * @return string
 	 */
 	public static function getNotEnoughCreditPopup() {

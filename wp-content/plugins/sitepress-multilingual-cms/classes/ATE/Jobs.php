@@ -8,6 +8,7 @@ use WPML\FP\Cast;
 use WPML\FP\Fns;
 use WPML\FP\Lst;
 use WPML\FP\Obj;
+use WPML\TM\ATE\Review\ReviewStatus;
 
 class Jobs {
 	const LONGSTANDING_AT_ATE_SYNC_COUNT = 100;
@@ -24,6 +25,12 @@ class Jobs {
 
 		global $wpdb;
 
+		$needsReviewCondition = '1=0';
+		if ( Lst::includes( ICL_TM_NEEDS_REVIEW, $statuses ) ) {
+			$reviewStatuses             = wpml_prepare_in( [ ReviewStatus::NEEDS_REVIEW, ReviewStatus::EDITING ], '%d' );
+			$needsReviewCondition = 'translation_status.review_status IN ( ' . $reviewStatuses . ' )';
+		}
+
 		$statuses  = \wpml_prepare_in( $statuses, '%d' );
 		$languages = \wpml_prepare_in( Lst::pluck( 'code', Languages::getActive() ) );
 
@@ -35,8 +42,8 @@ class Jobs {
 			LEFT JOIN {$wpdb->prefix}icl_translations translations ON translation_status.translation_id = translations.translation_id 
 			WHERE 
 				jobs.editor = %s 
-				AND translation_status.status IN ({$statuses})
-				AND translations.language_code IN ({$languages})
+				AND ( translation_status.status IN ({$statuses}) OR $needsReviewCondition )
+				AND translations.language_code IN ({$languages})				
 			GROUP BY jobs.rid;
 		";
 

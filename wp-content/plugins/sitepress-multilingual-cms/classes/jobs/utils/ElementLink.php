@@ -24,7 +24,7 @@ class ElementLink {
 	 *
 	 * @return string
 	 */
-	public function getOriginal( stdClass $job ) {
+	public function getOriginal( $job ) {
 		return $this->get( $job, __( 'View original', 'wpml-translation-management' ) );
 	}
 
@@ -33,7 +33,7 @@ class ElementLink {
 	 *
 	 * @return string
 	 */
-	public function getTranslation( stdClass $job ) {
+	public function getTranslation( $job ) {
 		if ( $this->isExternalType( $job->element_type_prefix ) ) {
 			return '';
 		}
@@ -54,7 +54,7 @@ class ElementLink {
 	 *
 	 * @return mixed|string|void
 	 */
-	private function get( stdClass $job, $viewText, $elementId = null ) {
+	private function get( $job, $viewText, $elementId = null ) {
 		$elementId   = $elementId ?: $job->original_doc_id;
 		$elementType = preg_replace( '/^' . $job->element_type_prefix . '_/', '', $job->original_post_type );
 

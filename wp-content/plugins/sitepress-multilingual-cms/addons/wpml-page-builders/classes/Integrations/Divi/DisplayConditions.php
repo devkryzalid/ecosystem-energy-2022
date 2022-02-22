@@ -4,6 +4,7 @@ namespace WPML\Compatibility\Divi;
 
 use WPML\LIB\WP\Hooks;
 use function WPML\FP\spreadArgs;
+use WPML\FP\Obj;
 
 class DisplayConditions implements \IWPML_Frontend_Action {
 
@@ -19,8 +20,9 @@ class DisplayConditions implements \IWPML_Frontend_Action {
 	 * @return array
 	 */
 	public function translateAttributes( $atts ) {
-
-		if ( $atts['display_conditions'] && self::BASE64_EMPTY_ARRAY !== $atts['display_conditions'] ) {
+		$displayConditions = Obj::prop( 'display_conditions', $atts );
+		
+		if ( $displayConditions && self::BASE64_EMPTY_ARRAY !== $displayConditions ) {
 			/* phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode */
 			$conditions = json_decode( base64_decode( $atts['display_conditions'] ), true );
 

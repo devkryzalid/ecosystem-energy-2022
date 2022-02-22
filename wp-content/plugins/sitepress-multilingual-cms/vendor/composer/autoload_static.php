@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitaf57ef99cae86acd3c05ea3557a4fc5f
+class ComposerStaticInitf28b76aece0d38fb79d6caadcf375af9
 {
     public static $files = array (
         '5f5b8f7c1db2e892006e8805f0ed573c' => __DIR__ . '/..' . '/wpml/collect/src/Illuminate/Support/helpers.php',
@@ -126,6 +126,7 @@ class ComposerStaticInitaf57ef99cae86acd3c05ea3557a4fc5f
         'TranslationProxy_Translator' => __DIR__ . '/../..' . '/inc/translation-proxy/translationproxy-translator.class.php',
         'WPMLTranslationProxyApiException' => __DIR__ . '/../..' . '/classes/translation-proxy/api/class-wpml-translation-proxy-api-exception.php',
         'WPML\\API\\PostTypes' => __DIR__ . '/..' . '/wpml/core-api/core/PostTypes.php',
+        'WPML\\API\\Sanitize' => __DIR__ . '/..' . '/wpml/core-api/core/Sanitize.php',
         'WPML\\API\\Settings' => __DIR__ . '/..' . '/wpml/core-api/core/Settings.php',
         'WPML\\API\\Version' => __DIR__ . '/..' . '/wpml/core-api/core/Version.php',
         'WPML\\ATE\\Proxies\\Widget' => __DIR__ . '/../..' . '/classes/ATE/proxies/Widget.php',
@@ -764,6 +765,7 @@ class ComposerStaticInitaf57ef99cae86acd3c05ea3557a4fc5f
         'WPML\\TM\\Menu\\TranslationBasket\\Utility' => __DIR__ . '/../..' . '/classes/menu/translation-basket/Utility.php',
         'WPML\\TM\\Menu\\TranslationMethod\\TranslationMethodSettings' => __DIR__ . '/../..' . '/classes/menu/translation-method/TranslationMethodSettings.php',
         'WPML\\TM\\Menu\\TranslationQueue\\CloneJobs' => __DIR__ . '/../..' . '/classes/menu/translation-queue/CloneJobs.php',
+        'WPML\\TM\\Menu\\TranslationQueue\\JobsRepository' => __DIR__ . '/../..' . '/classes/menu/translation-queue/JobsRepository.php',
         'WPML\\TM\\Menu\\TranslationRoles\\RoleValidator' => __DIR__ . '/../..' . '/classes/menu/translation-roles/RoleValidator.php',
         'WPML\\TM\\Menu\\TranslationServices\\ActivationAjax' => __DIR__ . '/../..' . '/classes/menu/translation-services/ActivationAjax.php',
         'WPML\\TM\\Menu\\TranslationServices\\ActivationAjaxFactory' => __DIR__ . '/../..' . '/classes/menu/translation-services/ActivationAjaxFactory.php',
@@ -1757,7 +1759,6 @@ class ComposerStaticInitaf57ef99cae86acd3c05ea3557a4fc5f
         'WPML_Translations_Queue' => __DIR__ . '/../..' . '/classes/menu/translation-queue/class-wpml-translations-queue.php',
         'WPML_Translations_Queue_Factory' => __DIR__ . '/../..' . '/classes/menu/translation-queue/class-wpml-translations-queue-factory.php',
         'WPML_Translations_Queue_Jobs_Model' => __DIR__ . '/../..' . '/classes/menu/translation-queue/class-wpml-translations-queue-jobs-model.php',
-        'WPML_Translations_Queue_Pagination_UI' => __DIR__ . '/../..' . '/classes/menu/translation-queue/class-wpml-translations-queue-pagination-ui.php',
         'WPML_Translator' => __DIR__ . '/../..' . '/inc/translation-management/wpml-translator.class.php',
         'WPML_Translator_Admin_Records' => __DIR__ . '/../..' . '/classes/user/class-wpml-translator-admin-records.php',
         'WPML_Translator_Records' => __DIR__ . '/../..' . '/classes/user/class-wpml-translator-records.php',
@@ -1901,9 +1902,9 @@ class ComposerStaticInitaf57ef99cae86acd3c05ea3557a4fc5f
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitaf57ef99cae86acd3c05ea3557a4fc5f::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitaf57ef99cae86acd3c05ea3557a4fc5f::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitaf57ef99cae86acd3c05ea3557a4fc5f::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitf28b76aece0d38fb79d6caadcf375af9::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitf28b76aece0d38fb79d6caadcf375af9::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitf28b76aece0d38fb79d6caadcf375af9::$classMap;
 
         }, null, ClassLoader::class);
     }

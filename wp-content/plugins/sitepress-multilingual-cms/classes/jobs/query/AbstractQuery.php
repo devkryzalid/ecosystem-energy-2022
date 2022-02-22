@@ -31,41 +31,48 @@ abstract class AbstractQuery implements Query {
 
 
 	public function get_data_query( WPML_TM_Jobs_Search_Params $params ) {
-		$hasCompletedTranslationSubquery = "
+		$has_completed_translation_subquery = "
 				SELECT COUNT(job_id)
 				FROM {$this->wpdb->prefix}icl_translate_job as copmpleted_translation_job
 				WHERE copmpleted_translation_job.rid = translation_status.rid AND copmpleted_translation_job.translated = 1
 		";
 
-		$columns = array(
-			'translation_status.rid AS id',
-			"'" . $this->get_type() . "' AS type",
-			'translation_status.tp_id AS tp_id',
-			'batches.id AS local_batch_id',
-			'batches.tp_id AS tp_batch_id',
-			$this->batch_name_column,
-			'translation_status.status AS status',
-			'original_translations.element_id AS original_element_id',
-			'translations.source_language_code AS source_language',
-			'translations.language_code AS target_language',
-			'translation_status.translation_service AS translation_service',
-			'translation_status.timestamp AS sent_date',
-			'translate_job.deadline_date AS deadline_date',
-			'translate_job.completed_date AS completed_date',
-			"{$this->title_column} AS title",
-			'source_languages.english_name AS source_language_name',
-			'target_languages.english_name AS target_language_name',
-			'translate_job.translator_id AS translator_id',
-			'translate_job.job_id AS translate_job_id',
-			'translation_status.tp_revision AS revision',
-			'translation_status.ts_status AS ts_status',
-			'translation_status.needs_update AS needs_update',
-			'translate_job.editor AS editor',
-			"({$hasCompletedTranslationSubquery}) > 0 AS has_completed_translation",
-			'translate_job.editor_job_id AS editor_job_id',
-			'translate_job.automatic AS automatic',
-			'translation_status.review_status AS review_status',
-		);
+		if ( $params->get_columns_to_select() ) {
+			$columns = $params->get_columns_to_select();
+		} else {
+			$columns = [
+				'translation_status.rid AS id',
+				"'" . $this->get_type() . "' AS type",
+				'translation_status.tp_id AS tp_id',
+				'batches.id AS local_batch_id',
+				'batches.tp_id AS tp_batch_id',
+				$this->batch_name_column,
+				'translation_status.status AS status',
+				'original_translations.element_id AS original_element_id',
+				'translations.source_language_code AS source_language',
+				'translations.language_code AS target_language',
+				'translations.trid',
+				'translations.element_type',
+				'translation_status.translation_service AS translation_service',
+				'translation_status.timestamp AS sent_date',
+				'translate_job.deadline_date AS deadline_date',
+				'translate_job.completed_date AS completed_date',
+				"{$this->title_column} AS title",
+				'source_languages.english_name AS source_language_name',
+				'target_languages.english_name AS target_language_name',
+				'translate_job.translator_id AS translator_id',
+				'translate_job.job_id AS translate_job_id',
+				'translation_status.tp_revision AS revision',
+				'translation_status.ts_status AS ts_status',
+				'translation_status.needs_update AS needs_update',
+				'translate_job.editor AS editor',
+				"({$has_completed_translation_subquery}) > 0 AS has_completed_translation",
+				'translate_job.editor_job_id AS editor_job_id',
+				'translate_job.automatic AS automatic',
+				'translate_job.title AS job_title',
+				'translation_status.review_status AS review_status',
+			];
+		}
 
 		return $this->build_query( $params, $columns );
 	}
@@ -193,6 +200,8 @@ abstract class AbstractQuery implements Query {
 
 		if ( $params->needs_review() ) {
 			$query_builder->set_needs_review();
+		} elseif ( $params->needs_review() === false ) {
+			$query_builder->set_do_not_need_review();
 		}
 
 		if ( $params->should_exclude_manual() ) {
@@ -209,6 +218,16 @@ abstract class AbstractQuery implements Query {
 
 		if ( $params->exclude_hidden_jobs() ) {
 			$query_builder->set_set_excluded_jobs();
+		}
+
+		if ( $params->get_element_type() ) {
+			$query_builder->set_element_type( $params->get_element_type() );
+		}
+
+		if ( $params->get_custom_where_conditions() ) {
+			foreach ( $params->get_custom_where_conditions() as $whereCondition ) {
+				$query_builder->add_AND_where_condition( $whereCondition );
+			}
 		}
 	}
 

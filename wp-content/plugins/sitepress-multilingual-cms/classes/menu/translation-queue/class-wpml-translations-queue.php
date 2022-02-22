@@ -13,6 +13,7 @@ use WPML\TM\ATE\Review\ReviewStatus;
 use WPML\FP\Str;
 use WPML\API\PostTypes;
 use WPML\TM\Editor\Editor;
+use WPML\TM\Menu\TranslationQueue\JobsRepository;
 use function WPML\FP\pipe;
 
 class WPML_Translations_Queue {
@@ -36,6 +37,9 @@ class WPML_Translations_Queue {
 	 */
 	private $editor;
 
+	/** @var JobsRepository  */
+	private $jobs_repository;
+
 	/**
 	 * @param SitePress                      $sitepress
 	 * @param WPML_UI_Screen_Options_Factory $screen_options_factory
@@ -53,6 +57,8 @@ class WPML_Translations_Queue {
 		);
 		$this->table_sort     = $screen_options_factory->create_admin_table_sort();
 		$this->editor     = $editor;
+
+		$this->jobs_repository = new JobsRepository( wpml_tm_get_jobs_repository( true, false ) );
 	}
 
 	public function init_hooks() {
@@ -228,13 +234,12 @@ class WPML_Translations_Queue {
 				} else {
 					$lang_to                      = $this->sitepress->get_language_details( current( $_langs_to ) );
 					$icl_translation_filter['to'] = $lang_to['code'];
-				}
+
+                }
+
 				$job_types = $wpml_translation_job_factory->get_translation_job_types_filter(
-					array(),
-					array(
-						'translator_id'      => $current_translator->ID,
-						'include_unassigned' => true,
-					)
+					[],
+					[ 'translator_id' => $current_translator->ID, 'include_unassigned' => true, ]
 				);
 
 				if ( isset( $_GET['orderby'] ) ) {
@@ -251,8 +256,6 @@ class WPML_Translations_Queue {
 				) {
 					$icl_translation_filter['language_pairs'] = $current_translator->language_pairs;
 				}
-
-				$translation_jobs = $wpml_translation_job_factory->get_translation_jobs( (array) $icl_translation_filter, false, false, true );
 			}
 		}
 		?>
@@ -408,16 +411,16 @@ class WPML_Translations_Queue {
 				<form method="post" name="translation-jobs-action" action="admin.php?page=<?php echo WPML_TM_FOLDER; ?>/menu/translations-queue.php">
 
 				<?php
-				do_action( 'wpml_xliff_select_actions', $actions, 'action', $translation_jobs, $action );
-				?>
 
-				<?php
-
-				$translation_queue_pagination = new WPML_Translations_Queue_Pagination_UI(
-					$translation_jobs,
+				$translation_jobs = $this->jobs_repository->getJobs(
+					$icl_translation_filter,
+					Obj::propOr( 1, 'paged', $_GET ),
 					$this->screen_options->get_items_per_page()
 				);
-				$translation_jobs             = $translation_queue_pagination->get_paged_jobs();
+
+				do_action( 'wpml_xliff_select_actions', $actions, 'action', $translation_jobs, $action );
+
+				$translation_queue_pagination = new WPML_UI_Pagination( $this->jobs_repository->getCount( $icl_translation_filter ), $this->screen_options->get_items_per_page() );
 
 				?>
 				<?php // pagination - end ?>
@@ -518,7 +521,7 @@ class WPML_Translations_Queue {
 			</tr>
 			<?php
 		} else {
-			foreach ( $translation_jobs['jobs'] as $index => $job ) {
+			foreach ( $translation_jobs['jobs'] as $job ) {
 				?>
 				<tr<?php echo $this->get_row_css_attribute( $job ); ?>>
 					<?php if ( $has_actions ) { ?>

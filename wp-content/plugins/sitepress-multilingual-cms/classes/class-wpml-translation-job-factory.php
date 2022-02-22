@@ -2,6 +2,7 @@
 
 use \WPML\FP\Obj;
 use WPML\TM\API\Jobs;
+use WPML\TM\Menu\TranslationQueue\JobsRepository;
 
 /**
  * Class WPML_Translation_Job_Factory
@@ -287,7 +288,6 @@ class WPML_Translation_Job_Factory extends WPML_Abstract_Job_Collection {
 						$doc->ID
 					);
 				}
-				$source                                   = $sitepress->get_language_details( $language_from_code );
 				$jobs[ $job_index ]->original_doc_id      = $doc->ID;
 				$jobs[ $job_index ]->language_code_source = $language_from_code;
 			} else {
@@ -295,58 +295,13 @@ class WPML_Translation_Job_Factory extends WPML_Abstract_Job_Collection {
 				$edit_url                                 = '';
 				$jobs[ $job_index ]->original_doc_id      = 0;
 				$jobs[ $job_index ]->language_code_source = null;
-
-				$source['display_name'] = __( 'Deleted', 'wpml-translation-management' );
 			}
 
 			$jobs[ $job_index ]->post_title = $post_title;
 			$jobs[ $job_index ]->edit_link  = $edit_url;
-
-			$target = $sitepress->get_language_details( $job->language_code );
-
-			$jobs[ $job_index ]->lang_text            = $source['display_name'] . ' &raquo; ' . $target['display_name'];
-			$jobs[ $job_index ]->lang_text_with_flags = $this->get_language_pair( $source, $target );
-			$jobs[ $job_index ]->language_text_source = $source['display_name'];
-			$jobs[ $job_index ]->language_text_target = $target['display_name'];
-			$jobs[ $job_index ]->language_code_target = $job->language_code;
 		}
 
 		return $jobs;
-	}
-
-	/**
-	 * It outputs the HTML for displaying a language pair
-	 *
-	 * @param array $source The source data. Requires a `display_name` key and an optional `code` for the language code.
-	 * @param array $target The target data. Requires a `display_name` key and an optional `code` for the language code.
-	 *
-	 * @return string
-	 */
-	private function get_language_pair( array $source, array $target ) {
-		global $sitepress;
-
-		$source_flag_image = '';
-		$target_flag_image = '';
-
-		if ( array_key_exists( 'code', $source ) ) {
-			$source_flag_image = $sitepress->get_flag_img( $source['code'] );
-		}
-		if ( array_key_exists( 'code', $target ) ) {
-			$target_flag_image = $sitepress->get_flag_img( $target['code'] );
-		}
-
-		$source_name = $source['display_name'];
-		$target_name = $target['display_name'];
-
-		return <<<LANG_WITH_FLAG
-<span class="wpml-lang-with-flag">
-	<span class="wpml-title-flag js-otgs-popover-tooltip" title="$source_name">$source_flag_image</span><span class="wpml-lang-name">$source_name</span>
-</span>
-&raquo;
-<span class="wpml-lang-with-flag">
-	<span class="wpml-title-flag js-otgs-popover-tooltip" title="$target_name">$target_flag_image</span><span class="wpml-lang-name">$target_name</span>
-</span>
-LANG_WITH_FLAG;
 	}
 
 	private function retrieve_job_data( $job_ids ) {
@@ -399,50 +354,9 @@ LANG_WITH_FLAG;
 	}
 
 	public function get_translation_job_types_filter( $value, $args ) {
-		global $wpdb, $sitepress;
+		$jobsRepository = new JobsRepository( wpml_tm_get_jobs_repository( true, false ) );
 
-		$where     = $this->build_where_clause( $args );
-		$job_types = $wpdb->get_results(
-			"SELECT DISTINCT
-				    SUBSTRING_INDEX(ito.element_type, '_', 1) AS element_type_prefix,
-				    ito.element_type AS original_post_type
-                    FROM " . $this->get_table_join() . "
-                    LEFT JOIN {$wpdb->prefix}posts p
-                      ON t.element_id = p.ID
-                    LEFT JOIN {$wpdb->users} u
-                      ON s.translator_id = u.ID
-                    WHERE {$where}
-                      AND iclt.field_type = 'original_id'
-                "
-		);
-
-		$post_types = $sitepress->get_translatable_documents( true );
-		$post_types = apply_filters( 'wpml_get_translatable_types', $post_types );
-		$output     = array();
-
-		foreach ( $job_types as $job_type ) {
-			$type = $job_type->original_post_type;
-			$name = $type;
-			switch ( $job_type->element_type_prefix ) {
-				case 'post':
-					$type = substr( $type, 5 );
-					break;
-
-				case 'package':
-					$type = substr( $type, 8 );
-					break;
-
-				case 'st-batch':
-					$type = 'strings';
-					$name = __( 'Strings', 'wpml-translation-management' );
-					break;
-			}
-
-			$output[ $job_type->element_type_prefix . '_' . $type ] =
-				Obj::pathOr( $name, [ $type, 'labels', 'singular_name' ], $post_types );
-		}
-
-		return $output;
+		return $jobsRepository->getPostTypeFilters( $args );
 	}
 
 	/**
