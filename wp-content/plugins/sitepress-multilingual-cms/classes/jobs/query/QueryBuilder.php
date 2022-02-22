@@ -270,11 +270,29 @@ class QueryBuilder {
 		);
 	}
 
+	public function set_do_not_need_review() {
+		$this->add_AND_where_condition(
+			$this->wpdb->prepare(
+				'(translation_status.review_status IS NULL OR translation_status.review_status = %s)',
+				ReviewStatus::ACCEPTED
+			)
+		);
+	}
+
 	public function set_max_retries( $maxRetries ) {
 		$this->add_AND_where_condition(
 			$this->wpdb->prepare(
 				'(translation_status.ate_comm_retry_count <= %d )',
 				$maxRetries
+			)
+		);
+	}
+
+	public function set_element_type( $element_type ) {
+		$this->add_AND_where_condition(
+			$this->wpdb->prepare(
+				'(translations.element_type = %s )',
+				$element_type
 			)
 		);
 	}

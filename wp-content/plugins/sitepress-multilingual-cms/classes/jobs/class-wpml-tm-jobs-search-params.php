@@ -71,8 +71,8 @@ class WPML_TM_Jobs_Search_Params {
 	/** @var int */
 	private $original_element_id;
 
-	/** @var bool */
-	private $needs_review = false;
+	/** @var bool|null */
+	private $needs_review = null;
 
 	/** @var bool */
 	private $exclude_hidden_jobs = true;
@@ -85,6 +85,19 @@ class WPML_TM_Jobs_Search_Params {
 
 	/** @var bool */
 	private $exclude_longstanding = false;
+
+	/**
+	 * Corresponds with `wp_icl_translations.element_type` column
+	 *
+	 * @var string
+	 */
+	private $element_type;
+
+	/** @var null|array  */
+	private $columns_to_select = null;
+
+	/** @var array  */
+	private $custom_where_conditions = [];
 
 	public function __construct( array $params = array() ) {
 		if ( array_key_exists( 'limit', $params ) ) {
@@ -539,7 +552,11 @@ class WPML_TM_Jobs_Search_Params {
 	}
 
 	/**
-	 * @param bool $needs_review
+	 * If value is set to NULL then the filter is ignored
+	 * If value is true then we INCLUDE needs review jobs
+	 * If value is false then we EXCLUDE needs review jobs
+	 *
+	 * @param bool|null $needs_review
 	 */
 	public function set_needs_review( $needs_review = true ) {
 		$this->needs_review = $needs_review;
@@ -595,5 +612,59 @@ class WPML_TM_Jobs_Search_Params {
 	 */
 	public function should_exclude_longstanding() {
 		return $this->exclude_longstanding;
+	}
+
+	/**
+	 * @return array|null
+	 */
+	public function get_columns_to_select() {
+		return $this->columns_to_select;
+	}
+
+	/**
+	 * @param array|null $columns_to_select
+	 *
+	 * @retun $this
+	 */
+	public function set_columns_to_select( $columns_to_select ) {
+		$this->columns_to_select = $columns_to_select;
+
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function get_element_type() {
+		return $this->element_type;
+	}
+
+	/**
+	 * @param string $element_type
+	 *
+	 * @retrun $this
+	 */
+	public function set_element_type( $element_type ) {
+		$this->element_type = $element_type;
+
+		return $this;
+	}
+
+	/**
+	 * @return array
+	 */
+	public function get_custom_where_conditions() {
+		return $this->custom_where_conditions;
+	}
+
+	/**
+	 * @param array $custom_where_conditions
+	 *
+	 * @retun $this
+	 */
+	public function set_custom_where_conditions( $custom_where_conditions ) {
+		$this->custom_where_conditions = $custom_where_conditions;
+
+		return $this;
 	}
 }

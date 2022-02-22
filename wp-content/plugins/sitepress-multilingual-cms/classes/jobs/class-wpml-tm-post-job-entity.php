@@ -22,6 +22,15 @@ class WPML_TM_Post_Job_Entity extends WPML_TM_Job_Entity {
 	/** @var null|string  */
 	private $review_status = null;
 
+	/** @var int */
+	private $trid;
+
+	/** @var string */
+	private $element_type;
+
+	/** @var string */
+	private $job_title;
+
 	public function __construct( $id, $type, $tp_id, $batch, $status, $elements ) {
 		parent::__construct( $id, $type, $tp_id, $batch, $status );
 
@@ -145,5 +154,47 @@ class WPML_TM_Post_Job_Entity extends WPML_TM_Job_Entity {
 	 */
 	public function set_review_status( $review_status ) {
 		$this->review_status = $review_status;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function get_trid() {
+		return $this->trid;
+	}
+
+	/**
+	 * @param int $trid
+	 */
+	public function set_trid( $trid ) {
+		$this->trid = $trid;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function get_element_type() {
+		return $this->element_type;
+	}
+
+	/**
+	 * @param string $element_type
+	 */
+	public function set_element_type( $element_type ) {
+		$this->element_type = $element_type;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function get_job_title() {
+		return $this->job_title;
+	}
+
+	/**
+	 * @param string $job_title
+	 */
+	public function set_job_title( $job_title ) {
+		$this->job_title = $job_title;
 	}
 }

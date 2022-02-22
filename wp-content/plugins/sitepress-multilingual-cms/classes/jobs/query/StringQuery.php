@@ -75,6 +75,9 @@ class StringQuery implements Query {
 			'NULL AS editor_job_id',
 			'0 AS automatic',
 			'NULL AS review_status',
+			'NULL AS trid',
+			'NULL AS element_type',
+			'NULL AS job_title',
 		);
 
 		return $this->build_query( $params, $columns );

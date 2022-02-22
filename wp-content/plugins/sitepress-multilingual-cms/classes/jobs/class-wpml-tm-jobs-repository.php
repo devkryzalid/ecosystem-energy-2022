@@ -1,6 +1,7 @@
 <?php
 
 use \WPML\TM\Jobs\Query\Query;
+use WPML\FP\Fns;
 
 class WPML_TM_Jobs_Repository {
 	/** @var wpdb */
@@ -30,9 +31,13 @@ class WPML_TM_Jobs_Repository {
 	/**
 	 * @param WPML_TM_Jobs_Search_Params $params
 	 *
-	 * @return WPML_TM_Jobs_Collection
+	 * @return WPML_TM_Jobs_Collection|array
 	 */
 	public function get( WPML_TM_Jobs_Search_Params $params ) {
+		if ( $params->get_columns_to_select() ) {
+			return $this->wpdb->get_results( $this->query_builder->get_data_query( $params ) );
+		}
+
 		return new WPML_TM_Jobs_Collection( array_map(
 			array( $this, 'build_job_entity' ),
 			$this->wpdb->get_results( $this->query_builder->get_data_query( $params ) )
@@ -111,6 +116,9 @@ class WPML_TM_Jobs_Repository {
 			$job->set_editor_job_id( $raw_data->editor_job_id );
 			$job->set_automatic( $raw_data->automatic );
 			$job->set_review_status( $raw_data->review_status );
+			$job->set_trid( $raw_data->trid );
+			$job->set_element_type( $raw_data->element_type );
+			$job->set_job_title( $raw_data->job_title );
 		} else {
 			$job = new WPML_TM_Job_Entity(
 				$raw_data->id,

@@ -12,11 +12,6 @@ class WPML_TM_Jobs_Sorting_Param {
 	 * @param string $direction
 	 */
 	public function __construct( $column, $direction = 'asc' ) {
-		$sortable = WPML_TM_Rest_Jobs_Columns::get_sortable();
-		if ( ! isset( $sortable[ $column ] ) ) {
-			throw new InvalidArgumentException( "Column {$column} is not sortable." );
-		}
-
 		$direction = strtolower( $direction );
 		if ( 'asc' !== $direction && 'desc' !== $direction ) {
 			$direction = 'asc';
