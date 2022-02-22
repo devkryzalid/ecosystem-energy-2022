@@ -11,28 +11,17 @@
     <p>To read the appropriate content, please select your country :</p>
 
     <div class="countries">
-    {{ dump(current_locale) }}
       <label for="country-all">
-        <input id="country-all" type="radio" name="set_locale" value="-1" />
+        <input id="country-all" type="radio" name="set_locale" value="-1" {% if current_locale == -1 %} checked {% endif %} />
         All
       </label>
 
       {% for locale in locales %}
         <label for="country-{{ locale.term_id }}">
-          <input id="country-{{ locale.term_id }}" type="radio" name="set_locale" value="{{ locale.term_id }}" />
+          <input id="country-{{ locale.term_id }}" type="radio" name="set_locale" value="{{ locale.term_id }}" {% if current_locale == locale.term_id %} checked {% endif %} />
           {{ locale.name }}
         </label>
       {% endfor %}
-      
-      {# <label for="country-canada">
-        <input id="country-canada" type="radio" name="filter_locale" value="canada" />
-        Canada
-      </label>
-      
-      <label for="country-us">
-        <input id="country-us" type="radio" name="filter_locale" value="us" />
-        US
-      </label> #}
     </div>
 
     <button type="submit" id="country-set" class="blue btn">Confirm</button>
@@ -47,7 +36,7 @@
     </a>
 
     <nav id="top-menu">
-      <a id="country-toggle"><i class="icon-position-pin"></i> CANADA</a>
+      <a id="country-toggle"><i class="icon-position-pin"></i> {{ current_locale_name ? current_locale_name : 'Select your country' }}</a>
       <a id="language-toggle">{{ current_lang | upper }}</a>
       <a id="search-toggle"><i class="icon-search"></i></a>
       <a id="menu-toggle">

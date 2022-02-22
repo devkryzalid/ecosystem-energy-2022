@@ -1,0 +1,22 @@
+<div class="post-hero-ctn">
+	<div class="image-ctn">
+    <img class="" src="{{ post.thumbnail.src('large') }}" alt="{{ post.thumbnail.title }}">
+  </div>
+
+  <div class="content-ctn">
+    <div class="metas">
+      {% if category %} <div class="category">{{ category.name }}</div> {% endif %}
+      <div class="date">{{ post.post_date | date("F d, Y") }}</div>
+    </div>
+
+    <h1 class="title">{{ post.title }}</h1>
+
+    {% if tags|length > 0 %}
+      <div class="tags">
+        {% for tag in tags %}
+          <span class="tag">{{  tag.name }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>

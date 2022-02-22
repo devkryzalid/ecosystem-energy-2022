@@ -9,13 +9,13 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./assets/scripts/pages/page2.js":
-/*!***************************************!*\
-  !*** ./assets/scripts/pages/page2.js ***!
-  \***************************************/
+/***/ "./assets/scripts/pages/front-page.js":
+/*!********************************************!*\
+  !*** ./assets/scripts/pages/front-page.js ***!
+  \********************************************/
 /***/ (function() {
 
-eval("console.log('page2');\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/pages/page2.js?");
+eval("const spinner = document.getElementById('home-spinner');\n\nlet rotation = 0;\nlet mod = 0;\nlet spd = 0;\n\n// window.addEventListener('mousemove', e => {\n//   const deg = Math.pow(e.clientX, 1/8);\n//   mod = deg;\n// })\n\n// setInterval(() => {\n//   console.log(mod);\n//   if (mod > 0) mod -= 0.03;\n//   spinner.style.transform = 'rotate(' + rotation + 'deg)'; \n//   rotation += (0.1 + mod);\n// }, 10)\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/pages/front-page.js?");
 
 /***/ })
 
@@ -26,7 +26,7 @@ eval("console.log('page2');\n\n//# sourceURL=webpack://ecosystem/./assets/script
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./assets/scripts/pages/page2.js"]();
+/******/ 	__webpack_modules__["./assets/scripts/pages/front-page.js"]();
 /******/ 	
 /******/ })()
 ;

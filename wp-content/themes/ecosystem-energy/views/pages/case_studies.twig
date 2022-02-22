@@ -4,16 +4,16 @@
 
 {% block content %}
 
-  {% include 'partials/page-title.twig' with { 
+  {% include 'partials/titles/page-title.twig' with { 
     title: post.title, 
     text: 'We have built a business that re-connects engineering design, construction and commissioning so every choice we make contributes to better project outcomes.' 
   } %}
 
-  {% include 'filters/case-studies-filters.twig' with { industries: industries, featured: featured } %}
+  {% include 'partials/ajax/case-studies-filters.twig' with { industries: industries, featured: featured } %}
  
   <div id="ajax-content">
     <div class="inner">
-      {% include 'lists/case_study_list.twig' with { items: case_studies, featured: featured } %}
+      {% include 'partials/ajax/case_study_list.twig' with { items: case_studies, featured: featured } %}
     </div>
   </div>
 

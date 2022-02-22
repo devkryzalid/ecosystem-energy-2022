@@ -2312,6 +2312,10 @@ hr {
   color: rgba(73, 72, 67, 0.2);
 }
 
+ul {
+  list-style: circle;
+}
+
 .page-container.grey {
   background-color: #F6F6F4;
 }

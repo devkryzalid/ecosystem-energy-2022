@@ -5,14 +5,12 @@
 
     <div class="filter-group">
       <div class="title">Countries</div>
+      {% for locale in locales %}
         <div>
-          <input id="locale-13" type="checkbox" name="locale" value="13" />
-          <label for="locale-13">Canada</label>
+          <input id="locale-{{ locale.term_id }}" type="checkbox" name="filter_locale" value="{{ locale.term_id }}" {% if current_locale == locale.term_id %} checked {% endif %} />
+          <label for="locale-{{ locale.term_id }}">{{ locale.name }}</label>
         </div>
-        <div>
-          <input id="locale-19" type="checkbox" name="locale" value="19" />
-          <label for="locale-19">United States</label>
-        </div>
+      {% endfor %}
     </div>
 
     <div class="filter-group">
