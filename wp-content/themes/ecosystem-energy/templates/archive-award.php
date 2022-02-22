@@ -2,19 +2,24 @@
 /*
  *	Template Name: Awards
  */
-// Create ou change current_locale cookie
-$newLocale = empty($_GET['set_locale']) ? null : $_GET['set_locale'];
-if (isset($newLocale)) {
-    set_current_locale_cookie($newLocale);
-}
 
+// Get Params
 $limit   = empty($_GET['limit']) ? -1 : $_GET['limit'];
 $paged   = empty($_GET['paged']) ? 1 : $_GET['paged'];
 
 $context = Timber::context();
+
+// Create ou change current_locale cookie and get local for request
+$newLocale = empty($_GET['set_locale']) ? null : $_GET['set_locale'];
+if (isset($newLocale)) {
+    $context = set_current_locale_cookie($newLocale, $context);
+}
+
+// Set base informations for context
 $timber_post = new Timber\Post();
 $context['post'] = $timber_post;
 
+// Get awards
 $awards = new Timber\PostQuery([
    'post_type'       => 'award',
    'post_status'     => 'publish',
@@ -25,6 +30,7 @@ $awards = new Timber\PostQuery([
    'posts_per_page'  => $limit,
 ]);
 
+// Order by years
 $awardByYears = [];
 foreach ($awards as $award) {
     if (!isset($awardByYears[$award->year])) {
@@ -40,6 +46,6 @@ foreach ($awards as $award) {
     }
     array_push($awardByYears[$award->year], ['award' => $award, 'case_study' => $caseStudy]);
 }
-
 $context['awards'] = $awardByYears;
+
 Timber::render( array( 'pages/awards.twig' ), $context );

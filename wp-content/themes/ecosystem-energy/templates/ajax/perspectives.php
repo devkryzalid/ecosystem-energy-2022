@@ -7,7 +7,7 @@ $paged      = empty($params['paged']) ? 1 : $params['paged'];
 $categories = empty($params['category']) ? [] : $params['category'];
 
 $context = Timber::context();
-$locales    = empty($params['filter_locale']) ?  $context['current_locale']  : $params['filter_locale'];
+$locales = empty($params['filter_locale']) ? $context['current_locale'] : $params['filter_locale'];
 
 /**
  * Query arguments
@@ -23,7 +23,7 @@ $args = [
 ];
 
 // Filter by local
-if (!empty($locales) && $locales != '' && $locales != 'n/a') {
+if (!empty($locales) && $locales != '' && $locales != '-1') {
     $localesTab = explode(',', $locales);
     $args['tax_query'][] = [
         'taxonomy' => 'localization',

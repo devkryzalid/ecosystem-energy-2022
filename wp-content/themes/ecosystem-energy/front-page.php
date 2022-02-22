@@ -1,21 +1,24 @@
 <?php
-// Create ou change current_locale cookie
-$newLocale = empty($_GET['set_locale']) ? null : $_GET['set_locale'];
-if (isset($newLocale)) {
-    set_current_locale_cookie($newLocale);
-}
-
 /**
  * The template for displaying the homepage.
  */
+
 $context = Timber::context();
+
+// Create ou change current_locale cookie and get local for request
+$newLocale = empty($_GET['set_locale']) ? null : $_GET['set_locale'];
+if (isset($newLocale)) {
+    $context = set_current_locale_cookie($newLocale, $context);
+}
+$locales = empty($params['filter_locale']) ? $context['current_locale'] : $params['filter_locale'];
+
+// Set base informations for context
 $timber_post = new Timber\Post();
 $context['post']           = $timber_post;
 $context['home_hero']      = $timber_post->meta('home-hero');
 $context['sectors']        = $timber_post->meta('sectors');
 $context['featured_block'] = $timber_post->meta('featured-block');
 $context['career_block']   = $timber_post->meta('career-block');
-$locales = empty($params['filter_locale']) ? $context['current_locale'] : $params['filter_locale'];
 
 // Get Industries
 $context['industries'] = new Timber\PostQuery([
@@ -37,7 +40,6 @@ $newsArgs = [
     'posts_per_page'  => 1,
 ];
 
-
 // Get perspective args
 $perspecArgs = [
     'post_type'       => 'post',
@@ -49,7 +51,7 @@ $perspecArgs = [
 ];
 
 // Filter news and perspective by local
-if (!empty($locales) && $locales != '' && $locales != 'n/a') {
+if (!empty($locales) && $locales != '' && $locales != '-1') {
     $localesTab = explode(',', $locales);
     $newsArgs['tax_query'][] = [
         'taxonomy' => 'localization',
@@ -93,6 +95,6 @@ foreach ($context['industries'] as $industry) {
         array_push($caseStudies, ['case_study' => $caseStudy[0], 'industry' => $industry->title]);
     }
 }
-
 $context['case_studies'] = $caseStudies;
+
 Timber::render( array( 'pages/front-page.twig' ), $context );

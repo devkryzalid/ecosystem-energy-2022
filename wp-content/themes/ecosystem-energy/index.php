@@ -1,22 +1,26 @@
 <?php
-// Create ou change current_locale cookie
-$newLocale = empty($_GET['set_locale']) ? null : $_GET['set_locale'];
-if (isset($newLocale)) {
-    set_current_locale_cookie($newLocale);
-}
-$context = Timber::context();
 
-// set the query strings
+// Get params
 $limit      = empty($_GET['limit']) ? 10 : $_GET['limit'];
 $paged      = empty($_GET['paged']) ? 1 : $_GET['paged'];
-// Locale filter
-$locales    = empty($_GET['filter_locale']) ? $context['current_locale'] : $_GET['filter_locale'];
 $categories = empty($_GET['category']) ? [] : $_GET['category'];
 
+$context = Timber::context();
+
+// Create ou change current_locale cookie and get local for request
+$newLocale = empty($_GET['set_locale']) ? null : $_GET['set_locale'];
+if (isset($newLocale)) {
+    $context = set_current_locale_cookie($newLocale, $context);
+}
+$locales    = empty($_GET['filter_locale']) ? $context['current_locale'] : $_GET['filter_locale'];
+
+// Set base informations for context
 $timber_post = new Timber\Post();
 $context['post']  = $timber_post;
 $context['limit'] = $limit;
 $context['paged'] = $paged;
+$context['categories'] = get_terms( [ 'taxonomy' => 'category' ] );
+$context['industries'] = get_terms( [ 'taxonomy' => 'industry_tax' ] );
 
 /**
  * Query arguments
@@ -31,15 +35,8 @@ $args = [
     'posts_per_page'  => $limit,
 ];
 
-// Get locales
-// $context['locales'] = get_terms( [ 'taxonomy' => 'localization' ] );
-// Get category
-$context['categories'] = get_terms( [ 'taxonomy' => 'category' ] );
-// Get industries tax
-$context['industries'] = get_terms( [ 'taxonomy' => 'industry_tax' ] );
-
 // Filter by local
-if (!empty($locales) && $locales != '' && $locales != 'n/a') {
+if (!empty($locales) && $locales != '' && $locales != '-1') {
     $localesTab = explode(',', $locales);
     $args['tax_query'][] = [
         'taxonomy' => 'localization',

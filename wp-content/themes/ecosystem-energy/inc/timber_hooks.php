@@ -13,13 +13,14 @@ function add_to_context( $context ) {
 	// Menus
 	$context['menu_primary'] = new \Timber\Menu( 'menu-primary', [ 'depth' => 4 ] );
 	// Theme configs
-	$context['theme_infos']     = get_field('infos', 'options');
-	$context['social_networks'] = get_field('social_networks', 'options');
-	$context['cta_contact']     = get_field('cta_contact', 'options');
-	$context['static_links']    = get_field('static_links', 'options');
-	$context['current_lang']    = ICL_LANGUAGE_CODE;
-	$context['current_locale']  = !empty($_COOKIE['es_current_locale']) ? $_COOKIE['es_current_locale'] : 'n/a';
-	$context['locales'] 			 = get_terms( [ 'taxonomy' => 'localization' ] );
+	$context['theme_infos']         = get_field('infos', 'options');
+	$context['social_networks']     = get_field('social_networks', 'options');
+	$context['cta_contact']         = get_field('cta_contact', 'options');
+	$context['static_links']        = get_field('static_links', 'options');
+	$context['current_lang']        = ICL_LANGUAGE_CODE;
+	$context['current_locale']      = !empty($_COOKIE['es_current_locale']) ? $_COOKIE['es_current_locale'] : '-1';
+	$context['current_locale_name'] = $context['current_locale'] != '-1' ? get_term($context['current_locale'])->name : '';
+	$context['locales']             = get_terms( [ 'taxonomy' => 'localization' ] );
 
 	/*
      * Create a custom breadcrumb
@@ -56,12 +57,16 @@ function add_to_twig( $twig ) {
 	return $twig;
 }
 
-function set_current_locale_cookie($newLocale) {
+function set_current_locale_cookie($newLocale, $context) {
 	if ($newLocale == '-1' && !empty($_COOKIE['es_current_locale'])) {
 		unset($_COOKIE['es_current_locale']);
 	} else {
-		//setcookie('es_current_locale', $newLocale, strtotime("+1 year"));
+		setcookie('es_current_locale', $newLocale, strtotime("+1 year"));
 		// Testing purposes
-		setcookie('es_current_locale', $newLocale, strtotime("+1 minute"));
+		// setcookie('es_current_locale', $newLocale, strtotime("+1 minute"));
 	}
+	
+	$context['current_locale'] = $newLocale;
+	$context['current_locale_name'] = $newLocale != '-1' ? get_term($newLocale)->name : '';
+	return $context;
 }

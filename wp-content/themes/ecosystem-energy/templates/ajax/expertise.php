@@ -4,10 +4,6 @@ do_action('wpml_switch_language', $params['lang']);
 // set the query strings
 $id = empty($params['id']) ? -1 : $params['id'];
 
-if ($id == -1) {
-
-}
-
 $context = Timber::context();
 
 $args = [
