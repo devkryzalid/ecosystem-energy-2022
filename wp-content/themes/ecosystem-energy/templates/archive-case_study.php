@@ -58,8 +58,8 @@ if (!empty($industries) && $industries != '') {
 if (empty($featured)) {
     $featured = new Timber\PostQuery($args);
     if (isset($featured[0])) {
-        $context['featured'] = $featured[0];
-        $args['post__not_in'] = [$featured[0]->ID];
+        $context['featured']    = $featured[0];
+        $args['post__not_in']   = [$featured[0]->ID];
     }
     $args['posts_per_page'] = $limit;
 }

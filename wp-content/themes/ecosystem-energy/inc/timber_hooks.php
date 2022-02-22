@@ -57,6 +57,11 @@ function add_to_twig( $twig ) {
 }
 
 function set_current_locale_cookie($newLocale) {
-	setcookie('es_current_locale', $newLocale, strtotime("+1 minute"));
-	//setcookie('es_current_locale', $newLocale, strtotime("+1 year"));
+	if ($newLocale == '-1' && !empty($_COOKIE['es_current_locale'])) {
+		unset($_COOKIE['es_current_locale']);
+	} else {
+		//setcookie('es_current_locale', $newLocale, strtotime("+1 year"));
+		// Testing purposes
+		setcookie('es_current_locale', $newLocale, strtotime("+1 minute"));
+	}
 }
