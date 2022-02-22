@@ -13,13 +13,13 @@
     <div class="countries">
     {{ dump(current_locale) }}
       <label for="country-all">
-        <input id="country-all" type="radio" name="filter_locale" value="-1" />
+        <input id="country-all" type="radio" name="set_locale" value="-1" />
         All
       </label>
 
       {% for locale in locales %}
         <label for="country-{{ locale.term_id }}">
-          <input id="country-{{ locale.term_id }}" type="radio" name="filter_locale" value="{{ locale.term_id }}" />
+          <input id="country-{{ locale.term_id }}" type="radio" name="set_locale" value="{{ locale.term_id }}" />
           {{ locale.name }}
         </label>
       {% endfor %}
