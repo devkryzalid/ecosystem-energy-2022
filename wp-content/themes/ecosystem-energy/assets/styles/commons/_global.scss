@@ -18,7 +18,7 @@ body {
 }
 
 h1 {
-  @include fontSize(62, 50, 600, -0.89);
+  @include fontSize(62, 70, 600, -0.89);
 }
 
 h2 {
@@ -71,6 +71,10 @@ a {
 hr {
   margin: 75px 0;
   color: rgba($darkgrey, 0.2);
+}
+
+ul {
+  list-style: circle;
 }
 
 // Page overrides

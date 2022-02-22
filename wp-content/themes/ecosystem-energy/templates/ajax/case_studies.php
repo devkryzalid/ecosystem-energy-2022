@@ -58,12 +58,12 @@ $posts = new Timber\PostQuery($args);
 if ($posts->found_posts > 0 || (isset($featured[0]) && $paged == 1)) {
     $response = '';
     $response .= Timber::compile(
-        'partials/ajax/case_study_list.twig',
+        'partials/lists/case_study_list.twig',
         ['items' => $posts, 'featured' => $paged == 1 ? $context['featured'] : null]
     );
     $message  = $response;
 } else {
-    $message = Timber::compile('partials/ajax/no-results.twig');
+    $message = Timber::compile('partials/lists/no-results.twig');
 }
 
 wp_reset_query();

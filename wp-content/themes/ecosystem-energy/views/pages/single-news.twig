@@ -1,17 +1,16 @@
 {% extends 'base.twig' %}
-{% block content %}
-    <img class="" src="{{ post.thumbnail.src('large') }}" alt="{{ post.thumbnail.title }}">
-    <h1>{{post.title}} - {{post.post_date|date("F d, Y")}}</h1>
-    <div>
-        {{post.content}}
-    </div>
-    <div>
-        {% if previous|length > 0%}
-            <a href="{{ previous.link  }}">Previous</a>
-        {% endif %}
-        {% if next|length > 0 %}
-            <a href="{{ next.link  }}">next</a>            
-        {% endif %}
-    </div>
 
+{% block pageClass %}grey{% endblock %}
+
+{% block content %}
+  <div class="large container">
+    {% include 'partials/titles/post-hero.twig' with { post: post } %}
+  </div>
+
+  <div class="container">
+    {{ post.content }}
+
+    {% include 'partials/social.twig' %}
+    {% include 'partials/contact-cta.twig' %}
+  </div>
 {% endblock %}

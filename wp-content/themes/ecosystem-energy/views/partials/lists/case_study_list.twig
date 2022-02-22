@@ -13,8 +13,8 @@
     </div>
   {% endif %}
 
-	<div class="block-list">
-    <div class="container">
+  <div class="container">
+	  <div class="block-list">
       {% for cs in items %}
       
         {% include 'partials/block-item.twig' with { 
@@ -29,6 +29,6 @@
 	  </div>
 	</div>
 
-  {% include 'partials/ajax/pagination.twig' with { 'elements': items.pagination(5) } %}
+  {% include 'partials/lists/pagination.twig' with { 'elements': items.pagination(5) } %}
 
 {% endblock %}

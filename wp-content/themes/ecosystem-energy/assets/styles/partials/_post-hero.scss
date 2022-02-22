@@ -1,0 +1,41 @@
+.post-hero-ctn {
+  @include flex();
+  position: relative;
+  padding-bottom: 60px;
+  overflow: hidden;
+
+  & > div { flex-basis: 50%; }
+
+  .image-ctn {
+    img {
+      width: 100%;
+    }
+  }
+
+  .content-ctn {
+    @include flex(flex-start, center);
+    flex-direction: column;
+    padding-left: 100px;
+
+    i {
+      position: absolute;
+      right: -135px;
+      bottom: 0;
+      font-size: 270px;
+      color: $yellow;
+    }
+
+    .category {
+      @include fontSize(18, 24, 500, 0.36);
+    }
+
+    .date {
+      @include fontSize(16, 22, 500, 0.32);
+      opacity: 0.6;
+    }
+
+    .tags {
+      @include flex();
+    }
+  }
+}

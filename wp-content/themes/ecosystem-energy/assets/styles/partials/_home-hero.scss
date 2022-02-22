@@ -6,7 +6,27 @@
   }
 
   .text-ctn {
+    position: relative;
     flex-basis: 30%;
     border: 1px solid #666;
+    overflow: hidden;
+
+    p {
+      position: absolute;
+      top: 30%;
+      left: 20%;
+      text-align: center;
+      right: 20%;
+      bottom: 30%;
+    }
+
+    .btn {
+      position: absolute;
+    }
+
+    img {
+      width: 100%;
+      opacity: 0.1;
+    }
   }
 }

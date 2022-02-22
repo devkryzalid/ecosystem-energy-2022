@@ -1,23 +1,33 @@
 {% extends 'base.twig' %}
+
+{% block pageClass %}single-perspective{% endblock %}
+
 {% block content %}
-    <img class="" src="{{ post.thumbnail.src('large') }}" alt="{{ post.thumbnail.title }}">
-    {% if category %}
-        <p class="category">{{category.name}}</p>
-    {% endif %}
-    <h1>{{post.title}} - {{post.post_date|date("F d, Y")}}</h1>
-    {% if tags|length > 0 %}
-        <p>
-            {% for tag in tags %}
-                {{  tag.name }}
-            {% endfor %}
-        </p> 
-    {% endif %}
-    <div>
-        {{post.content}}
+  <div class="large container">
+    {% include 'partials/titles/post-hero.twig' with { post: post, tags: tags } %}
+  </div>
+
+  <div class="small container">
+    {{ post.content }}
+    {% include 'partials/share.twig' %}
+    {% include 'partials/author.twig' %}
+  </div>
+
+  <div class="large container related-list">
+    <h2 class="title">Related posts</h2>
+    <div class="block-list">
+      {% for post in posts %}
+        {% include 'partials/block-item.twig' with { 
+          title: post.title,
+          section: post.meta('related_industry')[0].post_title,
+          description: post.preview.read_more(false),
+          url: post.link,
+          image: post.thumbnail
+        } %}
+      {% endfor %}
     </div>
-    <div>
-        {{author.user_avatar}}
-        <p>{{author.user_firstname}} {{author.user_lastname}}</p>
-        <p> {{author.user_description}}</p>
-    </div>
+  </div>
+
+  {% include 'partials/contact-cta.twig' %}
+  </div>
 {% endblock %}

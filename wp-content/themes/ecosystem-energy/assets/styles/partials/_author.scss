@@ -1,0 +1,22 @@
+.author-ctn {
+  @include flex(flex-start, flex-start);
+  padding: 60px 0;
+  border-top: 2px solid $darkgrey;
+
+  .image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
+
+  .content {
+    margin-left: 40px;
+    .name {
+      margin-bottom: 30px;
+      @include fontSize(30, 38);
+    }
+
+    .bio {
+    }
+  }
+}

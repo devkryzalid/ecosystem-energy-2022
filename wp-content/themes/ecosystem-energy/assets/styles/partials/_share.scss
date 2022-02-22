@@ -1,0 +1,19 @@
+.share-ctn {
+  @include flex(center, flex-start);
+  margin: 140px 0 40px;
+
+  p {
+    margin-right: 20px;
+  }
+
+  .st-btn {
+    padding: 0 5px !important;
+    background: none !important;
+    transition: $basicTransition;
+
+    &:hover { 
+      top: 0 !important;
+      opacity: 1 !important;
+    }
+  }
+}
