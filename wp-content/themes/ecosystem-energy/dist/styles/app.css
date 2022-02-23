@@ -3936,6 +3936,32 @@ body.menu-open #header #menu-toggle:hover span {
   margin: auto;
 }
 
+.news-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.news-nav .link p {
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: initial;
+  line-height: 22px;
+  line-height: 1.375rem;
+  letter-spacing: normal;
+}
+.news-nav .link a {
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-weight: initial;
+  line-height: 30px;
+  line-height: 1.875rem;
+  letter-spacing: normal;
+}
+.news-nav .link.next {
+  text-align: right;
+}
+
 .single-perspective .related-list {
   padding: 80px 50px;
   background-color: #F6F6F4;

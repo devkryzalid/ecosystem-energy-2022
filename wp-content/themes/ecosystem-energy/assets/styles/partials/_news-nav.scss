@@ -1,0 +1,20 @@
+.news-nav {
+  @include flex(center, space-between);
+  .link {
+    p {
+      @include fontSize(16, 22);
+    }
+
+    a {
+      @include fontSize(24, 30);
+    }
+
+    &.prev {
+
+    }
+
+    &.next {
+      text-align: right;
+    }
+  }
+}

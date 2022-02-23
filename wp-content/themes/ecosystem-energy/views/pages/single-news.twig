@@ -11,6 +11,7 @@
     {{ post.content }}
 
     {% include 'partials/share.twig' %}
+    {% include 'partials/news-nav.twig' with { next: next, prev: previous } %}
     {% include 'partials/contact-cta.twig' %}
   </div>
 {% endblock %}

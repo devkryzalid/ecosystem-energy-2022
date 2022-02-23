@@ -1,0 +1,15 @@
+<div class="news-nav">
+  <div class="link prev">
+    {% if prev %} 
+      <p>Previous</p>
+      <a href="{{ prev.link }}">{{ prev.title }}</a> 
+    {% endif %}
+  </div>
+
+  <div class="link next">
+    {% if next %} 
+      <p>Next</p>
+      <a href="{{ next.link }}">{{ next.title }}</a> 
+    {% endif %}
+  </div>
+</div>
