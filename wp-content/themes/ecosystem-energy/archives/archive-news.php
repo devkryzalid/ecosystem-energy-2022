@@ -1,14 +1,20 @@
 <?php
-// Create ou change current_locale cookie
-$newLocale = empty($_GET['set_locale']) ? null : $_GET['set_locale'];
-if (isset($newLocale)) {
-    set_current_locale_cookie($newLocale);
-}
+/*
+ *	Template Name: Archive Nouvelles
+ */
+
 // set the query strings
 $limit  = empty($_GET['limit']) ? 9 : $_GET['limit'];
 $paged  = empty($_GET['page']) ? 1 : $_GET['page'];
 
 $context = Timber::context();
+
+// Create ou change current_locale cookie
+$newLocale = empty($_GET['set_locale']) ? null : $_GET['set_locale'];
+if (isset($newLocale)) {
+    $context = set_current_locale_cookie($newLocale, $context);
+}
+
 $locales = empty($_GET['filter_locale']) ? $context['current_locale'] : $_GET['filter_locale'];
 
 $args = [
@@ -32,7 +38,6 @@ if (!empty($locales) && $locales != '' && $locales != '-1') {
 }
 
 $context['posts']   = new Timber\PostQuery($args);
-// $context['locales'] = get_terms( [ 'taxonomy' => 'localization' ] );
 $context['limit']   = $limit;
 $context['paged']   = $paged;
 
