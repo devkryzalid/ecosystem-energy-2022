@@ -1,0 +1,10 @@
+#ajax-content {
+  @include flex();
+  min-height: 500px;
+
+  .loader {
+    display: block;
+  }
+
+  &:not(.loading) .loader { display: none; }
+}

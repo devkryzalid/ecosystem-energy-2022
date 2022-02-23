@@ -9,6 +9,7 @@
   {% include 'partials/lists/perspectives_filters.twig' with { categories: categories, featured: featured } %}
  
   <div id="ajax-content">
+    <div class="loader">Loading...</div>
     <div class="inner">
       {% include 'partials/lists/perspectives_list.twig' with { items: posts, featured: featured } %}
     </div>

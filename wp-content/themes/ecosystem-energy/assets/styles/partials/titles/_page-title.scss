@@ -2,7 +2,7 @@
   .container {
     @include flex(flex-start, space-between);
     flex-wrap: wrap;
-    padding: 0 0 30px;
+    padding-bottom: 30px;
   }
 
   .upper-title {

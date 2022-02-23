@@ -1,11 +1,12 @@
-.filters {
-  transition: $basicTransition;
+.filters-ctn {
   height: 150px;
+  transition: $basicTransition;
   overflow: hidden;
 
-  .container {
+  .filters {
     @include flex(flex-start, flex-start);
-    padding: 20px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
     border-top: 1px solid $borderColor;
   }
 

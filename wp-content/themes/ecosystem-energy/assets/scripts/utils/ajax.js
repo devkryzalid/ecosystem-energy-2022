@@ -219,6 +219,12 @@ export default class AjaxForm {
     else this.currentPage = +value;
   
     // Reload ajax content
+    this.scrollToTop();
     this.onFormChange();
+  }
+
+  // 
+  scrollToTop = () => {
+    setTimeout(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, 10); 
   }
 }

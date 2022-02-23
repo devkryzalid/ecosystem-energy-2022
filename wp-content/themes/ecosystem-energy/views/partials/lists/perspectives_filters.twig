@@ -1,27 +1,29 @@
-<form id="ajax-form" class="filters">
-  <div class="large container">
+<form id="ajax-form" class="filters-ctn">
+  <div class="container large">
+    <div class="filters">
 
-    <input type="hidden" id="ajax-settings" data-url="/ajax/{{ current_lang }}/perspectives" data-limit="1" data-featured="{{ featured }}">
+      <input type="hidden" id="ajax-settings" data-url="/ajax/{{ current_lang }}/perspectives" data-limit="1" data-featured="{{ featured }}">
 
-    <div class="filter-group">
-      <div class="title">Countries</div>
-      {% for locale in locales %}
-        <div>
-          <input id="locale-{{ locale.term_id }}" type="checkbox" name="filter_locale" value="{{ locale.term_id }}" {% if current_locale == locale.term_id %} checked {% endif %} />
-          <label for="locale-{{ locale.term_id }}">{{ locale.name }}</label>
-        </div>
-      {% endfor %}
+      <div class="filter-group">
+        <div class="title">Countries</div>
+        {% for locale in locales %}
+          <div>
+            <input id="locale-{{ locale.term_id }}" type="checkbox" name="filter_locale" value="{{ locale.term_id }}" {% if current_locale == locale.term_id %} checked {% endif %} />
+            <label for="locale-{{ locale.term_id }}">{{ locale.name }}</label>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="filter-group">
+        <div class="title">Categories</div>
+        {% for cat in categories %}
+          <div>
+            <input id="categories-{{ cat.term_id }}" type="checkbox" name="categories" value="{{ cat.term_id }}" />
+            <label for="categories-{{ cat.term_id }}">{{ cat.name }}</label>
+          </div>
+        {% endfor %}
+      </div>
+
     </div>
-
-    <div class="filter-group">
-      <div class="title">Categories</div>
-      {% for cat in categories %}
-        <div>
-          <input id="categories-{{ cat.term_id }}" type="checkbox" name="categories" value="{{ cat.term_id }}" />
-          <label for="categories-{{ cat.term_id }}">{{ cat.name }}</label>
-        </div>
-      {% endfor %}
-    </div>
-
   </div>
 </form>

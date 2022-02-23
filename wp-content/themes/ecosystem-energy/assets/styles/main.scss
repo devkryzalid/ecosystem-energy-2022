@@ -8,10 +8,9 @@
 @import "configs/grid";
 
 @import "commons/global";
-@import "commons/hamburger";
+// @import "commons/hamburger";
 @import "commons/print";
 
-@import "commons/layout";
 @import "commons/buttons";
 @import "commons/links";
 @import "commons/tags";
@@ -30,6 +29,7 @@
 @import "partials/base/footer";
 
 // Ajax elements
+@import "partials/lists/ajax";
 @import "partials/lists/block-list";
 @import "partials/lists/filters";
 @import "partials/lists/pagination";
