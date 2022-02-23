@@ -3640,7 +3640,7 @@ body.menu-open #header #menu-toggle:hover span {
 }
 
 .filters-ctn {
-  height: 150px;
+  height: 180px;
   transition: all 0.4s ease;
   overflow: hidden;
 }
@@ -3649,8 +3649,8 @@ body.menu-open #header #menu-toggle:hover span {
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 30px;
+  padding-bottom: 60px;
   border-top: 1px solid rgba(73, 72, 67, 0.2);
 }
 .filters-ctn .filter-group {
