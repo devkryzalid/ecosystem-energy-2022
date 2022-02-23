@@ -48,10 +48,10 @@ $posts = new Timber\PostQuery($args);
 
 if ($posts->found_posts > 0) {
     $response = '';
-    $response .= Timber::compile('partials/lists/perspectives.twig', ['posts' => $posts]);
+    $response .= Timber::compile('partials/lists/perspectives_list.twig', ['items' => $posts]);
     $message = $response;
 } else {
-    $message = Timber::compile('partials/lists/no-result-item.twig');
+    $message = Timber::compile('partials/lists/no-results.twig');
 }
 
 wp_reset_query();

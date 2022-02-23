@@ -1,3 +1,16 @@
+/*
+  AjaxForm class
+  This script wraps the structure of a page to automate ajax fetching on form change.
+  It also manages pagination and updates the current url to match selected fields.
+
+  The page must contain the following elements:
+    - A form (#ajax-form)
+    - A hidden input (#ajax-settings) inside the form element with optional 'data-url' and 'data-limit' properties
+    - An ajax outer container (#ajax-content), containing an inner element where data will be loaded (.inner)
+
+  Elements ids and classes can be overridden by passing their value to the constructor
+*/
+
 // Dependancies
 import axios from 'axios';
 
@@ -9,6 +22,7 @@ const defaultSettingsId = 'ajax-settings'
 const loadingClass = 'loading';
 const innerClass = 'inner';
 const paginationId = 'ajax-pagination'
+// TODO: Add more custom class possibilities (ex: pagination elements)
 
 export default class AjaxForm {
   // DOM containers for form and ajax html results
@@ -21,7 +35,9 @@ export default class AjaxForm {
 
   url;
   limit;
-  page;
+  currentPage;
+  nbPages;
+  filtersVisible;
 
   previousParams;
 
@@ -30,24 +46,31 @@ export default class AjaxForm {
   onLoadChange = () => { };
 
   constructor(
+    // Custom element names can be passed in constructor
     { formId = defaultFormId, containerId = defaultContainerId, settingsId = defaultSettingsId } = {},
+    // ... as well as callback functions
     onDataChangeCallback = null, onLoadChangeCallback = null
   ) {
     // Set form and container DOM elements
     this.formContainer = document.getElementById(formId);
-    if (!this.formContainer) console.log('Error - Ajax form container #' + formId + ' can\'t be found');
+    if (!this.formContainer) {
+      console.log('Error - Ajax form container #' + formId + ' not found');
+      return;
+    }
 
     this.contentContainer = document.getElementById(containerId);
-    if (!this.contentContainer) console.log('Error - Ajax content container #' + containerId + ' can\'t be found');
+    if (!this.contentContainer) console.log('Error - Ajax content container #' + containerId + ' not found');
 
     this.innerContainer = this.contentContainer.querySelector('.' + innerClass);
-    if (!this.innerContainer) console.log('Error - Ajax .inner content container can\'t be found');
+    if (!this.innerContainer) console.log('Error - Ajax .inner content container not found');
 
     // Get form settings from hidden input
-    const { url, limit, page = 1 } = document.getElementById(settingsId).dataset;
-    this.url = url;
+    const { url, limit = 9, page = 1 } = document.getElementById(settingsId).dataset || {};
     this.limit = limit;
-    this.page = page;
+    this.currentPage = page;
+
+    this.url = url;
+    if (!this.url) console.log('Error - Ajax url not found');
 
     // Attach callback functions if available
     if (onDataChangeCallback) this.onDataChange = onDataChangeCallback;
@@ -61,6 +84,13 @@ export default class AjaxForm {
 
     // Initialize pagination for non-ajax first load
     this.initPagination();
+
+    // Set filters toggler
+    document.getElementById('toggle-filters').addEventListener('click', () => {
+      this.filtersVisible = !this.filtersVisible;
+      if (this.filtersVisible) this.formContainer.classList.add('show');
+      else this.formContainer.classList.remove('show');
+    })
   }
 
   // Main form change callback
@@ -86,11 +116,11 @@ export default class AjaxForm {
 
     // Reset page to 1 if filters have been modified
     const jsonParams = JSON.stringify(params);
-    if (this.previousParams && this.previousParams !== jsonParams) this.page = 1;
+    if (this.previousParams && this.previousParams !== jsonParams) this.currentPage = 1;
     this.previousParams = jsonParams;
     
     // Add paged param if needed
-    if (this.page > 1) params.paged = this.page;
+    if (this.currentPage > 1) params.paged = this.currentPage;
     return { ...params, limit: this.limit };
   }
 
@@ -145,7 +175,7 @@ export default class AjaxForm {
     searchParams.delete('limit');
 
     // Build new url query string
-    const urlPrefix = this.currentUrlPrefix();
+    const urlPrefix = this.getCurrentUrlPrefix();
     const title = 'Ajax';
     const url = urlPrefix + (Object.keys(params).length ? '?' + searchParams.toString() : '');
 
@@ -153,7 +183,7 @@ export default class AjaxForm {
   }
 
   // Fetch first part of current url, and remove trailing slash
-  currentUrlPrefix = () => {
+  getCurrentUrlPrefix = () => {
     const urlPrefix = window.location.href.split('?')[0];
     return urlPrefix.slice(-1) === '/' ? urlPrefix.slice(0, -1) : urlPrefix;
   }
@@ -161,19 +191,34 @@ export default class AjaxForm {
   // Set event listeners on pagination elements
   initPagination = () => {
     const container = document.getElementById(paginationId);
-    if (container) 
-      container.querySelectorAll('.ajax-page').forEach(page => {
-        page.addEventListener('click', e => this.pageChange(e.target));
-      });
+    if (container) {
+      const pageButtons = container.querySelectorAll('.ajax-page');
+      this.nbPages = pageButtons.length - 2;  // Exclude prev/next
+
+      // Set disabled class on prev/next if needed
+      if (this.currentPage === 1) container.querySelector('.prev').classList.add('disabled');
+      if (this.currentPage === this.nbPages) container.querySelector('.next').classList.add('disabled');
+      
+      // Set click listener on page buttons
+      pageButtons.forEach(page => { page.addEventListener('click', e => this.pageChange(e.target)); });
+    }
   }
 
   // Change current page and trigger ajax fetch
   pageChange = pageElement => {
+    // Toggle selected classes
     document.querySelector('.ajax-page.current').classList.remove('current');
-
-    this.page = pageElement.getAttribute('value');
     pageElement.classList.add('current');
+
+    // Set current page
+    const value = pageElement.getAttribute('value');
+    if (value === 'prev') 
+      this.currentPage = this.currentPage > 1 ? this.currentPage - 1 : 1;
+    else if (value === 'next') 
+      this.currentPage = this.currentPage < this.nbPages ? this.currentPage + 1 : this.nbPages;
+    else this.currentPage = +value;
   
+    // Reload ajax content
     this.onFormChange();
   }
 }

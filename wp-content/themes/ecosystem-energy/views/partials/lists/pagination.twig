@@ -1,9 +1,19 @@
 {% if elements.pages %}
 	<nav id="ajax-pagination">
+
+    <div value="prev" class="ajax-page prev">
+      <a class="js-nav">Prev</a>
+    </div>
+
     {% for page in elements.pages %}
       <div value="{{ page.title }}" class="ajax-page {{ page.class }}">
         <a class="js-nav {% if page.current == true %}active{% endif %}">{{ page.title }}</a>
       </div>
     {% endfor %}
+
+    <div value="next" class="ajax-page next">
+      <a class="js-nav">Next</a>
+    </div>
+
 	</nav>
 {% endif %}

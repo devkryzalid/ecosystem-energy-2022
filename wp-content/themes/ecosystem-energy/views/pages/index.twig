@@ -1,43 +1,23 @@
 {% extends 'base.twig' %}
+
+{% block pageClass %}grey{% endblock %}
+
 {% block content %}
 
-  <div class="container">
-    {{ post.content }}
+  {% include 'partials/titles/page-title.twig' with { title: post.title, large: true } %}
+
+  {% include 'partials/lists/perspectives_filters.twig' with { categories: categories, featured: featured } %}
+ 
+  <div id="ajax-content">
+    <div class="inner">
+      {% include 'partials/lists/perspectives_list.twig' with { items: posts, featured: featured } %}
+    </div>
   </div>
 
-    {# <div class="container">
-        <div class="categories">
-            <ul>
-                {% for locale in locales %}
-                <li>
-                    {{ locale.term_id }} -  {{ locale.name }}
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-        <hr>
-        <div class="categories">
-            <ul>
-                {% for category in categories %}
-                    {{ category.term_id }} -  {{ category.name }}
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="list-ctn -style-2">
-            {% for post in posts %}
-                <article class="article">
-                    <div class="img-ctn">
-                        <div class="date-ctn">
-                            <span class="day">{{ post.date('j') }}</span>
-                            <span class="month">{{ post.date('F') }}</span>
-                        </div>
-                    </div>
-                    <h3 class="article-title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
-                    <div class="article-extract">{{ post.content|truncate(12, '...')}}</div>
-                    <img class="" src="{{ post.thumbnail.src('medium') }}" alt="{{ post.thumbnail.title }}">
+  {% include 'partials/contact-cta.twig' %}
 
-                </article>
-            {% endfor %}
-        </div>
-    </div> #}
+{% endblock %}
+
+{% block specific_script %}
+	<script src="{{theme.link}}/dist/scripts/pages/perspectives.js"></script>
 {% endblock %}

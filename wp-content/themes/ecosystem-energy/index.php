@@ -1,7 +1,7 @@
 <?php
 
 // Get params
-$limit      = empty($_GET['limit']) ? 10 : $_GET['limit'];
+$limit      = empty($_GET['limit']) ? 1 : $_GET['limit'];
 $paged      = empty($_GET['paged']) ? 1 : $_GET['paged'];
 $categories = empty($_GET['category']) ? [] : $_GET['category'];
 
@@ -55,6 +55,6 @@ if (!empty($categories) && $categories != '') {
 }
 
 // Get Post
-$context['posts'] = new Timber\PostQuery( $args );
+$context['posts'] = new Timber\PostQuery($args);
 
-Timber::render( 'pages/index.twig', $context );
+Timber::render('pages/index.twig', $context);

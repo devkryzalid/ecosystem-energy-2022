@@ -1,5 +1,6 @@
 #ajax-pagination {
   @include flex();
+  padding: 100px 0;
 
   .ajax-page {
     @include flex();
@@ -9,6 +10,12 @@
 
     &.current {
       border: 1px solid $yellow;
+    }
+
+    &.disabled {
+      text-decoration: line-through;
+      opacity: 0.4;
+      pointer-events: none;
     }
 
     a {   

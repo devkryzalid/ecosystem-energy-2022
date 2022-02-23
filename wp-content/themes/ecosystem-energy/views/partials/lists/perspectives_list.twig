@@ -1,5 +1,34 @@
-{% extends 'base.twig' %}
-
 {% block content %}
-  Liste des expertises
+
+  {% if featured %}
+    <div class="large container">
+      {% include 'partials/block-item.twig' with { 
+        title: featured.title,
+        section: featured.meta('related_industry')[0].post_title,
+        description: featured.preview.read_more(false),
+        url: featured.link,
+        image: featured.thumbnail,
+        isFeatured: true
+      } %}
+    </div>
+  {% endif %}
+
+  <div class="large container">
+	  <div class="block-list">
+      {% for perspective in items %}
+      
+        {% include 'partials/block-item.twig' with { 
+          title: perspective.title,
+          section: perspective.meta('related_industry')[0].post_title,
+          description: perspective.preview.read_more(false),
+          url: perspective.link,
+          image: perspective.thumbnail
+        } %}
+
+      {% endfor %}
+	  </div>
+	</div>
+
+  {% include 'partials/lists/pagination.twig' with { 'elements': items.pagination(5) } %}
+
 {% endblock %}

@@ -9,16 +9,16 @@
     text: 'We have built a business that re-connects engineering design, construction and commissioning so every choice we make contributes to better project outcomes.' 
   } %}
 
-  {% include 'partials/lists/case-studies-filters.twig' with { industries: industries, featured: featured } %}
+  {% include 'partials/lists/case_studies_filters.twig' with { industries: industries, featured: featured } %}
  
   <div id="ajax-content">
     <div class="inner">
-      {% include 'partials/lists/case_study_list.twig' with { items: case_studies, featured: featured } %}
+      {% include 'partials/lists/case_studies_list.twig' with { items: case_studies, featured: featured } %}
     </div>
   </div>
 
 {% endblock %}
 
 {% block specific_script %}
-	<script src="{{theme.link}}/dist/scripts/pages/case-studies.js"></script>
+	<script src="{{theme.link}}/dist/scripts/pages/ajaxContent.js"></script>
 {% endblock %}
