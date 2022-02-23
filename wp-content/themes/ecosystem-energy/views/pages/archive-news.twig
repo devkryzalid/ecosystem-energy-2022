@@ -1,31 +1,25 @@
 {% extends 'base.twig' %}
+
+{% block pageClass %}grey{% endblock %}
+
 {% block content %}
-    <div class="container">
-        <h2>NEWS</h2>
-        <div class="categories">
-            <ul>
-                {% for locale in locales %}
-                <li>
-                    {{ locale.term_id }} -  {{ locale.name }}
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-      
-        <div class="list-ctn -style-2">
-            {% for post in posts %}
-                <article class="article">
-                    <div class="img-ctn">
-                        <div class="date-ctn">
-                            <span class="day">{{ post.date('j') }}</span>
-                            <span class="month">{{ post.date('F') }}</span>
-                        </div>
-                    </div>
-                    <h3 class="article-title"><a href="{{ post.link }}">{{ post.title }}</a></h3>
-                    <div class="article-extract">{{ post.content|truncate(12, '...')}}</div>
-                    <img class="" src="{{ post.thumbnail.src('medium') }}" alt="{{ post.thumbnail.title }}">
-                </article>
-            {% endfor %}
-        </div>
+
+  {% include 'partials/titles/page-title.twig' with { title: post.title, large: true } %}
+
+  {% include 'partials/lists/news_filters.twig' with { featured: featured } %}
+ 
+  <div id="ajax-content">
+    {% include 'partials/lists/loading.twig' %}
+    <div class="inner">
+      {% if posts|length %} {% include 'partials/lists/news_list.twig' with { items: posts, featured: featured } %}
+      {% else %} {% include 'partials/lists/no-results.twig' %} {% endif %}
     </div>
+  </div>
+
+  {% include 'partials/contact-cta.twig' %}
+
+{% endblock %}
+
+{% block specific_script %}
+	<script src="{{theme.link}}/dist/scripts/pages/ajax-content.js"></script>
 {% endblock %}

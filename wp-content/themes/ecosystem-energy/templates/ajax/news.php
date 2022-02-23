@@ -6,7 +6,7 @@ $limit  = empty($params['limit']) ? 9 : $params['limit'];
 $paged  = empty($params['page']) ? 1 : $params['page'];
 
 $context = Timber::context();
-$locale = empty($params['filter_locale']) ? $context['current_locale'] : $params['filter_locale'];
+$locales = empty($params['filter_locale']) ? $context['current_locale'] : $params['filter_locale'];
 
 $args = [
     'post_type'       => 'news',
@@ -20,12 +20,12 @@ $args = [
 
 // Filter by local
 if (!empty($locales) && $locales != '' && $locales != '-1') {
-    $localesTab = explode(',', $locales);
-    $args['tax_query'][] = [
-        'taxonomy' => 'localization',
-        'field'    => 'term_id',
-        'terms'    => $localesTab
-    ];
+  $localesTab = explode(',', $locales);
+  $args['tax_query'][] = [
+      'taxonomy' => 'localization',
+      'field'    => 'term_id',
+      'terms'    => $localesTab
+  ];
 }
 
 /**
@@ -35,10 +35,10 @@ $posts = new Timber\PostQuery($args);
 
 if ($posts->found_posts > 0) {
     $response = '';
-    $response .= Timber::compile('partials/lists/news.twig', ['posts' => $posts]);
+    $response .= Timber::compile('partials/lists/news_list.twig', ['items' => $posts]);
     $message = $response;
 } else {
-    $message = Timber::compile('partials/lists/no-result-item.twig');
+    $message = Timber::compile('partials/lists/no-results.twig');
 }
 
 wp_reset_query();

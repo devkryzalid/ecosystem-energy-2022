@@ -4,7 +4,7 @@
  */
 
 // set the query strings
-$limit  = empty($_GET['limit']) ? 9 : $_GET['limit'];
+$limit  = empty($_GET['limit']) ? 1 : $_GET['limit'];
 $paged  = empty($_GET['page']) ? 1 : $_GET['page'];
 
 $context = Timber::context();
