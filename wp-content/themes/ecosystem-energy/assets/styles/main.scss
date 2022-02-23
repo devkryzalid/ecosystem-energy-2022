@@ -24,25 +24,24 @@
 @import "blocks/slider";
 @import "blocks/slider-multiple";
 
-// Main components
-@import "partials/header";
-@import "partials/menu";
-@import "partials/footer";
-
-// Common elements
-@import "partials/page-title";
-@import "partials/contact-cta";
+// Base components
+@import "partials/base/header";
+@import "partials/base/menu";
+@import "partials/base/footer";
 
 // Ajax elements
-@import "partials/filters";
-@import "partials/pagination";
-@import "partials/block-list";
+@import "partials/lists/block-list";
+@import "partials/lists/filters";
+@import "partials/lists/pagination";
 
-// Page-specific
-@import "partials/home-hero";
-@import "partials/post-hero";
+// Common elements
+@import "partials/titles/home-hero";
+@import "partials/titles/page-title";
+@import "partials/titles/post-hero";
+
 @import "partials/author";
 @import "partials/share";
+@import "partials/contact-cta";
 
 // Pages
 @import "pages/single-perspective";

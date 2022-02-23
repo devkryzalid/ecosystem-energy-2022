@@ -12,6 +12,9 @@
       border: 1px solid $yellow;
     }
 
+    &.prev { margin-right: 16px; }
+    &.next { margin-left: 16px; }
+
     &.disabled {
       text-decoration: line-through;
       opacity: 0.4;
