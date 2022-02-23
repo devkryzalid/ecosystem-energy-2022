@@ -9,7 +9,12 @@
     text: 'We have built a business that re-connects engineering design, construction and commissioning so every choice we make contributes to better project outcomes.' 
   } %}
 
-  {% include 'partials/lists/case_studies_filters.twig' with { industries: industries, featured: featured } %}
+  {% include 'partials/lists/filters.twig' with { 
+    featured: featured,
+    url: 'case-studies',
+    fields: { industries: industries },
+    labels: { industries: 'Sectors' }
+  } %}
  
   <div id="ajax-content">
     <div class="inner">

@@ -6,7 +6,7 @@
 
   {% include 'partials/titles/page-title.twig' with { title: post.title, large: true } %}
 
-  {% include 'partials/lists/news_filters.twig' with { featured: featured } %}
+  {% include 'partials/lists/filters.twig' with { large: true, featured: featured, url: 'news' } %}
  
   <div id="ajax-content">
     {% include 'partials/lists/loading.twig' %}

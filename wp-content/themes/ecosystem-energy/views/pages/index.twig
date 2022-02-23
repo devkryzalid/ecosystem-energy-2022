@@ -6,7 +6,12 @@
 
   {% include 'partials/titles/page-title.twig' with { title: post.title, large: true } %}
 
-  {% include 'partials/lists/perspectives_filters.twig' with { categories: categories, featured: featured } %}
+  {% include 'partials/lists/filters.twig' with { 
+    large: true,
+    featured: featured,
+    url: 'perspectives',
+    fields: { categories: categories }
+  } %}
  
   <div id="ajax-content">
     {% include 'partials/lists/loading.twig' %}

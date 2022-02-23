@@ -1,0 +1,33 @@
+<form id="ajax-form" class="filters-ctn">
+  <div class="container {{ large ? 'large' : '' }}">
+    <div class="filters">
+
+      <input type="hidden" id="ajax-settings" data-url="/ajax/{{ current_lang }}/{{ url }}" data-limit="{{ limit ?: 9 }}" data-featured="{{ featured }}">
+
+      {% if not hideLocale %}
+        <div class="filter-group">
+          <div class="title">Countries</div>
+          {% for locale in locales %}
+            <div>
+              <input id="locale-{{ locale.term_id }}" type="checkbox" name="filter_locale" value="{{ locale.term_id }}" {% if current_locale == locale.term_id %} checked {% endif %} />
+              <label for="locale-{{ locale.term_id }}">{{ locale.name }}</label>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% for field, values in fields %}
+        <div class="filter-group">
+          <div class="title">{{ labels[field] ?: field|capitalize }}</div>
+          {% for value in values %}
+            <div>
+              <input id="{{ field }}-{{ value.term_id }}" type="checkbox" name="{{ field }}" value="{{ value.term_id }}" />
+              <label for="{{ field }}-{{ value.term_id }}">{{ value.name }}</label>
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</form>
