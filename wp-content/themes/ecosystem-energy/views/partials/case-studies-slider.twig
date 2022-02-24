@@ -1,0 +1,29 @@
+<div class="slider case-studies-slider-ctn">
+  <div class="container">
+
+    <h2>
+      Other case studies 
+      <span>{{ industry.name }}</span>
+    </h2> 
+
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+      
+        {% for cs in related_case_studies %}
+          <div class="swiper-slide slide-img">
+            <img src="{{ cs.thumbnail.src('medium') }}" alt="{{ cs.thumbnail.title }}">
+            <div class="caption">{{ cs.title }}</div>
+          </div>
+        {% endfor %}
+
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="swiper-navigation">
+      <div class="prev"></div>
+      <div class="next"></div>
+    </div>
+
+  </div>
+</div>

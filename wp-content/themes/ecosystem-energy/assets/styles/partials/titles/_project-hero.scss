@@ -1,0 +1,58 @@
+.project-hero-ctn {
+  @include flex(flex-start);
+  padding-bottom: 140px;
+  background-color: $blue;
+
+  & > div { flex-basis: 50%; }
+  
+  .image-ctn {
+    img {
+      width: 100%;
+    }
+  }
+
+  .content-ctn {
+    @include flex(flex-start, flex-start);
+    flex-direction: column;
+    padding: 0 100px;
+
+    .industry {
+      @include fontSize(20, 24, 500);
+      color: $yellow;
+    }
+
+    .title {
+      margin: 20px 0 50px;
+      @include fontSize(60, 64, 600);
+      color: white;
+    }
+
+    ul.outcomes {
+      position: relative;
+      width: 100%;
+      padding: 0;
+      list-style: none;
+
+      .list-label {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 4px 20px;
+        background-color: $yellow;
+        @include fontSize(20, 22, 600);
+        color: $blue;
+      }
+
+      li {
+        padding: 20px 30px;
+        @include fontSize(20, 27, 500);
+        border-top: 1px solid rgba(#FFF, 0.2);
+        color: white;
+
+        &:first-of-type {
+          border-color: $yellow;
+        }
+      }
+    }
+  }
+} 

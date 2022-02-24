@@ -9,6 +9,7 @@ $timber_post = new Timber\Post();
 $context['post']             = $timber_post;
 $industry                    = get_terms(['taxonomy' => 'industry_tax'])[0];
 $context['industry']         = $industry;
+$context['industry_url']     = get_term_link($industry);
 $context['local']            = get_terms(['taxonomy' => 'localization']);
 $context['related_industry'] = $timber_post->meta('related_industry');
 $context['outcomes_list']    = $timber_post->meta('outcomes_list');

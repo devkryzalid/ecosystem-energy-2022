@@ -176,11 +176,25 @@ body.menu-open #header {
   }
 }
 
-// Global page color modifiers
+// Set background to grey if set by body class
 .page-container.grey #header #main-pane {
   background-color: $lightgrey;
 }
-.page-container.blue-head #header #main-pane {
-  background-color: $blue;
-  a, a i { color: white; }
+
+// Set background to blue / text to white if set by body class
+.page-container.blue-head #header {
+  #main-pane {
+    background-color: $blue;
+    a, a i { color: white; }
+
+    #logo { 
+      img.normal { display: none; }
+      img.invert { display: block; }
+    }
+  }
+
+  #menu-toggle {
+    span { background-color: white; }
+    &:hover span { background-color: $yellow; }
+  }
 }

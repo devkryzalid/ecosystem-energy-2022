@@ -1,0 +1,108 @@
+.case-study-ctn {
+  .content-key-data-ctn { background-color: white; }
+
+  .awards-list {
+    margin: -50px auto 80px;
+    padding: 40px 100px 40px 200px;
+    background-color: white;
+    background-image: url('/assets/images/ui/award_banner.svg');
+    background-repeat: no-repeat;
+    background-position: 70px 0;
+    list-style: none;
+
+    li {
+      @include flex(center, space-between);
+      padding: 20px 0;
+      @include fontSize(18, 24, 600);
+
+      &:not(:first-child) { border-top: 1px solid rgba($darkgrey, 0.2); }
+      
+      .organization { 
+        font-size: 16px;
+        font-weight: 500;
+        margin: 0 60px 0 auto; 
+      }
+
+      .year {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .case-studies-slider-ctn {
+    @extend .slider;
+    background-color: $blue;
+
+    h2 {
+      @include flex(center, space-between);
+      color: white;
+
+      span {
+        @include fontSize(20, 26);
+        color: white;
+      }
+    }
+
+    .container {
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+
+    .swiper-slide {
+      height: auto;
+
+      img { 
+        height: 220px;
+        object-fit: cover;
+      }
+
+      .caption {
+        position: relative;
+        bottom: 0;
+        padding: 10px 0;
+        color: white;
+        @include fontSize(24, 30, 500);
+      }
+    }
+  }
+
+  .bottom-section {
+    background-color: $beige;
+  }
+
+  .related-industry {
+    position: relative;
+    @include flex();
+    padding-top: 200px;
+    margin-bottom: 200px;
+    & > div { flex-basis: 50%; }
+
+    .content {
+      .upper-title {
+        @include fontSize(20, 27, 500);
+        opacity: 0.7;
+      }
+
+      h2 {
+        margin-top: 20px;
+        @include fontSize(52, 56, 600, -1.08);
+      }
+
+      p {
+        @include fontSize(18, 28);
+      }
+    }
+
+    .image {
+      img { width: 100%; }
+    }
+
+    .btn {
+      position: absolute;
+      bottom: 50px;
+      width: 180px;
+      height: 180px;
+      padding: 15px;
+    }
+  }
+}

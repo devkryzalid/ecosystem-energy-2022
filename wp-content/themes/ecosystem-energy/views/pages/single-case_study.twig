@@ -1,53 +1,51 @@
 {% extends 'base.twig' %}
+
+{% block pageClass %}grey blue-head case-study-ctn{% endblock %}
+
 {% block content %}
-    <h3>{{ industry.name }}</h3>
-    <h1>{{post.title}}</h1>
 
-    <div>
-        <p>Outcomes</p>
-        {% if outcomes_list|length > 0%}
-            {% for outcome in outcomes_list %}
-                <li>
-                    <p>{{ outcome.content }}</p>
-                </li>
-            {% endfor %}
-        {% endif %}
-    </div>
+  {% include 'partials/titles/project-hero.twig' %}
 
-    <div>
-        <p>Awards</p>
-        {% if awards_list|length > 0%}
-            {% for award in awards_list %}
-                <li>
-                    <p>{{ award.title }} - {{ award.organization }} - {{ award.year }}</p>
-                </li>
-            {% endfor %}
-        {% endif %}
-    </div>
+  {% if awards_list|length > 0%}
+    <ul class="container awards-list">
+      {% for award in awards_list %}
+        <li>
+          <span class="name">{{ award.title }}</span>
+          <span class="organization">{{ award.organization }}</span>
+          <span class="year">{{ award.year }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
 
-    <div>
-        {{post.content}}
-    </div>
+  <div class="container">
+    {{ post.content }}
+  </div>
 
-    <div>
-        {% if related_case_studies|length > 0%}
-            {% for case_study in related_case_studies %}
-                <li>
-                    <p>{{ case_study.title }}</p>
-                    <img class="" src="{{ case_study.thumbnail.src('medium') }}" alt="{{ case_study.thumbnail.title }}">
-                </li>
-            {% endfor %}
-        {% endif %}
-    </div>
+  {% include 'partials/case-studies-slider.twig' %}
 
-    <div>
-        {% if related_industry|length > 0%}
-            <li>
-                <p>{{ related_industry[0].title }}</p>
-                <p>{{ related_industry[0].preview.read_more(false)  }}</p>
-                <img class="" src="{{ related_industry[0].thumbnail.src('medium') }}" alt="{{ related_industry[0].thumbnail.title }}">
-            </li>
-        {% endif %}
-    </div>
-    
+  <div class="bottom-section">
+    {% if related_industry|length %}
+      <div class="container related-industry">
+        <div class="content">
+          <div class="upper-title">Your industry</div>
+          <h2>{{ related_industry[0].title }}</h2>
+          <p>{{ related_industry[0].preview.read_more(false) }}</p>
+        </div>
+
+        <div class="image">
+          <img class="" src="{{ related_industry[0].thumbnail.src('medium') }}" alt="{{ related_industry[0].thumbnail.title }}">
+        </div>
+
+        <a class="circle btn" href="{{ related_industry[0].link }}">Learn more</a>
+      </div>
+    {% endif %}
+
+    {% include 'partials/contact-cta.twig' %}
+  </div>
+
+{% endblock %}
+
+{% block specific_script %}
+	<script src="{{theme.link}}/dist/scripts/pages/single-case-study.js"></script>
 {% endblock %}

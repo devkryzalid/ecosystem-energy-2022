@@ -1,5 +1,5 @@
 #footer {
-  margin-top: 100px;
+  padding-top: 100px;
   
   .container {
     @include flex(center, space-between);
@@ -27,4 +27,8 @@
       @include fontSize(14, 19);
     }
   }
+}
+
+.page-container.case-study-ctn #footer {
+  background-color: $beige;
 }
