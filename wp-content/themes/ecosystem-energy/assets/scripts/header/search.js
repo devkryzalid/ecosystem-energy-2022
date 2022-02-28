@@ -33,6 +33,7 @@ export default class Search {
 
   // Show top search element and focus on input field
   showSearch = () => {
+    console.log(this.header.mainElement);
     this.searchVisible = true;
     this.searchElement.classList.add('show');
     this.searchElement.querySelector('input').focus();
