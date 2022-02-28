@@ -1,7 +1,7 @@
 <?php
 
 // Get params
-$limit      = empty($_GET['limit']) ? 1 : $_GET['limit'];
+$limit      = empty($_GET['limit']) ? 9 : $_GET['limit'];
 $paged      = empty($_GET['paged']) ? 1 : $_GET['paged'];
 $categories = empty($_GET['category']) ? [] : $_GET['category'];
 

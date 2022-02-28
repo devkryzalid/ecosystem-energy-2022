@@ -1,12 +1,18 @@
-<a class="block-item {% if isFeatured %}featured{% endif %}" href="{{ url }}">
+{# {% if url %} <a class="block-item {{ class }}" href="{{ url }}"> 
+{% else %} <div class="block-item {{ class }}"> {% endif %} #}
+<{{ url ? 'a' : 'div' }} class="block-item {{ class }}" {% if url %} href="{{ url }}" {% endif %}> 
+
   <div class="image">
     <img src="{{ image.src('medium') }}" alt="{{ image.title }}" />
   </div>
 
   <div class="content">
-    {% if section %}<div class="section">{{ section }}</div>{% endif %}
-    <h3 class="title">{{ title }}</h3>
-    <div class="description">{{ description }}</div>
-    {% if date %}<div class="footer">{{ date }}</div>{% endif %}
+      {% if surtitle %}<div class="surtitle">{{ surtitle }}</div>{% endif %}
+      {% if title %}<h3 class="title">{{ title }}</h3>{% endif %}
+      {% if description %}<div class="description">{{ description }}</div>{% endif %}
+
+      {% block content %}{% endblock %}
+
+      {% if footer %}<div class="footer">{{ footer }}</div>{% endif %}
   </div>
-</a>
+</{{ url ? 'a' : 'div' }}>

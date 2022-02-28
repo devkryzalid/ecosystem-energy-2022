@@ -5,12 +5,14 @@
 {% block content %}
 
   {% include 'partials/titles/page-title.twig' with { 
+    large: true,
     title: post.title, 
     text: 'We have built a business that re-connects engineering design, construction and commissioning so every choice we make contributes to better project outcomes.' 
   } %}
 
   {% include 'partials/lists/filters.twig' with { 
     featured: featured,
+    large: true,
     url: 'case-studies',
     fields: { industries: industries },
     labels: { industries: 'Sectors' }

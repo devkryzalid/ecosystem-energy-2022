@@ -3,11 +3,9 @@
 {% block pageClass %}grey{% endblock %}
 
 {% block content %}
-  <div class="large container">
-    {% include 'partials/titles/post-hero.twig' with { post: post } %}
-  </div>
+  {% include 'partials/titles/post-hero.twig' with { post: post } %}
 
-  <div class="container">
+  <div class="small container">
     {{ post.content }}
 
     {% include 'partials/share.twig' %}

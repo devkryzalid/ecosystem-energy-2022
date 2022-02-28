@@ -1,0 +1,78 @@
+.awards-page {
+  h1 {
+    margin-bottom: 120px;
+    @include fontSize(85, 90, 600, -0.85);
+    text-align: center;
+
+    &::after {
+      font-family: 'icomoon';
+      content: "\e900";
+      color: $yellow;
+    }
+  }
+
+  .award-group {
+    @include flex(flex-start, flex-start);
+    margin-bottom: 50px;
+
+    h2 {
+      flex-basis: 200px;
+      margin: 0;
+      @include fontSize(58, 40, 600, -0.58);
+    }
+
+    ul {
+      width: 100%;
+      margin: 0;
+      padding: 36px 0 0 40px;
+      list-style: none;
+
+      li {
+        @include flex(center, space-between);
+        padding: 50px 0;
+        border-top: 1px solid rgba($darkgrey, 0.2);
+
+        &:first-child { border-top: 2px solid $darkgrey; }
+
+        .logo {
+          img { width: 110px; }
+        }
+
+        .title {
+          margin: 0 auto 0 10%;
+
+          h3 { 
+            margin: 0;
+            @include fontSize(18, 24, 700);
+          }
+
+          p { 
+            margin: 12px 0 0; 
+            @include fontSize(14, 19, 500);
+          }
+        }
+
+        .link-ctn {
+          flex-basis: 30%;
+          a {
+            @include fontSize(18, 24, 600);
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: $tablet-large) {
+    .award-group {
+      flex-direction: column;
+
+      h2 {
+        flex-basis: auto;
+      }
+
+      ul {
+        padding-left: 0;
+      }
+    }
+  }
+}

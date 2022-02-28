@@ -1,23 +1,23 @@
-<div class="post-hero-ctn">
-	<div class="image-ctn">
-    <img class="" src="{{ post.thumbnail.src('large') }}" alt="{{ post.thumbnail.title }}">
+{% extends 'partials/block-item.twig' %}
+
+{% set image = post.thumbnail %}
+{% set class = 'horizontal reverse post-hero-ctn' %}
+
+{% block content %}
+  <i class="bg-icon icon-symbol-eco"></i>
+  <div class="metas">
+    {% if category %} <span class="category">{{ category.name }}</span> {% endif %}
+    <span class="date">{{ post.post_date | date("F d, Y") }}</span>
   </div>
 
-  <div class="content-ctn">
-    <i class="icon-symbol-eco"></i>
-    <div class="metas">
-      {% if category %} <span class="category">{{ category.name }}</span> {% endif %}
-      <span class="date">{{ post.post_date | date("F d, Y") }}</span>
+  <h1 class="title">{{ post.title }}</h1>
+
+  {% if tags|length > 0 %}
+    <div class="tags">
+      {% for tag in tags %}
+        <span class="tag">{{  tag.name }}</span>
+      {% endfor %}
     </div>
+  {% endif %}
 
-    <h1 class="title">{{ post.title }}</h1>
-
-    {% if tags|length > 0 %}
-      <div class="tags">
-        {% for tag in tags %}
-          <span class="tag">{{  tag.name }}</span>
-        {% endfor %}
-      </div>
-    {% endif %}
-  </div>
-</div>
+{% endblock %}

@@ -19,6 +19,7 @@
 @import "blocks/accordion";
 @import "blocks/color-block";
 @import "blocks/cta-block";
+@import "blocks/general";
 @import "blocks/key-data";
 @import "blocks/slider";
 @import "blocks/slider-multiple";
@@ -30,6 +31,7 @@
 
 // Ajax elements
 @import "partials/lists/ajax";
+@import "partials/lists/block-item";
 @import "partials/lists/block-list";
 @import "partials/lists/filters";
 @import "partials/lists/pagination";
@@ -46,6 +48,10 @@
 @import "partials/news-nav";
 
 // Pages
-@import "pages/single-perspective";
+@import "pages/awards";
+@import "pages/contact";
+@import "pages/expertises";
 @import "pages/single-case-study";
+@import "pages/leadership";
+@import "pages/single-perspective";
 

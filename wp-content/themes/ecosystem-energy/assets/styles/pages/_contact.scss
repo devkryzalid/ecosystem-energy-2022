@@ -1,0 +1,133 @@
+.contact-page {
+  .page-title {
+    margin-bottom: 120px;
+  }
+
+  .offices {
+    position: relative;
+
+    i.icon-symbol-eco {
+      position: absolute;
+      left: -130px;
+      bottom: -270px;
+      font-size: 270px;
+      color: $yellow;
+    }
+
+    .container {
+      @include flex(flex-start);
+      gap: 30px;
+      margin-bottom: 200px;
+
+      .list-canada, .list-us {
+        flex: 0 0 30%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        
+        li {
+          border-top: 1px solid rgba($darkgrey, 0.2);
+
+          a {
+            position: relative;
+            display: block;
+            padding: 20px;
+            cursor: pointer;
+
+            &::after {
+              position: absolute;
+              right: 20px;
+              font-family: 'icomoon';
+              content: "\e90b";
+            }
+
+            &:hover {
+              background-color: $yellow;
+            }
+          }
+
+          .info { display: none; }
+        }
+      }
+
+      #office-info {
+        flex: 1 1 auto;
+        @include flex(flex-start, center);
+        flex-wrap: wrap;
+        min-height: 350px;
+        padding: 40px;
+        border: 1px solid rgba(#979797, 0.4);
+
+        h3 {
+          margin: 0 0 30px;
+          flex-basis: 100%;
+        }
+
+        .default-content {
+          text-align: center;
+        }
+
+        .phones {
+          flex-basis: 50%;
+        }
+
+        .address {
+          flex-basis: 50%;
+          p { margin: 0; }
+        }
+      }
+    }
+  }
+
+  .contact-form {
+    max-width: 1000px;
+    margin: auto;
+
+    h2 {
+      @include fontSize(52, 56, 600);
+      text-align: center;
+    }
+
+    & > p {
+      margin: 0 auto 60px;
+      max-width: 550px;
+      @include fontSize(18, 28);
+      text-align: center;
+    }
+
+    input:not([type="submit"]), select, textarea {
+      height: 56px;
+      padding: 10px 20px !important;
+      border: 0 none;
+      border-bottom: 2px solid $yellow;
+      border-radius: 0;
+      background-color: white;
+      font-family: $primaryFont;
+      @include fontSize(18, 24, 400, -0.25);
+      color: $darkgrey;
+
+      &:focus, &:active, &:focus-visible {
+        border: 1px solid $yellow;
+        border-bottom-width: 2px;
+        outline: none;
+      }
+    }
+
+    .ginput_container_select {
+      position: relative;
+      select { appearance: none; }
+      
+      &::after {
+        position: absolute;
+        right: 30px;
+        top: 10px;
+        font-family: 'icomoon';
+        content: "\e903";
+      }
+    }
+
+    textarea { height: 230px; }
+    .gform_footer { text-align: center; }
+    input[type="submit"] { @extend .btn; }
+  }
+}

@@ -6,5 +6,9 @@
     display: block;
   }
 
+  .inner {
+    width: 100%;
+  }
+
   &:not(.loading) .loader { display: none; }
 }

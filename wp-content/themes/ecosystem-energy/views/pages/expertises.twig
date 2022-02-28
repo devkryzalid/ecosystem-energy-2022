@@ -1,34 +1,52 @@
 {% extends 'base.twig' %}
+
+{% block pageClass %}grey expertises-page{% endblock %}
+
 {% block content %}
-v    <h1>{{post.title}}</h1>
-    <div>
-        {{post.content}}
+
+  {% include 'partials/titles/page-title.twig' with { 
+    hideFilters: true,
+    large: true,
+    title: post.title, 
+    text: 'Ecosystem seeks out the inherent efficiency in every system and makes the most of it. The technical measures we implement work together to deliver the results our clients want and need.' 
+  } %}
+
+  <div class="large container featured">
+    {% for bloc in featured_content %}
+      <div class="featured-item">
+        <div class="head">
+          <img src="{{ bloc.image.url }}" alt="{{ bloc.image.title }}">
+          <h3>{{ bloc.title }}</h3>
+        </div>
+        <p>{{ bloc.content }}</p>
+      </div>
+    {% endfor %}
+  </div>
+  
+  <div class="large container">
+    <h2>Here are some examples of measures that work together to deliver results</h2>
+    <div class="grid-list">
+      {% for expertise in expertises %}
+        <a class="expertise-item">
+          <h3>{{ expertise.title }}</h3>
+          <img class="" src="{{ expertise.thumbnail.src('large') }}" alt="{{ expertise.thumbnail.title }}">
+        </a>
+      {% endfor %}
     </div>
+  </div>
 
-    {% if featured_content|length > 0%}
-        <div>
-            <ul>
-                {% for bloc in featured_content %}
-                    <li>
-                        <h3>{{ bloc.title }}</h3>
-                        <p>{{ bloc.content }}</p>
-                        <img class="" src="{{ bloc.image.link }}" alt="{{ bloc.image.title }}">
-                    </li>
-                {% endfor %}  
-            </ul> 
-        </div>
-    {% endif %}
+  {% include 'partials/contact-cta.twig' %}
 
-    {% if expertises|length > 0%}
-        <div>
-            <ul>
-                {% for expertise in expertises %}
-                    <li>
-                        <h3>{{ expertise.title }}</h3>
-                        <img class="" src="{{ expertise.thumbnail.src('large') }}" alt="{{ expertise.thumbnail.title }}">
-                    </li>
-                {% endfor %}  
-            </ul> 
-        </div>
-    {% endif %}
+  {# <div id="side-panel" class="side-panel">
+    <div id="panel-content">
+      <div class="panel-header">
+        PREV / NEXT / CLOSE
+      </div>
+    </div>
+  </div> #}
+
 {% endblock %}
+
+{# {% block specific_script %}
+	<script src="{{ theme.link }}/dist/scripts/pages/expertises.js"></script>
+{% endblock %} #}

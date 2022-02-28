@@ -2,20 +2,20 @@
   <div class="large container">
 
     <nav class="social">
-      <a>FB</a>
-      <a>IG</a>
-      <a>LI</a>
-      <a>TW</a>
+      {% if social_networks.linkedin_link %} <a href="{{ social_networks.linkedin_link }}">LinkedIn</a> {% endif %}
+      {% if social_networks.youtube_link %} <a href="{{ social_networks.youtube_link }}">YouTube</a> {% endif %}
+      {% if social_networks.facebook_link %} <a href="{{ social_networks.facebook_link }}">Facebook</a> {% endif %}
+      {% if social_networks.twitter_link %} <a href="{{ social_networks.twitter_link }}">Twitter</a> {% endif %}
     </nav>
 
     <nav class="contact">
-      <a>ecosystem@email.com</a>
-      <a>(514)123-4567</a>
+      {% if theme_infos.email %} <a href="mailto:{{ theme_infos.email }}">{{ theme_infos.email }}</a> {% endif %}
+      {% if theme_infos.phone %} <a href="tel:{{ theme_infos.phone }}">{{ theme_infos.phone }}</a> {% endif %}
     </nav>
 
     <div class="sub-footer">
-      <div class="copyright">Copyright ...</div>
-      <div class="kryzalid">Conception web par Kryzalid</div>
+      <div class="copyright">Ecosystem © 2022</div>
+      <div class="kryzalid">Conception web par <a href="https://www.kryzalid.net/">Kryzalid</a></div>
     </div>
     
   </div>

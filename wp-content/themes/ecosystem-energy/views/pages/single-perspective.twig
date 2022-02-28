@@ -1,6 +1,6 @@
 {% extends 'base.twig' %}
 
-{% block pageClass %}single-perspective{% endblock %}
+{% block pageClass %}grey single-perspective{% endblock %}
 
 {% block content %}
   <div class="large container">
@@ -19,7 +19,7 @@
       {% for post in posts %}
         {% include 'partials/block-item.twig' with { 
           title: post.title,
-          section: post.meta('related_industry')[0].post_title,
+          surtitle: post.meta('related_industry')[0].post_title,
           description: post.preview.read_more(false),
           url: post.link,
           image: post.thumbnail

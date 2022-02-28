@@ -96,6 +96,31 @@
                     "toolbar": "basic",
                     "media_upload": 0,
                     "delay": 1
+                },
+                {
+                    "key": "field_6219051967540",
+                    "label": "Column",
+                    "name": "column",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "canada": "Canada",
+                        "us": "United States"
+                    },
+                    "default_value": false,
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": ""
                 }
             ]
         }
@@ -118,5 +143,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1645048387
+    "modified": 1645806990
 }

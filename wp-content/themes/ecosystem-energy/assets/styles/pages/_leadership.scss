@@ -1,0 +1,36 @@
+.leadership-list {
+  background-color: $blue;
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 50px;
+
+    .image {
+      height: 320px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .content {
+      padding: 20px 30px;
+      background-color: $altblue;
+
+      h3 {
+        margin: 0;
+        @include fontSize(24, 36, 500);
+        color: white;
+      }
+
+      p {
+        margin: 0;
+        @include fontSize(16, 22);
+        color: $yellow;
+      }
+    }
+  }
+}

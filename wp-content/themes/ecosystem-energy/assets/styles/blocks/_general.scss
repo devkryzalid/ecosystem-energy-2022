@@ -1,0 +1,17 @@
+.wp-block-image.size-full {
+  position: relative;
+
+  img {
+    width: 100%;
+  }
+
+  figcaption {
+    position: absolute;
+    top: 0;
+    margin: 0;
+    padding: 20px 35px;
+    background-color: $yellow;
+    color: $blue;
+    @include fontSize(26, 30, 600);
+  }
+}

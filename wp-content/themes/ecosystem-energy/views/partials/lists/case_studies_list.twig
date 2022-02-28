@@ -1,25 +1,25 @@
 {% block content %}
 
   {% if featured %}
-    <div class="container">
+    <div class="large container">
       {% include 'partials/block-item.twig' with { 
         title: featured.title,
-        section: featured.meta('related_industry')[0].post_title,
+        surtitle: featured.meta('related_industry')[0].post_title,
         description: featured.preview.read_more(false),
         url: featured.link,
         image: featured.thumbnail,
-        isFeatured: true
+        class: 'featured'
       } %}
     </div>
   {% endif %}
 
-  <div class="container">
+  <div class="large container">
 	  <div class="block-list">
       {% for cs in items %}
       
         {% include 'partials/block-item.twig' with { 
           title: cs.title,
-          section: cs.meta('related_industry')[0].post_title,
+          surtitle: cs.meta('related_industry')[0].post_title,
           description: cs.preview.read_more(false),
           url: cs.link,
           image: cs.thumbnail

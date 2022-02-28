@@ -29,6 +29,16 @@
   }
 }
 
+// Set background to grey if set by body class
+.page-container.grey #footer {
+  background-color: $lightgrey;
+}
+
 .page-container.case-study-ctn #footer {
   background-color: $beige;
+}
+
+.page-container.leadership-ctn #footer {
+  background-color: $blue;
+  * { color: white !important; }
 }

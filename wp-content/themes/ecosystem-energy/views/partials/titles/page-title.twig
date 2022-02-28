@@ -6,7 +6,7 @@
     
     <div class="content">
       <div class="text">{{ text }}</div>
-      <a id="toggle-filters" class="btn">Filtres</a>
+      {% if not hideFilters %} <a id="toggle-filters" class="btn">Filtres</a> {% endif %}
     </div>
 
   </div>

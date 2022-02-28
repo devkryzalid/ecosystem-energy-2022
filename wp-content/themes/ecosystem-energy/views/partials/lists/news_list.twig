@@ -4,11 +4,11 @@
     <div class="large container">
       {% include 'partials/block-item.twig' with { 
         title: featured.title,
-        section: featured.meta('related_industry')[0].post_title,
+        surtitle: featured.meta('related_industry')[0].post_title,
         description: featured.preview.read_more(false),
         url: featured.link,
         image: featured.thumbnail,
-        isFeatured: true
+        class: 'featured'
       } %}
     </div>
   {% endif %}
@@ -19,7 +19,7 @@
       
         {% include 'partials/block-item.twig' with { 
           title: news.title,
-          section: news.meta('related_industry')[0].post_title,
+          surtitle: news.meta('related_industry')[0].post_title,
           description: news.preview.read_more(false),
           url: news.link,
           image: news.thumbnail

@@ -1,6 +1,10 @@
 {% extends 'base.twig' %}
 {% block content %}
-    <div>
+<div class="container">
+    <h1>{{post.title}}</h1>
+        {{post.content}}
+</div>
+    {# <div>
         {% if previous|length > 0%}
             <a href="{{ previous.link  }}">Previous</a>
         {% endif %}
@@ -23,5 +27,5 @@
                 </li>
             {% endfor %}
         {% endif %}
-    </div>
+    </div> #}
 {% endblock %}

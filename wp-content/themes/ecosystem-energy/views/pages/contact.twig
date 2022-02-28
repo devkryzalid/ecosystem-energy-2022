@@ -1,23 +1,65 @@
 {% extends 'base.twig' %}
+
+{% block pageClass %}grey contact-page{% endblock %}
+
 {% block content %}
-    <h1>{{post.title}}</h1>
-    <div>
-        {{post.content}}
-    </div>
 
-    {% if offices_list|length > 0%}
-        <div>
-            <ul>
-                {% for office in offices_list %}
-                    <li>
-                        <h3>{{ office.title }}</h3>
-                        <p>{{ office.phone }}</p>
-                        <p>{{ office.fax }}</p>
-                        <p>{{ office.address }}</p>
-                    </li>
-                {% endfor %}  
-            </ul> 
+	{% include 'partials/titles/page-title.twig' with { 
+    hideFilters: true,
+    title: post.title, 
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor tellus vitae rhoncus odio ullamcorper. Placerat mi felis consequat lobortis. At lobortis eu tincidunt hendrerit. Adipiscing amet faucibus cursus eleifend.' 
+  } %}
+
+  <div class="offices">
+    <i class="icon-symbol-eco"></i>
+    <div class="container">
+      <ul class="list-canada">
+        {% for office in offices_list %}
+          <li>
+            <a class="office-link">{{ office.title }}</a>
+            <div class="info">
+              <h3>{{ office.title }}</h3>
+
+              <div class="phones">
+                <a href="tel:{{ office.phone }}">{{ office.phone }}</a>
+                <p>{{ office.fax }}</p>
+              </div>
+
+              <div class="address">
+                {{ office.address }}
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <ul class="list-us">
+        <li>
+          <a class="office-link">Some US office</a>
+          <div class="info">
+            <h3>Some US office</h3>
+          </div>
+        </li>
+      </ul>
+
+      <div id="office-info">
+        <div class="default-content phones">
+          <a href="tel:{{ office.phone }}">123-459-2398</a>
+          <p>ecosystem@ecosystem.com</p>
         </div>
-    {% endif %}
+      </div>
+    </div>
+  </div>
 
+  <div class="container contact-form">
+    <h2>Send us a message</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor tellus vitae rhoncus odio ullamcorper.</p>
+    {% filter shortcodes %}
+      [gravityform id="1" title="false" description="false" ajax="true"][/gravityform]
+    {% endfilter %} 
+  </div>
+{% endblock %}
+
+{% block specific_script %}
+	<script src="{{ theme.link }}/dist/scripts/pages/contact.js"></script>
 {% endblock %}

@@ -1,25 +1,36 @@
 {% extends 'base.twig' %}
+
+{% block pageClass %}awards-page{% endblock %}
+
 {% block content %}
-    <h1>AWARDS</h1>
+  <div class="container">
+	  <h1>Awards</h1>
 
-    {% if awards|length > 0%}
-        <div>
-            {% for key, awards_by_year in awards %}
-            <ul>
-                <h2>{{ key }}</h2>
-                {% for award in awards_by_year %}
-                    <li>
-                        <p>{{ award.award.title }}</p>
-                        <p>{{ award.award.organization }}</p>
-                        <p>{{ award.award.year }}</p>
-                        <a href="{{ award.case_study.link }}">{{ award.case_study.title }}</a>
-                        <img class="" src="{{ award.award.thumbnail.src('medium') }}" alt="{{ award.award.thumbnail.title }}">
-                    </li>
-                {% endfor %}
-            </ul> 
-            {% endfor %}    
-        </div>
-    {% endif %}
-    
+    {% for key, awards_by_year in awards %}
+      <div class="award-group">
+        <h2>{{ key }}</h2>
+        <ul>
+          {% for award in awards_by_year %}
 
+            <li>
+              <div class="logo">
+                <img class="" src="{{ award.award.thumbnail.src('medium') }}" alt="{{ award.award.thumbnail.title }}">
+              </div>
+
+              <div class="title">
+                <h3>{{ award.award.title }}</h3>
+                <p>{{ award.award.organization }}</p>
+              </div>
+
+              <div class="link-ctn">
+                <a class="external link" href="{{ award.case_study.link }}">{{ award.case_study.title }}</a>
+              </div>
+            </li>
+
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+      
+		</div>
 {% endblock %}

@@ -5,7 +5,7 @@
 
   The page must contain the following elements:
     - A form (#ajax-form)
-    - A hidden input (#ajax-settings) inside the form element with optional 'data-url' and 'data-limit' properties
+    - A hidden input (#ajax-settings) inside the form element with options (data-url, data-limit, etc)
     - An ajax outer container (#ajax-content), containing an inner element where data will be loaded (.inner)
 
   Elements ids and classes can be overridden by passing their value to the constructor
