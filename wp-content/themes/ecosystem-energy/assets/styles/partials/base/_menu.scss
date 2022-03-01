@@ -139,17 +139,27 @@ $text-open-transition-delay: 0ms;
     left: 0;
     right: 0;
     @include flex(center, space-between);
-    padding: 40px 20px;
     transition: $basicTransition;
     transition-delay: 1000ms;
     opacity: 0;
     z-index: 99;
-
-    .contact { text-align: right; }
+    overflow: hidden;
 
     a { 
-      padding: 0 20px;
       @include fontSize(16, 22, 500);
+      color: white;
+      &:hover { color:$yellow; }
+    }
+    
+    .contact { 
+      padding: 40px 20px;
+      text-align: right;
+      a { padding: 0 20px; }
+    }
+
+    .ms {
+      padding: 40px 20px;
+      a { padding: 0 10px; }
     }
   }
 
@@ -224,6 +234,7 @@ $text-open-transition-delay: 0ms;
       width: 100%;
       height: $header-height;
       background-position-y: 50%;
+      background-position-x: 0;
     }
 
     #primary-menu {
@@ -249,10 +260,19 @@ $text-open-transition-delay: 0ms;
     #menu-footer { 
       a { @include fontSize(13, 20); }
     }
+  
+    &:not(.show) {
+      #menu-image {
+        width: 100% !important;
+        background-position-x: -140vh;
+      }
+    }
   }
 
   #header.show-search-pane #menu, 
   #header.show-country-pane #menu {
+    #menu-image { transition-delay: 100ms; }
+
     #primary-menu {
       padding-top: calc($header-height + $upper-header-height + $menu-top-padding-mobile);
 

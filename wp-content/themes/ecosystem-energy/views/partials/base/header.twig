@@ -1,10 +1,10 @@
 <header id="header" class="show-main-pane">
 
   {# SEARCH FIELD #}
-  <div id="search-pane">
-    <input type="text" placeholder="Search..." />
+  <form id="search-pane" action="{{ site.url }}" role="search" method="get">
+    <input type="text" name="s" placeholder="Search..." />
     <a id="search-close"><i class="icon-close-medium"></i></a>
-  </div>
+  </form>
 
   {# COUNTRY SELECTOR #}
   <form id="country-pane" method="GET">

@@ -1,6 +1,8 @@
 {% block content %}
     <div class="container">
         <div class="list-ctn -style-2">
+
+          <h1>SEARCH RESULTS</h1>
             {% for post in posts %}
                 <article class="article">
                     <h3 class="article-title"><a href="{{ post.link }}">{{ post.title }} - {{ post.get_post_type.labels.singular_name }}</a></h3>
