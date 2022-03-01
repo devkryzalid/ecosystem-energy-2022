@@ -22,6 +22,11 @@ export default class Menu {
     document.querySelectorAll('.secondary-link').forEach(link => {
       link.addEventListener('click', this.openSecondaryMenu)
     })
+
+    // Add click listener to all back links (to close secondary menus)
+    document.querySelectorAll('.secondary-menu .back').forEach(link => {
+      link.addEventListener('click', this.closeAllSecondaryMenus)
+    })
   }
 
   // Menu display toggler

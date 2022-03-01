@@ -3193,11 +3193,11 @@ a.link.video::after {
   transition: all 0.4s ease;
   overflow: hidden;
 }
-#header .yellow-pane:not(.show), #header #country-pane:not(.show), #header #search-pane:not(.show) {
-  height: 0 !important;
-}
 #header #search-pane {
   z-index: 900;
+}
+#header #search-pane a {
+  height: 40%;
 }
 #header #search-pane input {
   width: 100%;
@@ -3214,9 +3214,6 @@ a.link.video::after {
 }
 #header #search-pane input:focus, #header #search-pane input:focus-visible {
   outline: none;
-}
-#header #search-pane a {
-  height: 40%;
 }
 #header #country-pane {
   justify-content: space-between;
@@ -3242,31 +3239,31 @@ a.link.video::after {
   position: relative;
   appearance: none;
 }
-#header #country-pane .countries label input::before {
+#header #country-pane .countries label input::before, #header #country-pane .countries label input:checked::after {
   content: "";
   display: block;
+  border-radius: 50%;
+}
+#header #country-pane .countries label input::before {
   width: 28px;
   height: 28px;
   margin-right: 10px;
   background-color: white;
-  border-radius: 50%;
 }
 #header #country-pane .countries label input:checked::after {
-  content: "";
-  display: block;
   position: absolute;
   top: 6px;
   left: 6px;
   width: 16px;
   height: 16px;
   background-color: #242C3E;
-  border-radius: 50%;
   transition: all 0.4s ease;
 }
 #header #country-pane .btn, #header #country-pane .contact-page .contact-form input[type=submit], .contact-page .contact-form #header #country-pane input[type=submit] {
   margin: 0 34px 0 auto;
 }
 #header #main-pane {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -3307,7 +3304,13 @@ a.link.video::after {
 #header #main-pane #top-menu a:hover, #header #main-pane #top-menu a:hover i {
   color: #FAB900;
 }
-#header #main-pane:not(.show) {
+#header:not(.show-search-pane) #search-pane {
+  height: 0 !important;
+}
+#header:not(.show-country-pane) #country-pane {
+  height: 0 !important;
+}
+#header:not(.show-main-pane) #main-pane {
   height: 0 !important;
 }
 #header #menu-toggle {
@@ -3360,6 +3363,9 @@ a.link.video::after {
   }
   #header #main-pane #top-menu #language-toggle {
     margin-left: auto;
+  }
+  #header #country-pane {
+    height: 180px;
   }
   #header #menu-toggle {
     top: 21px;
@@ -3464,20 +3470,21 @@ body.menu-open #header #menu-toggle:hover span {
   left: 0;
   width: 100%;
   height: 100%;
-  padding: 150px 0;
+  padding: 130px 0 0;
   background-color: #242C3E;
   transition: all 0.4s ease-out;
   transition-delay: 500ms;
   overflow: hidden;
 }
 #menu #primary-menu li {
+  width: max-content;
   padding-left: calc(24vw + 80px);
   opacity: 1;
   overflow: hidden;
   transition: all 0.3s ease;
   transition-delay: 1300ms;
 }
-#menu #primary-menu li a {
+#menu #primary-menu li a, #menu #primary-menu li .secondary-menu a.back {
   display: block;
   font-size: 48px;
   font-size: 3rem;
@@ -3489,11 +3496,13 @@ body.menu-open #header #menu-toggle:hover span {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-#menu #primary-menu li a.secondary-link::after {
-  content: ">";
+#menu #primary-menu li a.secondary-link::after, #menu #primary-menu li .secondary-menu a.back.secondary-link::after {
+  font-family: "icomoon" !important;
+  content: "\e90b";
   margin-left: 10px;
+  font-size: 22px;
 }
-#menu #primary-menu li a:hover {
+#menu #primary-menu li a:hover, #menu #primary-menu li .secondary-menu a.back:hover {
   color: white;
 }
 #menu #primary-menu li .secondary-menu {
@@ -3502,12 +3511,13 @@ body.menu-open #header #menu-toggle:hover span {
   right: 0;
   width: calc((100% - 24vw) / 2);
   height: 100vh;
-  padding: 150px 0;
+  padding: 130px 0 0;
   background-color: #2A3244;
   transition: all 0.4s ease;
   overflow: hidden;
 }
 #menu #primary-menu li .secondary-menu li {
+  width: 100%;
   padding: 15px 50px;
 }
 #menu #primary-menu li .secondary-menu a {
@@ -3520,11 +3530,47 @@ body.menu-open #header #menu-toggle:hover span {
   letter-spacing: -0.3px;
   color: white;
 }
+#menu #primary-menu li .secondary-menu a.back {
+  display: none;
+}
+#menu #primary-menu li .secondary-menu a.back::before {
+  font-family: "icomoon" !important;
+  content: "\e90a";
+  margin-right: 10px;
+  font-size: 22px;
+}
 #menu #primary-menu li.show a {
   color: white;
 }
 #menu #primary-menu li:not(.show) .secondary-menu {
   right: calc((100% - 24vw) / -2);
+}
+#menu #menu-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 20px;
+  transition: all 0.4s ease;
+  transition-delay: 1000ms;
+  opacity: 0;
+  z-index: 99;
+}
+#menu #menu-footer .contact {
+  text-align: right;
+}
+#menu #menu-footer a {
+  padding: 0 20px;
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 22px;
+  line-height: 1.375rem;
+  letter-spacing: normal;
 }
 #menu.-on {
   transition: all 0.4s ease;
@@ -3542,6 +3588,14 @@ body.menu-open #header #menu-toggle:hover span {
   transition: all 0.2s ease;
   transition-delay: 0ms !important;
 }
+#menu.-on #menu-footer {
+  opacity: 1;
+  transition-delay: 0ms;
+}
+#menu.-on.show #menu-image, #menu.-on.show #primary-menu {
+  transition: all 0.4s ease;
+  transition-delay: 0ms !important;
+}
 #menu:not(.show) {
   width: 0 !important;
 }
@@ -3551,6 +3605,17 @@ body.menu-open #header #menu-toggle:hover span {
 #menu:not(.show) li {
   opacity: 0 !important;
 }
+
+#header.show-search-pane #menu-image,
+#header.show-country-pane #menu-image {
+  margin-top: 90px;
+}
+#header.show-search-pane #primary-menu, #header.show-search-pane #primary-menu li .secondary-menu,
+#header.show-country-pane #primary-menu,
+#header.show-country-pane #primary-menu li .secondary-menu {
+  padding-top: 215px;
+}
+
 @media (max-width: 1100px) {
   #menu #primary-menu li {
     padding-left: calc(24vw + 40px);
@@ -3559,27 +3624,53 @@ body.menu-open #header #menu-toggle:hover span {
 @media (max-width: 992px) {
   #menu #menu-image {
     width: 100%;
-    height: 140px;
+    height: 125px;
     background-position-y: 50%;
   }
   #menu #primary-menu {
-    padding-top: 160px;
+    padding-top: 155px;
     padding-bottom: 0;
   }
   #menu #primary-menu li {
     padding-left: 40px;
   }
   #menu #primary-menu li .secondary-menu {
+    margin-top: 125px;
+    padding-top: 30px;
     width: 50%;
     right: 0;
   }
   #menu #primary-menu li:not(.show) .secondary-menu {
     right: -50%;
   }
+  #menu #menu-footer a {
+    font-size: 13px;
+    font-size: 0.8125rem;
+    font-weight: initial;
+    line-height: 20px;
+    line-height: 1.25rem;
+    letter-spacing: normal;
+  }
+
+  #header.show-search-pane #menu #primary-menu,
+#header.show-country-pane #menu #primary-menu {
+    padding-top: 245px;
+  }
+  #header.show-search-pane #menu #primary-menu li .secondary-menu,
+#header.show-country-pane #menu #primary-menu li .secondary-menu {
+    padding-top: 30px;
+    margin-top: 215px;
+  }
 }
 @media (max-width: 768px) {
   #menu #menu-image {
     height: 170px;
+  }
+  #menu #primary-menu {
+    padding-top: 200px;
+  }
+  #menu #primary-menu li {
+    padding-left: 40px;
   }
   #menu #primary-menu li a {
     font-size: 30px;
@@ -3589,8 +3680,63 @@ body.menu-open #header #menu-toggle:hover span {
     line-height: 3.125rem;
     letter-spacing: normal;
   }
-}
+  #menu #primary-menu li .secondary-menu {
+    margin-top: 170px;
+    width: 50%;
+    right: 0;
+  }
+  #menu #menu-footer {
+    display: none;
+  }
 
+  #header.show-search-pane #menu #primary-menu {
+    padding-top: 290px;
+  }
+  #header.show-search-pane #menu #primary-menu li .secondary-menu {
+    margin-top: 260px;
+  }
+
+  #header.show-country-pane #menu #menu-image {
+    margin-top: 180px;
+    height: 170px;
+  }
+  #header.show-country-pane #menu #primary-menu {
+    padding-top: 380px;
+  }
+  #header.show-country-pane #menu #primary-menu li .secondary-menu {
+    margin-top: 350px;
+  }
+}
+@media (max-width: 550px) {
+  #menu #primary-menu li .secondary-menu {
+    width: 100% !important;
+  }
+  #menu #primary-menu li .secondary-menu a.back {
+    display: block;
+    margin-left: 30px;
+    font-size: 30px;
+    font-size: 1.875rem;
+    font-weight: 500;
+    line-height: 50px;
+    line-height: 3.125rem;
+    letter-spacing: normal;
+  }
+  #menu #primary-menu li .secondary-menu li {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  #menu #primary-menu li .secondary-menu li a {
+    font-size: 17px;
+    font-size: 1.0625rem;
+    font-weight: 500;
+    line-height: 23px;
+    line-height: 1.4375rem;
+    letter-spacing: -0.24px;
+  }
+  #menu #primary-menu li:not(.show) .secondary-menu {
+    right: -100%;
+  }
+}
 #footer {
   padding-top: 100px;
 }

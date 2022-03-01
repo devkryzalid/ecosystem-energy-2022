@@ -25,14 +25,14 @@
     background-color: $yellow;
     transition: $basicTransition;
     overflow: hidden;
-    
-    &:not(.show) { height: 0 !important; }
   }
 
   // Top yellow search field
   #search-pane {
     @extend .yellow-pane;
     z-index: 900;
+
+    a { height: 40%; }
 
     input {
       width: 100%;
@@ -43,10 +43,6 @@
       @include fontSize(62, 85);
 
       &:focus, &:focus-visible { outline: none; }
-    }
-
-    a {
-      height: 40%;
     }
   }
 
@@ -69,26 +65,26 @@
           position: relative;
           appearance: none;
   
-          &::before {
+          &::before, &:checked::after {
             content: '';
             display: block;
+            border-radius: 50%;
+          }
+
+          &::before {
             width: 28px;
             height: 28px;
             margin-right: 10px;
             background-color: white;
-            border-radius: 50%;
           }
 
           &:checked::after {
-            content: '';
-            display: block;
             position: absolute;
             top: 6px;
             left: 6px;
             width: 16px;
             height: 16px;
             background-color: $blue;
-            border-radius: 50%;
             transition: $basicTransition;
           }
         }
@@ -98,8 +94,9 @@
     .btn { margin: 0 34px 0 auto; }
   }
 
-  // "Primary" header
+  // Top menu Country / Language / Search togglers
   #main-pane {
+    position: relative;
     @include flex();
     height: $header-height;
     padding: 0 40px;
@@ -124,14 +121,18 @@
       a {
         padding: 20px;
         @include fontSize(16, 22, 600);
+
         &:hover, &:hover i { color: $yellow; }
       }
     }
-
-    &:not(.show) { height: 0 !important; }
   }
 
-  // Shapeshifting menu icon
+  // Hide panels by default
+  &:not(.show-search-pane) #search-pane { height: 0 !important; }
+  &:not(.show-country-pane) #country-pane { height: 0 !important; }
+  &:not(.show-main-pane) #main-pane { height: 0 !important; }
+
+  // Burger / Close menu icon
   #menu-toggle {
     position: absolute;
     top: 45px;
@@ -158,13 +159,15 @@
   }
 
   @media (max-width: $tablet) {
+    // Move top menu (country / language / search) fullsize under logo
     #main-pane { 
       @include flex(flex-start, flex-start);
       flex-direction: column;
-      height: 170px;
+      height: $header-height-mobile;
       padding: 0 20px;
 
       #logo { margin-top: 8px; }
+
       #top-menu { 
         display: none; 
         width: 100%;
@@ -175,21 +178,28 @@
       }
     }
 
+    //
+    #country-pane {
+      height: $upper-header-height-mobile;
+    }
+
+    // 
     #menu-toggle { 
       top: 21px; 
       right: 21px; 
     }
   }
   
+  // Resize and replace logo
   @media (max-width: $mobile) {
     #main-pane { 
       #logo { 
         width: 180px;
         margin-top: 16px;
       }
-      #top-menu { 
-        #country-toggle { font-size: 13px; }
-      }
+
+      // 
+      #top-menu #country-toggle { font-size: 13px; }
     }
   }
 }

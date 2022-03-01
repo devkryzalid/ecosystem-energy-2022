@@ -1,41 +1,37 @@
 export default class Search {
-  // Header class reference (for callbacks)
-  header;
-
-  // DOM elements
+  header; // Header class reference (for callbacks)
+  headerElement = document.getElementById('header');
   searchElement = document.getElementById('search-pane');
-  searchToggleElement = document.getElementById('search-toggle');
-  searchCloseElement = document.getElementById('search-close');
-
   searchVisible = false;
 
   constructor (headerRef) {
     this.header = headerRef;
-
-    this.searchToggleElement.addEventListener('click', () => this.toggleSearch());
-    this.searchCloseElement.addEventListener('click', () => this.toggleSearch(false));
+    document.getElementById('search-close').addEventListener('click', () => this.toggleSearch(false));
+    document.getElementById('search-toggle').addEventListener('click', () => this.toggleSearch());
   }
+  
+  // Getter
+  isVisible = () => this.searchVisible;
 
   // Search display toggler
   toggleSearch = (forcedValue = null) => {
-    // Hide similar panels
-    this.header.hideAllPanels();
-    
     // Set forced value if available, otherwise set to opposite of current value
     const show = forcedValue === null
       ? !this.searchVisible
       : !!forcedValue;
 
+    // Hide similar panels
+    this.header.hideAllPanels();
+
+    // Toggle panel visibility
     if (show) this.showSearch();
     else this.hideSearch();
-    console.log(this.searchVisible);
   }
 
   // Show top search element and focus on input field
   showSearch = () => {
-    console.log(this.header.mainElement);
     this.searchVisible = true;
-    this.searchElement.classList.add('show');
+    this.headerElement.classList.add('show-search-pane');
     this.searchElement.querySelector('input').focus();
   }
 
@@ -43,6 +39,6 @@ export default class Search {
   hideSearch = () => {
     this.searchVisible = false;
     this.searchElement.querySelector('input').blur();
-    this.searchElement.classList.remove('show');
+    this.headerElement.classList.remove('show-search-pane');
   }
 }

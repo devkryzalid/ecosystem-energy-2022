@@ -3,6 +3,7 @@ import Search from './search';
 import Country from './country';
 
 export default class Header {
+  headerElement = document.getElementById('header');
   mainElement = document.getElementById('main-pane');
 
   // Children js elements
@@ -11,7 +12,7 @@ export default class Header {
   country;
 
   previousScrollPosition = window.scrollY;
-  scrollOffset = 90;
+  scrollOffset = 70;
 
   constructor () {
     // Initialize children
@@ -37,12 +38,13 @@ export default class Header {
   }
 
   // Display management
-  showHeader = () => { this.mainElement.classList.add('show'); }
-  hideHeader = () => { this.mainElement.classList.remove('show'); }
+  showHeader = () => { this.headerElement.classList.add('show-main-pane'); }
+  hideHeader = () => { this.headerElement.classList.remove('show-main-pane'); }
 
   // Callback from children element to manage panels display
   hideAllPanels = () => { 
     this.search.hideSearch();
     this.country.hideCountry();
   }
+
 }

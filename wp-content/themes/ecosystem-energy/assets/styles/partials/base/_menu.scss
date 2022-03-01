@@ -1,5 +1,6 @@
 $menu-image-width: 24vw;
-$menu-padding: 150px 0;
+$menu-top-padding: 130px;
+$menu-top-padding-mobile: 30px;
 
 $menu-transition: all 0.5s ease-out;
 $image-transition: all 0.5s ease-out;
@@ -55,37 +56,35 @@ $text-open-transition-delay: 0ms;
     left: 0;
     width: 100%;
     height: 100%;
-    padding: $menu-padding;
+    padding: $menu-top-padding 0 0;
     background-color: $blue;
     transition: $primary-transition;
     transition-delay: $primary-transition-delay;
     overflow: hidden;
 
     li { 
+      width: max-content;
       padding-left: calc($menu-image-width + 80px);
-      // padding-right: calc((100% - $menu-image-width) / 2 + 80px);
       opacity: 1;
       overflow: hidden;
       transition: $text-transition;
       transition-delay: $text-transition-delay;
 
-      a {
+      a, .secondary-menu a.back {
         display: block;
         @include fontSize(48, 65, 500);
         color: $yellow;
         cursor: pointer;
         transition: all 0.3s ease;
 
-        &.secondary-link {
-          &::after {
-            content: '>';
-            margin-left: 10px;
-          }
+        &.secondary-link::after {
+          font-family: 'icomoon' !important;
+          content: "\e90b";
+          margin-left: 10px;
+          font-size: 22px;
         }
 
-        &:hover {
-          color: white;
-        }
+        &:hover { color: white; }
       }
 
       .secondary-menu {
@@ -94,17 +93,31 @@ $text-open-transition-delay: 0ms;
         right: 0;
         width: calc((100% - $menu-image-width) / 2);
         height: 100vh;
-        padding: $menu-padding;
+        padding: $menu-top-padding 0 0;
         background-color: $altblue;
         transition: $basicTransition;
         overflow: hidden;
 
-        li { padding: 15px 50px; }
+        li { 
+          width: 100%;
+          padding: 15px 50px; 
+        }
 
         a {
           display: block;
           @include fontSize(22, 30, 500, -0.3);
           color: white;
+
+          &.back { 
+            display: none;
+
+            &::before {
+              font-family: 'icomoon' !important;
+              content: "\e90a";
+              margin-right: 10px;
+              font-size: 22px;
+            }
+          }
         }
       }
 
@@ -117,6 +130,26 @@ $text-open-transition-delay: 0ms;
           right: calc((100% - $menu-image-width) / (-2));
         }
       }
+    }
+  }
+
+  #menu-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    @include flex(center, space-between);
+    padding: 40px 20px;
+    transition: $basicTransition;
+    transition-delay: 1000ms;
+    opacity: 0;
+    z-index: 99;
+
+    .contact { text-align: right; }
+
+    a { 
+      padding: 0 20px;
+      @include fontSize(16, 22, 500);
     }
   }
 
@@ -135,10 +168,23 @@ $text-open-transition-delay: 0ms;
       transition-delay: $primary-open-transition-delay !important;
 
       li { 
-      transition: $text-open-transition;
+        transition: $text-open-transition;
         transition-delay: $text-open-transition-delay !important;
       }
     }
+
+    #menu-footer { 
+      opacity: 1; 
+      transition-delay: 0ms;
+    }
+
+    // Disable transition delays when menu is open AND not closing
+    &.show { 
+      #menu-image, #primary-menu { 
+        transition: $basicTransition;
+        transition-delay: 0ms !important; 
+      } 
+    }  
   }
 
   // Menu is not triggered, so hide everything
@@ -147,30 +193,49 @@ $text-open-transition-delay: 0ms;
     #menu-image, #primary-menu, .secondary-menu { width: 0 !important; }
     li { opacity: 0 !important; }
   }
+}
 
-  @media (max-width: 1100px) {
+// Adjust top margin with top yellow panel height
+#header.show-search-pane, 
+#header.show-country-pane {
+  #menu-image {
+    margin-top: calc($upper-header-height);
+  }
+
+  #primary-menu, #primary-menu li .secondary-menu {
+    padding-top: calc($header-height + $upper-header-height);
+  }
+}
+
+
+@media (max-width: 1100px) {
+  #menu {
     #primary-menu {
       li { 
         padding-left: calc($menu-image-width + 40px);
       }
     }
   }
+}
 
-  @media (max-width: $tablet-large) {
+@media (max-width: $tablet-large) {
+  #menu {
     #menu-image {
       width: 100%;
-      height: 140px;
+      height: $header-height;
       background-position-y: 50%;
     }
 
     #primary-menu {
-      padding-top: 160px;
+      padding-top: calc($header-height + $menu-top-padding-mobile);
       padding-bottom: 0;
 
       li {
         padding-left: 40px;
 
         .secondary-menu {
+          margin-top: $header-height;
+          padding-top: $menu-top-padding-mobile;
           width: 50%;
           right: 0;
         }
@@ -180,18 +245,100 @@ $text-open-transition-delay: 0ms;
         }
       }
     }
+
+    #menu-footer { 
+      a { @include fontSize(13, 20); }
+    }
   }
 
-  @media (max-width: $tablet) {
+  #header.show-search-pane #menu, 
+  #header.show-country-pane #menu {
+    #primary-menu {
+      padding-top: calc($header-height + $upper-header-height + $menu-top-padding-mobile);
+
+      li .secondary-menu {
+        padding-top: $menu-top-padding-mobile;
+        margin-top: calc($header-height + $upper-header-height);
+      }
+    }
+  }
+}
+
+@media (max-width: $tablet) {
+  #menu {
     #menu-image {
-      height: 170px;
+      height: $header-height-mobile;
     }
 
     #primary-menu {
-      li { 
-        a {
+      padding-top: calc($header-height-mobile + $menu-top-padding-mobile);
+
+      li {
+        padding-left: 40px;
+
+        a { @include fontSize(30, 50, 500); }
+
+        .secondary-menu {
+          margin-top: $header-height-mobile;
+          width: 50%;
+          right: 0;
+        }
+      }
+    }
+
+    #menu-footer { display: none; }
+  }
+
+  #header.show-search-pane #menu {
+    #primary-menu {
+      padding-top: calc($header-height-mobile + $upper-header-height + $menu-top-padding-mobile);
+
+      li .secondary-menu {
+        margin-top: calc($header-height-mobile + $upper-header-height);
+      }
+    }
+  }
+  // On mobile, the country pane is wider than search
+  #header.show-country-pane #menu {
+    #menu-image {
+      margin-top: $upper-header-height-mobile;
+      height: $header-height-mobile;
+    }
+
+    #primary-menu {
+      padding-top: calc($header-height-mobile + $upper-header-height-mobile + $menu-top-padding-mobile);
+
+      li .secondary-menu {
+        margin-top: calc($header-height-mobile + $upper-header-height-mobile);
+      }
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  #menu {
+    #primary-menu li {
+      .secondary-menu {
+        width: 100% !important;
+
+        a.back {
+          display: block;
+          margin-left: 30px;
           @include fontSize(30, 50, 500);
         }
+
+        li {
+          padding-left: 30px;
+          padding-right: 30px;
+
+          a {
+            @include fontSize(17, 23, 500, -0.24);
+          }
+        }
+      }
+
+      &:not(.show) .secondary-menu {
+        right: -100%;
       }
     }
   }

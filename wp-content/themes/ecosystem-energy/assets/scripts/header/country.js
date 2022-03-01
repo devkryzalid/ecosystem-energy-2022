@@ -1,33 +1,30 @@
 export default class Country {
-  // Header class reference (for callbacks)
-  header;
-
-  // DOM elements
-  countryElement = document.getElementById('country-pane');
-  countryToggleElement = document.getElementById('country-toggle');
-  countrySetElement = document.getElementById('country-set');
-  countryCloseElement = document.getElementById('country-close');
-
+  header; // Header class reference (for callbacks)
+  headerElement = document.getElementById('header');
   countryVisible = false;
 
   constructor (headerRef) {
     this.header = headerRef;
 
-    this.countryToggleElement.addEventListener('click', () => this.toggleCountry());
-    this.countrySetElement.addEventListener('click', () => console.log('BLOP'));
-    this.countryCloseElement.addEventListener('click', () => this.toggleCountry(false));
+    // Toggle buttons
+    document.getElementById('country-close').addEventListener('click', () => this.toggleCountry(false));
+    document.getElementById('country-toggle').addEventListener('click', () => this.toggleCountry());
+
+    // Submit button
+    document.getElementById('country-set').addEventListener('click', () => console.log('SET COUNTRY'));
   }
 
   // Country display toggler
   toggleCountry = (forcedValue = null) => {
-    // Hide similar panels
-    this.header.hideAllPanels();
-
     // Set forced value if available, otherwise set to opposite of current value
     const show = forcedValue === null
       ? !this.countryVisible
       : !!forcedValue;
-      
+
+    // Hide similar panels
+    this.header.hideAllPanels();
+    
+    // Toggle panel visibility
     if (show) this.showCountry();
     else this.hideCountry();
   }
@@ -35,12 +32,12 @@ export default class Country {
   // 
   showCountry = () => {
     this.countryVisible = true;
-    this.countryElement.classList.add('show');
+    this.headerElement.classList.add('show-country-pane');
   }
 
   // 
   hideCountry = () => {
     this.countryVisible = false;
-    this.countryElement.classList.remove('show');
+    this.headerElement.classList.remove('show-country-pane');
   }
 }
