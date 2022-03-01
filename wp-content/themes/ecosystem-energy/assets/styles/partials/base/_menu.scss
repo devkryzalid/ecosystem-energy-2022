@@ -267,11 +267,11 @@ $text-open-transition-delay: 0ms;
 @media (max-width: $tablet) {
   #menu {
     #menu-image {
-      height: $header-height-mobile;
+      height: $header-height-tablet;
     }
 
     #primary-menu {
-      padding-top: calc($header-height-mobile + $menu-top-padding-mobile);
+      padding-top: calc($header-height-tablet + $menu-top-padding-mobile);
 
       li {
         padding-left: 40px;
@@ -279,7 +279,7 @@ $text-open-transition-delay: 0ms;
         a { @include fontSize(30, 50, 500); }
 
         .secondary-menu {
-          margin-top: $header-height-mobile;
+          margin-top: $header-height-tablet;
           width: 50%;
           right: 0;
         }
@@ -291,25 +291,25 @@ $text-open-transition-delay: 0ms;
 
   #header.show-search-pane #menu {
     #primary-menu {
-      padding-top: calc($header-height-mobile + $upper-header-height + $menu-top-padding-mobile);
+      padding-top: calc($header-height-tablet + $upper-header-height + $menu-top-padding-mobile);
 
       li .secondary-menu {
-        margin-top: calc($header-height-mobile + $upper-header-height);
+        margin-top: calc($header-height-tablet + $upper-header-height);
       }
     }
   }
   // On mobile, the country pane is wider than search
   #header.show-country-pane #menu {
     #menu-image {
-      margin-top: $upper-header-height-mobile;
-      height: $header-height-mobile;
+      margin-top: $upper-header-height-tablet;
+      height: $header-height-tablet;
     }
 
     #primary-menu {
-      padding-top: calc($header-height-mobile + $upper-header-height-mobile + $menu-top-padding-mobile);
+      padding-top: calc($header-height-tablet + $upper-header-height-tablet + $menu-top-padding-mobile);
 
       li .secondary-menu {
-        margin-top: calc($header-height-mobile + $upper-header-height-mobile);
+        margin-top: calc($header-height-tablet + $upper-header-height-tablet);
       }
     }
   }

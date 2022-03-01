@@ -22,12 +22,13 @@
     opacity: 0;
   }
 
+  // Blue button in top yellow bar
   &.blue {
     background-color: $blue;
-    color: $yellow;
+    color: white;
 
     &:hover {
-      color: white;
+      color: $yellow;
     }
   }
 

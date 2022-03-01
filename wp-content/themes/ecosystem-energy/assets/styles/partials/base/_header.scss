@@ -10,8 +10,8 @@
     transition: $basicTransition;
 
     &[id$="-close"] {
-      opacity: 0.5;
-      &:hover { opacity: 1; }
+      opacity: 1;
+      &:hover { opacity: 0.4; }
     }
   }
 
@@ -21,7 +21,7 @@
     @include flex();
     width: 100%;
     height: $upper-header-height;
-    padding: 0 50px;
+    padding: 0 30px;
     background-color: $yellow;
     transition: $basicTransition;
     overflow: hidden;
@@ -52,32 +52,53 @@
     justify-content: space-between;
     z-index: 901;
 
-    p { margin-right: 40px; }
+    p { 
+      margin: 0;
+      line-height: 24px; 
+    }
+
+    .content { @include flex(); }
+
+    .btn { margin: 0 34px 0 auto; }
+
+    #country-close {
+      position: absolute;
+      right: 30px;
+      top: 30px;
+    }
 
     .countries {
       @include flex();
-      gap: 45px;
+      gap: 10px 45px;
+      margin: 0 30px;
 
       label { 
         @include flex();
+        white-space: nowrap;
 
         input { 
           position: relative;
           appearance: none;
-  
+
           &::before, &:checked::after {
             content: '';
             display: block;
             border-radius: 50%;
           }
 
+          // White circle
           &::before {
             width: 28px;
             height: 28px;
             margin-right: 10px;
             background-color: white;
+            border: 1px solid white;
+            transition: $basicTransition;
           }
 
+          &:hover::before { border-color: $blue; }
+
+          // Blue dot
           &:checked::after {
             position: absolute;
             top: 6px;
@@ -90,8 +111,6 @@
         }
       }
     }
-
-    .btn { margin: 0 34px 0 auto; }
   }
 
   // Top menu Country / Language / Search togglers
@@ -158,12 +177,27 @@
     &:hover span { background-color: $yellow; }
   }
 
+  @media (max-width: $tablet-large) {
+    #country-pane {
+      p, label { @include fontSize(16, 20); }
+
+      .content { 
+        align-items: flex-start;
+        flex-direction: column; 
+      }
+
+      .countries {
+        margin: 8px 0 0;
+      }
+    }
+  }
+
   @media (max-width: $tablet) {
     // Move top menu (country / language / search) fullsize under logo
     #main-pane { 
       @include flex(flex-start, flex-start);
       flex-direction: column;
-      height: $header-height-mobile;
+      height: $header-height-tablet;
       padding: 0 20px;
 
       #logo { margin-top: 8px; }
@@ -180,7 +214,17 @@
 
     //
     #country-pane {
-      height: $upper-header-height-mobile;
+      @include flex(flex-start, space-evenly);
+      flex-direction: column;
+      height: $upper-header-height-tablet;
+
+      .btn { margin-right: 0; }
+      .content { margin-right: 30px; }
+      
+      .countries {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
     }
 
     // 
@@ -206,12 +250,14 @@
 
 // White links when menu is open
 body.menu-open #header {
-  a, a i { color: white; }
-
   // Switch logo version when menu is open
-  #main-pane #logo { 
-    img.normal { display: none; }
-    img.invert { display: block; }
+  #main-pane {
+    a, a i { color: white; }
+
+    #logo { 
+      img.normal { display: none; }
+      img.invert { display: block; }
+    }
   }
 
   // Turn menu burger icon into X

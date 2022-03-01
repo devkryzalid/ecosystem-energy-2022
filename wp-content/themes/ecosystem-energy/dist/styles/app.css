@@ -1,7 +1,7 @@
 /*!******************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./assets/styles/main.scss ***!
   \******************************************************************************************************************/
-@import url(https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap);
 /*!*********************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/aos/dist/aos.css ***!
   \*********************************************************************************/
@@ -2881,10 +2881,10 @@ h3 {
 }
 .btn.blue, .contact-page .contact-form input.blue[type=submit] {
   background-color: #242C3E;
-  color: #FAB900;
+  color: white;
 }
 .btn.blue:hover, .contact-page .contact-form input.blue[type=submit]:hover {
-  color: white;
+  color: #FAB900;
 }
 .btn.transparent, .contact-page .contact-form input.transparent[type=submit] {
   background: none;
@@ -3175,10 +3175,10 @@ a.link.video::after {
   transition: all 0.4s ease;
 }
 #header a[id$=-close], #header a i[id$=-close] {
-  opacity: 0.5;
+  opacity: 1;
 }
 #header a[id$=-close]:hover, #header a i[id$=-close]:hover {
-  opacity: 1;
+  opacity: 0.4;
 }
 #header .yellow-pane, #header #country-pane, #header #search-pane {
   position: relative;
@@ -3188,7 +3188,7 @@ a.link.video::after {
   justify-content: center;
   width: 100%;
   height: 90px;
-  padding: 0 50px;
+  padding: 0 30px;
   background-color: #FAB900;
   transition: all 0.4s ease;
   overflow: hidden;
@@ -3220,20 +3220,37 @@ a.link.video::after {
   z-index: 901;
 }
 #header #country-pane p {
-  margin-right: 40px;
+  margin: 0;
+  line-height: 24px;
+}
+#header #country-pane .content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+#header #country-pane .btn, #header #country-pane .contact-page .contact-form input[type=submit], .contact-page .contact-form #header #country-pane input[type=submit] {
+  margin: 0 34px 0 auto;
+}
+#header #country-pane #country-close {
+  position: absolute;
+  right: 30px;
+  top: 30px;
 }
 #header #country-pane .countries {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 45px;
+  gap: 10px 45px;
+  margin: 0 30px;
 }
 #header #country-pane .countries label {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
 }
 #header #country-pane .countries label input {
   position: relative;
@@ -3249,6 +3266,11 @@ a.link.video::after {
   height: 28px;
   margin-right: 10px;
   background-color: white;
+  border: 1px solid white;
+  transition: all 0.4s ease;
+}
+#header #country-pane .countries label input:hover::before {
+  border-color: #242C3E;
 }
 #header #country-pane .countries label input:checked::after {
   position: absolute;
@@ -3258,9 +3280,6 @@ a.link.video::after {
   height: 16px;
   background-color: #242C3E;
   transition: all 0.4s ease;
-}
-#header #country-pane .btn, #header #country-pane .contact-page .contact-form input[type=submit], .contact-page .contact-form #header #country-pane input[type=submit] {
-  margin: 0 34px 0 auto;
 }
 #header #main-pane {
   position: relative;
@@ -3340,6 +3359,23 @@ a.link.video::after {
 #header #menu-toggle:hover span {
   background-color: #FAB900;
 }
+@media (max-width: 992px) {
+  #header #country-pane p, #header #country-pane label {
+    font-size: 16px;
+    font-size: 1rem;
+    font-weight: initial;
+    line-height: 20px;
+    line-height: 1.25rem;
+    letter-spacing: normal;
+  }
+  #header #country-pane .content {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  #header #country-pane .countries {
+    margin: 8px 0 0;
+  }
+}
 @media (max-width: 768px) {
   #header #main-pane {
     display: flex;
@@ -3365,7 +3401,22 @@ a.link.video::after {
     margin-left: auto;
   }
   #header #country-pane {
-    height: 180px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 250px;
+  }
+  #header #country-pane .btn, #header #country-pane .contact-page .contact-form input[type=submit], .contact-page .contact-form #header #country-pane input[type=submit] {
+    margin-right: 0;
+  }
+  #header #country-pane .content {
+    margin-right: 30px;
+  }
+  #header #country-pane .countries {
+    justify-content: flex-start;
+    flex-wrap: wrap;
   }
   #header #menu-toggle {
     top: 21px;
@@ -3382,7 +3433,7 @@ a.link.video::after {
   }
 }
 
-body.menu-open #header a, body.menu-open #header a i {
+body.menu-open #header #main-pane a, body.menu-open #header #main-pane a i {
   color: white;
 }
 body.menu-open #header #main-pane #logo img.normal {
@@ -3697,14 +3748,14 @@ body.menu-open #header #menu-toggle:hover span {
   }
 
   #header.show-country-pane #menu #menu-image {
-    margin-top: 180px;
+    margin-top: 250px;
     height: 170px;
   }
   #header.show-country-pane #menu #primary-menu {
-    padding-top: 380px;
+    padding-top: 450px;
   }
   #header.show-country-pane #menu #primary-menu li .secondary-menu {
-    margin-top: 350px;
+    margin-top: 420px;
   }
 }
 @media (max-width: 550px) {

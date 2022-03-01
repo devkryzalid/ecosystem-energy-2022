@@ -8,20 +8,22 @@
 
   {# COUNTRY SELECTOR #}
   <form id="country-pane" method="GET">
-    <p>To read the appropriate content, please select your country :</p>
+    <div class="content">
+      <p>To read the appropriate content, please select your country :</p>
 
-    <div class="countries">
-      <label for="country-all">
-        <input id="country-all" type="radio" name="set_locale" value="-1" {% if current_locale == -1 %} checked {% endif %} />
-        All
-      </label>
-
-      {% for locale in locales %}
-        <label for="country-{{ locale.term_id }}">
-          <input id="country-{{ locale.term_id }}" type="radio" name="set_locale" value="{{ locale.term_id }}" {% if current_locale == locale.term_id %} checked {% endif %} />
-          {{ locale.name }}
+      <div class="countries">
+        <label for="country-all">
+          <input id="country-all" type="radio" name="set_locale" value="-1" {% if current_locale == -1 %} checked {% endif %} />
+          All
         </label>
-      {% endfor %}
+
+        {% for locale in locales %}
+          <label for="country-{{ locale.term_id }}">
+            <input id="country-{{ locale.term_id }}" type="radio" name="set_locale" value="{{ locale.term_id }}" {% if current_locale == locale.term_id %} checked {% endif %} />
+            {{ locale.name }}
+          </label>
+        {% endfor %}
+      </div>
     </div>
 
     <button type="submit" id="country-set" class="blue btn">Confirm</button>

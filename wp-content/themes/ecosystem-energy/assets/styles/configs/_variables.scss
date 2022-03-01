@@ -9,7 +9,7 @@ $textColor: $darkgrey;
 $borderColor: rgba($darkgrey, 0.2);
 
 // Fonts
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
 $primaryFont: 'Manrope', serif;
 
 // Transitions
@@ -24,6 +24,6 @@ $xs-mobile: 320px;
 
 //
 $header-height: 125px;
-$header-height-mobile: 170px;
+$header-height-tablet: 170px;
 $upper-header-height: 90px;
-$upper-header-height-mobile: 180px;
+$upper-header-height-tablet: 250px;
