@@ -6,16 +6,10 @@ $expertise_id = empty($params['id']) ? -1 : $params['id'];
 
 $context = Timber::context();
 
-$args = [
-    'p'           => $expertise_id,
-    'post_type'   => 'expertise',
-    'post_status' => 'publish',
-];
-
-$post = new Timber\PostQuery($args);
+$post = Timber::get_post($expertise_id);
 
 // Get Case studies
-$context['case_studies'] = $post[0]->meta('projects_list');
+$context['case_studies'] = $post->meta('projects_list');
 
 // Get pagination
 $next= null;
