@@ -40,6 +40,7 @@
   &.circle {
     width: 120px;
     height: 120px;
+    padding: 0;
     border-radius: 50%;
 
     &:hover {
@@ -47,6 +48,11 @@
       background-color: $yellow;
       color: $blue;
       &::after { display: none; }
+    }
+
+    &.small {
+      width: 60px;
+      height: 60px;
     }
   }
 

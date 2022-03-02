@@ -2,12 +2,12 @@
 global $params;
 do_action('wpml_switch_language', $params['lang']);
 // set the query strings
-$id = empty($params['id']) ? -1 : $params['id'];
+$expertise_id = empty($params['id']) ? -1 : $params['id'];
 
 $context = Timber::context();
 
 $args = [
-    'p'           => $id,
+    'p'           => $expertise_id,
     'post_type'   => 'expertise',
     'post_status' => 'publish',
 ];
@@ -15,7 +15,7 @@ $args = [
 $post = new Timber\PostQuery($args);
 
 // Get Case studies
-$context['case_studies'] = $timber_post->meta('projects_list');
+$context['case_studies'] = $post[0]->meta('projects_list');
 
 // Get pagination
 $next= null;
@@ -45,16 +45,16 @@ foreach ($expertises as $key => $expertise) {
 /**
  * Render view (return)
  */
-if ($posts->found_posts > 0) {
+if ($post) {
     $response = '';
-    $response .= Timber::compile('partials/lists/expertise.twig', [
-        'post'     => $post,
-        'next'     => $next,
-        'previous' => $previous,
+    $response .= Timber::compile('partials/expertise.twig', [
+        'expertise' => $post,
+        'next'      => $next,
+        'previous'  => $previous,
     ]);
     $message = $response;
 } else {
-    $message = Timber::compile('partials/lists/no-result-item.twig');
+    $message = Timber::compile('partials/lists/no-results.twig');
 }
 
 wp_reset_query();

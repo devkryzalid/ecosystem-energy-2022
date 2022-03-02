@@ -40,6 +40,7 @@
         padding: 30px;
         @include fontSize(28, 38, 500);
         color: white;
+        pointer-events: none;
       }
 
       img {
@@ -47,26 +48,42 @@
         height: 100%;
         object-fit: cover;
         opacity: 0.3;
+        pointer-events: none;
       }
     }
   }
 
-  .side-panel {
-    position: absolute;
+  #side-panel {
+    display: block;
+    position: fixed;
     top: 0;
     right: 0;
-    left: 0;
+    left: 200px;
     bottom: 0;
     z-index: 9999;
     background-color: rgba($blue, 0.7);
+    overflow: hidden;
 
-    .content {
+    &:not(.show) { display: none; }
+
+    .container {
       position: absolute;
       top: 0;
       right: 0;
       width: 80%;
       height: 100%;
+      padding: 40px 60px;
       background-color: white;
+
+      #panel-header {
+        @include flex(center, space-between);
+        padding-bottom: 26px;
+        border-bottom: 1px solid $borderColor;
+
+        #panel-close { margin: 0 0 0 auto; }
+      }
+
+      #panel-content { }
     }
   }
 }

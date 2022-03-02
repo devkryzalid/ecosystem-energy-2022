@@ -27,7 +27,7 @@
     <h2>Here are some examples of measures that work together to deliver results</h2>
     <div class="grid-list">
       {% for expertise in expertises %}
-        <a class="expertise-item">
+        <a class="expertise-item" data-expertise="{{ expertise.id }}">
           <h3>{{ expertise.title }}</h3>
           <img class="" src="{{ expertise.thumbnail.src('large') }}" alt="{{ expertise.thumbnail.title }}">
         </a>
@@ -37,16 +37,12 @@
 
   {% include 'partials/contact-cta.twig' %}
 
-  {# <div id="side-panel" class="side-panel">
-    <div id="panel-content">
-      <div class="panel-header">
-        PREV / NEXT / CLOSE
-      </div>
-    </div>
-  </div> #}
+  <div id="side-panel">
+    {% include 'partials/expertise.twig' %}
+  </div>
 
 {% endblock %}
 
-{# {% block specific_script %}
+{% block specific_script %}
 	<script src="{{ theme.link }}/dist/scripts/pages/expertises.js"></script>
-{% endblock %} #}
+{% endblock %}
