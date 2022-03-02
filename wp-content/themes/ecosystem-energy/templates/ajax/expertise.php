@@ -6,10 +6,10 @@ $expertise_id = empty($params['id']) ? -1 : $params['id'];
 
 $context = Timber::context();
 
-$post = Timber::get_post($expertise_id);
+$currentPost = Timber::get_post($expertise_id);
 
 // Get Case studies
-$context['case_studies'] = $post->meta('projects_list');
+$context['case_studies'] = $currentPost->meta('projects_list');
 
 // Get pagination
 $next= null;
@@ -25,7 +25,7 @@ $expertises = new Timber\PostQuery([
 ]);
 
 foreach ($expertises as $key => $expertise) {
-    if ($expertise->id == $post->ID) {
+    if ($expertise->id == $currentPost->ID) {
         if (isset($expertises[($key -1)])) {
             $previous = $expertises[($key -1)];
         }
@@ -39,10 +39,10 @@ foreach ($expertises as $key => $expertise) {
 /**
  * Render view (return)
  */
-if ($post) {
+if ($currentPost) {
     $response = '';
     $response .= Timber::compile('partials/expertise.twig', [
-        'expertise' => $post,
+        'expertise' => $currentPost,
         'next'      => $next,
         'previous'  => $previous,
     ]);
