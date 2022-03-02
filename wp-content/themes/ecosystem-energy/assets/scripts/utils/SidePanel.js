@@ -2,16 +2,19 @@
 import axios from 'axios';
 
 export default class SidePanel {
-  container;
-  visible;
+  container = document.getElementById('side-panel-ctn');
+  innerContainer = document.getElementById('panel-content');
+
+  visible = false;
 
   constructor () {
-    this.container = document.getElementById('side-panel');
-    
     // Add click listeners to all grid items
     document.querySelectorAll('.expertise-item').forEach(link => {
       link.addEventListener('click', this.openPanel);
     })
+
+    // Close panel when overlay is clicked
+    this.container.querySelector('#panel-overlay').addEventListener('click', () => this.togglePanel(false))
   }
 
   // Toggle
@@ -25,9 +28,9 @@ export default class SidePanel {
   }
 
   replaceHTML = html => {
-    this.container.innerHTML = html || 'NO DATA';
-    // document.getElementById('panel-prev').addEventListener('click', this.loadNextPage)
-    // document.getElementById('panel-next').addEventListener('click', this.loadPreviousPage)
+    this.innerContainer.innerHTML = html || 'NO DATA';
+    document.getElementById('panel-prev').addEventListener('click', this.loadNextPage)
+    document.getElementById('panel-next').addEventListener('click', this.loadPreviousPage)
     document.getElementById('panel-close').addEventListener('click', () => this.togglePanel(false))
   }
 
@@ -52,10 +55,8 @@ export default class SidePanel {
   }
 
   loadNextPage = () => {
-
   }
 
   loadPreviousPage = () => {
-    
   }
 }

@@ -53,27 +53,38 @@
     }
   }
 
-  #side-panel {
+  $t: all 0.3s ease-out;
+
+  #side-panel-ctn {
     display: block;
     position: fixed;
     top: 0;
     right: 0;
-    left: 200px;
     bottom: 0;
+    width: 100%;
     z-index: 9999;
-    background-color: rgba($blue, 0.7);
     overflow: hidden;
+    transition: $t;
 
-    &:not(.show) { display: none; }
+    #panel-overlay {
+      position: absolute;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($blue, 0.7);
+      transition: $t;
+    }
 
-    .container {
+    #panel-content {
       position: absolute;
       top: 0;
       right: 0;
-      width: 80%;
+      width: 80vw;
       height: 100%;
       padding: 40px 60px;
       background-color: white;
+      transition: $t;
+      transition-delay: 200ms;
 
       #panel-header {
         @include flex(center, space-between);
@@ -83,7 +94,15 @@
         #panel-close { margin: 0 0 0 auto; }
       }
 
-      #panel-content { }
+      #panel-body {
+        
+      }
+    }
+
+    &:not(.show) { 
+      width: 0;
+      #panel-overlay { right: -100vh; }
+      #panel-content { right: -140vh; }
     }
   }
 }

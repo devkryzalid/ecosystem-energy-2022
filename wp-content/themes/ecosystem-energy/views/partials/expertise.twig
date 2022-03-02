@@ -1,20 +1,13 @@
-{# <div id="side-panel"> #}
-  <div class="container">
+<div id="panel-header">
+  <a id="panel-prev" class="small circle btn"><i class="icon-small-arrow-left"></i></a>
+  <a id="panel-next" class="small circle btn"><i class="icon-small-arrow-right"></i></a>
+  <a id="panel-close" class=""><i class="icon-close-medium"></i></a>
+</div>
 
-    <div id="panel-header">
-      <a id="panel-prev" class="small circle btn"><i class="icon-small-arrow-left"></i></a>
-      <a id="panel-next" class="small circle btn"><i class="icon-small-arrow-right"></i></a>
-      <a id="panel-close" class=""><i class="icon-close-medium"></i></a>
-    </div>
-
-    <div id="panel-content">
-    <pre>{{ dump(expertise) }}</pre>
-      <h1>{{ expertise.title }}</h1>
-      {{ expertise.content }}
-    </div>
-
-  </div>
-{# </div> #}
+<div id="panel-body">
+  <h1>{{ expertise.title }}</h1>
+  {{ expertise.content }}
+</div>
 
     {# <div>
         {% if previous|length > 0%}
