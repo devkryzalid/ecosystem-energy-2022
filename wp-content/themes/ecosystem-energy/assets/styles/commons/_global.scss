@@ -83,7 +83,11 @@ ul {
 }
 
 .page {
-  padding-top: $header-height;
+  // padding-top: $header-height;
+
+  // @media (max-width: $tablet) {
+  //   padding-top: $header-height-tablet;
+  // }
 }
 
 .icomoon {

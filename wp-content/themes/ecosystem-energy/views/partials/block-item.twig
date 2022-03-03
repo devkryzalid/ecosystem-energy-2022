@@ -1,6 +1,4 @@
-{# {% if url %} <a class="block-item {{ class }}" href="{{ url }}"> 
-{% else %} <div class="block-item {{ class }}"> {% endif %} #}
-<{{ url ? 'a' : 'div' }} class="block-item {{ class }}" {% if url %} href="{{ url }}" {% endif %}> 
+<{{ url ? 'a' : 'div' }} class="block-item {{ class }}" {% if url %} href="{{ url }}" {% endif %} {{ delay ? "data-aos=\"fade-up\" data-aos-delay=\"#{delay}\"" : '' }}> 
 
   <div class="image">
     <img src="{{ image.src('medium') }}" alt="{{ image.title }}" />

@@ -22,6 +22,9 @@
     opacity: 0;
   }
 
+  // Prevent click events conflicts with icon
+  i { pointer-events: none; }
+
   // Blue button in top yellow bar
   &.blue {
     background-color: $blue;
@@ -53,6 +56,11 @@
     &.small {
       width: 60px;
       height: 60px;
+    }
+
+    &.disabled {
+      background-color: $lightgrey;
+      pointer-events: none;
     }
   }
 

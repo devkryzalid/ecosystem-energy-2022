@@ -1,5 +1,5 @@
 .filters-ctn {
-  height: 180px;
+  height: 0;
   transition: $basicTransition;
   overflow: hidden;
 
@@ -28,6 +28,7 @@
       background-color: white;
       border-radius: 20px;
       @include fontSize(15, 21, 500, -0.3);
+      white-space: nowrap;
       transition: $basicTransition;
       cursor: pointer;
     }
@@ -44,5 +45,8 @@
     }
   }
 
-  &:not(.show) { height: 0 !important; }
+  @media (max-width: $mobile-large) {
+    .filters { flex-direction: column; }
+    .filter-group .title { margin: 10px 0 10px; }
+  }
 }

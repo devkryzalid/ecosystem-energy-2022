@@ -2,6 +2,7 @@
   .container {
     @include flex(flex-start, space-between);
     flex-wrap: wrap;
+    padding-top: 30px;
     padding-bottom: 30px;
   }
 
@@ -12,14 +13,37 @@
   }
 
   .main-title {
+    flex-basis: 50%;
     margin: 0 0 30px;
   }
   
   .content {
-    flex-basis: 50%;
+    flex-basis: 45%;
+    margin-top: 14px;
 
-    .btn {
-      margin: 20px 0 0 auto;
+    .btn { margin: 20px 0 0 auto; }
+  }
+
+  @media (max-width: $tablet-large) {
+    .container {
+      flex-direction: column;
+    }
+
+    .content {
+      flex-basis: 100%;
+      @include flex(flex-start, space-between);
+
+      .btn { 
+        margin-top: 10px;
+        margin-left: 50px;
+      }
+    }
+  }
+
+  @media (max-width: $mobile-large) {
+    .content {
+      flex-direction: column;
+      .btn { margin-left: 0; }
     }
   }
 }

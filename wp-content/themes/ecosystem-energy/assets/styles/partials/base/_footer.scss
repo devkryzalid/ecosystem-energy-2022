@@ -27,6 +27,12 @@
       @include fontSize(14, 19);
     }
   }
+
+  @media (max-width: $mobile-large) {
+    nav a {
+      @include fontSize(14, 20, 400);
+    }
+  }
 }
 
 // Set background to grey if set by body class

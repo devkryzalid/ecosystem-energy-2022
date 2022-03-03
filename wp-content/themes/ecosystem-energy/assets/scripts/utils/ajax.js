@@ -84,13 +84,6 @@ export default class AjaxForm {
 
     // Initialize pagination for non-ajax first load
     this.initPagination();
-
-    // Set filters toggler
-    document.getElementById('toggle-filters').addEventListener('click', () => {
-      this.filtersVisible = !this.filtersVisible;
-      if (this.filtersVisible) this.formContainer.classList.add('show');
-      else this.formContainer.classList.remove('show');
-    })
   }
 
   // Main form change callback

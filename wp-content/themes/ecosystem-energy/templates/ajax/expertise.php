@@ -9,7 +9,7 @@ $context = Timber::context();
 $currentPost = Timber::get_post($expertise_id);
 
 // Get Case studies
-$context['case_studies'] = $currentPost->meta('projects_list');
+$case_studies = $currentPost->meta('projects_list');
 
 // Get pagination
 $next= null;
@@ -42,9 +42,10 @@ foreach ($expertises as $key => $expertise) {
 if ($currentPost) {
     $response = '';
     $response .= Timber::compile('partials/expertise.twig', [
-        'expertise' => $currentPost,
-        'next'      => $next,
-        'previous'  => $previous,
+        'expertise'     => $currentPost,
+        'case_studies'  => $case_studies,
+        'next'          => $next,
+        'previous'      => $previous,
     ]);
     $message = $response;
 } else {

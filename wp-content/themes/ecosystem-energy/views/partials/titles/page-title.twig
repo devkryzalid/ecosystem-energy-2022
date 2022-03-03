@@ -1,10 +1,10 @@
 <div class="page-title">
   <div class="container {{ large ? 'large' : '' }}">
 
-    {# <div class="upper-title">{{ upper }}</div> #}
-    <h1 class="main-title">{{ title }}</h1>
+    <div class="upper-title" data-aos="fade-up">{{ upper }}</div>
+    <h1 class="main-title" data-aos="fade-up" data-aos-delay="100">{{ title }}</h1>
     
-    <div class="content">
+    <div class="content" data-aos="fade-up" data-aos-delay="200">
       <div class="text">{{ text }}</div>
       {% if not hideFilters %} <a id="toggle-filters" class="btn">Filtres</a> {% endif %}
     </div>
