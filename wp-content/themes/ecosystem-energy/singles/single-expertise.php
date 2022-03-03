@@ -9,7 +9,6 @@ $timber_post = new Timber\Post();
 $context['post'] = $timber_post;
 
 // Get Case studies
-// TODO Add local
 $context['case_studies'] = $timber_post->meta('projects_list');
 
 // Pagination

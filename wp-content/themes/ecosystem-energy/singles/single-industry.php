@@ -2,6 +2,13 @@
 
 $context = Timber::context();
 
+// Create ou change current_locale cookie and get local for request
+$newLocale = empty($_GET['set_locale']) ? null : $_GET['set_locale'];
+if (isset($newLocale)) {
+    $context = set_current_locale_cookie($newLocale, $context);
+}
+$locales = empty($params['filter_locale']) ? $context['current_locale'] : $params['filter_locale'];
+
 $timber_post = new Timber\Post();
 /**
  * Timber context assignments
@@ -13,8 +20,7 @@ $context['clients_block']       = $timber_post->meta('clients-block');
 $context['featured_blocks']     = $timber_post->meta('featured-block');
 $context['informations_blocks'] = $timber_post->meta('informations-blocks');
 
-// Get Case studies
-// TODO Add local
+// Get Featured Case study
 $args = [
    'post_type'       => 'case_study',
    'post_status'     => 'publish',
@@ -32,10 +38,11 @@ $args = [
          'key' => 'featured',
          'value' => 1
       ),
+
    ]
 ];
-$context['featured_case_study'] = new Timber\PostQuery($args);
 
+// Get Case studies
 $args2 = [
    'post_type'       => 'case_study',
    'post_status'     => 'publish',
@@ -62,6 +69,24 @@ $args2 = [
       ),
    ]
 ];
+
+// Filter news and perspective by local
+if (!empty($locales) && $locales != '' && $locales != '-1') {
+      $localesTab = explode(',', $locales);
+      $args['tax_query'][] = [
+         'taxonomy' => 'localization',
+         'field'    => 'term_id',
+         'terms'    => $localesTab
+      ];
+      $args2['tax_query'][] = [
+         'taxonomy' => 'localization',
+         'field'    => 'term_id',
+         'terms'    => $localesTab
+      ];
+}
+
+// Get featured and cases studies
+$context['featured_case_study'] = new Timber\PostQuery($args);
 $context['case_studies'] = new Timber\PostQuery($args2);
 
 Timber::render('pages/single-industry.twig', $context);
