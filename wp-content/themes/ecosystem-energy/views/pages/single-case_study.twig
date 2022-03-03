@@ -22,7 +22,12 @@
     {{ post.content }}
   </div>
 
-  {% include 'partials/case-studies-slider.twig' %}
+  <div class="slider case-studies-slider-ctn">
+    <div class="container">
+      <h2>Other case studies <span>{{ industry.name }}</span></h2> 
+      {% include 'partials/case-studies-slider.twig' with { items: related_case_studies } %}
+    </div>
+  </div>
 
   <div class="bottom-section">
     {% if related_industry|length %}

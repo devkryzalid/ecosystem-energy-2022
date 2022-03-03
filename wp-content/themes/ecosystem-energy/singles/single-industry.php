@@ -9,9 +9,16 @@ $timber_post = new Timber\Post();
 $context['post'] = $timber_post;
 
 // Get ACF
-$context['clients_block']       = $timber_post->meta('clients-block');
+$context['clients_block'] = $timber_post->meta('clients-block');
 $context['featured_blocks']     = $timber_post->meta('featured-block');
 $context['informations_blocks'] = $timber_post->meta('informations-blocks');
+
+// Spread client list in multiple equal-ish rows
+$max_per_row = 6;
+$clients = $context['clients_block']['clients_list'];
+// $clients = array_merge($clients, $clients, $clients);  // For testing purposes when not enough clients
+$nb = count($clients) <= $max_per_row ? $max_per_row : ceil(count($clients) / 2);
+$context['clients_block']['clients_list'] = array_chunk($clients, $nb);
 
 // Get Case studies
 // TODO Add local
@@ -63,6 +70,6 @@ $args2 = [
    ]
 ];
 $context['case_studies'] = new Timber\PostQuery($args2);
-dd($context['case_studies']);
+// dd($context['case_studies']);
 
 Timber::render('pages/single-industry.twig', $context);

@@ -5129,7 +5129,6 @@ body.menu-open #header #menu-toggle:hover span {
   padding-top: 60px;
   padding-bottom: 60px;
   border-top: 2px solid #494843;
-  border-bottom: 1px solid rgba(73, 72, 67, 0.4);
 }
 .industry-page .clients-ctn .clients-head div {
   flex-basis: 65%;
@@ -5140,6 +5139,7 @@ body.menu-open #header #menu-toggle:hover span {
   align-items: center;
   justify-content: space-evenly;
   padding: 60px 0;
+  border-top: 1px solid rgba(73, 72, 67, 0.4);
 }
 .industry-page .clients-ctn .clients-list .image {
   width: 200px;
@@ -5234,36 +5234,53 @@ body.menu-open #header #menu-toggle:hover span {
   padding: 125px 0 90px;
   background-color: #242C3E;
 }
-.industry-page .case-studies-ctn .container {
+.industry-page .case-studies-ctn .top-section {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: 25px;
 }
-.industry-page .case-studies-ctn .case-studies-header {
+.industry-page .case-studies-ctn .top-section .case-studies-header {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
 }
-.industry-page .case-studies-ctn .case-studies-header > h2, .industry-page .case-studies-ctn .case-studies-header > p {
+.industry-page .case-studies-ctn .top-section .case-studies-header > h2, .industry-page .case-studies-ctn .top-section .case-studies-header > p {
   color: white;
 }
-.industry-page .case-studies-ctn .case-studies-header > p {
+.industry-page .case-studies-ctn .top-section .case-studies-header > p {
   opacity: 0.7;
 }
-.industry-page .case-studies-ctn .case-studies-header a {
+.industry-page .case-studies-ctn .top-section .case-studies-header a {
   color: #FAB900;
 }
-.industry-page .case-studies-ctn .case-studies-featured {
+.industry-page .case-studies-ctn .top-section .case-studies-featured {
   flex: 1 0 60%;
 }
-.industry-page .case-studies-ctn .case-studies-featured .content {
+.industry-page .case-studies-ctn .top-section .case-studies-featured .content {
   background-color: #1D2435;
 }
-
+.industry-page .case-studies-ctn .top-section .case-studies-featured .image {
+  position: relative;
+}
+.industry-page .case-studies-ctn .top-section .case-studies-featured .image::before {
+  content: "Featured project";
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 24px;
+  background-color: #FAB900;
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 30px;
+  line-height: 1.875rem;
+  letter-spacing: normal;
+  z-index: 1;
+}
 .single-perspective .related-list {
   padding: 80px 50px;
   background-color: #F6F6F4;

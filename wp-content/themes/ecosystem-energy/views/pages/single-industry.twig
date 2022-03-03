@@ -21,15 +21,15 @@
       <div>{{ clients_block.content }}</div>
     </div>
 
-    {% if clients_block.clients_list|length > 0%}
+    {% for list in clients_block.clients_list %}
       <div class="clients-list">
-        {% for client in clients_block.clients_list %}
+        {% for client in list %}
           <div class="image">
             <img class="" src="{{ client.image.link }}" alt="{{ client.image.title }}">
           </div>
         {% endfor %}
       </div>
-    {% endif %}
+    {% endfor %}
   </div>
 
 
@@ -62,7 +62,7 @@
   {% endif %}
 
   <div class="case-studies-ctn">
-    <div class="container">
+    <div class="container top-section">
       <div class="case-studies-header">
         <h2>Case studies</h2>
         <p>Fermentum sagittis aliquam volutpat maecenas egestas. Pharetra gravida nisi dui enim dictumst nulla laoreet. </p>
@@ -76,21 +76,16 @@
             description: featured_case_study[0].preview.read_more(false),
             image: featured_case_study[0].thumbnail,
             url: featured_case_study[0].link,
-            class: 'featured invert'
+            class: 'horizontal invert'
           } %}
         </div>
       {% endif %}
+    </div>
 
-      {% if case_studies|length > 0%}
-        {% for case_study in case_studies %}
-          <li>
-            <p>{{ case_study.title }}</p>
-            <p>{{ case_study.preview.read_more(false)  }}</p>
-            <img class="" src="{{ case_study.thumbnail.src('medium') }}" alt="{{ case_study.thumbnail.title }}">
-          </li>
-        {% endfor %}
-      {% endif %}
-
+    <div class="container bottom-section">
+      <div class="slider">
+        {% include 'partials/case-studies-slider.twig' with { items: case_studies } %}
+      </div>
     </div>
   </div>
 {% endblock %}
