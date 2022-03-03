@@ -17,7 +17,7 @@ export default class SidePanel {
     this.container.querySelector('#panel-overlay').addEventListener('click', () => this.togglePanel(false))
   }
 
-  // Toggle
+  // Toggle panel visibility
   togglePanel = (visible = null) => {
     this.visible = visible === null
       ? !this.visible
@@ -27,17 +27,21 @@ export default class SidePanel {
     else this.container.classList.remove('show');
   }
 
-  replaceHTML = html => {
-    this.innerContainer.innerHTML = html || 'NO DATA';
-    document.getElementById('panel-prev').addEventListener('click', this.loadNextPage)
-    document.getElementById('panel-next').addEventListener('click', this.loadPreviousPage)
+  // Load data and render template with event listeners
+  loadExpertise = async id => {
+    const { data } = await this.getExpertise(id);
+    this.innerContainer.innerHTML = data;
+
+    document.getElementById('panel-prev').addEventListener('click', this.replaceExpertise)
+    document.getElementById('panel-next').addEventListener('click', this.replaceExpertise)
     document.getElementById('panel-close').addEventListener('click', () => this.togglePanel(false))
   }
 
+  // Fetch ajax template
   getExpertise = async id => {
     return await axios.post('/ajax/fr/expertise/' + id)
       .then(response => {
-        console.log('AJAX RESPONSE:', response);
+        // console.log('AJAX RESPONSE:', response);
         return response;
       })
       .catch(error => {
@@ -46,17 +50,17 @@ export default class SidePanel {
       });
   }
 
-  openPanel = async event => {
+  // Open panel and load expertise when grid item clicked
+  openPanel = event => {
     this.togglePanel(true);
     const id = event.target.dataset.expertise;
-    console.log('OPEN ID:', id);
-    const { data } = await this.getExpertise(id);
-    this.replaceHTML(data);
+    this.loadExpertise(id);
+    window.scrollTo({ top: 0 })
   }
 
-  loadNextPage = () => {
-  }
-
-  loadPreviousPage = () => {
+  // Replace expertise when prev/next button clicked
+  replaceExpertise = event => {
+    const id = event.target.dataset.expertise;
+    this.loadExpertise(id);
   }
 }

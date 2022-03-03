@@ -2,14 +2,17 @@
 
   {% if featured %}
     <div class="large container">
+    
       {% include 'partials/block-item.twig' with { 
         title: featured.title,
-        surtitle: featured.meta('related_industry')[0].post_title,
+        surtitle: featured.meta('related_industry')[0],
         description: featured.preview.read_more(false),
         url: featured.link,
         image: featured.thumbnail,
-        class: 'featured'
+        class: 'featured transparent reverse',
+        delay: 400
       } %}
+
     </div>
   {% endif %}
 
@@ -19,10 +22,12 @@
       
         {% include 'partials/block-item.twig' with { 
           title: cs.title,
-          surtitle: cs.meta('related_industry')[0].post_title,
+          surtitle: cs.meta('related_industry')[0],
           description: cs.preview.read_more(false),
           url: cs.link,
-          image: cs.thumbnail
+          image: cs.thumbnail,
+          class: 'transparent',
+          delay: loop.index * 100 + 400
         } %}
 
       {% endfor %}

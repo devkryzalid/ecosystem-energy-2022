@@ -63,5 +63,6 @@ $args2 = [
    ]
 ];
 $context['case_studies'] = new Timber\PostQuery($args2);
+dd($context['case_studies']);
 
 Timber::render('pages/single-industry.twig', $context);

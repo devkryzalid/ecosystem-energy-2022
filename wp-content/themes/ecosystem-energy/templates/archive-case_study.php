@@ -69,7 +69,6 @@ if (empty($featured)) {
     }
     $args['posts_per_page'] = $limit;
 }
-
 $context['case_studies'] = new Timber\PostQuery($args);
 
 Timber::render( array( 'pages/case_studies.twig' ), $context );

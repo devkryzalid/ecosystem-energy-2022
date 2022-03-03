@@ -1,10 +1,12 @@
 import AOS from 'aos';
 
 AOS.init({
+  startEvent: 'load',
   offset: 200,
   duration: 600,
   easing: 'ease-out-sine',
   delay: 100,
+  once: true
 });
 
 // Fade animations:

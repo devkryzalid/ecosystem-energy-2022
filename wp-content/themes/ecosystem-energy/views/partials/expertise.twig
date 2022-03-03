@@ -1,31 +1,33 @@
 <div id="panel-header">
-  <a id="panel-prev" class="small circle btn"><i class="icon-small-arrow-left"></i></a>
-  <a id="panel-next" class="small circle btn"><i class="icon-small-arrow-right"></i></a>
+  <a id="panel-prev" {% if previous %} data-expertise="{{ previous.id }}" {% endif %} class="small circle btn {{ previous ? '' : 'disabled' }}"><i class="icon-small-arrow-left"></i></a>
+  <a id="panel-next" {% if next %} data-expertise="{{ next.id }}" {% endif %} class="small circle btn {{ next ? '' : 'disabled' }}"><i class="icon-small-arrow-right"></i></a>
   <a id="panel-close" class=""><i class="icon-close-medium"></i></a>
 </div>
 
 <div id="panel-body">
-  <h1>{{ expertise.title }}</h1>
+  {% include 'partials/block-item.twig' with {
+    surtitle: 'blop',
+    title: expertise.title,
+    image: expertise.thumbnail,
+    class: 'featured no-padding'
+  } %}
+
   {{ expertise.content }}
-</div>
+  
+  <div class="case-studies">
+    <h2>Case studies</h2>
+    <a class="internal link" href="">More case studies</a>
 
-    {# <div>
-        {% if previous|length > 0%}
-            <a href="{{ previous.link  }}">Previous</a>
-        {% endif %}/
-        {% if next|length > 0 %}
-            <a href="{{ next.link  }}">next</a>            
-        {% endif %}
+    <div class="block-list">
+      {% for case_study in case_studies %}
+        {% include 'partials/block-item.twig' with { 
+          title: case_study.title,
+          description: case_study.preview.read_more(false),
+          url: case_study.link,
+          image: case_study.thumbnail,
+          class: 'no-padding'
+        } %}
+      {% endfor %}
     </div>
-
-    <div>
-        {% if case_studies|length > 0%}
-            {% for case_study in case_studies %}
-                <li>
-                    <p>{{ case_study.title }}</p>
-                    <p>{{ case_study.preview.read_more(false)  }}</p>
-                    <img class="" src="{{ case_study.thumbnail.src('medium') }}" alt="{{ case_study.thumbnail.title }}">
-                </li>
-            {% endfor %}
-        {% endif %}
-    </div> #}
+  </div>
+</div>

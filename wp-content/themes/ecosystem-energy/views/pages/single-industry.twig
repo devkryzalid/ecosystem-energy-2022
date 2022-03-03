@@ -1,58 +1,96 @@
 {% extends 'base.twig' %}
+
+{% block pageClass %}blue-head industry-page{% endblock %}
+
 {% block content %}
-    <h1>{{post.title}}</h1>
-    <div>
-        {{post.content}}
+
+  {% include 'partials/block-item.twig' with {
+    surtitle: 'Markets',
+    title: post.title,
+    image: post.thumbnail,
+    class: 'featured static transparent hero'
+  } %}
+
+  <div class="container">
+    {{ post.content }}
+  </div>
+
+  <div class="container clients-ctn">
+    <div class="clients-head">
+      <h2>{{ clients_block.title }}</h2>
+      <div>{{ clients_block.content }}</div>
     </div>
 
-    <div>
-        <p>{{ clients_block.title }}</p>
-        <p>{{ clients_block.content }}</p>
-        {% if clients_block.clients_list|length > 0%}
-            {% for client in clients_block.clients_list %}
-                <img class="" src="{{ client.image.link }}" alt="{{ client.image.title }}">
-            {% endfor %}
-        {% endif %}
-    </div>
-
-    <div>
-        <p>{{ featured_blocks.title }}</p>
-        {% if featured_blocks.block_list|length > 0%}
-            {% for bloc in featured_blocks.block_list %}
-                <li>
-                    <p>{{ bloc.title }}</p>
-                    <p>{{ bloc.content }}</p>
-                    <img class="" src="{{ bloc.image.link }}" alt="{{ bloc.image.title }}">
-                </li>
-            {% endfor %}
-        {% endif %}
-    </div>
-
-    <div>
-        {% if informations_blocks|length > 0%}
-            {% for bloc in informations_blocks %}
-                <li>
-                    <p>{{ bloc.title }}</p>
-                    <p>{{ bloc.column_1 }}</p>
-                    <p>{{ bloc.column_2 }}</p>
-                </li>
-            {% endfor %}
-        {% endif %}
-    </div>
-
-    {% if featured_case_study|length > 0 %}
-        <p>FEATURED - {{ featured_case_study[0].title }}</p>
-        <p>{{ featured_case_study[0].preview.read_more(false)  }}</p>
-        <img class="" src="{{ featured_case_study[0].thumbnail.src('medium') }}" alt="{{ featured_case_study[0].thumbnail.title }}">
-    {% endif %}
-
-    {% if case_studies|length > 0%}
-        {% for case_study in case_studies %}
-            <li>
-                <p>{{ case_study.title }}</p>
-                <p>{{ case_study.preview.read_more(false)  }}</p>
-                <img class="" src="{{ case_study.thumbnail.src('medium') }}" alt="{{ case_study.thumbnail.title }}">
-            </li>
+    {% if clients_block.clients_list|length > 0%}
+      <div class="clients-list">
+        {% for client in clients_block.clients_list %}
+          <div class="image">
+            <img class="" src="{{ client.image.link }}" alt="{{ client.image.title }}">
+          </div>
         {% endfor %}
+      </div>
     {% endif %}
+  </div>
+
+
+  <div class="featured-blocks-ctn">
+    <div class="container">
+      <h2>{{ featured_blocks.title }}</h2>
+
+      <div class="featured-list">
+        {% for bloc in featured_blocks.block_list %}
+          <a class="featured-block">
+            <img class="" src="{{ bloc.image.url }}" alt="{{ bloc.image.title }}">
+            <h3>{{ bloc.title }}</h3>
+            <div class="hover-ctn">{{ bloc.content }}</div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  {% if informations_blocks|length > 0%}
+    <div class="container content-blocks-ctn">
+      {% for bloc in informations_blocks %}
+        <div class="content-block">
+          <h2>{{ bloc.title }}</h2>
+          <div>{{ bloc.column_1 }}</div>
+          <div>{{ bloc.column_2 }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <div class="case-studies-ctn">
+    <div class="container">
+      <div class="case-studies-header">
+        <h2>Case studies</h2>
+        <p>Fermentum sagittis aliquam volutpat maecenas egestas. Pharetra gravida nisi dui enim dictumst nulla laoreet. </p>
+        <a href="" class="">See all projects</a>
+      </div>
+
+      {% if featured_case_study|length > 0 %}
+        <div class="case-studies-featured">
+          {% include 'partials/block-item.twig' with {
+            title: featured_case_study[0].title,
+            description: featured_case_study[0].preview.read_more(false),
+            image: featured_case_study[0].thumbnail,
+            url: featured_case_study[0].link,
+            class: 'featured invert'
+          } %}
+        </div>
+      {% endif %}
+
+      {% if case_studies|length > 0%}
+        {% for case_study in case_studies %}
+          <li>
+            <p>{{ case_study.title }}</p>
+            <p>{{ case_study.preview.read_more(false)  }}</p>
+            <img class="" src="{{ case_study.thumbnail.src('medium') }}" alt="{{ case_study.thumbnail.title }}">
+          </li>
+        {% endfor %}
+      {% endif %}
+
+    </div>
+  </div>
 {% endblock %}

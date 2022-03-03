@@ -4,26 +4,28 @@
 
 {% block content %}
   <div class="container">
-	  <h1>Awards</h1>
+	  <h1 data-aos="fade-up">Awards</h1>
 
     {% for key, awards_by_year in awards %}
       <div class="award-group">
-        <h2>{{ key }}</h2>
+        <h2 data-aos="fade-up">{{ key }}</h2>
         <ul>
           {% for award in awards_by_year %}
 
-            <li>
+            <li data-aos="fade-up">
               <div class="logo">
                 <img class="" src="{{ award.award.thumbnail.src('medium') }}" alt="{{ award.award.thumbnail.title }}">
               </div>
 
-              <div class="title">
-                <h3>{{ award.award.title }}</h3>
-                <p>{{ award.award.organization }}</p>
-              </div>
+              <div class="content">
+                <div class="title">
+                  <h3>{{ award.award.title }}</h3>
+                  <p>{{ award.award.organization }}</p>
+                </div>
 
-              <div class="link-ctn">
-                <a class="external link" href="{{ award.case_study.link }}">{{ award.case_study.title }}</a>
+                <div class="link-ctn">
+                  <a class="external link" href="{{ award.case_study.link }}">{{ award.case_study.title }}</a>
+                </div>
               </div>
             </li>
 
