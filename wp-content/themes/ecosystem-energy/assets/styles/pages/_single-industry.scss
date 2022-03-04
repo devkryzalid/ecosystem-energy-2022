@@ -131,6 +131,7 @@
       .case-studies-header {
         @include flex(flex-start, flex-start);
         flex-direction: column;
+        
         & > h2, & > p { color: white; }
         & > p { opacity: 0.7; }
         a { color: $yellow; }
@@ -159,7 +160,6 @@
     }
 
     .bottom-section {
-
     }
   }
 }

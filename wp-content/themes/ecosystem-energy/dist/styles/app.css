@@ -2336,8 +2336,12 @@ ul {
 .slider .swiper-container, .case-study-ctn .case-studies-slider-ctn .swiper-container, .content-slider-multiple-ctn .swiper-container, .content-slider-ctn .swiper-container {
   overflow: hidden;
 }
+.slider .swiper-slide, .case-study-ctn .case-studies-slider-ctn .swiper-slide, .content-slider-multiple-ctn .swiper-slide, .content-slider-ctn .swiper-slide {
+  height: auto;
+}
 .slider .swiper-slide img, .case-study-ctn .case-studies-slider-ctn .swiper-slide img, .content-slider-multiple-ctn .swiper-slide img, .content-slider-ctn .swiper-slide img {
   width: 100%;
+  height: 220px;
   object-fit: cover;
 }
 .slider .swiper-navigation, .case-study-ctn .case-studies-slider-ctn .swiper-navigation, .content-slider-multiple-ctn .swiper-navigation, .content-slider-ctn .swiper-navigation {
@@ -2373,6 +2377,10 @@ ul {
 }
 .slider .swiper-navigation div.next, .case-study-ctn .case-studies-slider-ctn .swiper-navigation div.next, .content-slider-multiple-ctn .swiper-navigation div.next, .content-slider-ctn .swiper-navigation div.next {
   right: 0;
+}
+.slider .swiper-navigation .swiper-button-disabled, .case-study-ctn .case-studies-slider-ctn .swiper-navigation .swiper-button-disabled, .content-slider-multiple-ctn .swiper-navigation .swiper-button-disabled, .content-slider-ctn .swiper-navigation .swiper-button-disabled, .slider .swiper-navigation .swiper-button-disabled:hover {
+  background-color: #1D2435;
+  pointer-events: none;
 }
 
 #wpadminbar {
@@ -5029,13 +5037,6 @@ body.menu-open #header #menu-toggle:hover span {
 .case-study-ctn .case-studies-slider-ctn .container {
   padding-top: 70px;
   padding-bottom: 70px;
-}
-.case-study-ctn .case-studies-slider-ctn .swiper-slide {
-  height: auto;
-}
-.case-study-ctn .case-studies-slider-ctn .swiper-slide img {
-  height: 220px;
-  object-fit: cover;
 }
 .case-study-ctn .case-studies-slider-ctn .swiper-slide .caption {
   position: relative;

@@ -221,9 +221,7 @@ $text-open-transition-delay: 0ms;
 @media (max-width: 1100px) {
   #menu {
     #primary-menu {
-      li { 
-        padding-left: calc($menu-image-width + 40px);
-      }
+      li { padding-left: calc($menu-image-width + 40px); }
     }
   }
 }
@@ -286,9 +284,7 @@ $text-open-transition-delay: 0ms;
 
 @media (max-width: $tablet) {
   #menu {
-    #menu-image {
-      height: $header-height-tablet;
-    }
+    #menu-image { height: $header-height-tablet; }
 
     #primary-menu {
       padding-top: calc($header-height-tablet + $menu-top-padding-mobile);

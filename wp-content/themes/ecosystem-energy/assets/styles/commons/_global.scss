@@ -77,17 +77,11 @@ ul {
   list-style: circle;
 }
 
+// CUSTOM
+
 // Page overrides
 .page-container.grey {
   background-color: $lightgrey;
-}
-
-.page {
-  // padding-top: $header-height;
-
-  // @media (max-width: $tablet) {
-  //   padding-top: $header-height-tablet;
-  // }
 }
 
 .icomoon {
@@ -99,9 +93,14 @@ ul {
 
   .swiper-container { overflow: hidden; }
 
-  .swiper-slide img { 
-    width: 100%;
-    object-fit: cover;
+  .swiper-slide {
+    height: auto;
+    
+    img { 
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
   }
 
   .swiper-navigation {
@@ -137,6 +136,8 @@ ul {
         right: 0;
       }
     }
+
+    .swiper-button-disabled, .swiper-button-disabled:hover { background-color: $darkblue; pointer-events: none; }
   }
 }
 
