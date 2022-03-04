@@ -1,4 +1,5 @@
 .home-hero {
+  @include top;
   @include flex(center, space-between);
 
   h1.title {

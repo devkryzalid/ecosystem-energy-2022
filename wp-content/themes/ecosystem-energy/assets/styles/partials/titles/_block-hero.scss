@@ -1,0 +1,92 @@
+.block-hero {
+  @include flex(flex-start, space-between);//stretch
+  flex-wrap: wrap;
+  @include top(50); // Page padding
+  padding-bottom: 60px;
+
+  // 50/50 width for root elements by default
+  .title-ctn, .image-ctn, .text-ctn { flex: 0 0 48% }
+
+  // If no image is available, the surtitle outside the title container and full-width
+  // ... else it is included inside the title container
+  & > .surtitle { flex-basis: 100%; }
+
+  .surtitle {
+    margin-bottom: 30px;
+    @include fontSize(22, 30, 500);
+  }
+
+  .title-ctn {
+    .title { margin: 0 0 30px; }
+  }
+
+  .image-ctn {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  .text-ctn {
+    padding-top: 10px;
+
+    p { margin-top: 0; }
+    .btn { margin: 20px 0 0 auto; }
+
+    &.no-text { 
+      flex: 0 1 0%; 
+      .btn { margin-top: 0; }
+    }
+  }
+
+  // White text
+  &.invert {
+    .title-ctn .surtitle { color: $yellow; }
+    .title-ctn .title { @extend .inverted; }
+    .text-ctn, .text-ctn p { color: white; }
+  }
+
+  // Ajax sub-page (expertise)
+  &.inner-page {
+    flex-wrap: nowrap;
+    padding-top: 0 !important;
+  }
+
+  // Wider content text
+  &.content-66 {
+    .title-ctn { flex: 0 0 32%; }
+    .text-ctn { flex: 0 0 65%; }
+  }
+
+  // Vertically-centered title
+  &.v-centered-title {
+    .title-ctn { margin: auto 0; }
+  }
+
+  // Make image slightly lower than container (industry page)
+  &.offset-image {
+    position: relative;
+    bottom: -70px;
+    margin-bottom: 70px;
+    margin-top: -70px;
+    padding-bottom: 0;
+  }
+
+  @media (max-width: $tablet-large) {
+    flex-wrap: wrap !important;
+    padding-bottom: 20px;
+
+    // Put image on top
+    &.inner-page { flex-direction: column-reverse; }
+
+    // Full-width title
+    .title-ctn { 
+      flex: 1 0 auto; 
+      max-width: 100%;
+    }
+
+    .text-ctn:not(.no-text), .image-ctn { flex: 1 0 100% !important; }
+    .image-ctn { margin-bottom: 30px; }
+  }
+}

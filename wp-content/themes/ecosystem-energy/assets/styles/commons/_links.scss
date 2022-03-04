@@ -27,25 +27,25 @@ a.link {
 
   &.internal {
     &::after {
-      content: "\e903";
+      content: "\e90e";
     }
   }
 
   &.external {
     &::after {
-      content: "\e908";
+      content: "\e910";
     }
   }
 
   &.download {
     &::after {
-      content: "\e909";
+      content: "\e90f";
     }
   }
 
   &.video {
     &::after {
-      content: "\e907";
+      content: "\e911";
     }
   }
 }

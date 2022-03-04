@@ -1,4 +1,41 @@
 .case-study-ctn {
+  .case-study-hero {
+    padding-bottom: 140px;
+  
+    .title-ctn {
+      padding: 0 100px;
+      .title { margin: 20px 0 50px; }
+      ul.outcomes {
+        position: relative;
+        width: 100%;
+        padding: 0;
+        list-style: none;
+  
+        .list-label {
+          position: absolute;
+          top: 0;
+          right: 0;
+          padding: 4px 20px;
+          background-color: $yellow;
+          @include fontSize(20, 22, 600);
+          color: $blue;
+        }
+  
+        li {
+          padding: 20px 30px;
+          @include fontSize(20, 27, 500);
+          border-top: 1px solid rgba(#FFF, 0.2);
+          color: white;
+  
+          &:first-of-type {
+            padding-top: 30px;
+            border-color: $yellow;
+          }
+        }
+      }
+    }
+  } 
+
   .content-key-data-ctn { background-color: white; }
 
   .awards-list {
@@ -97,5 +134,9 @@
       height: 180px;
       padding: 15px;
     }
+  }
+
+  @media (max-width: 1300px) {
+    .case-study-hero .title-ctn { padding: 0 20px; }
   }
 }

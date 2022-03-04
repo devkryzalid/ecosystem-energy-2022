@@ -4,13 +4,16 @@
 
 {% block content %}
 
-  {% include 'partials/titles/page-title.twig' with { 
-    large: true,
-    hideFilters: true,
-    title: post.title, 
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor tellus vitae rhoncus odio ullamcorper. Placerat mi felis consequat lobortis. At lobortis eu tincidunt hendrerit. Adipiscing amet faucibus cursus eleifend.' 
-  } %}
-  
+  <div class="blue wrapper">
+    <div class="large container">
+      {% include 'partials/titles/block-hero.twig' with {
+        title: post.title,
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor tellus vitae rhoncus odio ullamcorper. Placerat mi felis consequat lobortis. At lobortis eu tincidunt hendrerit. Adipiscing amet faucibus cursus eleifend.',
+        class: 'invert'
+      } %}
+    </div>
+  </div>
+
   <div class="leadership-list">
     <div class="large container">
       {% for leader in leaders_list %}

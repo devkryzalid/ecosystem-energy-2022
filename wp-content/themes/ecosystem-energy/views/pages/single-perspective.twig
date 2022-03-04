@@ -3,9 +3,8 @@
 {% block pageClass %}grey single-perspective{% endblock %}
 
 {% block content %}
-  <div class="large container">
-    {% include 'partials/titles/post-hero.twig' with { post: post, tags: tags } %}
-  </div>
+
+  {% include 'partials/titles/post-hero.twig' with { post: post, tags: tags } %}
 
   <div class="small container">
     {{ post.content }}

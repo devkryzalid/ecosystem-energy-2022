@@ -1,45 +1,30 @@
-.post-hero-ctn {
+.block-hero.post-hero {
   position: relative;
-  width: 100%;
   min-height: 500px;
   padding-bottom: 60px;
 
-  .content { 
-    padding-left: 8%; 
-    background: none;
-    overflow: hidden;
+  .title-ctn { 
+    padding: 0 100px; 
+
+    .category {  
+      @include fontSize(18, 24, 500, 0.36);
+      
+      &::after {
+        margin: 0 10px;
+        @extend .icomoon;
+        content: "\e90e";
+      }
+    }
+  
+    .date {
+      @include fontSize(16, 22, 500, 0.32);
+      opacity: 0.6;
+    }
+  
+    .tags { @include flex(center, flex-start); }
   }
 
-  .metas { padding: 0 40px; }
-
-  .bg-icon {
-    position: absolute;
-    right: -135px;
-    bottom: 0;
-    font-size: 270px;
-    color: $yellow;
-  }
-
-  .category {
-    @include fontSize(18, 24, 500, 0.36);
-  }
-
-  .date {
-    @include fontSize(16, 22, 500, 0.32);
-    opacity: 0.6;
-  }
-
-  .tags {
-    @include flex(center, flex-start);
-    padding: 0 40px;
-  }
-
-  @media (max-width: $tablet-large) {
-    .bg-icon { bottom: -100px; }
-  }
-
-  @media (max-width: $tablet) {
-    display: block !important;
-    .content { padding: 0; }
+  @media (max-width: 1300px) {
+    .title-ctn { padding: 0 20px; }
   }
 }

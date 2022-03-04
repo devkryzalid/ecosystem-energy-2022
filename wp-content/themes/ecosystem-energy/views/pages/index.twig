@@ -4,7 +4,9 @@
 
 {% block content %}
 
-  {% include 'partials/titles/page-title.twig' with { title: post.title, large: true } %}
+  <div class="large container">
+    {% include 'partials/titles/block-hero.twig' with { title: post.title, filters: true } %}
+  </div>
 
   {% include 'partials/lists/filters.twig' with { 
     large: true,

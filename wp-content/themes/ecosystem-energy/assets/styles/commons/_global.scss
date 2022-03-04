@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  @include fontSize(19, 29, 400, -0.38);
+  @include fontSize(19, 29, 400, -0.4);
 
   &.menu-open {
     overflow: hidden;
@@ -18,7 +18,11 @@ body {
 }
 
 h1 {
-  @include fontSize(62, 70, 600, -0.89);
+  @include fontSize(62, 62, 600, -0.9);
+  &.inverted {
+    color: white;
+    letter-spacing: -1.25px;
+  }
 }
 
 h2 {
@@ -29,21 +33,17 @@ h3 {
   @include fontSize(26, 34, 600);
 }
 
-// h4 {
-// 	@include fontSize(20, 24);
-// }
-
-// h5 {
-// 	@include fontSize(18, 22);
-// }
-
-// p {
-// @include fontSize(19, 29, 400, -0.38);
-// }
+p {
+  @include fontSize(19, 29, 400, -0.38);
+}
 
 @media (max-width: $mobile) {
+  body {
+    @include fontSize(16, 25, 400, -0.3);
+  }
+
   h1 {
-    @include fontSize(32, 38);
+    @include fontSize(46, 50, 600, -0.5);
   }
 
   h2 {
@@ -54,9 +54,9 @@ h3 {
     @include fontSize(22, 27);
   }
 
-  // p {
-  // 	@include fontSize(14,22);
-  // }
+  p {
+  	@include fontSize(14,22);
+  }
 }
 
 b,
@@ -84,6 +84,31 @@ ul {
   background-color: $lightgrey;
 }
 
+.wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  &.blue { background-color: $blue; }
+
+  // Yellow icon in background
+  &.bg-icon::after { 
+    position: absolute;
+    right: -150px;
+    bottom: 50px;
+    @extend .icomoon;
+    content: "\e902";
+    font-size: 300px;
+    color: $yellow;
+
+    @media (max-width: $tablet-large) {
+      bottom: -100px;
+    }
+  }
+}
+
+// 
 .icomoon {
   font-family: 'icomoon' !important;
 }

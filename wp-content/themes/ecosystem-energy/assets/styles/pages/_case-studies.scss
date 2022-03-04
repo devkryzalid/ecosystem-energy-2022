@@ -1,12 +1,6 @@
 .page-case-studies {
   .block-item .content .surtitle { 
-    @include fontSize(16, 26, 500);
+    // @include fontSize(16, 26, 500);
     color: $darkgrey; 
-
-    &::before {
-      font-family: 'icomoon' !important;
-      content: "\e909";
-      color: $yellow;
-    }
   }
 }

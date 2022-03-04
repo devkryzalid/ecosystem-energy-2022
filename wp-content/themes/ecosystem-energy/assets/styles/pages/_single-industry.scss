@@ -1,23 +1,4 @@
 .industry-page {
-  .hero {
-    @include top;
-    background-color: $blue;
-
-    .image {
-      position: relative;
-      bottom: -15%;
-    }
-
-    .content {
-      justify-content: flex-start;
-
-      .title {
-        @include fontSize(62, 62, 600, -1.24);
-        color: white;
-      }
-    }
-  }
-
   .clients-ctn {
     .clients-head {
       @include flex(flex-start, space-between);

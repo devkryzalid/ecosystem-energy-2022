@@ -4,13 +4,14 @@
 
 {% block content %}
 
-  {% include 'partials/titles/page-title.twig' with { 
-    hideFilters: true,
-    large: true,
-    title: post.title, 
-    text: 'Ecosystem seeks out the inherent efficiency in every system and makes the most of it. The technical measures we implement work together to deliver the results our clients want and need.' 
-  } %}
-
+  <div class="large container">
+    {% include 'partials/titles/block-hero.twig' with { 
+      title: post.title, 
+      text: 'Ecosystem seeks out the inherent efficiency in every system and makes the most of it. The technical measures we implement work together to deliver the results our clients want and need.',
+      class: 'content-66'
+    } %}
+  </div>
+  
   <div class="large container featured-items">
     {% for bloc in featured_content %}
       <div class="featured-item">

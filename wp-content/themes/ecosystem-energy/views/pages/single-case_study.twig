@@ -4,7 +4,27 @@
 
 {% block content %}
 
-  {% include 'partials/titles/project-hero.twig' %}
+  <ul class="blue wrapper">
+    <div class="block-hero invert case-study-hero">
+
+      <div class="image-ctn" data-aos="fade-up" data-aos-delay="200">
+        <img src="{{ post.thumbnail.src('large') }}" alt="{{ post.thumbnail.title }}">
+      </div>
+      
+      <div class="title-ctn">
+        <a href="{{ industry_url }}" class="surtitle">{{ industry.name }}</a>
+        <h1 class="title">{{ post.title }}</h1>
+
+        <ul class="outcomes">
+          <div class="list-label">Outcomes</div>
+          {% for outcome in outcomes_list %}
+            <li>{{ outcome.content }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+  </div>
 
   {% if awards_list|length > 0%}
     <ul class="container awards-list">

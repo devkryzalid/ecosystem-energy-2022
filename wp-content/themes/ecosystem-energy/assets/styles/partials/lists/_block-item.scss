@@ -1,23 +1,32 @@
 /*
   Bloc item - Full-width image and text content, image on top by default
   Add .horizontal for image and text side-by-side, with image on the right
-  Add .transparent for no content background
   Add .featured to add top-margin to content
-  Add .no-padding to remove text padding
   Add .static to remove hover effects
 */
 
 $bloc-img-height: 280px;
 $bloc-content-height: 260px;
-$bloc-content-bg: white;
-$bloc-content-side-padding: 40px;
 
 .block-item {
   width: 100%;
 
   .image {
+    position: relative;
     height: $bloc-img-height;
     overflow: hidden;
+
+    // Yellow image hover
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 0;
+      background-color: $yellow;
+      transition: $basicTransition;
+      z-index: 2;
+    }
 
     img { 
       width: 100%;
@@ -31,10 +40,11 @@ $bloc-content-side-padding: 40px;
     position: relative;
     min-height: $bloc-content-height;
     padding-top: 30px;
-    background-color: $bloc-content-bg;
+    background: none;
     transition: $basicTransition;
     z-index: 1;
 
+    // Yellow content hover
     &::before {
       content: '';
       position: absolute;
@@ -50,30 +60,47 @@ $bloc-content-side-padding: 40px;
 
     .surtitle {
       width: 100%;
-      padding: 0 $bloc-content-side-padding 20px;
+      padding: 0 0 20px;
       @include fontSize(18, 24, 500);
       color: $yellow;
       transition: $basicTransition;
-    }
 
+      &::before {
+        @extend .icomoon;
+        content: "\e90e";
+        color: $yellow;
+      }
+    }
+    
     .title {
       margin: 0;
-      padding: 0 $bloc-content-side-padding 30px;
+      padding: 0 0 30px;
       font-weight: 500;
     }
 
     .description {
-      padding: 0 $bloc-content-side-padding 0;
+      padding: 0 0 0;
       display: none;
     }
 
     .footer {
-      padding: 20px $bloc-content-side-padding;
+      padding: 20px 0;
       border-top: 1px solid $borderColor;
       @include fontSize(16, 22, 600);
     }
   }
 
+  // News / Perspectives / Featured
+  &.text-padding {
+    .content {
+      .surtitle, .title, .description { 
+        padding-right: 40px;
+        padding-left: 40px;
+      }
+    }
+  }
+
+  // Image on the left
   &.horizontal {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -100,12 +127,15 @@ $bloc-content-side-padding: 40px;
     }
   }
 
-  &.transparent {
-    .content { background: none; }
+  // White background behind text content
+  &.white-bg {
+    .content { background-color: white; }
   }
 
   &.featured {
     @extend .horizontal;
+    @extend .text-padding;
+    @extend .white-bg;
     .content { margin-top: 60px; }
   }
 
@@ -114,26 +144,25 @@ $bloc-content-side-padding: 40px;
     .content { grid-column-start: 2; }
   }
 
-  &.no-padding {
-    .content {
-      * { padding: 0; }
-      h3 { margin-top: 0; }
-    }
-  }
-
   &.invert {
     .content { 
       .surtitle, .title, .description { color: white; }
     }
   }
 
-  &:not(.static):hover {
-    .content {
-      &::before { height: 100%; }
-      .surtitle { color: $blue; }
-    }
+  &:hover {
+    &:not(.static) {
+      // Blocks with padding use content-background and image zoom as hover
+      &.text-padding {
+        .image img { scale: 1.1; }
+        .content::before { height: 100%; }
+      }
 
-    .image img { scale: 1.1; }
+      // Blocks without padding use image-background as hover
+      &:not(.text-padding) {
+        .image::before { height: 100%; }
+      }
+    }
   }
 
   @media (max-width: $tablet) {

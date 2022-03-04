@@ -4,12 +4,14 @@
 
 {% block content %}
 
-  {% include 'partials/titles/page-title.twig' with { 
-    large: true,
-    upper: 'Case studies',
-    title: 'Working with energy ecosystems is all we do', 
-    text: 'We have built a business that re-connects engineering design, construction and commissioning so every choice we make contributes to better project outcomes.' 
-  } %}
+  <div class="large container">
+    {% include 'partials/titles/block-hero.twig' with { 
+      surtitle: 'Case studies',
+      title: 'Working with energy ecosystems is all we do',
+      text: 'We have built a business that re-connects engineering design, construction and commissioning so every choice we make contributes to better project outcomes.',
+      filters: true
+    } %}
+  </div>
 
   {% include 'partials/lists/filters.twig' with { 
     featured: featured,

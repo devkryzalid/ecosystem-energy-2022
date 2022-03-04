@@ -4,12 +4,16 @@
 
 {% block content %}
 
-  {% include 'partials/block-item.twig' with {
-    surtitle: 'Markets',
-    title: post.title,
-    image: post.thumbnail,
-    class: 'featured static transparent hero'
-  } %}
+  <div class="blue wrapper">
+    <div class="large container">
+      {% include 'partials/titles/block-hero.twig' with { 
+        surtitle: 'Markets',
+        title: post.title,
+        image: post.thumbnail,
+        class: 'invert offset-image'
+      } %}
+    </div>
+  </div>
 
   <div class="container">
     {{ post.content }}

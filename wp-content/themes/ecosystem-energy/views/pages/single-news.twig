@@ -3,6 +3,7 @@
 {% block pageClass %}grey{% endblock %}
 
 {% block content %}
+
   {% include 'partials/titles/post-hero.twig' with { post: post } %}
 
   <div class="small container">
@@ -12,4 +13,5 @@
     {% include 'partials/news-nav.twig' with { next: next, prev: previous } %}
     {% include 'partials/contact-cta.twig' %}
   </div>
+  
 {% endblock %}

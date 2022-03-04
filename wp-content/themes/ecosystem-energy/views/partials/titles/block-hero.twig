@@ -1,0 +1,21 @@
+<div class="block-hero {{ class }}">
+
+  {% if surtitle and not image %} <div class="surtitle" data-aos="fade-up">{{ surtitle }}</div> {% endif %}
+
+  <div class="title-ctn">
+    {% if surtitle and image %} <div class="surtitle" data-aos="fade-up">{{ surtitle }}</div> {% endif %}
+    <h1 class="title" data-aos="fade-up" data-aos-delay="100">{{ title }}</h1>
+  </div>
+
+  {% if image %}
+    <div class="image-ctn" data-aos="fade-up" data-aos-delay="200">
+      <img src="{{ image.src('large') }}" alt="{{ image.title }}">
+    </div>
+  {% endif %}
+  
+  <div class="text-ctn {{ text ? '' : 'no-text' }}" data-aos="fade-up" data-aos-delay="200">
+    {% if text %} <p class="text">{{ text }}</p> {% endif %}
+    {% if filters %} <a id="toggle-filters" class="btn">Filtres</a> {% endif %}
+  </div>
+
+</div>

@@ -5,11 +5,11 @@
 </div>
 
 <div id="panel-body">
-  {% include 'partials/block-item.twig' with {
-    surtitle: 'blop',
+  {% include 'partials/titles/block-hero.twig' with { 
+    surtitle: 'Expertises',
     title: expertise.title,
     image: expertise.thumbnail,
-    class: 'featured no-padding'
+    class: 'v-centered-title inner-page'
   } %}
 
   {{ expertise.content }}
@@ -25,7 +25,7 @@
           description: case_study.preview.read_more(false),
           url: case_study.link,
           image: case_study.thumbnail,
-          class: 'no-padding'
+          class: ''
         } %}
       {% endfor %}
     </div>
