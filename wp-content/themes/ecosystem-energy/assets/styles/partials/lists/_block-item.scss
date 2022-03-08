@@ -157,8 +157,16 @@ $bloc-content-height: 260px;
     @extend .horizontal;
     @extend .text-padding;
     @extend .white-bg;
+    min-height: 500px;
+
+    .image { max-height: none; }
+
     .content { 
+      justify-content: flex-start;
       margin-top: 60px;
+      padding-top: 60px;
+
+      .surtitle, .title, .description { padding-left: 60px; }
 
       &::after { 
         position: absolute;

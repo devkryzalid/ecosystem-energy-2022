@@ -1,4 +1,4 @@
-.home-slider {
+.case-study-slider {
   @extend .slider;
 
   h2 {
@@ -7,10 +7,10 @@
     color: white;
   }
 
-  .link {
+  .category {
     position: absolute;
     right: 0;
     top: 140px;
-    color: $yellow;
+    color: white;
   }
 }

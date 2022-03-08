@@ -31,7 +31,11 @@
   .text-ctn {
     padding-top: 10px;
 
-    p { margin-top: 0; }
+    p { 
+      margin-top: 0; 
+      margin-bottom: 60px; 
+    }
+
     .btn { margin: 20px 0 0 auto; }
 
     &.no-text { 

@@ -1,0 +1,27 @@
+.case-study-awards-ctn {
+  margin: -50px auto 80px;
+  padding: 40px 100px 40px 200px;
+  background-color: white;
+  background-image: url('/assets/images/ui/award_banner.svg');
+  background-repeat: no-repeat;
+  background-position: 70px 0;
+  list-style: none;
+
+  li {
+    @include flex(center, space-between);
+    padding: 20px 0;
+    @include fontSize(18, 24, 600);
+
+    &:not(:first-child) { border-top: 1px solid rgba($darkgrey, 0.2); }
+    
+    .organization { 
+      font-size: 16px;
+      font-weight: 500;
+      margin: 0 60px 0 auto; 
+    }
+
+    .year {
+      font-size: 16px;
+    }
+  }
+}

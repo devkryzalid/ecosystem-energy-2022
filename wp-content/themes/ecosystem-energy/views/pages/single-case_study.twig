@@ -4,52 +4,28 @@
 
 {% block content %}
 
-  <ul class="blue wrapper">
-    <div class="block-hero invert case-study-hero">
-
-      <div class="image-ctn" data-aos="fade-up" data-aos-delay="200">
-        <img src="{{ post.thumbnail.src('large') }}" alt="{{ post.thumbnail.title }}">
-      </div>
-      
-      <div class="title-ctn">
-        <a href="{{ industry_url }}" class="surtitle">{{ industry.name }}</a>
-        <h1 class="title">{{ post.title }}</h1>
-
-        <ul class="outcomes">
-          <div class="list-label">Outcomes</div>
-          {% for outcome in outcomes_list %}
-            <li>{{ outcome.content }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-
-    </div>
+  {# Hero #}
+  <div class="blue wrapper">
+    {% include 'partials/case-study-hero.twig' %}
   </div>
 
+  {# Awards list #}
   {% if awards_list|length > 0%}
-    <ul class="container awards-list">
-      {% for award in awards_list %}
-        <li>
-          <span class="name">{{ award.title }}</span>
-          <span class="organization">{{ award.organization }}</span>
-          <span class="year">{{ award.year }}</span>
-        </li>
-      {% endfor %}
-    </ul>
+    {% include 'partials/case-study-awards.twig' %}
   {% endif %}
 
-  <div class="container">
+  {# Gutenberg post content #}
+  <div class="container" data-aos="fade-up" data-aos-delay="200">
     {{ post.content }}
   </div>
 
-  <div class="slider case-studies-slider-ctn">
-    <div class="container">
-      <h2>Other case studies <span>{{ industry.name }}</span></h2> 
-      {% include 'partials/case-studies-slider.twig' with { items: related_case_studies } %}
-    </div>
+  {# Case studies slider #}
+  <div class="blue wrapper">
+    {% include 'partials/case-study-slider.twig' with { items: related_case_studies } %}
   </div>
 
-  <div class="bottom-section">
+  {# CTAs #}
+  <div class="beige wrapper">
     {% if related_industry|length %}
       {% include 'partials/block-cta.twig' with { 
         surtitle: 'Your industry',

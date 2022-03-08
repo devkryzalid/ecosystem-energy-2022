@@ -1,0 +1,25 @@
+<div class="container case-study-slider">
+
+  <h2 data-aos="fade-up" data-aos-delay="200">Other case studies</h2>
+  <div class="category" data-aos="fade-up" data-aos-delay="400">{{ industry.name }}</div>
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+    
+      {% for item in items %}
+        <a class="swiper-slide" href="{{ item.url }}" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 + 600 }}">
+          <img src="{{ item.thumbnail.src('medium') }}" alt="{{ item.thumbnail.title }}">
+          <div class="title">{{ item.title }}</div>
+        </a>
+      {% endfor %}
+
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <div class="swiper-navigation">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+
+</div>

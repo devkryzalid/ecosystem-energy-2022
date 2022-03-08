@@ -1,0 +1,11 @@
+<ul class="container case-study-awards-ctn" data-aos="fade-up">
+
+  {% for award in awards_list %}
+    <li data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+      <span class="name">{{ award.title }}</span>
+      <span class="organization">{{ award.organization }}</span>
+      <span class="year">{{ award.year }}</span>
+    </li>
+  {% endfor %}
+  
+</ul>

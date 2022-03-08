@@ -2,7 +2,7 @@ import Swiper, { Navigation } from 'swiper';
 
 Swiper.use([Navigation]);
 
-const container = document.querySelector('.home-slider-ctn').querySelector('.swiper-container');
+const container = document.querySelector('.home-slider').querySelector('.swiper-container');
 const slider = new Swiper(container, {
     speed: 300,
     loop: false,

@@ -8,7 +8,7 @@
 			<div class="swiper-wrapper">
       
 				{% for image in images %}
-					<div class="swiper-slide slide-img">
+					<div class="swiper-slide">
 						<img src="{{ image['sizes']['slider-large'] }}" alt="">
             {% if image.caption %}<div class="caption">{{ image.caption }}</div> {% endif %}
 					</div>

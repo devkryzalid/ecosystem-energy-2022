@@ -1,13 +1,13 @@
-<div class="container home-slider-ctn">
+<div class="container home-slider">
 
-  <h2>Featured case studies</h2>
-  <a href="" class="internal link">See all our Case studies</a>
+  <h2 data-aos="fade-up" data-aos-delay="200">Featured case studies</h2>
+  <a data-aos="fade-up" data-aos-delay="400" href="{{ static_links["case-studies_link"].url }}" class="internal link">See all our Case studies</a>
 
   <div class="swiper-container">
     <div class="swiper-wrapper">
     
       {% for item in case_studies %}
-        <a href="{{ item.case_study.link }}" class="swiper-slide slide-img">
+        <a class="swiper-slide" href="{{ item.case_study.link }}" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 + 600 }}">
           <img src="{{ item.case_study.thumbnail.src('medium') }}" alt="{{ item.case_study.thumbnail.title }}">
           <div class="surtitle">{{ item.industry }}</div>
           <div class="title">{{ item.case_study.title }}</div>
