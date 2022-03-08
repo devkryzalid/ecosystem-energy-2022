@@ -1,6 +1,7 @@
 .home-hero-ctn {
   @include top;
   @include flex(flex-start, space-between);
+  margin-bottom: 100px;
 
   .title-ctn {
     flex-basis: 60%;
@@ -13,7 +14,7 @@
     flex-basis: 38%;
     overflow: hidden;
 
-    p {
+    .text {
       position: absolute;
       top: 30%;
       left: 20%;
@@ -26,6 +27,7 @@
       position: absolute;
       bottom: 100px;
       right: 100px;
+      i { transform: rotate(180deg); }
     }
 
     img {

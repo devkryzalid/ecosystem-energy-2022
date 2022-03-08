@@ -1,5 +1,6 @@
 .block-cta { 
-  margin: 100px auto;
+  padding-top: 100px;
+  padding-bottom: 100px;
 
   .content {
     padding: 75px 100px 75px 0;
@@ -28,7 +29,7 @@
   .btn {
     position: absolute;
     left: 50%;
-    bottom: 50px;
+    bottom: 30%;
     translate: -50%;
     width: 180px;
     height: 180px;

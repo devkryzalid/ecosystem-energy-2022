@@ -24,6 +24,17 @@
     opacity: 0;
   }
 
+  &.filters {
+    padding-left: 40px;
+    padding-right: 70px;
+
+    &::after {
+      content: "\e907";
+      right: 30px;
+      opacity: 1;
+    }
+  }
+
   // Prevent click events conflicts with icon
   i { pointer-events: none; }
 
@@ -77,4 +88,6 @@
       opacity: 1;
     }
   }
+
+  &.filters:hover::after { font-size: 18px; }
 }

@@ -1,0 +1,14 @@
+<div class="container sectors-ctn">
+  <div class="title-column">
+    <h2 data-aos="fade-up">{{ sectors.title }}</h2>
+    <p data-aos="fade-up" data-aos-delay="100">{{ sectors.content }}</p>
+  </div>
+
+  <div class="content-column">
+    {% for industry in industries %}
+      <a href="{{ industry.link }}" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+        <span>{{ industry.title }}</span>
+      </a>
+    {% endfor %}
+  </div>
+</div>

@@ -99,7 +99,6 @@ $bloc-content-height: 260px;
 
     .description {
       padding: 0 0 0;
-      // display: none;
     }
 
     .footer {
@@ -107,6 +106,8 @@ $bloc-content-height: 260px;
       padding: 20px 0;
       border-top: 1px solid $borderColor;
       @include fontSize(16, 22, 600);
+      opacity: 0.6;
+      transition: $basicTransition;
     }
   }
 
@@ -193,7 +194,19 @@ $bloc-content-height: 260px;
       // Blocks with padding use content-background and image zoom as hover
       &.text-padding {
         .image img { scale: 1.1; }
-        .content::before { height: 100%; }
+
+        .content {
+          &::before { height: 100%; }
+
+          .surtitle, .surtitle::before {
+            color: $darkgrey;
+          }
+
+          .footer { 
+            opacity: 1; 
+            border-color: $darkgrey;
+          }
+        }
       }
 
       // Blocks without padding use image-background as hover

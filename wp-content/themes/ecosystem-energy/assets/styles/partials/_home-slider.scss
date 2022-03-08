@@ -1,0 +1,41 @@
+.home-slider-ctn {
+  position: relative;
+
+  h2 {
+    margin: 0 0 50px;
+    @include fontSize(56, 90);
+    color: white;
+  }
+
+  .link {
+    position: absolute;
+    right: 0;
+    top: 38px;
+    color: $yellow;
+  }
+
+  .swiper-slide {
+    img {
+      transition: $basicTransition;
+      opacity: 1;
+    }
+
+    .surtitle {
+      margin-top: 10px;
+      @include fontSize(14, 19);
+      color: $yellow;
+    }
+
+    .title {
+      margin-top: 20px;
+      @include fontSize(24, 30);
+      color: white;
+      transition: $basicTransition;
+    }
+
+    &:hover {
+      img { opacity: 0.5; }
+      .title { color: $yellow; }
+    }
+  }
+}

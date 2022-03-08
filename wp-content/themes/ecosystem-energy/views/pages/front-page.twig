@@ -4,49 +4,41 @@
 
 {% block content %}
 
+  {# Hero #}
   <div class="large container">
-    {% include 'partials/titles/home-hero.twig' with { 
+    {% include 'partials/home-hero.twig' with { 
       title: home_hero.title, 
       content: home_hero.content, 
       button: home_hero.button 
     } %}
   </div>
 
-  <div class="grey wrapper bg-icon">
-		<div class="container sectors-ctn">
-      <div class="title-column">
-        <h2>{{ sectors.title }}</h2>
-        <p>{{ sectors.content }}</p>
-      </div>
-
-      <div class="content-column">
-        {% for industry in industries %}
-          <a href="{{ industry.link }}">
-            <span>{{ industry.title }}</span>
-          </a>
-        {% endfor %}
-      </div>
-		</div>
+  {# Sectors, news and perspectives #}
+  <div class="grey wrapper bg-icon" id="scroll-content">
+    {% include 'partials/home-sectors.twig' %}
 
 		<div class="container news-ctn">
       {% include 'partials/block-item.twig' with { 
         surtitle: 'News',
         title: news[0].title, 
-        link: news[0].link, 
+        url: news[0].link, 
         footer: news[0].post_date|date("F d, Y"),
-        class: 'no-image white-bg text-padding'
+        class: 'no-image white-bg text-padding',
+        delay: 200
       } %}
 
       {% include 'partials/block-item.twig' with { 
         surtitle: 'Perspectives',
         title: perspective[0].title, 
-        link: perspective[0].link, 
+        url: perspective[0].link, 
         footer: perspective[0].post_date|date("F d, Y"),
-        class: 'no-image white-bg text-padding'
+        class: 'no-image white-bg text-padding',
+        delay: 400
       } %}
     </div>
   </div>
 
+  {# Learn more CTA #}
 	{% if featured_block %}
     {% include 'partials/block-cta.twig' with { 
       surtitle: featured_block.upper_title,
@@ -59,35 +51,12 @@
     } %}
 	{% endif %}
 
+  {# Slider #}
   <div class="blue wrapper">
-    <div class="container slider-ctn">
-
-      <h2>Featured case studies</h2>
-      <a href="" class="internal link">See all our Case studies</a>
-
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-        
-          {% for item in case_studies %}
-            <div class="swiper-slide slide-img">
-              <img src="{{ item.case_study.thumbnail.src('medium') }}" alt="{{ item.case_study.thumbnail.title }}">
-              <div class="surtitle">{{ item.industry }}</div>
-              <div class="title">{{ item.case_study.title }}</div>
-            </div>
-          {% endfor %}
-
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-
-      <div class="swiper-navigation">
-        <div class="prev"></div>
-        <div class="next"></div>
-      </div>
-
-    </div>
+    {% include 'partials/home-slider.twig' %}
   </div>
 
+  {# Career CTA #}
 	{% if career_block %}
     {% include 'partials/block-cta.twig' with { 
       surtitle: career_block.upper_title,
@@ -99,6 +68,7 @@
     } %}
 	{% endif %}
 
+  {# Contact CTA #}
   {% include 'partials/contact-cta.twig' %}
 
 {% endblock %}

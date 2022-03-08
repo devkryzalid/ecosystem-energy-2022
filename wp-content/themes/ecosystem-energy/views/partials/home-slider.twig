@@ -1,0 +1,26 @@
+<div class="container home-slider-ctn">
+
+  <h2>Featured case studies</h2>
+  <a href="" class="internal link">See all our Case studies</a>
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+    
+      {% for item in case_studies %}
+        <a href="{{ item.case_study.link }}" class="swiper-slide slide-img">
+          <img src="{{ item.case_study.thumbnail.src('medium') }}" alt="{{ item.case_study.thumbnail.title }}">
+          <div class="surtitle">{{ item.industry }}</div>
+          <div class="title">{{ item.case_study.title }}</div>
+        </a>
+      {% endfor %}
+
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <div class="swiper-navigation">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+
+</div>

@@ -38,14 +38,16 @@
 
 // Common elements
 @import "partials/titles/block-hero";
-@import "partials/titles/home-hero";
 @import "partials/titles/post-hero";
 
 @import "partials/author";
 @import "partials/block-cta";
-@import "partials/share";
 @import "partials/contact-cta";
+@import "partials/home-hero";
+@import "partials/home-sectors";
+@import "partials/home-slider";
 @import "partials/news-nav";
+@import "partials/share";
 
 // Pages
 @import "pages/awards";

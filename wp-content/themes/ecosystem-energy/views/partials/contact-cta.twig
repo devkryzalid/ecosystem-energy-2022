@@ -3,13 +3,15 @@
 
     <img id="cta-spinner" src="{{ theme.link }}/assets/images/ui/spinner.png" alt="">
 
-    <div class="title">
-      For any project or additional information
+    <div class="title" data-aos="fade-up" data-aos-delay="300">
+      {{ cta_contact.title }}
     </div>
 
-    <a href="" class="btn">
-      Contact us
-    </a>
+    <div data-aos="fade-up" data-aos-delay="300">
+      <a href="{{ cta_contact.button.url }}" class="btn">
+        {{ cta_contact.button.title }}
+      </a>
+    </div>
 
   </div>
 </div>

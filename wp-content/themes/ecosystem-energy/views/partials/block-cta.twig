@@ -6,8 +6,9 @@
     title: title,
     description: description,
     image: tImage,
-    class: 'horizontal static ' ~ (mirror ? 'reverse' : '')
+    class: 'horizontal static ' ~ (mirror ? 'reverse' : ''),
+    delay: 100
   } %}
 
-  <a href="{{ buttonUrl }}" class="circle btn">{{ buttonTitle }}</a>
+  <div data-aos="fade-up" data-aos-delay="300"><a href="{{ buttonUrl }}" class="circle btn">{{ buttonTitle }}</a></div>
 </div>
