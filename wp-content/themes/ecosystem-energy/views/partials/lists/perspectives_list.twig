@@ -1,13 +1,13 @@
 {% block content %}
 
-  {% if featured %}
+  {% if featured_content %}
     <div class="large container">
       {% include 'partials/block-item.twig' with { 
-        title: featured.title,
-        surtitle: featured.meta('related_industry')[0].post_title,
-        description: featured.preview.read_more(false),
-        url: featured.link,
-        image: featured.thumbnail,
+        title: featured_content.title,
+        surtitle: featured_content.meta('related_industry')[0].post_title,
+        footer: featured_content.post_date|date("F d, Y"),
+        url: featured_content.link,
+        image: featured_content.thumbnail,
         class: 'featured'
       } %}
     </div>
@@ -20,7 +20,7 @@
         {% include 'partials/block-item.twig' with { 
           title: perspective.title,
           surtitle: perspective.meta('related_industry')[0].post_title,
-          description: perspective.preview.read_more(false),
+          footer: perspective.post_date|date("F d, Y"),
           url: perspective.link,
           image: perspective.thumbnail,
           class: 'text-padding'

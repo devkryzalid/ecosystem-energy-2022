@@ -1,0 +1,21 @@
+.expertises-featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  border-top: 1px solid rgba($darkgrey, 0.2);
+
+  .featured-item {
+    .head {
+      @include flex(center, flex-start);
+
+      img { 
+        width: 140px; 
+        margin-right: 40px;
+      }
+    }
+
+    p { flex-basis: 100%; }
+  }
+}

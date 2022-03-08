@@ -1,3 +1,3 @@
-import SidePanel from '../utils/SidePanel';
+import SidePanel from '../utils/side-panel';
 
 const sidePanel = new SidePanel();

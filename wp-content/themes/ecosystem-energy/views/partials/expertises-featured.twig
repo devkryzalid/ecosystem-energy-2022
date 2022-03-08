@@ -1,0 +1,16 @@
+<div class="expertises-featured">
+
+  {% for bloc in featured_content %}
+    <div class="featured-item" data-aos="fade-up" data-aos-delay="{{ loop.index * 200 + 300 }}">
+
+      <div class="head">
+        <img src="{{ bloc.image.url }}" alt="{{ bloc.image.title }}">
+        <h3>{{ bloc.title }}</h3>
+      </div>
+
+      <p>{{ bloc.content }}</p>
+
+    </div>
+  {% endfor %}
+
+</div>

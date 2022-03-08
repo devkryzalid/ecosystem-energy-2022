@@ -5,7 +5,7 @@
       {% include 'partials/block-item.twig' with { 
         title: featured.title,
         surtitle: featured.meta('related_industry')[0].post_title,
-        description: featured.preview.read_more(false),
+        footer: featured.post_date|date("F d, Y"),
         url: featured.link,
         image: featured.thumbnail,
         class: 'featured'
@@ -20,9 +20,9 @@
         {% include 'partials/block-item.twig' with { 
           title: news.title,
           surtitle: news.meta('related_industry')[0].post_title,
-          description: news.preview.read_more(false),
+          footer: news.post_date|date("F d, Y"),
           url: news.link,
-          image: news.thumbnail
+          image: news.thumbnail,
           class: 'text-padding'
         } %}
 

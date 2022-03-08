@@ -13,8 +13,10 @@
   <div id="ajax-content">
     {% include 'partials/lists/loading.twig' %}
     <div class="inner">
-      {% if posts|length %} {% include 'partials/lists/news_list.twig' with { items: posts, featured: featured } %}
-      {% else %} {% include 'partials/lists/no-results.twig' %} {% endif %}
+      {% if posts|length %} 
+        {% include 'partials/lists/news_list.twig' with { items: posts, featured: featured } %}
+      {% else %} 
+        {% include 'partials/lists/no-results.twig' %} {% endif %}
     </div>
   </div>
 

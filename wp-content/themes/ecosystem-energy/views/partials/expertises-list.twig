@@ -1,0 +1,14 @@
+<div class="expertises-list">
+  <h2 data-aos="fade-up" data-aos-delay="200">Here are some examples of measures that work together to deliver results</h2>
+
+  <div class="grid-list">
+    {% for expertise in expertises %}
+
+      <a class="expertise-item" data-expertise="{{ expertise.id }}" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+        <h3>{{ expertise.title }}</h3>
+        <img class="" src="{{ expertise.thumbnail.src('large') }}" alt="{{ expertise.thumbnail.title }}">
+      </a>
+
+    {% endfor %}
+  </div>
+</div>

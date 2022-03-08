@@ -1,6 +1,6 @@
 {% extends 'base.twig' %}
 
-{% block pageClass %}grey expertises-page{% endblock %}
+{% block pageClass %}expertises-page{% endblock %}
 
 {% block content %}
 
@@ -12,27 +12,13 @@
     } %}
   </div>
   
-  <div class="large container featured-items">
-    {% for bloc in featured_content %}
-      <div class="featured-item">
-        <div class="head">
-          <img src="{{ bloc.image.url }}" alt="{{ bloc.image.title }}">
-          <h3>{{ bloc.title }}</h3>
-        </div>
-        <p>{{ bloc.content }}</p>
-      </div>
-    {% endfor %}
+  <div class="large container">
+    {% include 'partials/expertises-featured.twig' %}
   </div>
   
-  <div class="large container">
-    <h2>Here are some examples of measures that work together to deliver results</h2>
-    <div class="grid-list">
-      {% for expertise in expertises %}
-        <a class="expertise-item" data-expertise="{{ expertise.id }}">
-          <h3>{{ expertise.title }}</h3>
-          <img class="" src="{{ expertise.thumbnail.src('large') }}" alt="{{ expertise.thumbnail.title }}">
-        </a>
-      {% endfor %}
+  <div class="grey wrapper">
+    <div class="large container">
+      {% include 'partials/expertises-list.twig' %}
     </div>
   </div>
 
