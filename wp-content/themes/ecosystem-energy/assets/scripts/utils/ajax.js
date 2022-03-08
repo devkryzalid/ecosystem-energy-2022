@@ -1,12 +1,12 @@
 /*
   AjaxForm class
-  This script wraps the structure of a page to automate ajax fetching on form change.
-  It also manages pagination and updates the current url to match selected fields.
+  This script wraps the structure of a page to automate ajax data fetching on form change.
+  It also manages pagination and updates the current url params to match selected fields.
 
   The page must contain the following elements:
-    - A form (#ajax-form)
-    - A hidden input (#ajax-settings) inside the form element with options (data-url, data-limit, etc)
-    - An ajax outer container (#ajax-content), containing an inner element where data will be loaded (.inner)
+    - A form (default #ajax-form)
+    - A hidden input (default #ajax-settings) inside the form element with options (data-url, data-limit, etc)
+    - An ajax outer container (default #ajax-content), containing an element where data will be loaded (default .inner)
 
   Elements ids and classes can be overridden by passing their value to the constructor
 */
@@ -22,7 +22,6 @@ const defaultSettingsId = 'ajax-settings'
 const loadingClass = 'loading';
 const innerClass = 'inner';
 const paginationId = 'ajax-pagination'
-// TODO: Add more custom class possibilities (ex: pagination elements)
 
 export default class AjaxForm {
   // DOM containers for form and ajax html results
@@ -30,15 +29,16 @@ export default class AjaxForm {
   contentContainer;
   innerContainer;
 
+  // Status 
   loading = false;
   error = false;
 
+  // Properties
   url;
   limit;
   currentPage;
   nbPages;
   filtersVisible;
-
   previousParams;
 
   // Callbacks
@@ -62,7 +62,7 @@ export default class AjaxForm {
     if (!this.contentContainer) console.log('Error - Ajax content container #' + containerId + ' not found');
 
     this.innerContainer = this.contentContainer.querySelector('.' + innerClass);
-    if (!this.innerContainer) console.log('Error - Ajax .inner content container not found');
+    if (!this.innerContainer) console.log('Error - Ajax content container .' + innerClass + ' not found');
 
     // Get form settings from hidden input
     const { url, limit = 9, page = 1 } = document.getElementById(settingsId).dataset || {};
@@ -73,8 +73,8 @@ export default class AjaxForm {
     if (!this.url) console.log('Error - Ajax url not found');
 
     // Attach callback functions if available
-    if (onDataChangeCallback) this.onDataChange = onDataChangeCallback;
-    if (onLoadChangeCallback) this.onLoadChange = onLoadChangeCallback;
+    if (onDataChangeCallback) this.onDataChange = onDataChangeCallback; // Called when ajax data is changed
+    if (onLoadChangeCallback) this.onLoadChange = onLoadChangeCallback; // Called when loading status is changed
 
     // Add change listener to form checkboxes
     this.formContainer.addEventListener('change', this.onFormChange);
@@ -184,17 +184,17 @@ export default class AjaxForm {
   // Set event listeners on pagination elements
   initPagination = () => {
     const container = document.getElementById(paginationId);
-    if (container) {
-      const pageButtons = container.querySelectorAll('.ajax-page');
-      this.nbPages = pageButtons.length - 2;  // Exclude prev/next
+    if (!container) return false;
 
-      // Set disabled class on prev/next if needed
-      if (this.currentPage === 1) container.querySelector('.prev').classList.add('disabled');
-      if (this.currentPage === this.nbPages) container.querySelector('.next').classList.add('disabled');
-      
-      // Set click listener on page buttons
-      pageButtons.forEach(page => { page.addEventListener('click', e => this.pageChange(e.target)); });
-    }
+    const pageButtons = container.querySelectorAll('.ajax-page');
+    this.nbPages = pageButtons.length - 2;  // Exclude prev/next buttons
+
+    // Set disabled class on prev/next if needed
+    if (this.currentPage === 1) container.querySelector('.prev').classList.add('disabled');
+    if (this.currentPage === this.nbPages) container.querySelector('.next').classList.add('disabled');
+    
+    // Set click listener on page buttons
+    pageButtons.forEach(page => { page.addEventListener('click', e => this.pageChange(e.target)); });
   }
 
   // Change current page and trigger ajax fetch

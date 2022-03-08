@@ -28,6 +28,19 @@ $bloc-content-height: 260px;
       z-index: 2;
     }
 
+    &::after { 
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @extend .icomoon;
+      content: "\e90c";
+      font-size: 50px;
+      z-index: 2;
+      opacity: 0;
+      transition: $basicTransition;
+    }
+
     img { 
       width: 100%;
       height: 100%;
@@ -38,6 +51,8 @@ $bloc-content-height: 260px;
 
   .content {
     position: relative;
+    @include flex(flex-start, flex-start);
+    flex-direction: column;
     min-height: $bloc-content-height;
     padding-top: 30px;
     background: none;
@@ -66,9 +81,13 @@ $bloc-content-height: 260px;
       transition: $basicTransition;
 
       &::before {
+        position: relative;
+        top: 1px;
+        margin-right: 8px;
         @extend .icomoon;
         content: "\e90e";
         color: $yellow;
+        transition: $basicTransition;
       }
     }
     
@@ -80,10 +99,11 @@ $bloc-content-height: 260px;
 
     .description {
       padding: 0 0 0;
-      display: none;
+      // display: none;
     }
 
     .footer {
+      margin-top: auto;
       padding: 20px 0;
       border-top: 1px solid $borderColor;
       @include fontSize(16, 22, 600);
@@ -93,7 +113,7 @@ $bloc-content-height: 260px;
   // News / Perspectives / Featured
   &.text-padding {
     .content {
-      .surtitle, .title, .description { 
+      .surtitle, .title, .description, .footer { 
         padding-right: 40px;
         padding-left: 40px;
       }
@@ -136,7 +156,21 @@ $bloc-content-height: 260px;
     @extend .horizontal;
     @extend .text-padding;
     @extend .white-bg;
-    .content { margin-top: 60px; }
+    .content { 
+      margin-top: 60px;
+
+      &::after { 
+        position: absolute;
+        bottom: 36px;
+        right: 30px;
+        @extend .icomoon;
+        content: "\e90c";
+        font-size: 50px;
+        z-index: 2;
+        opacity: 0;
+        transition: $basicTransition;
+      }
+    }
   }
 
   &.reverse {
@@ -150,6 +184,10 @@ $bloc-content-height: 260px;
     }
   }
 
+  &.no-image {
+    .image { height: 0 !important; }
+  }
+
   &:hover {
     &:not(.static) {
       // Blocks with padding use content-background and image zoom as hover
@@ -161,6 +199,14 @@ $bloc-content-height: 260px;
       // Blocks without padding use image-background as hover
       &:not(.text-padding) {
         .image::before { height: 100%; }
+        .image::after { opacity: 1; }
+      }
+
+      &.featured {
+        .content {
+          &::after { opacity: 1; }
+          .surtitle::before { color: $darkgrey; }
+        }
       }
     }
   }

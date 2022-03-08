@@ -90,6 +90,8 @@ ul {
   margin: 0;
   padding: 0;
 
+  &.grey { background-color: $lightgrey; }
+
   &.blue { background-color: $blue; }
 
   // Yellow icon in background

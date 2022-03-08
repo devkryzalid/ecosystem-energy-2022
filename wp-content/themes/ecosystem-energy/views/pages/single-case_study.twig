@@ -51,19 +51,14 @@
 
   <div class="bottom-section">
     {% if related_industry|length %}
-      <div class="container related-industry">
-        <div class="content">
-          <div class="upper-title">Your industry</div>
-          <h2>{{ related_industry[0].title }}</h2>
-          <p>{{ related_industry[0].preview.read_more(false) }}</p>
-        </div>
-
-        <div class="image">
-          <img class="" src="{{ related_industry[0].thumbnail.src('medium') }}" alt="{{ related_industry[0].thumbnail.title }}">
-        </div>
-
-        <a class="circle btn" href="{{ related_industry[0].link }}">Learn more</a>
-      </div>
+      {% include 'partials/block-cta.twig' with { 
+        surtitle: 'Your industry',
+        title: related_industry[0].title, 
+        description: related_industry[0].preview.read_more(false),
+        image: related_industry[0].thumbnail,
+        buttonUrl: related_industry[0].link,
+        buttonTitle: 'Learn more',
+      } %}
     {% endif %}
 
     {% include 'partials/contact-cta.twig' %}

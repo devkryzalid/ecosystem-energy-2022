@@ -1,15 +1,16 @@
-.home-hero {
+.home-hero-ctn {
   @include top;
-  @include flex(center, space-between);
+  @include flex(flex-start, space-between);
 
-  h1.title {
-    @include fontSize(85, 90, 600, -0.85);
+  .title-ctn {
+    flex-basis: 60%;
+    margin-top: 40px;
+    h1 { @include fontSize(85, 90, 600, -0.85); }
   }
 
   .text-ctn {
     position: relative;
-    flex-basis: 30%;
-    border: 1px solid #666;
+    flex-basis: 38%;
     overflow: hidden;
 
     p {
@@ -23,6 +24,8 @@
 
     .btn {
       position: absolute;
+      bottom: 100px;
+      right: 100px;
     }
 
     img {

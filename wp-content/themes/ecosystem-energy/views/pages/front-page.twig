@@ -1,89 +1,105 @@
 {% extends 'base.twig' %}
 
-{% block pageClass %}grey{% endblock %}
-{# {% include 'debug.twig' with { value: menu_primary.items } %} #}
+{% block pageClass %}front-page{% endblock %}
 
 {% block content %}
 
-	{% if home_hero %}
-    {% include 'partials/titles/home-hero.twig' with { title: home_hero.title, content: home_hero.content, button: home_hero.button } %}
-	{% endif %}
+  <div class="large container">
+    {% include 'partials/titles/home-hero.twig' with { 
+      title: home_hero.title, 
+      content: home_hero.content, 
+      button: home_hero.button 
+    } %}
+  </div>
 
-  {{ dump(cta_contact) }}
+  <div class="grey wrapper bg-icon">
+		<div class="container sectors-ctn">
+      <div class="title-column">
+        <h2>{{ sectors.title }}</h2>
+        <p>{{ sectors.content }}</p>
+      </div>
 
-	{% if sectors %}
-		<div>
-			<h2>{{ sectors.title }}</h2>
-			<p>{{ sectors.content }}</p>
-			{% if industries|length > 0 %}
-				<ul>
-					{% for industry in industries %}
-						<li>
-							<p>{{ industry.title }}</p>
-							<img class="" src="{{ industry.thumbnail.src('medium') }}" alt="{{ industry.thumbnail.title }}">
-							<a href="{{ industry.link }}">lien</a>
-						</li>
-					{% endfor %}
-				</ul>
-			{% endif %}
+      <div class="content-column">
+        {% for industry in industries %}
+          <a href="{{ industry.link }}">
+            <span>{{ industry.title }}</span>
+          </a>
+        {% endfor %}
+      </div>
 		</div>
-	{% endif %}
 
-	{% if news %}
-		<div>
-			<h3>{{ news.title }}</h3>
-			<p>{{news.post_date|date("F d, Y")}}</p>
-			<a href="{{ news.link }}">lien</a>
-		</div>
-	{% endif %}
+		<div class="container news-ctn">
+      {% include 'partials/block-item.twig' with { 
+        surtitle: 'News',
+        title: news[0].title, 
+        link: news[0].link, 
+        footer: news[0].post_date|date("F d, Y"),
+        class: 'no-image white-bg text-padding'
+      } %}
 
-	{% if perspective %}
-		<div>
-			<h3>{{ perspective.title }}</h3>
-			<p>{{perspective.post_date|date("F d, Y")}}</p>
-			<a href="{{ perspective.link }}">lien</a>
-		</div>
-	{% endif %}
+      {% include 'partials/block-item.twig' with { 
+        surtitle: 'Perspectives',
+        title: perspective[0].title, 
+        link: perspective[0].link, 
+        footer: perspective[0].post_date|date("F d, Y"),
+        class: 'no-image white-bg text-padding'
+      } %}
+    </div>
+  </div>
 
 	{% if featured_block %}
-		<div>
-			<h3>{{ featured_block.upper_title }}</h3>
-			<h2>{{ featured_block.title }}</h2>
-			<p>{{ featured_block.content }}</p>
-			<button>
-				<a href="{{ featured_block.button.url }}" target="{{ featured_block.button.target }}">{{ featured_block.button.title }}</a>
-			</button>
-			<img class="" src="{{ featured_block.image.link }}" alt="{{ featured_block.image.title }}">
-		</div>
+    {% include 'partials/block-cta.twig' with { 
+      surtitle: featured_block.upper_title,
+      title: featured_block.title, 
+      description: featured_block.content,
+      image: featured_block.image,
+      buttonUrl: featured_block.button.url,
+      buttonTitle: featured_block.button.title,
+      mirror: true
+    } %}
 	{% endif %}
 
-	<div>
-		<h2>Featured case studies</h2>
-		{% if case_studies|length > 0%}
-			<ul>
-				{% for case_study in case_studies %}
-					<li>
-						<p>{{ case_study.industry }}</p>
-						<p>{{ case_study.case_study.title }}</p>
-						<p>{{ case_study.case_study.preview.read_more(false)  }}</p>
-						<img class="" src="{{ case_study.case_study.thumbnail.src('medium') }}" alt="{{ case_study.case_study.thumbnail.title }}">
-					</li>
-				{% endfor %}
-			</ul>
-		{% endif %}
-	</div>
+  <div class="blue wrapper">
+    <div class="container slider-ctn">
+
+      <h2>Featured case studies</h2>
+      <a href="" class="internal link">See all our Case studies</a>
+
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+        
+          {% for item in case_studies %}
+            <div class="swiper-slide slide-img">
+              <img src="{{ item.case_study.thumbnail.src('medium') }}" alt="{{ item.case_study.thumbnail.title }}">
+              <div class="surtitle">{{ item.industry }}</div>
+              <div class="title">{{ item.case_study.title }}</div>
+            </div>
+          {% endfor %}
+
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+      <div class="swiper-navigation">
+        <div class="prev"></div>
+        <div class="next"></div>
+      </div>
+
+    </div>
+  </div>
 
 	{% if career_block %}
-		<div>
-			<h3>{{ career_block.upper_title }}</h3>
-			<h2>{{ career_block.title }}</h2>
-			<p>{{ career_block.content }}</p>
-			<button>
-				<a href="{{ career_block.button.url }}" target="{{ career_block.button.target }}">{{ career_block.button.title }}</a>
-			</button>
-			<img class="" src="{{ career_block.image.link }}" alt="{{ career_block.image.title }}">
-		</div>
+    {% include 'partials/block-cta.twig' with { 
+      surtitle: career_block.upper_title,
+      title: career_block.title, 
+      description: career_block.content,
+      image: career_block.image,
+      buttonUrl: career_block.button.url,
+      buttonTitle: career_block.button.title
+    } %}
 	{% endif %}
+
+  {% include 'partials/contact-cta.twig' %}
 
 {% endblock %}
 

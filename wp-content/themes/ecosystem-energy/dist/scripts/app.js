@@ -60,7 +60,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_aos__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/aos */ \"./assets/scripts/utils/aos.js\");\n/* harmony import */ var _utils_jsBlockLink__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/jsBlockLink */ \"./assets/scripts/utils/jsBlockLink.js\");\n/* harmony import */ var _utils_jsBlockLink__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_utils_jsBlockLink__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _utils_custom_blocks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils/custom-blocks */ \"./assets/scripts/utils/custom-blocks.js\");\n/* harmony import */ var _header_header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./header/header */ \"./assets/scripts/header/header.js\");\n// Import common libraries\n\n\n\n\n// Initialize header, which manages search field, country toggler and menu \n\nconst header = new _header_header__WEBPACK_IMPORTED_MODULE_3__[\"default\"]();\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_aos__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils/aos */ \"./assets/scripts/utils/aos.js\");\n/* harmony import */ var _utils_jsBlockLink__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils/jsBlockLink */ \"./assets/scripts/utils/jsBlockLink.js\");\n/* harmony import */ var _utils_jsBlockLink__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_utils_jsBlockLink__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _utils_custom_blocks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils/custom-blocks */ \"./assets/scripts/utils/custom-blocks.js\");\n/* harmony import */ var _utils_cta_spinner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/cta-spinner */ \"./assets/scripts/utils/cta-spinner.js\");\n/* harmony import */ var _utils_cta_spinner__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_utils_cta_spinner__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _header_header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./header/header */ \"./assets/scripts/header/header.js\");\n// Animate on scroll library\n\n// \n\n// Custom gutenberg blocks\n\n// \n\n\n// Initialize header, which manages search field, country toggler and menu \n\nconst header = new _header_header__WEBPACK_IMPORTED_MODULE_4__[\"default\"]();\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/main.js?");
 
 /***/ }),
 
@@ -72,6 +72,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _uti
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! aos */ \"./node_modules/aos/dist/aos.js\");\n/* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(aos__WEBPACK_IMPORTED_MODULE_0__);\n\n\naos__WEBPACK_IMPORTED_MODULE_0___default().init({\n  startEvent: 'load',\n  offset: 200,\n  duration: 600,\n  easing: 'ease-out-sine',\n  delay: 100,\n  once: true\n});\n\n// Fade animations:\n//   fade\n//   fade-up\n//   fade-down\n//   fade-left\n//   fade-right\n//   fade-up-right\n//   fade-up-left\n//   fade-down-right\n//   fade-down-left\n\n// Flip animations:\n//   flip-up\n//   flip-down\n//   flip-left\n//   flip-right\n\n// Slide animations:\n//   slide-up\n//   slide-down\n//   slide-left\n//   slide-right\n\n// Zoom animations:\n//   zoom-in\n//   zoom-in-up\n//   zoom-in-down\n//   zoom-in-left\n//   zoom-in-right\n//   zoom-out\n//   zoom-out-up\n//   zoom-out-down\n//   zoom-out-left\n//   zoom-out-right\n\n// Easing functions\n//   linear\n//   ease\n//   ease-in\n//   ease-out\n//   ease-in-out\n//   ease-in-back\n//   ease-out-back\n//   ease-in-out-back\n//   ease-in-sine\n//   ease-out-sine\n//   ease-in-out-sine\n//   ease-in-quad\n//   ease-out-quad\n//   ease-in-out-quad\n//   ease-in-cubic\n//   ease-out-cubic\n//   ease-in-out-cubic\n//   ease-in-quart\n//   ease-out-quart\n//   ease-in-out-quart\n\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/utils/aos.js?");
+
+/***/ }),
+
+/***/ "./assets/scripts/utils/cta-spinner.js":
+/*!*********************************************!*\
+  !*** ./assets/scripts/utils/cta-spinner.js ***!
+  \*********************************************/
+/***/ (function() {
+
+eval("// Initialize rotating animation for contact-cta\nconst image = document.getElementById('cta-spinner');\nif (image) {\n  const speed = 0.1;\n  const timer = 10;\n\n  let rotation = 0;\n\n  setInterval(() => {\n    rotation = rotation > 360 ? 0 : (rotation + speed);\n    image.style.transform = 'rotate(' + rotation + 'deg)'; \n  }, timer)\n}\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/utils/cta-spinner.js?");
 
 /***/ }),
 

@@ -6,15 +6,18 @@ a.link {
   @include fontSize(19, 26, 600);
   color: $textColor;
   cursor: pointer;
+  transition: $linkTransition;
 
   &::after,
   &::before {
     position: relative;
     @extend .icomoon;
     @include fontSize(15, 20, 400);
-    margin-left: 6px;
+    margin-left: 8px;
+    margin-right: 8px;
     color: $yellow;
-    // transition: $linkTransition;
+    transition: $linkTransition;
+    top: 1px;
   }
 
   &:hover,
@@ -28,6 +31,10 @@ a.link {
   &.internal {
     &::after {
       content: "\e90e";
+    }
+    &:hover::after {
+      top: 3px;
+      font-size: 20px;
     }
   }
 

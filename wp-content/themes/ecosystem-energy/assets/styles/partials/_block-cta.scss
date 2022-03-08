@@ -1,0 +1,44 @@
+.block-cta { 
+  margin: 100px auto;
+
+  .content {
+    padding: 75px 100px 75px 0;
+
+    .surtitle {
+      padding: 0;
+      @include fontSize(20, 27, 500);
+      color: rgba($darkgrey, 0.7);
+      &::before { display: none; }
+    }
+
+    .title {
+      margin-top: 20px;
+      @include fontSize(52, 56, 600, -1.08);
+    }
+
+    p {
+      @include fontSize(18, 28);
+    }
+  }
+
+  .image {
+    max-height: none !important;
+  }
+
+  .btn {
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    translate: -50%;
+    width: 180px;
+    height: 180px;
+    padding: 15px;
+    z-index: 9;
+  }
+
+  &.mirror {
+    .content {
+      padding: 75px 0 75px 100px;
+    }
+  }
+}

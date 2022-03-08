@@ -1,0 +1,115 @@
+.front-page {
+  .sectors-ctn {
+    @include flex(flex-start, space-between);
+    gap: 40px;
+    padding: 140px 0 60px;
+
+    .title-column {
+      flex: 0 0 30%;
+
+      h2 { 
+        margin-top: 0;
+        @include fontSize(52, 58, 600); 
+      }
+    }
+
+    .content-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 40px;
+
+      a {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 160px;
+        @include fontSize(26, 32, 600, -0.35); 
+        border-top: 1px solid rgba($darkgrey, 0.4);
+
+        span {
+          display: block;
+          width: 80%;
+          margin-right: 50px;
+        }
+
+        &::before {
+          display: block;
+          content: '';
+          position: relative;
+          top: -1px;
+          width: 0;
+          height: 1px;
+          margin-bottom: 30px;
+          background-color: $darkgrey;
+          transition: $basicTransition;
+        }
+
+        &::after {
+          position: absolute;
+          @extend .icomoon;
+          content: "\e914";
+          right: 0;
+          top: 32px;
+          font-size: 14px;
+          transition: 0.15s all ease-out;
+          transform-origin: center;
+        }
+
+        &:hover {
+          &::before { width: 100%; }
+          &::after { transform: rotate(45deg); }
+        }
+      }
+    }
+  }
+
+  .wrapper.bg-icon::after {
+    left: -40px;
+    right: auto;
+    top: 50%;
+    bottom: 0;
+    font-size: 200px;
+  }
+
+  .news-ctn {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 0 0 120px;
+  }
+
+  .blue.wrapper {
+    padding: 100px 0;
+
+    .slider-ctn {
+      position: relative;
+
+      h2 {
+        margin: 0 0 50px;
+        @include fontSize(56, 90);
+        color: white;
+      }
+
+      .link {
+        position: absolute;
+        right: 0;
+        top: 38px;
+        color: $yellow;
+      }
+
+      .swiper-slide {
+        .surtitle {
+          margin-top: 10px;
+          @include fontSize(14, 19);
+          color: $yellow;
+        }
+
+        .title {
+          margin-top: 20px;
+          @include fontSize(24, 30);
+          color: white;
+        }
+      }
+    }
+  }
+}

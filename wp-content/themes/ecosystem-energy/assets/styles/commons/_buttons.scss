@@ -16,9 +16,11 @@
   &::after {
     position: absolute;
     right: 0px;
+    margin-top: 2px;
     transition: $basicTransition;
     font-family: 'icomoon' !important;
-    content: "\e905";
+    content: "\e90e";
+    font-size: 12px;
     opacity: 0;
   }
 
@@ -29,9 +31,9 @@
   &.blue {
     background-color: $blue;
     color: white;
-
-    &:hover {
+    &:hover { 
       color: $yellow;
+      // &::after { }
     }
   }
 
