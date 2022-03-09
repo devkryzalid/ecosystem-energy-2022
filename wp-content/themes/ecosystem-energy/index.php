@@ -4,6 +4,7 @@
 $limit      = empty($_GET['limit']) ? 9 : $_GET['limit'];
 $paged      = empty($_GET['paged']) ? 1 : $_GET['paged'];
 $categories = empty($_GET['category']) ? [] : $_GET['category'];
+$featured   = empty($_GET['featured']) ? [] : $_GET['featured'];
 
 $context = Timber::context();
 
@@ -16,11 +17,12 @@ $locales    = empty($_GET['filter_locale']) ? $context['current_locale'] : $_GET
 
 // Set base informations for context
 $timber_post = new Timber\Post();
-$context['post']  = $timber_post;
-$context['limit'] = $limit;
-$context['paged'] = $paged;
-$context['categories'] = get_terms( [ 'taxonomy' => 'category' ] );
-$context['industries'] = get_terms( [ 'taxonomy' => 'industry_tax' ] );
+$context['post']       = $timber_post;
+$context['limit']      = $limit;
+$context['paged']      = $paged;
+$context['categories'] = get_terms([ 'taxonomy' => 'category' ]);
+$context['industries'] = get_terms([ 'taxonomy' => 'industry_tax' ]);
+$context['featured']   = null;
 
 /**
  * Query arguments
@@ -32,7 +34,7 @@ $args = [
     'order'           => 'DESC',
     'suppress_filter' => true,
     'paged'           => $paged,
-    'posts_per_page'  => $limit,
+    'posts_per_page'  => empty($featured) ? 1 : $limit,
 ];
 
 // Filter by local
@@ -53,7 +55,15 @@ if (!empty($categories) && $categories != '') {
         'terms'    => $categoriesTab
     ];
 }
-
+// Get featured
+if (empty($featured)) {
+    $featured = new Timber\PostQuery($args);
+    if (isset($featured[0])) {
+        $context['featured']    = $featured[0];
+        $args['post__not_in']   = [$featured[0]->ID];
+    }
+    $args['posts_per_page'] = $limit;
+}
 // Get Post
 $context['posts'] = new Timber\PostQuery($args);
 
