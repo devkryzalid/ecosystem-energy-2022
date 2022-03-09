@@ -2432,6 +2432,7 @@ ul {
 
 .icomoon, .sectors-ctn .content-column a::after, .block-hero.post-hero .title-ctn .category::after, .block-item.featured .content::after, .block-item .content .surtitle::before, .block-item .image::after, a.link::after, a.link::before, .slider .swiper-navigation div, .industry-cs-slider .swiper-navigation div, .home-slider .swiper-navigation div, .case-study-slider .swiper-navigation div, .content-slider-multiple-ctn .swiper-navigation div, .content-slider-ctn .swiper-navigation div, .wrapper.bg-icon::after {
   font-family: "icomoon" !important;
+  font-weight: 400 !important;
 }
 
 .slider, .industry-cs-slider, .home-slider, .case-study-slider, .content-slider-multiple-ctn, .content-slider-ctn {
@@ -3024,11 +3025,20 @@ h3 {
 .btn.filters, .contact-page .contact-form input.filters[type=submit] {
   padding-left: 40px;
   padding-right: 70px;
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 22px;
+  line-height: 1.375rem;
+  letter-spacing: normal;
 }
 .btn.filters::after, .contact-page .contact-form input.filters[type=submit]::after {
   content: "\e907";
   right: 30px;
   opacity: 1;
+}
+.btn.filters.open::after, .contact-page .contact-form input.filters.open[type=submit]::after {
+  content: "\e901";
 }
 .btn i, .contact-page .contact-form input[type=submit] i {
   pointer-events: none;
@@ -4060,7 +4070,7 @@ body.menu-open #header #menu-toggle:hover span {
 #ajax-content {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   min-height: 500px;
 }
@@ -4147,19 +4157,20 @@ body.menu-open #header #menu-toggle:hover span {
 .block-item .content .surtitle {
   width: 100%;
   padding: 0 0 20px;
-  font-size: 18px;
-  font-size: 1.125rem;
-  font-weight: 500;
-  line-height: 24px;
-  line-height: 1.5rem;
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 26px;
+  line-height: 1.625rem;
   letter-spacing: normal;
   color: #FAB900;
   transition: all 0.4s ease;
 }
 .block-item .content .surtitle::before {
   position: relative;
-  top: 1px;
-  margin-right: 8px;
+  top: 0;
+  margin-right: 20px;
+  font-size: 14px;
   content: "\e90e";
   color: #FAB900;
   transition: all 0.4s ease;
@@ -4227,14 +4238,29 @@ body.menu-open #header #menu-toggle:hover span {
 .block-item.horizontal .content .footer, .block-item.featured .content .footer {
   margin-top: auto;
 }
+.block-item.horizontal.reverse .image, .block-item.reverse.featured .image {
+  grid-column-start: 1;
+}
+.block-item.horizontal.reverse .content, .block-item.reverse.featured .content {
+  grid-column-start: 2;
+}
 .block-item.white-bg .content, .block-item.featured .content {
   background-color: white;
 }
+.block-item.invert .content .surtitle, .block-item.invert .content .title, .block-item.invert .content .description {
+  color: white;
+}
+.block-item.no-image .image {
+  height: 0 !important;
+}
+.block-item.auto-height .content {
+  min-height: auto;
+}
 .block-item.featured {
-  min-height: 500px;
+  min-height: 460px;
 }
 .block-item.featured .image {
-  max-height: none;
+  max-height: 460px;
 }
 .block-item.featured .content {
   justify-content: flex-start;
@@ -4243,6 +4269,17 @@ body.menu-open #header #menu-toggle:hover span {
 }
 .block-item.featured .content .surtitle, .block-item.featured .content .title, .block-item.featured .content .description {
   padding-left: 60px;
+}
+.block-item.featured .content .surtitle {
+  font-size: 22px;
+  font-size: 1.375rem;
+  font-weight: 500;
+  line-height: 26px;
+  line-height: 1.625rem;
+  letter-spacing: normal;
+}
+.block-item.featured .content .surtitle::before {
+  top: -1px;
 }
 .block-item.featured .content::after {
   position: absolute;
@@ -4253,21 +4290,6 @@ body.menu-open #header #menu-toggle:hover span {
   z-index: 2;
   opacity: 0;
   transition: all 0.4s ease;
-}
-.block-item.reverse .image {
-  grid-column-start: 1;
-}
-.block-item.reverse .content {
-  grid-column-start: 2;
-}
-.block-item.invert .content .surtitle, .block-item.invert .content .title, .block-item.invert .content .description {
-  color: white;
-}
-.block-item.no-image .image {
-  height: 0 !important;
-}
-.block-item.auto-height .content {
-  min-height: auto;
 }
 .block-item:hover:not(.static).text-padding .image img, .block-item.featured:hover:not(.static) .image img {
   scale: 1.1;
@@ -4301,9 +4323,18 @@ body.menu-open #header #menu-toggle:hover span {
   .block-item .content {
     min-height: 210px;
   }
-  .block-item .content .surtitle, .block-item .content .title {
-    padding-left: 20px;
-    padding-right: 20px;
+  .block-item.featured {
+    display: block;
+  }
+  .block-item.featured .image {
+    height: 240px;
+  }
+  .block-item.featured .content {
+    margin-top: 0;
+    padding-bottom: 50px;
+  }
+  .block-item.featured .content::after {
+    opacity: 0 !important;
   }
 }
 @media (max-width: 500px) {
@@ -4768,6 +4799,7 @@ body.menu-open #header #menu-toggle:hover span {
 .contact-cta .container img {
   position: absolute;
   height: 600px;
+  width: 600px;
   left: 50%;
   top: -40%;
   translate: -50%;
@@ -4786,6 +4818,20 @@ body.menu-open #header #menu-toggle:hover span {
 }
 .contact-cta .container .btn, .contact-cta .container .contact-page .contact-form input[type=submit], .contact-page .contact-form .contact-cta .container input[type=submit] {
   margin: auto;
+}
+@media (max-width: 768px) {
+  .contact-cta .container img {
+    height: 300px;
+    width: 300px;
+  }
+  .contact-cta .container .title {
+    font-size: 38px;
+    font-size: 2.375rem;
+    font-weight: 600;
+    line-height: 46px;
+    line-height: 2.875rem;
+    letter-spacing: normal;
+  }
 }
 
 .expertises-featured {
@@ -5405,6 +5451,22 @@ body.menu-open #header #menu-toggle:hover span {
   }
 }
 
+.page-case-studies .block-item.featured .content .title {
+  font-size: 46px;
+  font-size: 2.875rem;
+  font-weight: 500;
+  line-height: 53px;
+  line-height: 3.3125rem;
+  letter-spacing: normal;
+}
+.page-case-studies .block-item .content .title {
+  font-size: 30px;
+  font-size: 1.875rem;
+  font-weight: 400;
+  line-height: 38px;
+  line-height: 2.375rem;
+  letter-spacing: normal;
+}
 .page-case-studies .block-item .content .surtitle {
   color: #494843;
 }

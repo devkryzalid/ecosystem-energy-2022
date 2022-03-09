@@ -10,6 +10,7 @@
     img {
       position: absolute;
       height: 600px;
+      width: 600px;
       left: 50%;
       top: -40%;
       translate: -50%;
@@ -25,6 +26,17 @@
 
     .btn {
       margin: auto;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    .container {
+      img {
+        height: 300px;
+        width: 300px;
+      }
+
+      .title { @include fontSize(38, 46, 600); }
     }
   }
 }

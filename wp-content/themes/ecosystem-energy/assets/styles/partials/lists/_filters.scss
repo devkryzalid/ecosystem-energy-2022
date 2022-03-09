@@ -2,7 +2,7 @@
   height: 0;
   transition: $basicTransition;
   overflow: hidden;
-
+  
   .filters {
     @include flex(flex-start, flex-start);
     padding-top: 30px;

@@ -1,5 +1,15 @@
 .page-case-studies {
-  .block-item .content .surtitle { 
-    color: $darkgrey; 
+  .block-item {
+    &.featured .content .title {
+      @include fontSize(46, 53, 500);
+    }
+
+    .content .title {
+      @include fontSize(30, 38, 400);
+    }
+
+    .content .surtitle { 
+      color: $darkgrey; 
+    }
   }
 }

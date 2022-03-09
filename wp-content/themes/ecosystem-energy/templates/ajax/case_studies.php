@@ -58,7 +58,7 @@ $posts = new Timber\PostQuery($args);
 if ($posts->found_posts > 0 || (isset($featured[0]) && $paged == 1)) {
     $response = '';
     $response .= Timber::compile(
-        'partials/lists/case_studies_list.twig',
+        'partials/case-studies-list.twig',
         ['items' => $posts, 'featured' => $paged == 1 ? $context['featured'] : null]
     );
     $message  = $response;

@@ -27,12 +27,15 @@
   &.filters {
     padding-left: 40px;
     padding-right: 70px;
+    @include fontSize(16, 22, 600);
 
     &::after {
       content: "\e907";
       right: 30px;
       opacity: 1;
     }
+
+    &.open::after { content: "\e901"; }
   }
 
   // Prevent click events conflicts with icon

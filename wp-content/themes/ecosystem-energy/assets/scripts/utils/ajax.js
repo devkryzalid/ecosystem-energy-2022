@@ -38,7 +38,7 @@ export default class AjaxForm {
   limit;
   currentPage;
   nbPages;
-  filtersVisible;
+  // filtersVisible;
   previousParams;
 
   // Callbacks
@@ -89,6 +89,7 @@ export default class AjaxForm {
   // Main form change callback
   onFormChange = async () => {
     this.updateContentHtml();
+    this.scrollToContent();
     this.toggleLoading(true);
 
     const params = this.getFormData();
@@ -219,5 +220,10 @@ export default class AjaxForm {
   // 
   scrollToTop = () => {
     setTimeout(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, 10); 
+  }
+
+  // 
+  scrollToContent = () => {
+    setTimeout(() => { this.contentContainer.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'start' }); }, 10); 
   }
 }

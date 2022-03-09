@@ -1,5 +1,5 @@
 #ajax-content {
-  @include flex();
+  @include flex(flex-start);
   min-height: 500px;
 
   .loader {

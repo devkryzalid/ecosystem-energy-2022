@@ -79,14 +79,15 @@ $bloc-content-height: 260px;
     .surtitle {
       width: 100%;
       padding: 0 0 20px;
-      @include fontSize(18, 24, 500);
+      @include fontSize(16, 26, 400);
       color: $yellow;
       transition: $basicTransition;
 
       &::before {
         position: relative;
-        top: 1px;
-        margin-right: 8px;
+        top: 0;
+        margin-right: 20px;
+        font-size: 14px; 
         @extend .icomoon;
         content: "\e90e";
         color: $yellow;
@@ -149,6 +150,12 @@ $bloc-content-height: 260px;
         margin-top: auto;
       }
     }
+    
+    &.reverse {
+      .image { grid-column-start: 1; }
+      .content { grid-column-start: 2; }
+    }
+  
   }
 
   // White background behind text content
@@ -156,13 +163,31 @@ $bloc-content-height: 260px;
     .content { background-color: white; }
   }
 
+  // White text
+  &.invert {
+    .content { 
+      .surtitle, .title, .description { color: white; }
+    }
+  }
+
+  // Text-only
+  &.no-image {
+    .image { height: 0 !important; }
+  }
+
+  // Automatic content height
+  &.auto-height {
+    .content { min-height: auto; }
+  }
+
+  // Combo - Horizontal with white background and padding
   &.featured {
     @extend .horizontal;
     @extend .text-padding;
     @extend .white-bg;
-    min-height: 500px;
+    min-height: 460px;
 
-    .image { max-height: none; }
+    .image { max-height: 460px; }
 
     .content { 
       justify-content: flex-start;
@@ -170,6 +195,10 @@ $bloc-content-height: 260px;
       padding-top: 60px;
 
       .surtitle, .title, .description { padding-left: 60px; }
+      .surtitle { 
+        @include fontSize(22, 26, 500); 
+        &::before { top: -1px; }
+      }
 
       &::after { 
         position: absolute;
@@ -183,25 +212,6 @@ $bloc-content-height: 260px;
         transition: $basicTransition;
       }
     }
-  }
-
-  &.reverse {
-    .image { grid-column-start: 1; }
-    .content { grid-column-start: 2; }
-  }
-
-  &.invert {
-    .content { 
-      .surtitle, .title, .description { color: white; }
-    }
-  }
-
-  &.no-image {
-    .image { height: 0 !important; }
-  }
-
-  &.auto-height {
-    .content { min-height: auto; }
   }
 
   &:hover {
@@ -245,9 +255,21 @@ $bloc-content-height: 260px;
     .content {
       min-height: 210px;
 
-      .surtitle, .title {
-        padding-left: 20px;
-        padding-right: 20px;
+      // .surtitle, .title {
+      //   padding-left: 20px;
+      //   padding-right: 20px;
+      // }
+    }
+
+    &.featured {
+      display: block;
+
+      .image { height: 240px; }
+
+      .content { 
+        margin-top: 0; 
+        padding-bottom: 50px;
+        &::after { opacity: 0 !important; }
       }
     }
   }

@@ -18,12 +18,17 @@
     large: true,
     url: 'case-studies',
     fields: { industries: industries },
-    labels: { industries: 'Sectors' }
+    labels: { industries: 'Sectors' },
+    limit: 2
   } %}
  
   <div id="ajax-content">
+    {% include 'partials/lists/loading.twig' %}
     <div class="inner">
-      {% include 'partials/lists/case_studies_list.twig' with { items: case_studies, featured: featured } %}
+      {% if case_studies|length %} 
+        {% include 'partials/case-studies-list.twig' with { items: case_studies, featured: featured } %}
+      {% else %} 
+        {% include 'partials/lists/no-results.twig' %} {% endif %}
     </div>
   </div>
 
