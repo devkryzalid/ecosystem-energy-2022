@@ -14,7 +14,7 @@
     {% include 'partials/lists/loading.twig' %}
     <div class="inner">
       {% if posts|length %} 
-        {% include 'partials/lists/news_list.twig' with { items: posts, featured: featured } %}
+        {% include 'partials/news-list.twig' %}
       {% else %} 
         {% include 'partials/lists/no-results.twig' %} {% endif %}
     </div>

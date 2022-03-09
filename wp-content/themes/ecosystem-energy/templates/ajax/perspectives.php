@@ -48,7 +48,7 @@ $posts = new Timber\PostQuery($args);
 
 if ($posts->found_posts > 0) {
     $response = '';
-    $response .= Timber::compile('partials/lists/perspectives_list.twig', ['items' => $posts]);
+    $response .= Timber::compile('partials/perspectives-list.twig', ['posts' => $posts]);
     $message = $response;
 } else {
     $message = Timber::compile('partials/lists/no-results.twig');

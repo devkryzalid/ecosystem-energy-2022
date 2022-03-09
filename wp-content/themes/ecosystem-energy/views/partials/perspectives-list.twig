@@ -1,13 +1,13 @@
 {% block content %}
 
-  {% if featured_content %}
+  {% if featured %}
     <div class="large container">
       {% include 'partials/block-item.twig' with { 
-        title: featured_content.title,
-        surtitle: featured_content.meta('related_industry')[0].post_title,
-        footer: featured_content.post_date|date("F d, Y"),
-        url: featured_content.link,
-        image: featured_content.thumbnail,
+        title: featured.title,
+        surtitle: featured.meta('related_industry')[0].post_title,
+        footer: featured.post_date|date("F d, Y"),
+        url: featured.link,
+        image: featured.thumbnail,
         class: 'featured'
       } %}
     </div>
@@ -15,7 +15,7 @@
 
   <div class="large container">
 	  <div class="block-list">
-      {% for perspective in items %}
+      {% for perspective in posts %}
       
         {% include 'partials/block-item.twig' with { 
           title: perspective.title,
@@ -30,6 +30,6 @@
 	  </div>
 	</div>
 
-  {% include 'partials/lists/pagination.twig' with { 'elements': items.pagination(5) } %}
+  {% include 'partials/lists/pagination.twig' with { 'elements': posts.pagination(5) } %}
 
 {% endblock %}

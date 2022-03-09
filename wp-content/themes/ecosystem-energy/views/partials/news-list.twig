@@ -8,21 +8,21 @@
         footer: featured.post_date|date("F d, Y"),
         url: featured.link,
         image: featured.thumbnail,
-        class: 'featured'
+        class: 'featured text-padding'
       } %}
     </div>
   {% endif %}
 
   <div class="large container">
 	  <div class="block-list">
-      {% for news in items %}
+      {% for p in posts %}
       
         {% include 'partials/block-item.twig' with { 
-          title: news.title,
-          surtitle: news.meta('related_industry')[0].post_title,
-          footer: news.post_date|date("F d, Y"),
-          url: news.link,
-          image: news.thumbnail,
+          title: p.title,
+          surtitle: p.meta('related_industry')[0].post_title,
+          footer: p.post_date|date("F d, Y"),
+          url: p.link,
+          image: p.thumbnail,
           class: 'text-padding'
         } %}
 
@@ -30,6 +30,6 @@
 	  </div>
 	</div>
 
-  {% include 'partials/lists/pagination.twig' with { 'elements': items.pagination(5) } %}
+  {% include 'partials/lists/pagination.twig' with { 'elements': posts.pagination(5) } %}
 
 {% endblock %}

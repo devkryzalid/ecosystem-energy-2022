@@ -197,6 +197,10 @@ $bloc-content-height: 260px;
     .image { height: 0 !important; }
   }
 
+  &.plus-hover {
+    
+  }
+
   &:hover {
     &:not(.static) {
       // Blocks with padding use content-background and image zoom as hover
