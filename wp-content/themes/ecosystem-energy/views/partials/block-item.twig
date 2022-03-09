@@ -1,7 +1,9 @@
-<{{ url ? 'a' : 'div' }} class="block-item {{ class }}" {% if url %} href="{{ url }}" {% endif %} {{ delay ? "data-aos=\"fade-up\" data-aos-delay=\"#{delay}\"" : '' }}> 
+{% set tImage = TimberImage(image) %}
+
+<{{ url ? 'a' : 'div' }} class="block-item {{ class }}" {% if url %} href="{{ url }}" {% endif %} {{ delay ? "data-aos=\"fade-up\" data-aos-delay=\"#{delay}\"" : '' }} {% if data_id %} data-id="{{ data_id }}" {% endif %}> 
 
   <div class="image">
-    <img src="{{ image.src('medium') }}" alt="{{ image.title }}" />
+    <img src="{{ tImage.src('medium') }}" alt="{{ image.title }}" />
   </div>
 
   <div class="content">

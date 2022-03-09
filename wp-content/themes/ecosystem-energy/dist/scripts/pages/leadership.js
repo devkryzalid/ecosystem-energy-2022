@@ -9,14 +9,14 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./assets/scripts/pages/expertises.js":
+/***/ "./assets/scripts/pages/leadership.js":
 /*!********************************************!*\
-  !*** ./assets/scripts/pages/expertises.js ***!
+  !*** ./assets/scripts/pages/leadership.js ***!
   \********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_side_panel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/side-panel */ \"./assets/scripts/utils/side-panel.js\");\n\n\nconst sidePanel = new _utils_side_panel__WEBPACK_IMPORTED_MODULE_0__[\"default\"]({ url: '/ajax/fr/expertise' });\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/pages/expertises.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_side_panel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/side-panel */ \"./assets/scripts/utils/side-panel.js\");\n\n\nconst sidePanel = new _utils_side_panel__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/pages/leadership.js?");
 
 /***/ }),
 
@@ -420,7 +420,7 @@ eval("\n\nvar bind = __webpack_require__(/*! ./helpers/bind */ \"./node_modules/
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./assets/scripts/pages/expertises.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./assets/scripts/pages/leadership.js");
 /******/ 	
 /******/ })()
 ;

@@ -22,6 +22,10 @@ Routes::map('/ajax/:lang/expertise/:id', function ($params) {
    Routes::load('templates/ajax/expertise.php', array_merge($params, $_POST), 200);
 });
 
+Routes::map('/ajax/:lang/leadership/:id', function ($params) {
+   Routes::load('templates/ajax/leadership.php', array_merge($params, $_POST), 200);
+});
+
 Routes::map('/ajax/:lang/search', function ($params) {
    Routes::load('templates/ajax/search.php', array_merge($params, $_POST), 200);
 });

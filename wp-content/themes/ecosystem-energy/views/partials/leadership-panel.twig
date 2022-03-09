@@ -1,0 +1,15 @@
+
+            {# <div>
+              <p>{{ leader.content }}</p>
+              {% if leader.social_link|length > 0%}
+                <ul>
+                  {% for social_link in leader.social_link %}
+                    <li>
+                      <a href="{{ social_link.link }}">{{ social_link.type.value }}
+                        -
+                        {{ social_link.type.label }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div> #}

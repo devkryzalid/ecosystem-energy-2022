@@ -1,49 +1,60 @@
 {% extends 'base.twig' %}
 
-{% block pageClass %}blue-head leadership-ctn{% endblock %}
+{% block pageClass %}blue-head leadership-page{% endblock %}
 
 {% block content %}
-
   <div class="blue wrapper">
     <div class="large container">
+
       {% include 'partials/titles/block-hero.twig' with {
         title: post.title,
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor tellus vitae rhoncus odio ullamcorper. Placerat mi felis consequat lobortis. At lobortis eu tincidunt hendrerit. Adipiscing amet faucibus cursus eleifend.',
         class: 'invert'
       } %}
+
+      <div class="leadership-list">
+        {% for leader in leaders_list %}
+
+          {% include 'partials/block-item.twig' with { 
+            title: leader.title,
+            description: leader.status,
+            image: leader.image,
+            url: '#',
+            class: 'text-padding invert auto-height link-item',
+            data_id: loop.index
+          } %}
+
+          <div class="leader-content" id="content-{{ loop.index }}">
+            {% include 'partials/titles/block-hero.twig' with { 
+              title: leader.title,
+              description: leader.status,
+              image: leader.image,
+              class: 'v-centered-title inner-page'
+            } %}
+
+            {{ expertise.content }}
+          </div>
+
+        {% endfor %}
+      </div>
+
     </div>
   </div>
 
-  <div class="leadership-list">
-    <div class="large container">
-      {% for leader in leaders_list %}
-        <a class="leader-item">
-          <div class="image">
-            <img class="" src="{{ leader.image.link }}" alt="{{ leader.image.title }}">
-          </div>
+  <div id="side-panel-ctn">
+    <div id="panel-overlay"></div>
 
-          <div class="content">
-            <h3>{{ leader.title }}</h3>
-            <p>{{ leader.status }}</p>
-          </div>
-        </a>
-          {# <li>
-            <p>{{ leader.content }}</p>
-            {% if leader.social_link|length > 0%}
-              <ul>
-                {% for social_link in leader.social_link %}
-                  <li>
-                    <a href="{{ social_link.link }}">{{ social_link.type.value }}
-                      -
-                      {{ social_link.type.label }}</a>
-                  </li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </li> #}
-      {% endfor %}
+    <div id="panel-content">
+      <div id="panel-header">
+        <a id="panel-prev" data-id="1" class="small circle btn"><i class="icon-small-arrow-left"></i></a>
+        <a id="panel-next" data-id="2" class="small circle btn"><i class="icon-small-arrow-right"></i></a>
+        <a id="panel-close" class=""><i class="icon-close-medium"></i></a>
+      </div>
+      <div id="panel-body"></div>
     </div>
   </div>
+{% endblock %}
 
-
+{% block specific_script %}
+	<script src="{{ theme.link }}/dist/scripts/pages/leadership.js"></script>
 {% endblock %}

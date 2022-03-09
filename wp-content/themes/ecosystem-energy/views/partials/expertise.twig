@@ -1,6 +1,6 @@
 <div id="panel-header">
-  <a id="panel-prev" {% if previous %} data-expertise="{{ previous.id }}" {% endif %} class="small circle btn {{ previous ? '' : 'disabled' }}"><i class="icon-small-arrow-left"></i></a>
-  <a id="panel-next" {% if next %} data-expertise="{{ next.id }}" {% endif %} class="small circle btn {{ next ? '' : 'disabled' }}"><i class="icon-small-arrow-right"></i></a>
+  <a id="panel-prev" {% if previous %} data-id="{{ previous.id }}" {% endif %} class="small circle btn {{ previous ? '' : 'disabled' }}"><i class="icon-small-arrow-left"></i></a>
+  <a id="panel-next" {% if next %} data-id="{{ next.id }}" {% endif %} class="small circle btn {{ next ? '' : 'disabled' }}"><i class="icon-small-arrow-right"></i></a>
   <a id="panel-close" class=""><i class="icon-close-medium"></i></a>
 </div>
 

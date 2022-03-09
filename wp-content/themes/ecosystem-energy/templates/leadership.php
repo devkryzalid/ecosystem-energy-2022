@@ -10,6 +10,7 @@ $newLocale = empty($_GET['set_locale']) ? null : $_GET['set_locale'];
 if (isset($newLocale)) {
     $context = set_current_locale_cookie($newLocale, $context);
 }
+
 // Set base informations for context
 $timber_post = new Timber\Post();
 $context['post'] = $timber_post;

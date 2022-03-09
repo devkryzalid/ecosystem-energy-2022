@@ -4083,6 +4083,9 @@ body.menu-open #header #menu-toggle:hover span {
 .block-item {
   width: 100%;
 }
+.block-item .image, .block-item .content {
+  pointer-events: none;
+}
 .block-item .image {
   position: relative;
   height: 280px;
@@ -4820,12 +4823,12 @@ body.menu-open #header #menu-toggle:hover span {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 25px;
 }
-.expertises-list .grid-list .expertise-item {
+.expertises-list .grid-list .link-item {
   position: relative;
   overflow: hidden;
   cursor: pointer;
 }
-.expertises-list .grid-list .expertise-item::before {
+.expertises-list .grid-list .link-item::before {
   content: "";
   position: absolute;
   top: 0;
@@ -4836,7 +4839,7 @@ body.menu-open #header #menu-toggle:hover span {
   transition: all 0.3s ease-out;
   z-index: 2;
 }
-.expertises-list .grid-list .expertise-item h3 {
+.expertises-list .grid-list .link-item h3 {
   position: absolute;
   bottom: 0;
   margin: 0;
@@ -4851,17 +4854,17 @@ body.menu-open #header #menu-toggle:hover span {
   pointer-events: none;
   z-index: 3;
 }
-.expertises-list .grid-list .expertise-item img {
+.expertises-list .grid-list .link-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   pointer-events: none;
   transition: all 150ms ease-out;
 }
-.expertises-list .grid-list .expertise-item:hover::before {
+.expertises-list .grid-list .link-item:hover::before {
   top: -100%;
 }
-.expertises-list .grid-list .expertise-item:hover img {
+.expertises-list .grid-list .link-item:hover img {
   scale: 1.1;
 }
 
@@ -5219,6 +5222,71 @@ body.menu-open #header #menu-toggle:hover span {
   opacity: 1 !important;
 }
 
+#side-panel-ctn {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 9999;
+  overflow: hidden;
+  transition: all 0.1s ease-out;
+}
+#side-panel-ctn #panel-overlay {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(36, 44, 62, 0.7);
+  transition: all 0.4s ease-out;
+}
+#side-panel-ctn #panel-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80vw;
+  height: 100%;
+  padding: 40px 60px;
+  background-color: white;
+  transition: all 0.3s ease-out;
+  transition-delay: 300ms;
+}
+#side-panel-ctn #panel-content #panel-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid rgba(73, 72, 67, 0.2);
+}
+#side-panel-ctn #panel-content #panel-header #panel-prev {
+  margin-right: 10px;
+}
+#side-panel-ctn #panel-content #panel-header #panel-close {
+  margin: 0 0 0 auto;
+}
+#side-panel-ctn #panel-content #panel-body .case-studies {
+  position: relative;
+  margin-top: 50px;
+  border-top: 1px solid rgba(73, 72, 67, 0.2);
+}
+#side-panel-ctn #panel-content #panel-body .case-studies .link {
+  position: absolute;
+  right: 0px;
+  top: 45px;
+}
+#side-panel-ctn:not(.show) {
+  width: 0;
+}
+#side-panel-ctn:not(.show) #panel-overlay {
+  right: -100vh;
+}
+#side-panel-ctn:not(.show) #panel-content {
+  right: -140vh;
+}
+
 .awards-page h1 {
   margin-bottom: 120px;
   font-size: 85px;
@@ -5562,28 +5630,23 @@ body.menu-open #header #menu-toggle:hover span {
   padding: 0 0 120px;
 }
 
-.leadership-list {
+.leadership-page {
   background-color: #242C3E;
 }
-.leadership-list .container {
+.leadership-page .leadership-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 50px;
 }
-.leadership-list .container .image {
-  height: 320px;
+.leadership-page .leadership-list .block-item {
+  cursor: pointer;
 }
-.leadership-list .container .image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.leadership-list .container .content {
-  padding: 20px 30px;
+.leadership-page .leadership-list .block-item .content {
   background-color: #2A3244;
 }
-.leadership-list .container .content h3 {
+.leadership-page .leadership-list .block-item .content .title {
   margin: 0;
+  padding-bottom: 0;
   font-size: 24px;
   font-size: 1.5rem;
   font-weight: 500;
@@ -5592,8 +5655,9 @@ body.menu-open #header #menu-toggle:hover span {
   letter-spacing: normal;
   color: white;
 }
-.leadership-list .container .content p {
+.leadership-page .leadership-list .block-item .content .description {
   margin: 0;
+  padding-bottom: 30px;
   font-size: 16px;
   font-size: 1rem;
   font-weight: initial;
@@ -5601,6 +5665,12 @@ body.menu-open #header #menu-toggle:hover span {
   line-height: 1.375rem;
   letter-spacing: normal;
   color: #FAB900;
+}
+.leadership-page .leadership-list .block-item:hover .title, .leadership-page .leadership-list .block-item:hover .description {
+  color: #494843;
+}
+.leadership-page .leader-content {
+  display: none;
 }
 
 .search-page .block-hero {

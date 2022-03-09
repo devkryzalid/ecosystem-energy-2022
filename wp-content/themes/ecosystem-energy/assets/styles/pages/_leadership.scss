@@ -1,36 +1,39 @@
-.leadership-list {
+.leadership-page {
   background-color: $blue;
 
-  .container {
+  .leadership-list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 50px;
 
-    .image {
-      height: 320px;
+    .block-item {
+      cursor: pointer;
+      
+      .content {
+        background-color: $altblue;
+  
+        .title {
+          margin: 0;
+          padding-bottom: 0;
+          @include fontSize(24, 36, 500);
+          color: white;
+        }
+  
+        .description {
+          margin: 0;
+          padding-bottom: 30px;
+          @include fontSize(16, 22);
+          color: $yellow;
+        }
+      }
 
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+      &:hover {
+        .title, .description { color: $darkgrey; }
       }
     }
+  }
 
-    .content {
-      padding: 20px 30px;
-      background-color: $altblue;
-
-      h3 {
-        margin: 0;
-        @include fontSize(24, 36, 500);
-        color: white;
-      }
-
-      p {
-        margin: 0;
-        @include fontSize(16, 22);
-        color: $yellow;
-      }
-    }
+  .leader-content {
+    display: none;
   }
 }

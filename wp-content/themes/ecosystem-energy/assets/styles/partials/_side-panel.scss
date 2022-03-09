@@ -1,0 +1,62 @@
+#side-panel-ctn {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 9999;
+  overflow: hidden;
+  transition: all 0.1s ease-out;
+
+  #panel-overlay {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($blue, 0.7);
+    transition: all 0.4s ease-out;
+  }
+
+  #panel-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80vw;
+    height: 100%;
+    padding: 40px 60px;
+    background-color: white;
+    transition: all 0.3s ease-out;
+    transition-delay: 300ms;
+
+    #panel-header {
+      @include flex(center, space-between);
+      margin-bottom: 40px;
+      padding-bottom: 26px;
+      border-bottom: 1px solid $borderColor;
+
+      #panel-prev { margin-right: 10px; }
+      #panel-close { margin: 0 0 0 auto; }
+    }
+
+    #panel-body {
+      .case-studies {
+        position: relative;
+        margin-top: 50px;
+        border-top: 1px solid $borderColor;
+
+        .link { 
+          position: absolute;
+          right: 0px;
+          top: 45px;
+        }
+      }
+    }
+  }
+
+  &:not(.show) { 
+    width: 0;
+    #panel-overlay { right: -100vh; }
+    #panel-content { right: -140vh; }
+  }
+}

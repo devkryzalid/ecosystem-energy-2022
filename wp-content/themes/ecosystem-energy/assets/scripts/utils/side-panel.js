@@ -1,3 +1,8 @@
+/*
+  SidePanel class
+  This script allows loading of custom content into an overlayed ajax page
+*/
+
 // Dependancies
 import axios from 'axios';
 
@@ -6,10 +11,13 @@ export default class SidePanel {
   innerContainer = document.getElementById('panel-content');
 
   visible = false;
+  url;
 
-  constructor () {
+  constructor ({ url } = {}) {
+    this.url = url || null;
+
     // Add click listeners to all grid items
-    document.querySelectorAll('.expertise-item').forEach(link => {
+    document.querySelectorAll('.link-item').forEach(link => {
       link.addEventListener('click', this.openPanel);
     })
 
@@ -28,20 +36,27 @@ export default class SidePanel {
   }
 
   // Load data and render template with event listeners
-  loadExpertise = async id => {
-    const { data } = await this.getExpertise(id);
+  loadData = async id => {
+    const { data } = this.url 
+      ? await this.fetchData(id)
+      : this.fetchHtml(id);
     this.innerContainer.innerHTML = data;
+    
+    document.getElementById('panel-prev').addEventListener('click', this.replaceData);
+    document.getElementById('panel-next').addEventListener('click', this.replaceData);
+    document.getElementById('panel-close').addEventListener('click', () => this.togglePanel(false));
+  }
 
-    document.getElementById('panel-prev').addEventListener('click', this.replaceExpertise)
-    document.getElementById('panel-next').addEventListener('click', this.replaceExpertise)
-    document.getElementById('panel-close').addEventListener('click', () => this.togglePanel(false))
+  fetchHtml = id => {
+    const data = document.getElementById('content-' + id).innerHTML;
+    return { data }
   }
 
   // Fetch ajax template
-  getExpertise = async id => {
-    return await axios.post('/ajax/fr/expertise/' + id)
+  fetchData = async id => {
+    return await axios.post(`${ this.url }/${ id }`)
       .then(response => {
-        // console.log('AJAX RESPONSE:', response);
+        console.log('AJAX RESPONSE:', response);
         return response;
       })
       .catch(error => {
@@ -50,17 +65,17 @@ export default class SidePanel {
       });
   }
 
-  // Open panel and load expertise when grid item clicked
+  // Open panel and load data when grid item clicked
   openPanel = event => {
     this.togglePanel(true);
-    const id = event.target.dataset.expertise;
-    this.loadExpertise(id);
+    const id = event.target.dataset.id;
+    this.loadData(id);
     window.scrollTo({ top: 0 })
   }
 
-  // Replace expertise when prev/next button clicked
-  replaceExpertise = event => {
-    const id = event.target.dataset.expertise;
-    this.loadExpertise(id);
+  // Replace data when prev/next button clicked
+  replaceData = event => {
+    const id = event.target.dataset.id;
+    this.loadData(id);
   }
 }

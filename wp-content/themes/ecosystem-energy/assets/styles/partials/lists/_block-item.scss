@@ -11,6 +11,9 @@ $bloc-content-height: 260px;
 .block-item {
   width: 100%;
 
+  // Disable click/hover events on children
+  .image, .content { pointer-events: none; }
+
   .image {
     position: relative;
     height: $bloc-img-height;
