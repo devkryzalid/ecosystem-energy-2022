@@ -4263,6 +4263,9 @@ body.menu-open #header #menu-toggle:hover span {
 .block-item.no-image .image {
   height: 0 !important;
 }
+.block-item.auto-height .content {
+  min-height: auto;
+}
 .block-item:hover:not(.static).text-padding .image img, .block-item.featured:hover:not(.static) .image img {
   scale: 1.1;
 }
@@ -5598,6 +5601,44 @@ body.menu-open #header #menu-toggle:hover span {
   line-height: 1.375rem;
   letter-spacing: normal;
   color: #FAB900;
+}
+
+.search-page .block-hero {
+  flex-direction: column;
+  margin-bottom: 120px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #494843;
+}
+.search-page .block-hero .search-field {
+  position: relative;
+  width: 100%;
+}
+.search-page .block-hero .search-field input {
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+  padding: 0;
+  border: 0 none;
+  background: none;
+  font-size: 62px;
+  font-size: 3.875rem;
+  font-weight: initial;
+  line-height: 62px;
+  line-height: 3.875rem;
+  letter-spacing: normal;
+}
+.search-page .block-hero .search-field input:focus, .search-page .block-hero .search-field input:focus-visible {
+  outline: none;
+}
+.search-page .block-hero .search-field a {
+  position: absolute;
+  right: 0;
+  top: 50px;
+}
+.search-page .results {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
 }
 
 .case-study-ctn .content-key-data-ctn {

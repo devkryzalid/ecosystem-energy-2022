@@ -20,5 +20,6 @@ if ($search) {
 $context['posts'] = new Timber\PostQuery($args);
 $context['limit'] = $limit;
 $context['paged'] = $paged;
+$context['s'] = $search;
 
 Timber::render( array( 'pages/search.twig' ), $context );

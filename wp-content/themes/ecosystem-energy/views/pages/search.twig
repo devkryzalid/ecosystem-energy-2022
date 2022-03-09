@@ -1,13 +1,22 @@
-{% block content %}
-    <div class="container">
-        <div class="list-ctn -style-2">
+{% extends 'base.twig' %}
 
-          <h1>SEARCH RESULTS</h1>
-            {% for post in posts %}
-                <article class="article">
-                    <h3 class="article-title"><a href="{{ post.link }}">{{ post.title }} - {{ post.get_post_type.labels.singular_name }}</a></h3>
-                </article>
-            {% endfor %}
-        </div>
+{% block pageClass %}grey search-page{% endblock %}
+{% set n = posts|length %}
+
+{% block content %}
+  <div class="container">
+    <div class="block-hero">
+      <div class="results-str"><span id="nb-results">{{ n }}</span> result{{ n > 1 ? 's' : '' }} for</div>
+
+      <form class="search-field">
+        <input type="hidden" id="ajax-settings" data-url="/ajax/{{ current_lang }}/search" data-limit="2">
+        <input type="text" name="s" id="s" value="{{ s }}">
+        <a class="search-clear" onClick="document.getElementById('s').value=''"><i class="icon-close-medium"></i></a>
+      </form>
     </div>
+  </div>
+
+	<div class="container">
+    {% include 'partials/search-list.twig' %}
+	</div>
 {% endblock %}
