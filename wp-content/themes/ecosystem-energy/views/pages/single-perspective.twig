@@ -1,6 +1,6 @@
 {% extends 'base.twig' %}
 
-{% block pageClass %}grey single-perspective{% endblock %}
+{% block pageClass %}single-perspective{% endblock %}
 
 {% block content %}
 
@@ -12,19 +12,8 @@
     {% include 'partials/author.twig' %}
   </div>
 
-  <div class="large container related-list">
-    <h2 class="title">Related posts</h2>
-    <div class="block-list">
-      {% for post in posts %}
-        {% include 'partials/block-item.twig' with { 
-          title: post.title,
-          surtitle: post.meta('related_industry')[0].post_title,
-          description: post.preview.read_more(false),
-          url: post.link,
-          image: post.thumbnail
-        } %}
-      {% endfor %}
-    </div>
+  <div class="grey wrapper">
+    {% include 'partials/perspective-related.twig' %}
   </div>
 
   {% include 'partials/contact-cta.twig' %}

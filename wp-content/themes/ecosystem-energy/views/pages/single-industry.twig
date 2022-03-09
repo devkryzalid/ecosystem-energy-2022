@@ -4,6 +4,7 @@
 
 {% block content %}
 
+  {# Hero #}
   <div class="blue wrapper">
     <div class="large container">
       {% include 'partials/titles/block-hero.twig' with { 
@@ -15,83 +16,37 @@
     </div>
   </div>
 
-  <div class="container">
+  {# Gutenberg content #}
+  <div class="container" data-aos="fade-up">
     {{ post.content }}
   </div>
 
-  <div class="container clients-ctn">
-    <div class="clients-head">
-      <h2>{{ clients_block.title }}</h2>
-      <div>{{ clients_block.content }}</div>
-    </div>
-
-    {% for list in clients_block.clients_list %}
-      <div class="clients-list">
-        {% for client in list %}
-          <div class="image">
-            <img class="" src="{{ client.image.link }}" alt="{{ client.image.title }}">
-          </div>
-        {% endfor %}
-      </div>
-    {% endfor %}
+  {# Client list #}
+  <div class="container">
+    {% include 'partials/industry-client-list.twig' %}
   </div>
 
-  <div class="featured-blocks-ctn">
-    <div class="container">
-      <h2>{{ featured_blocks.title }}</h2>
-
-      <div class="featured-list">
-        {% for bloc in featured_blocks.block_list %}
-          <a class="featured-block">
-            <img class="" src="{{ bloc.image.url }}" alt="{{ bloc.image.title }}">
-            <h3>{{ bloc.title }}</h3>
-            <div class="hover-ctn">{{ bloc.content }}</div>
-          </a>
-        {% endfor %}
-      </div>
-    </div>
+  {# Featured blocks #}
+  <div class="grey wrapper">
+    {% include 'partials/industry-featured.twig' %}
   </div>
 
+  {# Information blocks #}
   {% if informations_blocks|length > 0%}
-    <div class="container content-blocks-ctn">
-      {% for bloc in informations_blocks %}
-        <div class="content-block">
-          <h2>{{ bloc.title }}</h2>
-          <div>{{ bloc.column_1 }}</div>
-          <div>{{ bloc.column_2 }}</div>
-        </div>
-      {% endfor %}
+    <div class="container">
+      {% include 'partials/industry-info-blocks.twig' %}
     </div>
   {% endif %}
 
-  <div class="case-studies-ctn">
-    <div class="container top-section">
-      <div class="case-studies-header">
-        <h2>Case studies</h2>
-        <p>Fermentum sagittis aliquam volutpat maecenas egestas. Pharetra gravida nisi dui enim dictumst nulla laoreet. </p>
-        <a href="" class="">See all projects</a>
-      </div>
-
-      {% if featured_case_study|length > 0 %}
-        <div class="case-studies-featured">
-          {% include 'partials/block-item.twig' with {
-            title: featured_case_study[0].title,
-            description: featured_case_study[0].preview.read_more(false),
-            image: featured_case_study[0].thumbnail,
-            url: featured_case_study[0].link,
-            class: 'horizontal invert'
-          } %}
-        </div>
-      {% endif %}
-    </div>
-
-    <div class="container bottom-section">
-      <div class="slider">
-        {% include 'partials/case-studies-slider.twig' with { items: case_studies } %}
-      </div>
+  {# Case studies featured and slider #}
+  <div class="blue wrapper">
+    <div class="container">
+      {% include 'partials/industry-cs-featured.twig' %}
+      {% include 'partials/industry-cs-slider.twig' %}
     </div>
   </div>
 
+  {# Contact CTA #}
   {% include 'partials/contact-cta.twig' %}
 
 {% endblock %}

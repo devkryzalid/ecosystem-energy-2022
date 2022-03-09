@@ -1,0 +1,6 @@
+.industry-cs-slider {
+  @extend .slider;
+  padding-top: 0;
+
+  .swiper-navigation { height: 58%; }
+}

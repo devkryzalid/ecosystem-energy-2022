@@ -1,0 +1,38 @@
+.industry-cs-featured {
+  @include flex(flex-start);
+  gap: 25px;
+  padding-top: 100px;
+
+  .cs-title {
+    @include flex(flex-start, flex-start);
+    flex-direction: column;
+    
+    & > h2, & > p { color: white; }
+    & > p { opacity: 0.7; }
+    a { color: $yellow; }
+  }
+
+  .cs-featured {
+    flex: 1 0 60%;
+
+    .description { padding-bottom: 30px; }
+
+    .image {
+      position: relative;
+
+      // Featured project tag
+      &::before {
+        content: 'Featured project';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: max-content;
+        width: max-content;
+        padding: 10px 24px;
+        background-color: $yellow;
+        @include fontSize(16, 30, 600);
+        z-index: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<div class="industry-client-list">
+  <div class="clients-head">
+    <h2 data-aos="fade-up">{{ clients_block.title }}</h2>
+    <div data-aos="fade-up" data-aos-delay="200">{{ clients_block.content }}</div>
+  </div>
+
+  {% for list in clients_block.clients_list %}
+    <div class="clients-list">
+      {% for client in list %}
+        <div class="image" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+          <img class="" src="{{ client.image.link }}" alt="{{ client.image.title }}">
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>

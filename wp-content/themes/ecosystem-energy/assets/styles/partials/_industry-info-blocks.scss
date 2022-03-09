@@ -1,0 +1,10 @@
+.industry-info-blocks {
+  .content-block {
+    @include flex(flex-start, space-between);
+    padding: 100px 0 70px;
+
+    &:not(:last-child) { border-bottom: 1px solid $borderColor; }
+
+    & > h2, & > div { flex-basis: 30%; }
+  }
+}

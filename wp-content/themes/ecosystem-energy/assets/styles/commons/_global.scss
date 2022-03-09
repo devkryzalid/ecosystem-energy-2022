@@ -84,6 +84,11 @@ ul {
   background-color: $lightgrey;
 }
 
+// Prevent background logo to push page boundaries
+.page {
+  overflow: hidden;
+}
+
 // 
 .wrapper {
   position: relative;
@@ -191,7 +196,10 @@ ul {
       }
     }
 
-    .swiper-button-disabled, .swiper-button-disabled:hover { background-color: $darkblue; pointer-events: none; }
+    .swiper-button-disabled, .swiper-button-disabled:hover { 
+      background-color: $darkblue; 
+      pointer-events: none !important; 
+    }
   }
 }
 

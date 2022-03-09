@@ -1,0 +1,27 @@
+.industry-client-list {
+  .clients-head {
+    @include flex(flex-start, space-between);
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-top: 2px solid $darkgrey;
+
+    div { flex-basis: 65%; }
+  }
+
+  .clients-list {
+    @include flex(center, space-evenly);
+    padding: 60px 0;
+    border-top: 1px solid rgba($darkgrey, 0.4);
+
+    .image {
+      width: 200px;
+      height: 100px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+<div class="industry-cs-slider">
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+    
+      {% for item in case_studies %}
+        <a class="swiper-slide" href="{{ item.url }}" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 + 600 }}">
+          <img src="{{ item.thumbnail.src('medium') }}" alt="{{ item.thumbnail.title }}">
+          <div class="title">{{ item.title }}</div>
+        </a>
+      {% endfor %}
+
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <div class="swiper-navigation">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
