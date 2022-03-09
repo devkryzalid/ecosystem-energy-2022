@@ -8,7 +8,7 @@
         footer: featured.post_date|date("F d, Y"),
         url: featured.link,
         image: featured.thumbnail,
-        class: 'featured text-padding'
+        class: 'featured text-padding no-plus-hover'
       } %}
     </div>
   {% endif %}
@@ -23,7 +23,7 @@
           footer: p.post_date|date("F d, Y"),
           url: p.link,
           image: p.thumbnail,
-          class: 'text-padding'
+          class: 'text-padding white-bg'
         } %}
 
       {% endfor %}

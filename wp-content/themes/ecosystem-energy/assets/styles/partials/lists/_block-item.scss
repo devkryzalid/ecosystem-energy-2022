@@ -180,6 +180,12 @@ $bloc-content-height: 260px;
     .content { min-height: auto; }
   }
 
+  &.no-plus-hover {
+    .content {
+      &::after { opacity: 0 !important; }
+    }
+  }
+
   // Combo - Horizontal with white background and padding
   &.featured {
     @extend .horizontal;
@@ -194,7 +200,8 @@ $bloc-content-height: 260px;
       margin-top: 60px;
       padding-top: 60px;
 
-      .surtitle, .title, .description { padding-left: 60px; }
+      .surtitle, .title, .description, .footer { padding-left: 60px; }
+
       .surtitle { 
         @include fontSize(22, 26, 500); 
         &::before { top: -1px; }
@@ -254,11 +261,15 @@ $bloc-content-height: 260px;
 
     .content {
       min-height: 210px;
+    }
 
-      // .surtitle, .title {
-      //   padding-left: 20px;
-      //   padding-right: 20px;
-      // }
+    &.text-padding {
+      .content {
+        .surtitle, .title, .description, .footer {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
     }
 
     &.featured {
@@ -268,7 +279,7 @@ $bloc-content-height: 260px;
 
       .content { 
         margin-top: 0; 
-        padding-bottom: 50px;
+        .title { padding-bottom: 50px; }
         &::after { opacity: 0 !important; }
       }
     }
