@@ -11,4 +11,9 @@
   .value {
     @include fontSize(35, 48, 500);
   }
+
+  @media (max-width: $mobile-large) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

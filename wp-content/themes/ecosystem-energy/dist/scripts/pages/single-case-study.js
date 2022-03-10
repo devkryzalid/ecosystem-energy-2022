@@ -16,7 +16,7 @@
   \***************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ \"./node_modules/swiper/swiper.esm.js\");\n\n\nswiper__WEBPACK_IMPORTED_MODULE_0__[\"default\"].use([swiper__WEBPACK_IMPORTED_MODULE_0__.Navigation]);\n\nconst container = document.querySelector('.case-study-slider').querySelector('.swiper-container');\nconst slider = new swiper__WEBPACK_IMPORTED_MODULE_0__[\"default\"](container, {\n    speed: 300,\n    loop: false,\n    slidesPerView: 3,\n    spaceBetween: 30,\n    navigation: { nextEl: `.next`, prevEl: `.prev` }\n});\n\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/pages/single-case-study.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ \"./node_modules/swiper/swiper.esm.js\");\n\n\nswiper__WEBPACK_IMPORTED_MODULE_0__[\"default\"].use([swiper__WEBPACK_IMPORTED_MODULE_0__.Navigation]);\n\nconst container = document.querySelector('.case-study-slider').querySelector('.swiper-container');\nconst slider = new swiper__WEBPACK_IMPORTED_MODULE_0__[\"default\"](container, {\n    speed: 300,\n    loop: false,\n    slidesPerView: 1,\n    spaceBetween: 0,\n    navigation: { nextEl: `.next`, prevEl: `.prev` },\n    breakpoints: {\n      992: {\n        slidesPerView: 4,\n        spaceBetween: 30\n      },\n      768: {\n        slidesPerView: 3,\n        spaceBetween: 30\n      },\n    }\n});\n\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/pages/single-case-study.js?");
 
 /***/ }),
 
