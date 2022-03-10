@@ -1,8 +1,16 @@
 /*
   Bloc item - Full-width image and text content, image on top by default
   Add .horizontal for image and text side-by-side, with image on the right
-  Add .featured to add top-margin to content
-  Add .static to remove hover effects
+  Add .featured to add top-margin to content and text-padding on horizontal view
+  
+  Other modifiers:
+    - .static         Remove hover effects
+    - .text-padding   Add padding to text content
+    - .white-bg       White content background
+    - .invert         White text
+    - .no-image       Text-only
+    - .auto-height    Remove the min-height for text content
+    - .no-plus-hover  Remove the + signe on hover
 */
 
 $bloc-img-height: 280px;
@@ -180,6 +188,7 @@ $bloc-content-height: 260px;
     .content { min-height: auto; }
   }
 
+  // Remove plus sign on hover
   &.no-plus-hover {
     .content {
       &::after { opacity: 0 !important; }

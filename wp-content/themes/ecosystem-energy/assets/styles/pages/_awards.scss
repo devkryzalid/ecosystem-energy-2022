@@ -1,13 +1,21 @@
 .awards-page {
-  h1 {
-    margin-bottom: 120px;
-    @include fontSize(85, 90, 600, -0.85);
-    text-align: center;
+  .block-hero .title-ctn { 
+    flex-basis: 100%; 
 
-    &::after {
-      font-family: 'icomoon';
-      content: "\e900";
-      color: $yellow;
+    .title {
+      margin-bottom: 50px;
+      @include fontSize(85, 90, 600, -0.85);
+      text-align: center;
+  
+      &::after {
+        position: relative;
+        top: 5px;
+        margin-left: 30px;
+        font-family: 'icomoon';
+        content: "\e90d";
+        color: $yellow;
+        font-size: 70px;
+      }
     }
   }
 
@@ -24,7 +32,7 @@
     ul {
       width: 100%;
       margin: 0;
-      padding: 36px 0 0 40px;
+      padding: 20px 0 0 40px;
       list-style: none;
 
       li {
@@ -83,7 +91,16 @@
   }
 
   @media (max-width: $mobile-large) {
+    .block-hero .title-ctn .title {
+      @include fontSize(56, 60, 600, -0.85);
+      &::after { font-size: 50px; }
+    }
+
     .award-group {
+      h2 {
+        @include fontSize(40, 40, 600, -0.58);
+      }
+
       ul li {
         align-items: flex-start;
         

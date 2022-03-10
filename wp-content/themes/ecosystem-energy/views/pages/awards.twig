@@ -4,7 +4,8 @@
 
 {% block content %}
   <div class="container">
-	  <h1 data-aos="fade-up">Awards</h1>
+
+    {% include 'partials/titles/block-hero.twig' with { title: 'Awards' } %}
 
     {% for key, awards_by_year in awards %}
       <div class="award-group">
