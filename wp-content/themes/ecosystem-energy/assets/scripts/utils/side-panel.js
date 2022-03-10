@@ -10,6 +10,7 @@ export default class SidePanel {
   container = document.getElementById('side-panel-ctn');
   innerContainer = document.getElementById('panel-content');
 
+  transition = false;
   visible = false;
   url;
 
@@ -18,11 +19,11 @@ export default class SidePanel {
 
     // Add click listeners to all grid items
     document.querySelectorAll('.link-item').forEach(link => {
-      link.addEventListener('click', this.openPanel);
+      link.addEventListener('click', this.openSidePanel);
     })
 
     // Close panel when overlay is clicked
-    this.container.querySelector('#panel-overlay').addEventListener('click', () => this.togglePanel(false))
+    this.container.querySelector('#panel-overlay').addEventListener('click', () => this.hidePanel())
   }
 
   // Toggle panel visibility
@@ -31,8 +32,8 @@ export default class SidePanel {
       ? !this.visible
       : !!visible;
 
-    if (this.visible) this.container.classList.add('show');
-    else this.container.classList.remove('show');
+    if (this.visible) this.showPanel();// this.container.classList.add('show');
+    else this.hidePanel(); // this.container.classList.remove('show');
   }
 
   // Load data and render template with event listeners
@@ -66,7 +67,7 @@ export default class SidePanel {
   }
 
   // Open panel and load data when grid item clicked
-  openPanel = event => {
+  openSidePanel = event => {
     this.togglePanel(true);
     const id = event.target.dataset.id;
     this.loadData(id);
@@ -77,5 +78,44 @@ export default class SidePanel {
   replaceData = event => {
     const id = event.target.dataset.id;
     this.loadData(id);
+  }
+
+  // Show panel
+  showPanel = () => {
+    // this.transition = true;
+    this.container.classList.add('show');
+    this.container.addEventListener('transitionend', this.onPanelShown);
+    // this.body.classList.add('menu-open');
+  }
+
+  // Hide panel
+  hidePanel = () => {
+    // this.transition = true;
+    this.container.classList.remove('show');
+    this.container.addEventListener('transitionend', this.onPanelHidden);
+    // this.body.classList.remove('menu-open');
+  }
+
+  // Switch on opened status (on transition end)
+  onPanelShown = () => {
+    console.log('shown');
+    // this.open = true;
+    this.transition = false;
+    this.container.classList.add('-shown');
+    this.container.removeEventListener('transitionend', this.onPanelShown);
+  }
+
+  // Switch on closed status (on transition end)
+  onPanelHidden = () => {
+    console.log('hidden');
+    // this.open = false;
+    this.transition = false;
+    this.container.classList.remove('-shown');
+    this.container.removeEventListener('transitionend', this.onPanelHidden);
+  }
+
+  //
+  timeout = async ms => {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 }

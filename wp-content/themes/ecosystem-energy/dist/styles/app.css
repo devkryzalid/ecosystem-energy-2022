@@ -5530,15 +5530,19 @@ body.menu-open #header #menu-toggle:hover span {
   width: 100%;
   z-index: 9999;
   overflow: hidden;
-  transition: all 0.1s ease-out;
+  transition: all 0.4s ease;
+  transition-delay: 0ms;
+  opacity: 1;
 }
 #side-panel-ctn #panel-overlay {
   position: absolute;
+  top: 0;
   right: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(36, 44, 62, 0.7);
-  transition: all 0.4s ease-out;
+  transition: all 0.7s ease-out;
+  transition-delay: 100ms;
 }
 #side-panel-ctn #panel-content {
   position: absolute;
@@ -5548,8 +5552,8 @@ body.menu-open #header #menu-toggle:hover span {
   height: 100%;
   padding: 40px 60px;
   background-color: white;
-  transition: all 0.3s ease-out;
-  transition-delay: 300ms;
+  transition: all 0.6s ease-out;
+  transition-delay: 600ms;
 }
 #side-panel-ctn #panel-content #panel-header {
   display: flex;
@@ -5577,13 +5581,20 @@ body.menu-open #header #menu-toggle:hover span {
   top: 45px;
 }
 #side-panel-ctn:not(.show) {
-  width: 0;
+  opacity: 0;
+  pointer-events: none;
 }
-#side-panel-ctn:not(.show) #panel-overlay {
-  right: -100vh;
+#side-panel-ctn:not(.show) #panel-overlay, #side-panel-ctn:not(.show) #panel-content {
+  right: -100%;
 }
-#side-panel-ctn:not(.show) #panel-content {
-  right: -140vh;
+#side-panel-ctn.-shown {
+  transition-delay: 600ms;
+}
+#side-panel-ctn.-shown #panel-overlay {
+  transition-delay: 200ms;
+}
+#side-panel-ctn.-shown #panel-content {
+  transition-delay: 0ms;
 }
 
 .awards-page .block-hero .title-ctn {
@@ -5891,70 +5902,6 @@ body.menu-open #header #menu-toggle:hover span {
 }
 .expertises-page {
   position: relative;
-}
-.expertises-page #side-panel-ctn {
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  z-index: 9999;
-  overflow: hidden;
-  transition: all 0.1s ease-out;
-}
-.expertises-page #side-panel-ctn #panel-overlay {
-  position: absolute;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(36, 44, 62, 0.7);
-  transition: all 0.4s ease-out;
-}
-.expertises-page #side-panel-ctn #panel-content {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 80vw;
-  height: 100%;
-  padding: 40px 60px;
-  background-color: white;
-  transition: all 0.3s ease-out;
-  transition-delay: 300ms;
-}
-.expertises-page #side-panel-ctn #panel-content #panel-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 40px;
-  padding-bottom: 26px;
-  border-bottom: 1px solid rgba(73, 72, 67, 0.2);
-}
-.expertises-page #side-panel-ctn #panel-content #panel-header #panel-prev {
-  margin-right: 10px;
-}
-.expertises-page #side-panel-ctn #panel-content #panel-header #panel-close {
-  margin: 0 0 0 auto;
-}
-.expertises-page #side-panel-ctn #panel-content #panel-body .case-studies {
-  position: relative;
-  margin-top: 50px;
-  border-top: 1px solid rgba(73, 72, 67, 0.2);
-}
-.expertises-page #side-panel-ctn #panel-content #panel-body .case-studies .link {
-  position: absolute;
-  right: 0px;
-  top: 45px;
-}
-.expertises-page #side-panel-ctn:not(.show) {
-  width: 0;
-}
-.expertises-page #side-panel-ctn:not(.show) #panel-overlay {
-  right: -100vh;
-}
-.expertises-page #side-panel-ctn:not(.show) #panel-content {
-  right: -140vh;
 }
 
 .front-page .wrapper.bg-icon::after {
