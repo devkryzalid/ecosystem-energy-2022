@@ -1,5 +1,4 @@
 .front-page {
-
   .wrapper.bg-icon::after {
     left: -40px;
     right: auto;
@@ -14,5 +13,10 @@
     gap: 40px;
     padding: 0 0 120px;
     z-index: 1;
+  }
+
+  @media (max-width: $tablet-large) {
+    .wrapper.bg-icon::after { display: none; }
+    .news-ctn { grid-template-columns: 1fr; }
   }
 }

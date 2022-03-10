@@ -5154,13 +5154,14 @@ body.menu-open #header #menu-toggle:hover span {
 }
 
 .sectors-ctn {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
   gap: 40px;
   padding: 140px 0 60px;
-  z-index: 1;
+  z-index: 2;
 }
 .sectors-ctn .title-column {
   flex: 0 0 30%;
@@ -5222,6 +5223,17 @@ body.menu-open #header #menu-toggle:hover span {
 }
 .sectors-ctn .content-column a:hover::after {
   transform: rotate(45deg);
+}
+@media (max-width: 992px) {
+  .sectors-ctn {
+    padding: 70px 0 50px;
+    flex-direction: column;
+  }
+}
+@media (max-width: 768px) {
+  .sectors-ctn .content-column {
+    display: block;
+  }
 }
 
 .home-slider {
@@ -5958,6 +5970,14 @@ body.menu-open #header #menu-toggle:hover span {
   gap: 40px;
   padding: 0 0 120px;
   z-index: 1;
+}
+@media (max-width: 992px) {
+  .front-page .wrapper.bg-icon::after {
+    display: none;
+  }
+  .front-page .news-ctn {
+    grid-template-columns: 1fr;
+  }
 }
 
 .leadership-page {

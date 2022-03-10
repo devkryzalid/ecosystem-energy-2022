@@ -1,8 +1,9 @@
 .sectors-ctn {
+  position: relative;
   @include flex(flex-start, space-between);
   gap: 40px;
   padding: 140px 0 60px;
-  z-index: 1;
+  z-index: 2;
 
   .title-column {
     flex: 0 0 30%;
@@ -60,5 +61,14 @@
         &::after { transform: rotate(45deg); }
       }
     }
+  }
+
+  @media (max-width: $tablet-large) {
+    padding: 70px 0 50px;
+    flex-direction: column;
+  }
+
+  @media (max-width: $tablet) {
+    .content-column { display: block; }
   }
 }

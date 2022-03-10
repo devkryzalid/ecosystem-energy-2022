@@ -21,20 +21,16 @@ const slider = new Swiper(container, {
     }
 });
 
+// Initialize rotating animation for hero
 const spinner = document.getElementById('home-spinner');
+if (spinner) {
+  const speed = 0.1;
+  const timer = 10;
 
-let rotation = 0;
-let mod = 0;
-let spd = 0;
+  let rotation = 0;
 
-// window.addEventListener('mousemove', e => {
-//   const deg = Math.pow(e.clientX, 1/8);
-//   mod = deg;
-// })
-
-setInterval(() => {
-  // console.log(mod);
-  // if (mod > 0) mod -= 0.03;
-  spinner.style.transform = 'rotate(' + rotation + 'deg)'; 
-  rotation += (0.1 + mod);
-}, 10)
+  setInterval(() => {
+    rotation = rotation > 360 ? 0 : (rotation + speed);
+    spinner.style.transform = 'rotate(' + rotation + 'deg)'; 
+  }, timer)
+}

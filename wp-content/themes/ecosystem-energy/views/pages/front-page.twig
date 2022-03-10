@@ -15,26 +15,28 @@
 
   {# Sectors, news and perspectives #}
   <div class="grey wrapper bg-icon" id="scroll-content">
-    {% include 'partials/home-sectors.twig' %}
+    <div class="container">
+      {% include 'partials/home-sectors.twig' %}
 
-		<div class="container news-ctn">
-      {% include 'partials/block-item.twig' with { 
-        surtitle: 'News',
-        title: news[0].title, 
-        url: news[0].link, 
-        footer: news[0].post_date|date("F d, Y"),
-        class: 'no-image white-bg text-padding',
-        delay: 200
-      } %}
+      <div class="news-ctn">
+        {% include 'partials/block-item.twig' with { 
+          surtitle: 'News',
+          title: news[0].title, 
+          url: news[0].link, 
+          footer: news[0].post_date|date("F d, Y"),
+          class: 'no-image white-bg text-padding',
+          delay: 200
+        } %}
 
-      {% include 'partials/block-item.twig' with { 
-        surtitle: 'Perspectives',
-        title: perspective[0].title, 
-        url: perspective[0].link, 
-        footer: perspective[0].post_date|date("F d, Y"),
-        class: 'no-image white-bg text-padding',
-        delay: 400
-      } %}
+        {% include 'partials/block-item.twig' with { 
+          surtitle: 'Perspectives',
+          title: perspective[0].title, 
+          url: perspective[0].link, 
+          footer: perspective[0].post_date|date("F d, Y"),
+          class: 'no-image white-bg text-padding',
+          delay: 400
+        } %}
+      </div>
     </div>
   </div>
 
