@@ -24,4 +24,14 @@
       }
     }
   }
+
+  @media (max-width: $tablet) {
+    .clients-head {
+      flex-direction: column;
+    }
+
+    .clients-list {
+      flex-wrap: wrap;
+    }
+  }
 }

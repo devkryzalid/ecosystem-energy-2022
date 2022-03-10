@@ -2306,8 +2306,8 @@ h2 {
   font-size: 42px;
   font-size: 2.625rem;
   font-weight: initial;
-  line-height: 38px;
-  line-height: 2.375rem;
+  line-height: 48px;
+  line-height: 3rem;
   letter-spacing: normal;
 }
 
@@ -3737,6 +3737,8 @@ body.menu-open #header #menu-toggle:hover span {
   transition: all 0.3s ease;
 }
 #menu #primary-menu li a.secondary-link::after, #menu #primary-menu li .secondary-menu a.back.secondary-link::after {
+  position: relative;
+  top: -4px;
   font-family: "icomoon" !important;
   content: "\e90b";
   margin-left: 10px;
@@ -4340,10 +4342,10 @@ body.menu-open #header #menu-toggle:hover span {
     padding-left: 20px;
     padding-right: 20px;
   }
-  .block-item.featured {
+  .block-item.horizontal, .block-item.featured {
     display: block;
   }
-  .block-item.featured .image {
+  .block-item.horizontal .image, .block-item.featured .image {
     height: 240px;
   }
   .block-item.featured .content {
@@ -5095,6 +5097,14 @@ body.menu-open #header #menu-toggle:hover span {
   height: 100%;
   object-fit: contain;
 }
+@media (max-width: 768px) {
+  .industry-client-list .clients-head {
+    flex-direction: column;
+  }
+  .industry-client-list .clients-list {
+    flex-wrap: wrap;
+  }
+}
 
 .industry-cs-featured {
   display: flex;
@@ -5146,12 +5156,31 @@ body.menu-open #header #menu-toggle:hover span {
   letter-spacing: normal;
   z-index: 1;
 }
+@media (max-width: 992px) {
+  .industry-cs-featured {
+    flex-wrap: wrap;
+  }
+}
 
 .industry-cs-slider {
   padding-top: 0;
 }
 .industry-cs-slider .swiper-navigation {
   height: 58%;
+}
+.industry-cs-slider .swiper-navigation div.prev {
+  left: -100px;
+}
+.industry-cs-slider .swiper-navigation div.next {
+  right: -100px;
+}
+@media (max-width: 1360px) {
+  .industry-cs-slider .swiper-navigation div.prev {
+    left: -30px;
+  }
+  .industry-cs-slider .swiper-navigation div.next {
+    right: -30px;
+  }
 }
 
 .industry-featured {
@@ -5221,6 +5250,11 @@ body.menu-open #header #menu-toggle:hover span {
 .industry-featured .featured-list .featured-block:hover .hover-ctn {
   clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%);
 }
+@media (max-width: 768px) {
+  .industry-featured .featured-list {
+    grid-template-columns: 1fr;
+  }
+}
 
 .industry-info-blocks .content-block {
   display: flex;
@@ -5234,6 +5268,11 @@ body.menu-open #header #menu-toggle:hover span {
 }
 .industry-info-blocks .content-block > h2, .industry-info-blocks .content-block > div {
   flex-basis: 30%;
+}
+@media (max-width: 768px) {
+  .industry-info-blocks .content-block {
+    flex-direction: column;
+  }
 }
 
 .news-nav {

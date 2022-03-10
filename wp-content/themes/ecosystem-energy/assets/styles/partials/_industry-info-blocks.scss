@@ -7,4 +7,10 @@
 
     & > h2, & > div { flex-basis: 30%; }
   }
+
+  @media (max-width: $tablet) {
+    .content-block {
+      flex-direction: column;
+    }
+  }
 }

@@ -22,14 +22,18 @@
   </div>
 
   {# Client list #}
-  <div class="container">
-    {% include 'partials/industry-client-list.twig' %}
-  </div>
+  {% if clients_block.clients_list|length %}
+    <div class="container">
+      {% include 'partials/industry-client-list.twig' %}
+    </div>
+  {% endif %}
 
   {# Featured blocks #}
-  <div class="grey wrapper">
-    {% include 'partials/industry-featured.twig' %}
-  </div>
+  {% if featured_blocks.block_list|length %}
+    <div class="grey wrapper">
+      {% include 'partials/industry-featured.twig' %}
+    </div>
+  {% endif %}
 
   {# Information blocks #}
   {% if informations_blocks|length > 0%}

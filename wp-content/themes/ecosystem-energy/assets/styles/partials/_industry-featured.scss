@@ -59,4 +59,8 @@
       }
     }
   }
+
+  @media (max-width: $tablet) {
+    .featured-list { grid-template-columns: 1fr; }
+  }
 }

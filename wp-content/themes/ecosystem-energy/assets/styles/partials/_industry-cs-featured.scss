@@ -35,4 +35,8 @@
       }
     }
   }
+
+  @media (max-width: $tablet-large) {
+    flex-wrap: wrap;
+  }
 }

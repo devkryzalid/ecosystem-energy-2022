@@ -281,11 +281,12 @@ $bloc-content-height: 260px;
       }
     }
 
-    &.featured {
+    &.horizontal {
       display: block;
-
       .image { height: 240px; }
+    }
 
+    &.featured {
       .content { 
         margin-top: 0; 
         .title { padding-bottom: 50px; }

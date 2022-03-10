@@ -1,18 +1,22 @@
 {% set tImage = TimberImage(image) %}
+{% set tag = url ? 'a' : 'div' %}
+{% set urlTag = url ? 'href="' ~ url ~ '"' : '' %}
+{% set aos = delay ? 'data-aos="fade-up" data-aos-delay="' ~ delay ~ '"' : '' %}
+{% set data = data_id ? 'data-id="' ~ data_id ~ '"' : ''  %}
 
-<{{ url ? 'a' : 'div' }} class="block-item {{ class }}" {% if url %} href="{{ url }}" {% endif %} {{ delay ? "data-aos=\"fade-up\" data-aos-delay=\"#{delay}\"" : '' }} {% if data_id %} data-id="{{ data_id }}" {% endif %}> 
+<{{ tag }} class="block-item {{ class }}" {{ urlTag }} {{ aos }} {{ data }}> 
 
   <div class="image">
     <img src="{{ tImage.src('medium') }}" alt="{{ image.title }}" />
   </div>
 
   <div class="content">
-      {% if surtitle %}<div class="surtitle">{{ surtitle }}</div>{% endif %}
-      {% if title %}<h3 class="title">{{ title }}</h3>{% endif %}
-      {% if description %}<div class="description">{{ description }}</div>{% endif %}
+      {% if surtitle %} <div class="surtitle">{{ surtitle }}</div> {% endif %}
+      {% if title %} <h3 class="title">{{ title }}</h3> {% endif %}
+      {% if description %} <div class="description">{{ description }}</div> {% endif %}
 
       {% block content %}{% endblock %}
 
-      {% if footer %}<div class="footer">{{ footer }}</div>{% endif %}
+      {% if footer %} <div class="footer">{{ footer }}</div> {% endif %}
   </div>
-</{{ url ? 'a' : 'div' }}>
+</{{ tag }}>

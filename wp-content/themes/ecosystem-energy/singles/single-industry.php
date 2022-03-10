@@ -22,7 +22,7 @@ $context['informations_blocks'] = $timber_post->meta('informations-blocks');
 
 // Spread client list in multiple equal-ish rows
 $max_per_row = 6;
-$clients = $context['clients_block']['clients_list'];
+$clients = $context['clients_block']['clients_list'] ?: [];
 // $clients = array_merge($clients, $clients, $clients);  // For testing purposes when not enough clients
 $nb = count($clients) <= $max_per_row ? $max_per_row : ceil(count($clients) / 2);
 $context['clients_block']['clients_list'] = array_chunk($clients, $nb);

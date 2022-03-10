@@ -78,6 +78,8 @@ $text-open-transition-delay: 0ms;
         transition: all 0.3s ease;
 
         &.secondary-link::after {
+          position: relative;
+          top: -4px;
           font-family: 'icomoon' !important;
           content: "\e90b";
           margin-left: 10px;
