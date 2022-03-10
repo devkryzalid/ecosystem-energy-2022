@@ -55,7 +55,7 @@ p {
   }
 
   p {
-  	@include fontSize(14,22);
+  	@include fontSize(14, 22);
   }
 }
 
@@ -74,7 +74,13 @@ hr {
 }
 
 ul {
-  list-style: circle;
+  padding-left: 18px;
+  list-style: disc;
+
+  li {
+    padding-left: 22px;
+    padding-bottom: 10px;
+  }
 }
 
 // CUSTOM
@@ -127,7 +133,6 @@ ul {
 // Extendable wrapper class for js swipers
 .slider {
   position: relative;
-  // padding: 100px 0;
 
   .swiper-container { overflow: hidden; }
 
@@ -209,6 +214,14 @@ ul {
       .prev { left: 20px; }
       .next { right: 20px; }
     }
+  }
+
+  @media (max-width: $tablet-large) {
+    .swiper-navigation { top: 28%; }
+  }
+
+  @media (max-width: $tablet-large) {
+    .swiper-navigation { top: 32%; }
   }
 }
 

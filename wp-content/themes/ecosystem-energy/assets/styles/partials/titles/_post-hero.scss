@@ -6,13 +6,19 @@
   .title-ctn { 
     padding: 0 100px; 
 
+    .title { padding: 50px 0 40px; }
+
     .category {  
       @include fontSize(18, 24, 500, 0.36);
       
       &::after {
-        margin: 0 10px;
+        position: relative;
+        top: -1px;
+        margin: 0 16px;
         @extend .icomoon;
         content: "\e90e";
+        font-size: 10px;
+        opacity: 0.6;
       }
     }
   

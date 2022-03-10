@@ -1,4 +1,9 @@
 .perspective-related {
-  padding: 80px 50px;
+  padding-top: 50px;
+  padding-bottom: 60px;
   background-color: $lightgrey;
+
+  .related-title {
+    @include fontSize(52, 62, 600);
+  }
 }

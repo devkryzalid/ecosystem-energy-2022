@@ -1,9 +1,8 @@
 .wp-block-image.size-full {
   position: relative;
+  margin: 40px 0;
 
-  img {
-    width: 100%;
-  }
+  img { width: 100%; }
 
   figcaption {
     position: absolute;
@@ -13,5 +12,11 @@
     background-color: $yellow;
     color: $blue;
     @include fontSize(26, 30, 600);
+  }
+  
+  @media (max-width: $tablet) {
+    figcaption {
+      @include fontSize(16, 24, 500);
+    }
   }
 }

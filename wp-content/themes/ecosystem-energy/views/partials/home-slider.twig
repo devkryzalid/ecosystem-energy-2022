@@ -3,24 +3,26 @@
   <h2 data-aos="fade-up" data-aos-delay="200">Featured case studies</h2>
   <a data-aos="fade-up" data-aos-delay="400" href="{{ static_links["case-studies_link"].url }}" class="internal link">See all our Case studies</a>
 
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-    
-      {% for item in case_studies %}
-        <a class="swiper-slide" href="{{ item.case_study.link }}" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 + 600 }}">
-          <img src="{{ item.case_study.thumbnail.src('medium') }}" alt="{{ item.case_study.thumbnail.title }}">
-          <div class="surtitle">{{ item.industry }}</div>
-          <div class="title">{{ item.case_study.title }}</div>
-        </a>
-      {% endfor %}
+  <div class="slider">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+      
+        {% for item in case_studies %}
+          <a class="swiper-slide" href="{{ item.case_study.link }}" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 + 600 }}">
+            <img src="{{ item.case_study.thumbnail.src('medium') }}" alt="{{ item.case_study.thumbnail.title }}">
+            <div class="surtitle">{{ item.industry }}</div>
+            <div class="title">{{ item.case_study.title }}</div>
+          </a>
+        {% endfor %}
 
+      </div>
+      <div class="swiper-pagination"></div>
     </div>
-    <div class="swiper-pagination"></div>
-  </div>
 
-  <div class="swiper-navigation">
-    <div class="prev"></div>
-    <div class="next"></div>
+    <div class="swiper-navigation">
+      <div class="prev"></div>
+      <div class="next"></div>
+    </div>
   </div>
 
 </div>

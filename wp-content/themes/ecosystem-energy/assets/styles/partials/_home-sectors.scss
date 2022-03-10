@@ -2,6 +2,7 @@
   @include flex(flex-start, space-between);
   gap: 40px;
   padding: 140px 0 60px;
+  z-index: 1;
 
   .title-column {
     flex: 0 0 30%;

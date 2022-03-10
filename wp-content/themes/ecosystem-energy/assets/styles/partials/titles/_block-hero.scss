@@ -8,9 +8,9 @@
   .title-ctn, .image-ctn, .text-ctn { flex: 0 0 48% }
 
   // If no image is available, the surtitle outside the title container and full-width
-  // ... else it is included inside the title container
   & > .surtitle { flex-basis: 100%; }
 
+  // ... else it is included inside the title container
   .surtitle {
     margin-bottom: 30px;
     @include fontSize(22, 30, 500);

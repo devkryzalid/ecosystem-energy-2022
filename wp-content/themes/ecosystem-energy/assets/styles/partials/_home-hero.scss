@@ -4,35 +4,100 @@
   margin-bottom: 100px;
 
   .title-ctn {
-    flex-basis: 60%;
+    flex-basis: 55%;
     margin-top: 40px;
     h1 { @include fontSize(85, 90, 600, -0.85); }
   }
 
-  .text-ctn {
+  .spinner-ctn {
     position: relative;
-    flex-basis: 38%;
-    overflow: hidden;
+    flex-basis: 45%;
 
-    .text {
+    .content {
+      @include flex();
+      flex-direction: column;
       position: absolute;
-      top: 30%;
-      left: 20%;
-      text-align: center;
-      right: 20%;
-      bottom: 30%;
-    }
+      top: 36%;
+      margin: 0 200px;
 
-    .btn {
-      position: absolute;
-      bottom: 100px;
-      right: 100px;
-      i { transform: rotate(180deg); }
+      .btn-ctn {
+        position: relative;
+        right: -160px;
+        z-index: 999;
+        
+        i { 
+          font-size: 30px;
+          transform: rotate(180deg); 
+        }
+      }
     }
 
     img {
+      position: relative;
       width: 100%;
+      height: 100%;
+      object-fit: cover;
       opacity: 0.1;
+      z-index: 995;
+      scale: 1.2;
+    }
+  }
+
+  @media (max-width: 1550px) {
+    .spinner-ctn .content {
+      top: 28%;
+      margin: 0 150px;
+    }
+  }
+
+  @media (max-width: 1300px) {
+    .spinner-ctn {
+      .content { margin: 0 110px; }
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .spinner-ctn .content { top: 18%; }
+  }
+
+  @media (max-width: 1100px) {
+    .spinner-ctn {
+      img { scale: 1.4; }
+
+      .content {
+        margin: 0 70px;
+        .btn-ctn { right: -100px; }
+      }
+    }
+  }
+
+  @media (max-width: $tablet-large) {
+    flex-direction: column;
+
+    .title-ctn h1 { @include fontSize(52, 60, 600, -0.85); }
+
+    .spinner-ctn {
+      max-width: 500px;
+      margin-right: 0;
+      margin-left: auto;
+      img { top: -80px; }
+      .content { top: 0; margin: 50px; }
+    }
+  }
+
+  @media (max-width: $mobile-large) {
+    .title-ctn h1 { @include fontSize(40, 48, 600, -0.85); }
+
+    .spinner-ctn {
+      img { top: -30px; }
+      .content { margin-right: 10px; }
+    }
+  }
+
+  @media (max-width: $mobile) {
+    .spinner-ctn {
+      img { top: -10px; }
+      .content .btn-ctn { right: -30px; }
     }
   }
 }

@@ -1,5 +1,6 @@
 .author-ctn {
   @include flex(flex-start, flex-start);
+  gap: 40px;
   padding: 60px 0;
   border-top: 2px solid $darkgrey;
 
@@ -12,13 +13,14 @@
   }
 
   .content {
-    margin-left: 40px;
     .name {
       margin-bottom: 30px;
       @include fontSize(30, 38);
     }
+  }
 
-    .bio {
-    }
+  @media (max-width: $mobile-large) {
+    flex-direction: column;
+    
   }
 }
