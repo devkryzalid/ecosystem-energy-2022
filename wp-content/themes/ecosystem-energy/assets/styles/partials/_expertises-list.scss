@@ -54,4 +54,19 @@
       }
     }
   }
+
+  @media (max-width: $tablet-large) {
+    .grid-list { grid-template-columns: 1fr 1fr 1fr; }
+  }
+
+  @media (max-width: $tablet) {
+    .grid-list { 
+      grid-template-columns: 1fr 1fr; 
+
+      .link-item h3 { 
+        padding: 18px;
+        @include fontSize(18, 24); 
+      }
+    }
+  }
 }

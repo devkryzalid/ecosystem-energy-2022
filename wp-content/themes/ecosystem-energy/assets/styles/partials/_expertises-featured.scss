@@ -18,4 +18,16 @@
 
     p { flex-basis: 100%; }
   }
+
+  @media (max-width: 1200px) {
+    .featured-item .head { flex-direction: column; }
+  }
+
+  @media (max-width: $tablet) {
+    grid-template-columns: 1fr;
+    .featured-item {
+      .head img { margin: 0; }
+      p { text-align: center; }
+    }
+  }
 }

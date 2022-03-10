@@ -70,4 +70,26 @@
     #panel-overlay { transition-delay: 200ms; }
     #panel-content { transition-delay: 0ms; }
   }
+
+  @media (max-width: $tablet-large) {
+    #panel-content { width: 100vw; }
+  }
+
+  @media (max-width: $tablet) {
+    #panel-content { 
+      width: 100vw; 
+
+      #panel-body {
+        .case-studies .link { 
+          position: relative;
+          top: 0;
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: $mobile-large) {
+    #panel-content { padding: 20px; }
+  }
 }
