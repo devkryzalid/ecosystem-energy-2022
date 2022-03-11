@@ -4944,6 +4944,71 @@ body.menu-open #header #menu-toggle:hover span {
   }
 }
 
+.contact-offices {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 200px;
+}
+.contact-offices .list-canada, .contact-offices .list-us {
+  flex: 0 0 30%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.contact-offices .list-canada li, .contact-offices .list-us li {
+  padding: 0;
+  border-top: 1px solid rgba(73, 72, 67, 0.2);
+}
+.contact-offices .list-canada li a, .contact-offices .list-us li a {
+  position: relative;
+  display: block;
+  padding: 20px;
+  cursor: pointer;
+}
+.contact-offices .list-canada li a::after, .contact-offices .list-us li a::after {
+  position: absolute;
+  right: 20px;
+  font-family: "icomoon";
+  content: "\e90b";
+}
+.contact-offices .list-canada li a:hover, .contact-offices .list-us li a:hover {
+  background-color: #FAB900;
+}
+.contact-offices .list-canada li .info, .contact-offices .list-us li .info {
+  display: none;
+}
+.contact-offices #office-info {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 350px;
+  padding: 40px;
+  border: 1px solid rgba(151, 151, 151, 0.4);
+}
+.contact-offices #office-info h3 {
+  margin: 0 0 30px;
+  flex-basis: 100%;
+}
+.contact-offices #office-info .default-content {
+  text-align: center;
+}
+.contact-offices #office-info .phones {
+  flex-basis: 50%;
+}
+.contact-offices #office-info .address {
+  flex-basis: 50%;
+}
+.contact-offices #office-info .address p {
+  margin: 0;
+}
+
 .expertises-featured {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -5110,6 +5175,7 @@ body.menu-open #header #menu-toggle:hover span {
   opacity: 0.1;
   z-index: 995;
   scale: 1.2;
+  pointer-events: none;
 }
 @media (max-width: 1550px) {
   .home-hero-ctn .spinner-ctn .content {
@@ -5816,81 +5882,6 @@ body.menu-open #header #menu-toggle:hover span {
   color: #494843;
 }
 
-.contact-page .page-title {
-  margin-bottom: 120px;
-}
-.contact-page .offices {
-  position: relative;
-}
-.contact-page .offices i.icon-symbol-eco {
-  position: absolute;
-  left: -130px;
-  bottom: -270px;
-  font-size: 270px;
-  color: #FAB900;
-}
-.contact-page .offices .container {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 200px;
-}
-.contact-page .offices .container .list-canada, .contact-page .offices .container .list-us {
-  flex: 0 0 30%;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.contact-page .offices .container .list-canada li, .contact-page .offices .container .list-us li {
-  border-top: 1px solid rgba(73, 72, 67, 0.2);
-}
-.contact-page .offices .container .list-canada li a, .contact-page .offices .container .list-us li a {
-  position: relative;
-  display: block;
-  padding: 20px;
-  cursor: pointer;
-}
-.contact-page .offices .container .list-canada li a::after, .contact-page .offices .container .list-us li a::after {
-  position: absolute;
-  right: 20px;
-  font-family: "icomoon";
-  content: "\e90b";
-}
-.contact-page .offices .container .list-canada li a:hover, .contact-page .offices .container .list-us li a:hover {
-  background-color: #FAB900;
-}
-.contact-page .offices .container .list-canada li .info, .contact-page .offices .container .list-us li .info {
-  display: none;
-}
-.contact-page .offices .container #office-info {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  flex-wrap: wrap;
-  min-height: 350px;
-  padding: 40px;
-  border: 1px solid rgba(151, 151, 151, 0.4);
-}
-.contact-page .offices .container #office-info h3 {
-  margin: 0 0 30px;
-  flex-basis: 100%;
-}
-.contact-page .offices .container #office-info .default-content {
-  text-align: center;
-}
-.contact-page .offices .container #office-info .phones {
-  flex-basis: 50%;
-}
-.contact-page .offices .container #office-info .address {
-  flex-basis: 50%;
-}
-.contact-page .offices .container #office-info .address p {
-  margin: 0;
-}
 .contact-page .contact-form {
   max-width: 1000px;
   margin: auto;

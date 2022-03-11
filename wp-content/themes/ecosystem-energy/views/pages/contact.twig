@@ -3,62 +3,24 @@
 {% block pageClass %}contact-page{% endblock %}
 
 {% block content %}
-
   <div class="container">
+
     {% include 'partials/titles/block-hero.twig' with { 
       title: post.title,
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor tellus vitae rhoncus odio ullamcorper. Placerat mi felis consequat lobortis. At lobortis eu tincidunt hendrerit. Adipiscing amet faucibus cursus eleifend.' ,
       class: ''
     } %}
-  </div>
 
-  <div class="offices">
-    <i class="icon-symbol-eco"></i>
-    <div class="container">
-      <ul class="list-canada">
-        {% for office in offices_list %}
-          <li>
-            <a class="office-link">{{ office.title }}</a>
-            <div class="info">
-              <h3>{{ office.title }}</h3>
+    {% include 'partials/contact-offices.twig' %}
 
-              <div class="phones">
-                <a href="tel:{{ office.phone }}">{{ office.phone }}</a>
-                <p>{{ office.fax }}</p>
-              </div>
-
-              <div class="address">
-                {{ office.address }}
-              </div>
-            </div>
-          </li>
-        {% endfor %}
-      </ul>
-
-      <ul class="list-us">
-        <li>
-          <a class="office-link">Some US office</a>
-          <div class="info">
-            <h3>Some US office</h3>
-          </div>
-        </li>
-      </ul>
-
-      <div id="office-info">
-        <div class="default-content phones">
-          <a href="tel:{{ office.phone }}">123-459-2398</a>
-          <p>ecosystem@ecosystem.com</p>
-        </div>
-      </div>
+    <div class="contact-form">
+      <h2>Send us a message</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor tellus vitae rhoncus odio ullamcorper.</p>
+      {% filter shortcodes %}
+        [gravityform id="1" title="false" description="false" ajax="true"][/gravityform]
+      {% endfilter %} 
     </div>
-  </div>
-
-  <div class="container contact-form">
-    <h2>Send us a message</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor tellus vitae rhoncus odio ullamcorper.</p>
-    {% filter shortcodes %}
-      [gravityform id="1" title="false" description="false" ajax="true"][/gravityform]
-    {% endfilter %} 
+    
   </div>
 {% endblock %}
 

@@ -1,0 +1,37 @@
+<div class="contact-offices">
+  <ul class="list-canada">
+    {% for office in offices_list %}
+      <li>
+        <a class="office-link">{{ office.title }}</a>
+        <div class="info">
+          <h3>{{ office.title }}</h3>
+
+          <div class="phones">
+            <a href="tel:{{ office.phone }}">{{ office.phone }}</a>
+            <p>{{ office.fax }}</p>
+          </div>
+
+          <div class="address">
+            {{ office.address }}
+          </div>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <ul class="list-us">
+    <li>
+      <a class="office-link">Some US office</a>
+      <div class="info">
+        <h3>Some US office</h3>
+      </div>
+    </li>
+  </ul>
+
+  <div id="office-info">
+    <div class="default-content phones">
+      <a href="tel:{{ office.phone }}">123-459-2398</a>
+      <p>ecosystem@ecosystem.com</p>
+    </div>
+  </div>
+</div>

@@ -15,7 +15,7 @@
   \*****************************************/
 /***/ (function() {
 
-eval("document.querySelectorAll('.office-link').forEach(link => {\n  link.addEventListener('click', e => {\n    const content = e.target.nextElementSibling.innerHTML;\n    document.getElementById('office-info').innerHTML = content;\n  })\n});\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/pages/contact.js?");
+eval("document.querySelectorAll('.office-link').forEach(link => {\n  link.addEventListener('click', e => {\n    // const content = e.target.nextElementSibling.innerHTML;\n    // document.getElementById('office-info').innerHTML = content;\n  })\n});\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/pages/contact.js?");
 
 /***/ })
 
