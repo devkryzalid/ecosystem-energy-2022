@@ -34,3 +34,8 @@ if (spinner) {
     spinner.style.transform = 'rotate(' + rotation + 'deg)'; 
   }, timer)
 }
+
+// Add listener to scroll button
+const scrollToContent = document.getElementById('scroll-to-content');
+const scrollTarget = document.getElementById('scroll-content');
+scrollToContent.addEventListener('click', () => scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'start' }))
