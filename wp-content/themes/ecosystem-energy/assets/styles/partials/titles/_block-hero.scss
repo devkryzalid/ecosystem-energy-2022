@@ -44,6 +44,8 @@
     }
   }
 
+  #filters-count { margin-left: 5px; }
+
   // White text
   &.invert {
     .title-ctn .surtitle { color: $yellow; }

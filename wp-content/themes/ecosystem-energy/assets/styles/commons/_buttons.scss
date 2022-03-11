@@ -24,6 +24,10 @@
     opacity: 0;
   }
 
+  &.no-icon {
+    &::after { display: none !important; }
+  }
+
   &.filters {
     height: 60px;
     padding-left: 40px;
@@ -61,6 +65,7 @@
 
   // Yellow circle
   &.circle {
+    @extend .no-icon;
     width: 120px;
     height: 120px;
     padding: 0;
@@ -84,7 +89,7 @@
     }
   }
 
-  &:not(.circle):hover {
+  &:not(.no-icon):hover {
     padding-left: 40px;
     padding-right: 70px;
 

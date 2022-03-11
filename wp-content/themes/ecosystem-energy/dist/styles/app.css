@@ -3044,6 +3044,9 @@ h3 {
   font-size: 12px;
   opacity: 0;
 }
+.btn.no-icon::after, .contact-page .contact-form input.no-icon[type=submit]::after, .btn.circle::after, .contact-page .contact-form input.circle[type=submit]::after {
+  display: none !important;
+}
 .btn.filters, .contact-page .contact-form input.filters[type=submit] {
   height: 60px;
   padding-left: 40px;
@@ -3100,11 +3103,11 @@ h3 {
   background-color: #F6F6F4;
   pointer-events: none;
 }
-.btn:not(.circle):hover, .contact-page .contact-form input[type=submit]:not(.circle):hover {
+.btn:not(.no-icon):not(.btn.circle):hover, .contact-page .contact-form input[type=submit]:not(.no-icon):not(.btn.circle):hover {
   padding-left: 40px;
   padding-right: 70px;
 }
-.btn:not(.circle):hover::after, .contact-page .contact-form input[type=submit]:not(.circle):hover::after {
+.btn:not(.no-icon):not(.btn.circle):hover::after, .contact-page .contact-form input[type=submit]:not(.no-icon):not(.btn.circle):hover::after {
   right: 30px;
   opacity: 1;
 }
@@ -4480,6 +4483,14 @@ body.menu-open #header #menu-toggle:hover span {
   content: "x";
   margin-left: 8px;
 }
+.filters-ctn #clear-filters {
+  display: none;
+  top: 47px;
+  min-height: 40px;
+  margin: 0 0 0 auto;
+  padding: 5px 30px;
+  font-size: 14px;
+}
 @media (max-width: 500px) {
   .filters-ctn .filters {
     flex-direction: column;
@@ -4577,6 +4588,9 @@ body.menu-open #header #menu-toggle:hover span {
 }
 .block-hero .text-ctn.no-text .btn, .block-hero .text-ctn.no-text .contact-page .contact-form input[type=submit], .contact-page .contact-form .block-hero .text-ctn.no-text input[type=submit] {
   margin-top: 0;
+}
+.block-hero #filters-count {
+  margin-left: 5px;
 }
 .block-hero.invert .title-ctn .surtitle {
   color: #FAB900;

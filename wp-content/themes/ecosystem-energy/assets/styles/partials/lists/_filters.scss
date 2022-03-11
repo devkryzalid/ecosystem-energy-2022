@@ -45,6 +45,15 @@
     }
   }
 
+  #clear-filters {
+    display: none;
+    top: 47px;
+    min-height: 40px;
+    margin: 0 0 0 auto;
+    padding: 5px 30px;
+    font-size: 14px;
+  }
+
   @media (max-width: $mobile-large) {
     .filters { flex-direction: column; }
     .filter-group .title { margin: 10px 0 10px; }

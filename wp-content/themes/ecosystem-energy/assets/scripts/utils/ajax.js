@@ -79,11 +79,21 @@ export default class AjaxForm {
     // Add change listener to form checkboxes
     this.formContainer.addEventListener('change', this.onFormChange);
 
+    // Add click listener to clear button
+    const clearButton = document.getElementById('clear-filters');
+    if (clearButton) clearButton.addEventListener('click', this.clearFilters);
+
     // Apply filters from url query string
     this.applyFiltersFromUrl();
 
     // Initialize pagination for non-ajax first load
     this.initPagination();
+
+    // Set clear button visibility
+    this.toggleClearButton();
+    
+    // Set filters counter
+    this.setActiveFiltersCount();
   }
 
   // Main form change callback
@@ -99,7 +109,16 @@ export default class AjaxForm {
     this.toggleLoading(false);
     this.updateContentHtml(data);
     this.onDataChange(data);
+    this.toggleClearButton();
+    this.setActiveFiltersCount();
+  }
 
+  //
+  setActiveFiltersCount = () => {
+    const counter = document.getElementById('filters-count');
+    counter.innerHTML = '';
+    const nb = this.countActiveFilters();
+    if (counter && nb) counter.innerHTML = `(${ nb })`;
   }
 
   // Return all form data in object format
@@ -161,6 +180,12 @@ export default class AjaxForm {
     this.innerContainer.innerHTML = html;
     if (document.getElementById(paginationId)) this.initPagination();
   }
+  
+  // Show/hide clear button depending on checked filters
+  toggleClearButton = () => {
+    const filtersActive = !![...this.formContainer.querySelectorAll('input:checked')].length;
+    document.getElementById('clear-filters').style.display = filtersActive ? 'block' : 'none';
+  }
 
   // Replace current url param string with new params
   updateCurrentUrl = params => {
@@ -174,6 +199,12 @@ export default class AjaxForm {
     const url = urlPrefix + (Object.keys(params).length ? '?' + searchParams.toString() : '');
 
     history.replaceState({ title, url }, title, url);
+  }
+
+  // Un-check all boxes and reload data
+  clearFilters = () => {
+    this.formContainer.querySelectorAll('input:checked').forEach(i => { i.checked = false; });
+    this.onFormChange();
   }
 
   // Fetch first part of current url, and remove trailing slash
@@ -215,6 +246,10 @@ export default class AjaxForm {
     // Reload ajax content
     this.scrollToTop();
     this.onFormChange();
+  }
+
+  countActiveFilters = () => {
+    return this.formContainer.querySelectorAll('input:checked').length;
   }
 
   // 
