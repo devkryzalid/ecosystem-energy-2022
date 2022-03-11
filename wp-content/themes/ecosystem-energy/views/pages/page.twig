@@ -1,0 +1,11 @@
+{% extends 'base.twig' %}
+
+{% block pageClass %}grey{% endblock %}
+
+{% block content %}
+  <div class="large container">
+    {% include 'partials/titles/block-hero.twig' with { title: title } %}
+  
+    {{ post }}
+  </div>
+{% endblock %}
