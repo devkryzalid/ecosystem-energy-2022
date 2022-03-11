@@ -1,34 +1,49 @@
 <div class="contact-offices">
-  <ul class="list-canada">
-    {% for office in offices_list %}
-      <li>
-        <a class="office-link">{{ office.title }}</a>
-        <div class="info">
-          <h3>{{ office.title }}</h3>
+  <div class="lists-ctn">
+    <ul class="list-canada">
+      {% for office in offices_list_ca %}
+        <li data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+          <a class="office-link">{{ office.title }}</a>
+          <div class="info">
+            <h3>{{ office.title }}</h3>
 
-          <div class="phones">
-            <a href="tel:{{ office.phone }}">{{ office.phone }}</a>
-            <p>{{ office.fax }}</p>
+            <div class="phones">
+              <a class="phone" href="tel:{{ office.phone }}">{{ office.phone }}</a>
+              <p class="fax">{{ office.fax }}</p>
+            </div>
+
+            <div class="address">
+              {{ office.address }}
+              <a class="itinerary" href="">See itinerary</a>
+            </div>
           </div>
+        </li>
+      {% endfor %}
+    </ul>
 
-          <div class="address">
-            {{ office.address }}
+    <ul class="list-us">
+      {% for office in offices_list_us %}
+        <li data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+          <a class="office-link">{{ office.title }}</a>
+          <div class="info">
+            <h3>{{ office.title }}</h3>
+
+            <div class="phones">
+              <a class="phone" href="tel:{{ office.phone }}">{{ office.phone }}</a>
+              <p class="fax">{{ office.fax }}</p>
+            </div>
+
+            <div class="address">
+              {{ office.address }}
+              <a class="itinerary" href="">See itinerary</a>
+            </div>
           </div>
-        </div>
-      </li>
-    {% endfor %}
-  </ul>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 
-  <ul class="list-us">
-    <li>
-      <a class="office-link">Some US office</a>
-      <div class="info">
-        <h3>Some US office</h3>
-      </div>
-    </li>
-  </ul>
-
-  <div id="office-info">
+  <div id="office-info" data-aos="fade-up">
     <div class="default-content phones">
       <a href="tel:{{ office.phone }}">123-459-2398</a>
       <p>ecosystem@ecosystem.com</p>

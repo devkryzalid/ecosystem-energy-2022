@@ -4,8 +4,14 @@
   gap: 30px;
   margin-bottom: 200px;
 
-  .list-canada, .list-us {
-    flex: 0 0 30%;
+  .lists-ctn {
+    flex: 0 0 50%;
+    @include flex(flex-start);
+    gap: 30px;
+  }
+
+  ul {
+    flex: 0 0 50%;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -45,8 +51,9 @@
     border: 1px solid rgba(#979797, 0.4);
 
     h3 {
-      margin: 0 0 30px;
+      margin: 0;
       flex-basis: 100%;
+      @include fontSize(32, 44, 400, -0.45);
     }
 
     .default-content {
@@ -55,11 +62,44 @@
 
     .phones {
       flex-basis: 50%;
+
+      .phone {
+        @include fontSize(22, 26, 600);
+        &::before {
+          margin-right: 20px;
+          @extend .icomoon;
+          content: "\e912";
+          font-size: 18px;
+        }
+      }
+
+      .fax {
+        @include fontSize(18, 26, 400);
+        &::before {
+          // Printer icon
+        }
+      }
     }
 
     .address {
       flex-basis: 50%;
-      p { margin: 0; }
+      
+      p { 
+        margin: 0;
+        @include fontSize(16, 24, 400);
+      }
+
+      .itinerary {
+        @include fontSize(14, 26, 700);
+      }
     }
+  }
+
+  @media (max-width: $tablet) {
+    .lists-ctn { 
+      flex-direction: column; 
+      gap: 0;
+    }
+    ul { width: 100%; }
   }
 }

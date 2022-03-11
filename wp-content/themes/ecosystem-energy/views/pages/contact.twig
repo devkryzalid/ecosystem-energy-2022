@@ -11,14 +11,18 @@
       class: ''
     } %}
 
-    {% include 'partials/contact-offices.twig' %}
+    <div class="container">
+      {% include 'partials/contact-offices.twig' %}
+    </div>
 
-    <div class="contact-form">
-      <h2>Send us a message</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor tellus vitae rhoncus odio ullamcorper.</p>
-      {% filter shortcodes %}
-        [gravityform id="1" title="false" description="false" ajax="true"][/gravityform]
-      {% endfilter %} 
+    <div class="container contact-form">
+      <h2 data-aos="fade-up">Send us a message</h2>
+      <p data-aos="fade-up" data-aos-delay="200">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor tellus vitae rhoncus odio ullamcorper.</p>
+      <div class="form" data-aos="fade-up">
+        {% filter shortcodes %}
+          [gravityform id="1" title="false" description="false" ajax="true"][/gravityform]
+        {% endfilter %} 
+      </div>
     </div>
     
   </div>

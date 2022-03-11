@@ -4,8 +4,8 @@
     "fields": [
         {
             "key": "field_620c171d4b174",
-            "label": "Liste des bureaux",
-            "name": "offices_list",
+            "label": "Liste des bureaux - Canada",
+            "name": "offices_list_ca",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -96,12 +96,33 @@
                     "toolbar": "basic",
                     "media_upload": 0,
                     "delay": 1
-                },
+                }
+            ]
+        },
+        {
+            "key": "field_622b85781fddf",
+            "label": "Liste des bureaux - US",
+            "name": "offices_list_us",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "",
+            "sub_fields": [
                 {
-                    "key": "field_6219051967540",
-                    "label": "Column",
-                    "name": "column",
-                    "type": "select",
+                    "key": "field_622b861b705f1",
+                    "label": "Titre",
+                    "name": "title",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -110,17 +131,68 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "canada": "Canada",
-                        "us": "United States"
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_622b8624705f2",
+                    "label": "Téléphone",
+                    "name": "phone",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
                     },
-                    "default_value": false,
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "ui": 0,
-                    "return_format": "value",
-                    "ajax": 0,
-                    "placeholder": ""
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_622b862d705f3",
+                    "label": "Fax",
+                    "name": "fax",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_622b8633705f4",
+                    "label": "Adresse",
+                    "name": "address",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0
                 }
             ]
         }
@@ -143,5 +215,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1645806990
+    "modified": 1647019630
 }

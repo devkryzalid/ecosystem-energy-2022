@@ -2435,7 +2435,7 @@ ul li {
   }
 }
 
-.icomoon, .sectors-ctn .content-column a::after, .block-hero.post-hero .title-ctn .category::after, .block-item.featured .content::after, .block-item .content .surtitle::before, .block-item .image::after, a.link::after, a.link::before, .slider .swiper-navigation div, .industry-cs-slider .swiper-navigation div, .content-slider-multiple-ctn .swiper-navigation div, .content-slider-ctn .swiper-navigation div, .wrapper.bg-icon::after {
+.icomoon, .sectors-ctn .content-column a::after, .contact-offices #office-info .phones .phone::before, .block-hero.post-hero .title-ctn .category::after, .block-item.featured .content::after, .block-item .content .surtitle::before, .block-item .image::after, a.link::after, a.link::before, .slider .swiper-navigation div, .industry-cs-slider .swiper-navigation div, .content-slider-multiple-ctn .swiper-navigation div, .content-slider-ctn .swiper-navigation div, .wrapper.bg-icon::after {
   font-family: "icomoon" !important;
   font-weight: 400 !important;
 }
@@ -4967,32 +4967,40 @@ body.menu-open #header #menu-toggle:hover span {
   gap: 30px;
   margin-bottom: 200px;
 }
-.contact-offices .list-canada, .contact-offices .list-us {
-  flex: 0 0 30%;
+.contact-offices .lists-ctn {
+  flex: 0 0 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 30px;
+}
+.contact-offices ul {
+  flex: 0 0 50%;
   margin: 0;
   padding: 0;
   list-style: none;
 }
-.contact-offices .list-canada li, .contact-offices .list-us li {
+.contact-offices ul li {
   padding: 0;
   border-top: 1px solid rgba(73, 72, 67, 0.2);
 }
-.contact-offices .list-canada li a, .contact-offices .list-us li a {
+.contact-offices ul li a {
   position: relative;
   display: block;
   padding: 20px;
   cursor: pointer;
 }
-.contact-offices .list-canada li a::after, .contact-offices .list-us li a::after {
+.contact-offices ul li a::after {
   position: absolute;
   right: 20px;
   font-family: "icomoon";
   content: "\e90b";
 }
-.contact-offices .list-canada li a:hover, .contact-offices .list-us li a:hover {
+.contact-offices ul li a:hover {
   background-color: #FAB900;
 }
-.contact-offices .list-canada li .info, .contact-offices .list-us li .info {
+.contact-offices ul li .info {
   display: none;
 }
 .contact-offices #office-info {
@@ -5007,8 +5015,14 @@ body.menu-open #header #menu-toggle:hover span {
   border: 1px solid rgba(151, 151, 151, 0.4);
 }
 .contact-offices #office-info h3 {
-  margin: 0 0 30px;
+  margin: 0;
   flex-basis: 100%;
+  font-size: 32px;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 44px;
+  line-height: 2.75rem;
+  letter-spacing: -0.45px;
 }
 .contact-offices #office-info .default-content {
   text-align: center;
@@ -5016,11 +5030,55 @@ body.menu-open #header #menu-toggle:hover span {
 .contact-offices #office-info .phones {
   flex-basis: 50%;
 }
+.contact-offices #office-info .phones .phone {
+  font-size: 22px;
+  font-size: 1.375rem;
+  font-weight: 600;
+  line-height: 26px;
+  line-height: 1.625rem;
+  letter-spacing: normal;
+}
+.contact-offices #office-info .phones .phone::before {
+  margin-right: 20px;
+  content: "\e912";
+  font-size: 18px;
+}
+.contact-offices #office-info .phones .fax {
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 26px;
+  line-height: 1.625rem;
+  letter-spacing: normal;
+}
 .contact-offices #office-info .address {
   flex-basis: 50%;
 }
 .contact-offices #office-info .address p {
   margin: 0;
+  font-size: 16px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 24px;
+  line-height: 1.5rem;
+  letter-spacing: normal;
+}
+.contact-offices #office-info .address .itinerary {
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 26px;
+  line-height: 1.625rem;
+  letter-spacing: normal;
+}
+@media (max-width: 768px) {
+  .contact-offices .lists-ctn {
+    flex-direction: column;
+    gap: 0;
+  }
+  .contact-offices ul {
+    width: 100%;
+  }
 }
 
 .expertises-featured {
