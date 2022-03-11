@@ -5161,7 +5161,6 @@ body.menu-open #header #menu-toggle:hover span {
 .home-hero-ctn .spinner-ctn .content .btn-ctn {
   position: relative;
   right: -160px;
-  z-index: 999;
 }
 .home-hero-ctn .spinner-ctn .content .btn-ctn i {
   font-size: 30px;
@@ -5173,7 +5172,6 @@ body.menu-open #header #menu-toggle:hover span {
   height: 100%;
   object-fit: cover;
   opacity: 0.1;
-  z-index: 995;
   scale: 1.2;
   pointer-events: none;
 }

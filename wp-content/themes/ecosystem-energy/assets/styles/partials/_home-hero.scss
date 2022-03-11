@@ -23,7 +23,7 @@
       .btn-ctn {
         position: relative;
         right: -160px;
-        z-index: 999;
+        // z-index: 999;
         
         i { 
           font-size: 30px;
@@ -38,7 +38,7 @@
       height: 100%;
       object-fit: cover;
       opacity: 0.1;
-      z-index: 995;
+      // z-index: 995;
       scale: 1.2;
       pointer-events: none;
     }
