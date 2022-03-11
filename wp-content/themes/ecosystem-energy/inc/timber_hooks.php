@@ -58,8 +58,8 @@ function add_to_twig( $twig ) {
 }
 
 function set_current_locale_cookie($newLocale, $context) {
-	if ($newLocale == '-1' && !empty($_COOKIE['es_current_locale'])) {
-		unset($_COOKIE['es_current_locale']);
+	if ($newLocale == '-1') {
+		setcookie('es_current_locale', null, strtotime('-1 day'));
 	} else {
 		setcookie('es_current_locale', $newLocale, strtotime("+1 year"));
 		// Testing purposes
