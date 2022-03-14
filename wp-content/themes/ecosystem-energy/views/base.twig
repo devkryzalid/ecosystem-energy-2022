@@ -14,9 +14,13 @@
     {{ function('wp_head') }}
   </head>
 
-  <body {{ body_class }} ?>
+  <body class="overlay" {{ body_class }} ?>
 
     <div class="page-container {% block pageClass %}{% endblock %}" >
+      <div id="page-overlay">
+        <img src="{{ theme.link }}/assets/images/ui/spinner.png">
+      </div>
+      
       {% include 'partials/common/header.twig'%}
 
       <div class="page">

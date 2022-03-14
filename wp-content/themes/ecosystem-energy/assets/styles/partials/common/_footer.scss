@@ -15,6 +15,8 @@
     }
   }
 
+  a:hover { color: $yellow; }
+
   .sub-footer {
     @include flex(center, space-between);
     flex-basis: 100%;

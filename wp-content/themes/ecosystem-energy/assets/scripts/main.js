@@ -10,3 +10,6 @@ import './utils/cta-spinner';
 // Initialize header, which manages search field, country toggler and menu 
 import Header from './header/header';
 const header = new Header();
+
+window.scrollTo({ top: 0 })
+setTimeout(() => { document.body.classList.remove('overlay'); }, 1000);
