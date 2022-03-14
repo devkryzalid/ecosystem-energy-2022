@@ -104,6 +104,7 @@ export default class AjaxForm {
 
     const params = this.getFormData();
     const { data } = await this.fetchAjax(params);
+    await this.timeout(300);  // Optionnal - delay before loader fadeout
     this.updateCurrentUrl(params);
 
     this.toggleLoading(false);
@@ -260,5 +261,10 @@ export default class AjaxForm {
   // 
   scrollToContent = () => {
     setTimeout(() => { this.contentContainer.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'start' }); }, 10); 
+  }
+  
+  //
+  timeout = async ms => {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 }
