@@ -42,6 +42,11 @@
   background-color: $lightgrey;
 }
 
+// Set link color to white if blue background
+.page-container.blue-head #footer {
+  div, a:not(:hover) { color: white; }
+}
+
 .page-container.case-study-ctn #footer {
   background-color: $beige;
 }

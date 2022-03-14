@@ -4,17 +4,16 @@
 
 {% block content %}
   <div class="container">
-
     {% include 'partials/common/block-hero.twig' with { 
       title: post.title,
       text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor tellus vitae rhoncus odio ullamcorper. Placerat mi felis consequat lobortis. At lobortis eu tincidunt hendrerit. Adipiscing amet faucibus cursus eleifend.' ,
       class: ''
     } %}
 
-    <div class="container">
-      {% include 'partials/contact-offices.twig' %}
-    </div>
+    {% include 'partials/contact-offices.twig' %}
+  </div>
 
+  <div class="grey wrapper bg-icon">
     <div class="container contact-form">
       <h2 data-aos="fade-up">{{ __('Send us a message', 'ecosystem-energy') }}</h2>
       <p data-aos="fade-up" data-aos-delay="200">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor tellus vitae rhoncus odio ullamcorper.</p>
@@ -24,8 +23,8 @@
         {% endfilter %} 
       </div>
     </div>
-    
   </div>
+    
 {% endblock %}
 
 {% block specific_script %}
