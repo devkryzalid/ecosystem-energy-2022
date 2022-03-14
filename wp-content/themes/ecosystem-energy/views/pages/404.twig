@@ -1,0 +1,14 @@
+{% extends 'base.twig' %}
+
+{% block pageClass %}blue-head error-page{% endblock %}
+
+{% block content %}
+	<div class="container content">
+    <img class="bg-image" src="{{ theme.link }}/assets/images/ui/spinner.png">
+    <h1>404</h1>
+    <p>
+      {{ __('Sorry, this page no longer exists or is currently unavailable. Please use the header and footer menus to continue your visit or return to the ', 'ecosystem-energy') }}
+       <a class="home-link" href="/">{{ __('home page', 'ecosystem-energy') }}</a>.
+    </p>
+	</div>
+{% endblock %}

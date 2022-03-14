@@ -5794,6 +5794,67 @@ body.menu-open #header #menu-toggle:hover span {
   letter-spacing: normal;
 }
 
+.error-page {
+  background-color: #242C3E;
+  text-align: center;
+}
+.error-page .content {
+  margin-top: 125px;
+  padding: 100px;
+  height: 800px;
+}
+.error-page .bg-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.3;
+}
+.error-page h1 {
+  margin-bottom: 100px;
+  font-size: 250px;
+  font-size: 15.625rem;
+  font-weight: 600;
+  line-height: 90px;
+  line-height: 5.625rem;
+  letter-spacing: -2.5px;
+  color: #FAB900;
+  text-align: center;
+}
+.error-page p {
+  position: relative;
+  max-width: 500px;
+  margin: auto;
+  color: white;
+  text-align: center;
+  z-index: 1;
+}
+.error-page .home-link {
+  color: #FAB900;
+}
+@media (max-width: 768px) {
+  .error-page .container {
+    height: 640px;
+  }
+  .error-page h1 {
+    font-size: 160px;
+    margin-bottom: 60px;
+  }
+}
+@media (max-width: 500px) {
+  .error-page .container {
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 450px;
+  }
+  .error-page h1 {
+    font-size: 120px;
+    margin-bottom: 30px;
+  }
+}
+
 .awards-page .block-hero .title-ctn {
   flex-basis: 100%;
 }
