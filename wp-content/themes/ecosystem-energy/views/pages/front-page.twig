@@ -1,8 +1,10 @@
 {% extends 'base.twig' %}
 
-{% block pageClass %}front-page{% endblock %}
+{% block pageClass %}front-page overlay{% endblock %}
 
 {% block content %}
+
+  {% include 'partials/common/page-overlay.twig' %}
 
   {# Hero #}
   <div class="large container">

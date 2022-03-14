@@ -4768,10 +4768,10 @@ body.menu-open #header #menu-toggle:hover span {
   animation: rotate 4.5s linear infinite;
 }
 
-body.overlay {
+.page-container.overlay {
   overflow: hidden;
 }
-body.overlay #page-overlay {
+.page-container.overlay #page-overlay {
   top: 0;
 }
 
@@ -5424,6 +5424,7 @@ body.overlay #page-overlay {
 }
 .home-hero-ctn .spinner-ctn img {
   position: relative;
+  top: 75px;
   width: 100%;
   height: 100%;
   object-fit: cover;

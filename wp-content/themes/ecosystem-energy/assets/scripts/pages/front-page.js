@@ -39,3 +39,7 @@ if (spinner) {
 const scrollToContent = document.getElementById('scroll-to-content');
 const scrollTarget = document.getElementById('scroll-content');
 scrollToContent.addEventListener('click', () => scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'start' }))
+
+// Yellow overlay mechanics
+window.scrollTo({ top: 0 });
+setTimeout(() => { document.querySelector('.page-container').classList.remove('overlay'); }, 1000);
