@@ -1,4 +1,5 @@
 .leadership-page {
+  position: relative;
   background-color: $blue;
 
   .leadership-list {
@@ -35,5 +36,32 @@
 
   .leader-content {
     display: none;
+  }
+
+  #panel-body {
+    .block-hero {
+      padding-top: 0;
+
+      .status {
+        opacity: 0.6;
+      }
+
+      .social-link {
+        margin-top: 20px;
+        margin-right: 20px;
+      }
+    }
+  }
+
+  @media (max-width: $tablet) {
+    .leadership-list {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: $mobile-large) {
+    .leadership-list {
+      grid-template-columns: 1fr;
+    }
   }
 }

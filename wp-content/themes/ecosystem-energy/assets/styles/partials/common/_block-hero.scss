@@ -70,6 +70,11 @@
     .title-ctn { margin: auto 0; }
   }
 
+  // 
+  &.reverse {
+    flex-direction: row-reverse;
+  }
+
   // Make image slightly lower than container (industry page)
   &.offset-image {
     position: relative;

@@ -66,5 +66,6 @@ if (empty($featured)) {
 }
 // Get Post
 $context['posts'] = new Timber\PostQuery($args);
+dd($context['posts']);
 
 Timber::render('pages/index.twig', $context);

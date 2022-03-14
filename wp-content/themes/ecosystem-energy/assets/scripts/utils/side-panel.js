@@ -8,14 +8,22 @@ import axios from 'axios';
 
 export default class SidePanel {
   container = document.getElementById('side-panel-ctn');
-  innerContainer = document.getElementById('panel-content');
+  innerContainer;
 
   transition = false;
   visible = false;
   url;
 
-  constructor ({ url } = {}) {
+  onDataLoaded = () => {};
+
+  constructor ({ url, containerId = 'panel-content', onDataLoaded } = {}) {
     this.url = url || null;
+
+    // Set container where content will be loaded
+    this.innerContainer = document.getElementById(containerId);
+
+    // 
+    if (onDataLoaded) this.onDataLoaded = onDataLoaded;
 
     // Add click listeners to all grid items
     document.querySelectorAll('.link-item').forEach(link => {
@@ -32,8 +40,8 @@ export default class SidePanel {
       ? !this.visible
       : !!visible;
 
-    if (this.visible) this.showPanel();// this.container.classList.add('show');
-    else this.hidePanel(); // this.container.classList.remove('show');
+    if (this.visible) this.showPanel();
+    else this.hidePanel();
   }
 
   // Load data and render template with event listeners
@@ -41,7 +49,9 @@ export default class SidePanel {
     const { data } = this.url 
       ? await this.fetchData(id)
       : this.fetchHtml(id);
+
     this.innerContainer.innerHTML = data;
+    this.onDataLoaded(id);
     
     document.getElementById('panel-prev').addEventListener('click', this.replaceData);
     document.getElementById('panel-next').addEventListener('click', this.replaceData);

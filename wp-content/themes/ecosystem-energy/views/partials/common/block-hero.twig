@@ -8,8 +8,9 @@
   </div>
 
   {% if image %}
+    {% set tImage = TimberImage(image) %}
     <div class="image-ctn" data-aos="fade-up" data-aos-delay="200">
-      <img src="{{ image.src('large') }}" alt="{{ image.title }}">
+      <img src="{{ tImage.src('large') }}" alt="{{ tImage.title }}">
     </div>
   {% endif %}
   
