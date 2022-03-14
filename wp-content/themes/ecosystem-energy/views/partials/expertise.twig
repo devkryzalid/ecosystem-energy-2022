@@ -5,7 +5,7 @@
 </div>
 
 <div id="panel-body">
-  {% include 'partials/titles/block-hero.twig' with { 
+  {% include 'partials/common/block-hero.twig' with { 
     surtitle: 'Expertises',
     title: expertise.title,
     image: expertise.thumbnail,
@@ -15,12 +15,12 @@
   {{ expertise.content }}
   
   <div class="case-studies">
-    <h2>Case studies</h2>
-    <a class="internal link" href="">More case studies</a>
+    <h2>{{ __('Case studies', 'ecosystem-energy') }}</h2>
+    <a class="internal link" href="">{{ __('More case studies', 'ecosystem-energy') }}</a>
 
     <div class="block-list">
       {% for case_study in case_studies %}
-        {% include 'partials/block-item.twig' with { 
+        {% include 'partials/common/block-item.twig' with { 
           title: case_study.title,
           description: case_study.preview.read_more(false),
           url: case_study.link,

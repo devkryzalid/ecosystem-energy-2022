@@ -1,11 +1,11 @@
 <div class="large container">
   <div class="perspective-related">
 
-    <h2 class="related-title">Related articles</h2>
+    <h2 class="related-title">{{ __('Related articles', 'ecosystem-energy') }}</h2>
 
     <div class="block-list">
       {% for post in posts %}
-        {% include 'partials/block-item.twig' with { 
+        {% include 'partials/common/block-item.twig' with { 
           title: post.title,
           surtitle: post.meta('related_industry')[0].title,
           footer: post.post_date|date("F d, Y"),

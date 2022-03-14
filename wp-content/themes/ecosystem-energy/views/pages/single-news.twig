@@ -4,14 +4,14 @@
 
 {% block content %}
 
-  {% include 'partials/titles/post-hero.twig' with { post: post } %}
+  {% include 'partials/common/post-hero.twig' with { post: post } %}
 
   <div class="small container">
     {{ post.content }}
 
-    {% include 'partials/share.twig' %}
+    {% include 'partials/common/share.twig' %}
     {% include 'partials/news-nav.twig' with { next: next, prev: previous } %}
-    {% include 'partials/contact-cta.twig' %}
+    {% include 'partials/common/contact-cta.twig' %}
   </div>
   
 {% endblock %}

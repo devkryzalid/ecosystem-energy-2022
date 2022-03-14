@@ -5,7 +5,7 @@
 {% block content %}
   <div class="container">
 
-    {% include 'partials/titles/block-hero.twig' with { title: 'Awards' } %}
+    {% include 'partials/common/block-hero.twig' with { title: 'Awards' } %}
 
     {% for key, awards_by_year in awards %}
       <div class="award-group">

@@ -9,7 +9,7 @@
     <h1 class="title" data-aos="fade-up" data-aos-delay="200">{{ post.title }}</h1>
 
     <ul class="outcomes">
-      <div class="list-label" data-aos="fade-up" data-aos-delay="600">Outcomes</div>
+      <div class="list-label" data-aos="fade-up" data-aos-delay="600">{{ __('Outcomes', 'ecosystem-energy') }}</div>
       {% for outcome in outcomes_list %}
         <li data-aos="fade-up" data-aos-delay="{{ (loop.index * 100) + 600 }}">{{ outcome.content }}</li>
       {% endfor %}

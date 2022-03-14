@@ -2,7 +2,7 @@
 	<nav id="ajax-pagination">
 
     <div value="prev" class="ajax-page prev">
-      <a class="js-nav">Prev</a>
+      <a class="js-nav">{{ __('Prev', 'ecosystem-energy') }}</a>
     </div>
 
     {% for page in elements.pages %}
@@ -12,7 +12,7 @@
     {% endfor %}
 
     <div value="next" class="ajax-page next">
-      <a class="js-nav">Next</a>
+      <a class="js-nav">{{ __('Next', 'ecosystem-energy') }}</a>
     </div>
 
 	</nav>

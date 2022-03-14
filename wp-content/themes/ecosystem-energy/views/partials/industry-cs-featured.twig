@@ -1,13 +1,13 @@
 <div class="industry-cs-featured">
   <div class="cs-title">
-    <h2 data-aos="fade-up" data-aos-delay="100">Case studies</h2>
-    <p data-aos="fade-up" data-aos-delay="200">Fermentum sagittis aliquam volutpat maecenas egestas. Pharetra gravida nisi dui enim dictumst nulla laoreet. </p>
-    <a href="{{ static_links["case-studies_link"].url }}" class="internal link" data-aos="fade-up" data-aos-delay="300">See all projects</a>
+    <h2 data-aos="fade-up" data-aos-delay="100">{{ __('Case studies', 'ecosystem-energy') }}</h2>
+    <p data-aos="fade-up" data-aos-delay="200">{{ __('Fermentum sagittis aliquam volutpat maecenas egestas. Pharetra gravida nisi dui enim dictumst nulla laoreet.', 'ecosystem-energy') }}</p>
+    <a href="{{ static_links["case-studies_link"].url }}" class="internal link" data-aos="fade-up" data-aos-delay="300">{{ __('See all projects', 'ecosystem-energy') }}</a>
   </div>
 
   {% if featured_case_study|length > 0 %}
     <div class="cs-featured" data-aos="fade-up" data-aos-delay="500">
-      {% include 'partials/block-item.twig' with {
+      {% include 'partials/common/block-item.twig' with {
         title: featured_case_study[0].title,
         image: featured_case_study[0].thumbnail,
         url: featured_case_study[0].link,

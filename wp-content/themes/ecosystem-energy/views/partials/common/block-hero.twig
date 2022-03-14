@@ -15,7 +15,7 @@
   
   <div class="text-ctn {{ text ? '' : 'no-text' }}" data-aos="fade-up" data-aos-delay="200">
     {% if text %} <p class="text">{{ text }}</p> {% endif %}
-    {% if filters %} <a id="toggle-filters" class="btn filters">Filters <span id="filters-count"></span> </a> {% endif %}
+    {% if filters %} <a id="toggle-filters" class="btn filters">{{ __('Filters', 'ecosystem-energy') }} <span id="filters-count"></span> </a> {% endif %}
   </div>
 
 </div>

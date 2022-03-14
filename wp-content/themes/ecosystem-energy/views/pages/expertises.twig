@@ -5,9 +5,9 @@
 {% block content %}
 
   <div class="large container">
-    {% include 'partials/titles/block-hero.twig' with { 
+    {% include 'partials/common/block-hero.twig' with { 
       title: post.title, 
-      text: 'Ecosystem seeks out the inherent efficiency in every system and makes the most of it. The technical measures we implement work together to deliver the results our clients want and need.',
+      text: __('Ecosystem seeks out the inherent efficiency in every system and makes the most of it. The technical measures we implement work together to deliver the results our clients want and need.', 'ecosystem-energy'),
       class: 'content-66'
     } %}
   </div>
@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  {% include 'partials/contact-cta.twig' %}
+  {% include 'partials/common/contact-cta.twig' %}
 
   <div id="side-panel-ctn">
     <div id="panel-overlay"></div>

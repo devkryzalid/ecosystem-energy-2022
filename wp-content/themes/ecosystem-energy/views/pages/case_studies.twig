@@ -5,34 +5,34 @@
 {% block content %}
 
   <div class="large container">
-    {% include 'partials/titles/block-hero.twig' with { 
-      surtitle: 'Case studies',
-      title: 'Working with energy ecosystems is all we do',
-      text: 'We have built a business that re-connects engineering design, construction and commissioning so every choice we make contributes to better project outcomes.',
+    {% include 'partials/common/block-hero.twig' with { 
+      surtitle: __('Case studies', 'ecosystem-energy'),
+      title: __('Working with energy ecosystems is all we do', 'ecosystem-energy'),
+      text: __('We have built a business that re-connects engineering design, construction and commissioning so every choice we make contributes to better project outcomes.', 'ecosystem-energy'),
       filters: true
     } %}
   </div>
 
-  {% include 'partials/lists/filters.twig' with { 
+  {% include 'partials/common/filters.twig' with { 
     featured: featured,
     large: true,
     url: 'case-studies',
     fields: { industries: industries },
-    labels: { industries: 'Sectors' },
+    labels: { industries: __('Sectors', 'ecosystem-energy') },
     limit: 2
   } %}
  
   <div id="ajax-content">
-    {% include 'partials/lists/loading.twig' %}
+    {% include 'partials/common/loading.twig' %}
     <div class="inner">
       {% if case_studies|length %} 
         {% include 'partials/case-studies-list.twig' with { items: case_studies, featured: featured } %}
       {% else %} 
-        {% include 'partials/lists/no-results.twig' %} {% endif %}
+        {% include 'partials/common/no-results.twig' %} {% endif %}
     </div>
   </div>
 
-  {% include 'partials/contact-cta.twig' %}
+  {% include 'partials/common/contact-cta.twig' %}
 
 {% endblock %}
 

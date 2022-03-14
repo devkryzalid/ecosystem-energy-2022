@@ -2,14 +2,14 @@
 
   {# SEARCH FIELD #}
   <form id="search-pane" action="{{ site.url }}" role="search" method="get">
-    <input type="text" name="s" placeholder="Search..." />
+    <input type="text" name="s" placeholder="{{ __('Search', 'ecosystem-energy') }}..." />
     <a id="search-close"><i class="icon-close-medium"></i></a>
   </form>
 
   {# COUNTRY SELECTOR #}
   <form id="country-pane" method="GET">
     <div class="content">
-      <p>To read the appropriate content, please select your country :</p>
+      <p>{{ __('To read the appropriate content, please select your country:', 'ecosystem-energy') }}</p>
 
       <div class="countries">
         <label for="country-all">
@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <button type="submit" id="country-set" class="blue btn">Confirm</button>
+    <button type="submit" id="country-set" class="blue btn">{{ __('Confirm', 'ecosystem-energy') }}</button>
     <a id="country-close"><i class="icon-close-medium"></i></a>
   </form>
 
@@ -38,7 +38,7 @@
     </a>
 
     <nav id="top-menu">
-      <a id="country-toggle"><i class="icon-position-pin"></i> {{ current_locale_name ? current_locale_name : 'Select your country' }}</a>
+      <a id="country-toggle"><i class="icon-position-pin"></i> {{ current_locale_name ? current_locale_name : __('Select your country', 'ecosystem-energy') }}</a>
       <a id="language-toggle">{{ current_lang | upper }}</a>
       <a id="search-toggle"><i class="icon-search"></i></a>
     </nav>
@@ -50,6 +50,6 @@
   </div>
 
   {# MAIN MENU #}
-  {% include 'partials/base/menu.twig' with { items: menu_primary.items } %}
+  {% include 'partials/common/menu.twig' with { items: menu_primary.items } %}
 
 </header>

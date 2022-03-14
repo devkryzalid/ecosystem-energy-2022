@@ -7,8 +7,8 @@
   {# Hero #}
   <div class="blue wrapper">
     <div class="large container">
-      {% include 'partials/titles/block-hero.twig' with { 
-        surtitle: 'Markets',
+      {% include 'partials/common/block-hero.twig' with { 
+        surtitle: __('Markets', 'ecosystem-energy'),
         title: post.title,
         image: post.thumbnail,
         class: 'invert offset-image'
@@ -51,7 +51,7 @@
   </div>
 
   {# Contact CTA #}
-  {% include 'partials/contact-cta.twig' %}
+  {% include 'partials/common/contact-cta.twig' %}
 
 {% endblock %}
 

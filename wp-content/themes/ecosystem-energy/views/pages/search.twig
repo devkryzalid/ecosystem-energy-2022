@@ -6,7 +6,7 @@
 {% block content %}
   <div class="container">
     <div class="block-hero">
-      <div class="results-str"><span id="nb-results">{{ n }}</span> result{{ n > 1 ? 's' : '' }} for</div>
+      <div class="results-str"><span id="nb-results">{{ n }}</span> {{ __('result', 'ecosystem-energy') ~ (n > 1 ? 's ' : ' ') ~ __('for', 'ecosystem-energy') }}</div>
 
       <form class="search-field">
         <input type="hidden" id="ajax-settings" data-url="/ajax/{{ current_lang }}/search" data-limit="2">

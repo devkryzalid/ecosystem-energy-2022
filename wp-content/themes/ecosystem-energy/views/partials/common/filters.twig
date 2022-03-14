@@ -6,7 +6,7 @@
 
       {% if not hideLocale %}
         <div class="filter-group">
-          <div class="title">Countries</div>
+          <div class="title">{{ __('Countries', 'ecosystem-energy') }}</div>
           {% for locale in locales %}
             <div>
               <input id="locale-{{ locale.term_id }}" type="checkbox" name="filter_locale" value="{{ locale.term_id }}" {% if current_locale == locale.term_id %} checked {% endif %} />
@@ -28,7 +28,7 @@
         </div>
       {% endfor %}
 
-      <a class="btn no-icon" id="clear-filters">Clear</a>
+      <a class="btn no-icon" id="clear-filters">{{ __('Clear', 'ecosystem-energy') }}</a>
 
     </div>
   </div>

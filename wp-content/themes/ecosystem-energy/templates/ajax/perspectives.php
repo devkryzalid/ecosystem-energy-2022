@@ -51,7 +51,7 @@ if ($posts->found_posts > 0) {
     $response .= Timber::compile('partials/perspectives-list.twig', ['posts' => $posts]);
     $message = $response;
 } else {
-    $message = Timber::compile('partials/lists/no-results.twig');
+    $message = Timber::compile('partials/common/no-results.twig');
 }
 
 wp_reset_query();

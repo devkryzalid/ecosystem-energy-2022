@@ -4,18 +4,18 @@
 
 {% block content %}
 
-  {% include 'partials/titles/post-hero.twig' with { post: post, tags: tags } %}
+  {% include 'partials/common/post-hero.twig' with { post: post, tags: tags } %}
 
   <div class="small container">
     {{ post.content }}
-    {% include 'partials/share.twig' %}
-    {% include 'partials/author.twig' %}
+    {% include 'partials/common/share.twig' %}
+    {% include 'partials/perspective-author.twig' %}
   </div>
 
   <div class="grey wrapper">
     {% include 'partials/perspective-related.twig' %}
   </div>
 
-  {% include 'partials/contact-cta.twig' %}
+  {% include 'partials/common/contact-cta.twig' %}
   </div>
 {% endblock %}

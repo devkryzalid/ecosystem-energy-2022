@@ -3,7 +3,7 @@
   {% if featured %}
     <div class="large container">
     
-      {% include 'partials/block-item.twig' with { 
+      {% include 'partials/common/block-item.twig' with { 
         title: featured.title,
         surtitle: featured.meta('related_industry')[0],
         url: featured.link,
@@ -19,7 +19,7 @@
 	  <div class="block-list">
       {% for cs in items %}
       
-        {% include 'partials/block-item.twig' with { 
+        {% include 'partials/common/block-item.twig' with { 
           title: cs.title,
           surtitle: cs.meta('related_industry')[0],
           url: cs.link,
@@ -32,6 +32,6 @@
 	  </div>
 	</div>
 
-  {% include 'partials/lists/pagination.twig' with { 'elements': items.pagination(5) } %}
+  {% include 'partials/common/pagination.twig' with { 'elements': items.pagination(5) } %}
 
 {% endblock %}

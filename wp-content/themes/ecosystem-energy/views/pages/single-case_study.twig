@@ -29,17 +29,17 @@
   {# CTAs #}
   <div class="beige wrapper">
     {% if related_industry|length %}
-      {% include 'partials/block-cta.twig' with { 
-        surtitle: 'Your industry',
+      {% include 'partials/common/block-cta.twig' with { 
+        surtitle: __('Your industry', 'ecosystem-energy'),
         title: related_industry[0].title, 
         description: related_industry[0].preview.read_more(false),
         image: related_industry[0].thumbnail,
         buttonUrl: related_industry[0].link,
-        buttonTitle: 'Learn more',
+        buttonTitle: __('Learn more', 'ecosystem-energy'),
       } %}
     {% endif %}
 
-    {% include 'partials/contact-cta.twig' %}
+    {% include 'partials/common/contact-cta.twig' %}
   </div>
 
 {% endblock %}

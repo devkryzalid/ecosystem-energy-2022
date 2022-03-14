@@ -6,7 +6,7 @@
   <div class="blue wrapper">
     <div class="large container">
 
-      {% include 'partials/titles/block-hero.twig' with {
+      {% include 'partials/common/block-hero.twig' with {
         title: post.title,
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor tellus vitae rhoncus odio ullamcorper. Placerat mi felis consequat lobortis. At lobortis eu tincidunt hendrerit. Adipiscing amet faucibus cursus eleifend.',
         class: 'invert'
@@ -15,7 +15,7 @@
       <div class="leadership-list">
         {% for leader in leaders_list %}
 
-          {% include 'partials/block-item.twig' with { 
+          {% include 'partials/common/block-item.twig' with { 
             title: leader.title,
             description: leader.status,
             image: leader.image,
@@ -25,7 +25,7 @@
           } %}
 
           <div class="leader-content" id="content-{{ loop.index }}">
-            {% include 'partials/titles/block-hero.twig' with { 
+            {% include 'partials/common/block-hero.twig' with { 
               title: leader.title,
               description: leader.status,
               image: leader.image,

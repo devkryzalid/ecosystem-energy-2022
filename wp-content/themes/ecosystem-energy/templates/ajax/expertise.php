@@ -49,7 +49,7 @@ if ($currentPost) {
     ]);
     $message = $response;
 } else {
-    $message = Timber::compile('partials/lists/no-results.twig');
+    $message = Timber::compile('partials/common/no-results.twig');
 }
 
 wp_reset_query();

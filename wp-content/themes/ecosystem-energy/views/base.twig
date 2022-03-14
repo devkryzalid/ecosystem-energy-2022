@@ -17,13 +17,13 @@
   <body {{ body_class }} ?>
 
     <div class="page-container {% block pageClass %}{% endblock %}" >
-      {% include 'partials/base/header.twig'%}
+      {% include 'partials/common/header.twig'%}
 
       <div class="page">
         {% block content %}{% endblock %}
       </div>
       
-      {% include 'partials/base/footer.twig' %}
+      {% include 'partials/common/footer.twig' %}
     </div>
     
     {{ function('wp_footer') }}

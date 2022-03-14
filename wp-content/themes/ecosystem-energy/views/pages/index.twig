@@ -5,10 +5,10 @@
 {% block content %}
 
   <div class="large container">
-    {% include 'partials/titles/block-hero.twig' with { title: post.title, filters: true } %}
+    {% include 'partials/common/block-hero.twig' with { title: post.title, filters: true } %}
   </div>
 
-  {% include 'partials/lists/filters.twig' with { 
+  {% include 'partials/common/filters.twig' with { 
     large: true,
     featured: featured,
     url: 'perspectives',
@@ -16,13 +16,13 @@
   } %}
  
   <div id="ajax-content">
-    {% include 'partials/lists/loading.twig' %}
+    {% include 'partials/common/loading.twig' %}
     <div class="inner">
       {% include 'partials/perspectives-list.twig' %}
     </div>
   </div>
 
-  {% include 'partials/contact-cta.twig' %}
+  {% include 'partials/common/contact-cta.twig' %}
 
 {% endblock %}
 

@@ -2,7 +2,7 @@
 
   {% if featured %}
     <div class="large container">
-      {% include 'partials/block-item.twig' with { 
+      {% include 'partials/common/block-item.twig' with { 
         title: featured.title,
         surtitle: featured.meta('related_industry')[0].post_title,
         footer: featured.post_date|date("F d, Y"),
@@ -17,7 +17,7 @@
 	  <div class="block-list">
       {% for perspective in posts %}
       
-        {% include 'partials/block-item.twig' with { 
+        {% include 'partials/common/block-item.twig' with { 
           title: perspective.title,
           surtitle: perspective.meta('related_industry')[0].post_title,
           footer: perspective.post_date|date("F d, Y"),
@@ -30,6 +30,6 @@
 	  </div>
 	</div>
 
-  {% include 'partials/lists/pagination.twig' with { 'elements': posts.pagination(5) } %}
+  {% include 'partials/common/pagination.twig' with { 'elements': posts.pagination(5) } %}
 
 {% endblock %}

@@ -1,7 +1,7 @@
 <div class="container block-cta {{ mirror ? 'mirror' : '' }}">
   {% set tImage = TimberImage(image) %}
 
-  {% include 'partials/block-item.twig' with {
+  {% include 'partials/common/block-item.twig' with {
     surtitle: surtitle,
     title: title,
     description: description,

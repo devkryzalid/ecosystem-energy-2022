@@ -19,8 +19,8 @@
       {% include 'partials/home-sectors.twig' %}
 
       <div class="news-ctn">
-        {% include 'partials/block-item.twig' with { 
-          surtitle: 'News',
+        {% include 'partials/common/block-item.twig' with { 
+          surtitle: __('News', 'ecosystem-energy'),
           title: news[0].title, 
           url: news[0].link, 
           footer: news[0].post_date|date("F d, Y"),
@@ -28,8 +28,8 @@
           delay: 200
         } %}
 
-        {% include 'partials/block-item.twig' with { 
-          surtitle: 'Perspectives',
+        {% include 'partials/common/block-item.twig' with { 
+          surtitle: __('Perspectives', 'ecosystem-energy'),
           title: perspective[0].title, 
           url: perspective[0].link, 
           footer: perspective[0].post_date|date("F d, Y"),
@@ -42,7 +42,7 @@
 
   {# Learn more CTA #}
 	{% if featured_block %}
-    {% include 'partials/block-cta.twig' with { 
+    {% include 'partials/common/block-cta.twig' with { 
       surtitle: featured_block.upper_title,
       title: featured_block.title, 
       description: featured_block.content,
@@ -60,7 +60,7 @@
 
   {# Career CTA #}
 	{% if career_block %}
-    {% include 'partials/block-cta.twig' with { 
+    {% include 'partials/common/block-cta.twig' with { 
       surtitle: career_block.upper_title,
       title: career_block.title, 
       description: career_block.content,
@@ -71,7 +71,7 @@
 	{% endif %}
 
   {# Contact CTA #}
-  {% include 'partials/contact-cta.twig' %}
+  {% include 'partials/common/contact-cta.twig' %}
 
 {% endblock %}
 

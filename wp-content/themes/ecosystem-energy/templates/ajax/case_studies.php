@@ -63,7 +63,7 @@ if ($posts->found_posts > 0 || (isset($featured[0]) && $paged == 1)) {
     );
     $message  = $response;
 } else {
-    $message = Timber::compile('partials/lists/no-results.twig');
+    $message = Timber::compile('partials/common/no-results.twig');
 }
 
 wp_reset_query();

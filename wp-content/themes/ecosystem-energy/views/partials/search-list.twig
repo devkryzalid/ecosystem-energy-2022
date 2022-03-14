@@ -2,7 +2,7 @@
   <div class="results">
 
     {% for post in posts %}
-      {% include 'partials/block-item.twig' with { 
+      {% include 'partials/common/block-item.twig' with { 
         title: post.title,
         surtitle: post.get_post_type.labels.singular_name,
         url: post.link,
@@ -11,6 +11,6 @@
     {% endfor %}
   </div>
 
-  {% include 'partials/lists/pagination.twig' with { 'elements': posts.pagination(5) } %}
+  {% include 'partials/common/pagination.twig' with { 'elements': posts.pagination(5) } %}
 
 </div>

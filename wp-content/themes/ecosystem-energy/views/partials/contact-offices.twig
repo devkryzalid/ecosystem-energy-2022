@@ -14,7 +14,7 @@
 
             <div class="address">
               {{ office.address }}
-              <a class="itinerary" href="">See itinerary</a>
+              <a class="itinerary" href="">{{ __('See itinerary', 'ecosystem-energy') }}</a>
             </div>
           </div>
         </li>
@@ -35,7 +35,7 @@
 
             <div class="address">
               {{ office.address }}
-              <a class="itinerary" href="">See itinerary</a>
+              <a class="itinerary" href="">{{ __('See itinerary', 'ecosystem-energy') }}</a>
             </div>
           </div>
         </li>
@@ -45,8 +45,8 @@
 
   <div id="office-info" data-aos="fade-up">
     <div class="default-content phones">
-      <a href="tel:{{ office.phone }}">123-459-2398</a>
-      <p>ecosystem@ecosystem.com</p>
+      <a href="tel:{{ theme_infos.phone }}">{{ theme_infos.phone }}</a>
+      <p>{{ theme_infos.email }}</p>
     </div>
   </div>
 </div>
