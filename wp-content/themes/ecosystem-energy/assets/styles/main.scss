@@ -24,28 +24,27 @@
 @import "blocks/slider";
 @import "blocks/slider-multiple";
 
-// Base components
-@import "partials/base/header";
-@import "partials/base/menu";
-@import "partials/base/footer";
-
-// Ajax elements
-@import "partials/lists/ajax";
-@import "partials/lists/block-item";
-@import "partials/lists/block-list";
-@import "partials/lists/filters";
-@import "partials/lists/pagination";
-
 // Common elements
-@import "partials/titles/block-hero";
-@import "partials/titles/post-hero";
+@import "partials/common/ajax";
+@import "partials/common/block-cta";
+@import "partials/common/block-hero";
+@import "partials/common/block-item";
+@import "partials/common/block-list";
+@import "partials/common/contact-cta";
+@import "partials/common/filters";
+@import "partials/common/footer";
+@import "partials/common/header";
+@import "partials/common/menu";
+@import "partials/common/pagination";
+@import "partials/common/post-hero";
+@import "partials/common/share";
+@import "partials/common/side-panel";
 
-@import "partials/author";
-@import "partials/block-cta";
+// Page-specific elements
+@import "partials/perspective-author";
 @import "partials/case-study-awards";
 @import "partials/case-study-hero";
 @import "partials/case-study-slider";
-@import "partials/contact-cta";
 @import "partials/contact-offices";
 @import "partials/expertises-featured";
 @import "partials/expertises-list";
@@ -59,8 +58,6 @@
 @import "partials/industry-info-blocks";
 @import "partials/news-nav";
 @import "partials/perspective-related";
-@import "partials/share";
-@import "partials/side-panel";
 
 // Pages
 @import "pages/awards";
