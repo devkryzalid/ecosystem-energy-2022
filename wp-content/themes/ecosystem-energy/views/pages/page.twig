@@ -1,11 +1,9 @@
 {% extends 'base.twig' %}
 
-{% block pageClass %}grey{% endblock %}
+{% block pageClass %}grey default-page{% endblock %}
 
 {% block content %}
-  <div class="large container">
-    {% include 'partials/common/block-hero.twig' with { title: title } %}
-  
-    {{ post }}
+  <div class="container">
+    {{ post.content }}
   </div>
 {% endblock %}
