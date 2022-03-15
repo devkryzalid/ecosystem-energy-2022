@@ -1,29 +1,33 @@
 /**
 * Style only call in Administration
 */
-// $primaryFont: 'Montserrat',
+@import "configs/reset";
+@import "configs/mixins";
+@import "configs/variables";
+
+// $primaryFont: 'Manrope';
 // Helvetica,
 // Arial,
 // sans-serif;
 // $textColor: black;
 // $complementaryColor: black;
 
-// .editor-post-title {
-//   .editor-post-title__input {
-//     font-family: $primaryFont !important;
-//     color: $textColor !important;
-//   }
-// }
+.editor-post-title {
+  .editor-post-title__input {
+    font-family: $primaryFont !important;
+    color: $textColor !important;
+  }
+}
 
-// .wp-block {
-//   max-width: 80% !important;
-// }
+.wp-block {
+  max-width: 80% !important;
+}
 
-// .editor-styles-wrapper {
-
-//   font-family: $primaryFont !important;
-//   color: $textColor !important;
-//   font-size: 16px;
+.editor-styles-wrapper {
+  font-family: $primaryFont !important;
+  color: $textColor !important;
+  font-size: 19px;
+  line-height: normal;
 
 //   h1,
 //   h2,
@@ -155,4 +159,4 @@
 //   }
 
 
-// }
+}
