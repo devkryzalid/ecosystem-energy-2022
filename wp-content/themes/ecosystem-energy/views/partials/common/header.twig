@@ -39,7 +39,7 @@
 
     <nav id="top-menu">
       <a id="country-toggle"><i class="icon-position-pin"></i> {{ current_locale_name ? current_locale_name : __('Select your country', 'ecosystem-energy') }}</a>
-      <a id="language-toggle">{{ current_lang | upper }}</a>
+      {% do action('wpml_add_language_selector') %}
       <a id="search-toggle"><i class="icon-search"></i></a>
     </nav>
 

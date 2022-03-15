@@ -4248,7 +4248,7 @@ a.link.video::after {
   z-index: 800;
   overflow: hidden;
 }
-#header #main-pane #top-menu a {
+#header #main-pane #top-menu a, #header #main-pane #top-menu .wpml-ls-legacy-list-horizontal {
   padding: 20px;
   font-size: 16px;
   font-size: 1rem;
@@ -4257,7 +4257,13 @@ a.link.video::after {
   line-height: 1.375rem;
   letter-spacing: normal;
 }
-#header #main-pane #top-menu a:hover, #header #main-pane #top-menu a:hover i {
+#header #main-pane #top-menu a .wpml-ls-link, #header #main-pane #top-menu .wpml-ls-legacy-list-horizontal .wpml-ls-link {
+  padding: 0;
+}
+#header #main-pane #top-menu a .wpml-ls-link span, #header #main-pane #top-menu .wpml-ls-legacy-list-horizontal .wpml-ls-link span {
+  transition: all 0.4s ease;
+}
+#header #main-pane #top-menu a:hover, #header #main-pane #top-menu a:hover i, #header #main-pane #top-menu a:hover .wpml-ls-link span, #header #main-pane #top-menu .wpml-ls-legacy-list-horizontal:hover, #header #main-pane #top-menu .wpml-ls-legacy-list-horizontal:hover i, #header #main-pane #top-menu .wpml-ls-legacy-list-horizontal:hover .wpml-ls-link span {
   color: #FAB900;
 }
 #header:not(.show-search-pane) #search-pane {
@@ -4370,7 +4376,7 @@ a.link.video::after {
   }
 }
 
-body.menu-open #header #main-pane a, body.menu-open #header #main-pane a i {
+body.menu-open #header #main-pane a, body.menu-open #header #main-pane .wpml-ls-legacy-list-horizontal .wpml-ls-link span, body.menu-open #header #main-pane a i {
   color: white;
 }
 body.menu-open #header #main-pane #logo img.normal {
@@ -4408,7 +4414,7 @@ body.menu-open #header #menu-toggle:hover span {
 .page-container.blue-head #header #main-pane {
   background-color: #242C3E;
 }
-.page-container.blue-head #header #main-pane a, .page-container.blue-head #header #main-pane a i {
+.page-container.blue-head #header #main-pane a, .page-container.blue-head #header #main-pane .wpml-ls-legacy-list-horizontal .wpml-ls-link span, .page-container.blue-head #header #main-pane a i {
   color: white;
 }
 .page-container.blue-head #header #main-pane #logo img.normal {

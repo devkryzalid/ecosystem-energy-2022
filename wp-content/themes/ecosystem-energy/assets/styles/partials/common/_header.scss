@@ -137,11 +137,16 @@
       z-index: 800;
       overflow: hidden;
 
-      a {
+      a, .wpml-ls-legacy-list-horizontal {
         padding: 20px;
         @include fontSize(16, 22, 600);
+        
+        .wpml-ls-link { 
+          padding: 0; 
+          span { transition: $basicTransition; }
+        }
 
-        &:hover, &:hover i { color: $yellow; }
+        &:hover, &:hover i, &:hover .wpml-ls-link span { color: $yellow; }
       }
     }
   }
@@ -252,7 +257,7 @@
 body.menu-open #header {
   // Switch logo version when menu is open
   #main-pane {
-    a, a i { color: white; }
+    a, .wpml-ls-legacy-list-horizontal .wpml-ls-link span, a i { color: white; }
 
     #logo { 
       img.normal { display: none; }
@@ -289,8 +294,8 @@ body.menu-open #header {
 .page-container.blue-head #header {
   #main-pane {
     background-color: $blue;
-    a, a i { color: white; }
-
+    a, .wpml-ls-legacy-list-horizontal .wpml-ls-link span, a i { color: white; }
+    
     #logo { 
       img.normal { display: none; }
       img.invert { display: block; }
