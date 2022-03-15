@@ -43,6 +43,9 @@
       #panel-close { 
         margin: 0 0 0 auto; 
         font-size: 44px;
+        cursor: pointer;
+        i { transition: $basicTransition; }
+        &:hover i { color: $yellow; }
       }
     }
 

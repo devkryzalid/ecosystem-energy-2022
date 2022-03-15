@@ -4949,6 +4949,13 @@ body.menu-open #header #menu-toggle:hover span {
 #side-panel-ctn #panel-content #panel-header #panel-close {
   margin: 0 0 0 auto;
   font-size: 44px;
+  cursor: pointer;
+}
+#side-panel-ctn #panel-content #panel-header #panel-close i {
+  transition: all 0.4s ease;
+}
+#side-panel-ctn #panel-content #panel-header #panel-close:hover i {
+  color: #FAB900;
 }
 #side-panel-ctn #panel-content #panel-body .case-studies {
   position: relative;
@@ -6269,6 +6276,12 @@ body.menu-open #header #menu-toggle:hover span {
 .leadership-page #panel-body .block-hero .social-link {
   margin-top: 20px;
   margin-right: 20px;
+}
+.leadership-page .contact-cta {
+  margin-top: 180px;
+}
+.leadership-page .contact-cta .title {
+  color: white;
 }
 @media (max-width: 768px) {
   .leadership-page .leadership-list {

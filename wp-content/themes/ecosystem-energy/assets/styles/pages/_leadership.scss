@@ -53,6 +53,11 @@
     }
   }
 
+  .contact-cta {
+    margin-top: 180px;
+    .title { color: white; }
+  }
+
   @media (max-width: $tablet) {
     .leadership-list {
       grid-template-columns: 1fr 1fr;
