@@ -2,12 +2,13 @@
   .wrapper.bg-icon::after {
     left: -40px;
     right: auto;
-    top: 50%;
+    top: 350px;
     bottom: 0;
     font-size: 200px;
   }
 
   .news-ctn {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;

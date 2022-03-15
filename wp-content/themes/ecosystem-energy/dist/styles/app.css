@@ -3111,11 +3111,11 @@ h3 {
   background-color: #F6F6F4;
   pointer-events: none;
 }
-.btn:not(.no-icon):not(.btn.circle):hover, .contact-page .contact-form input[type=submit]:not(.no-icon):not(.btn.circle):hover {
+.btn:not(.no-icon):not(.btn.circle):not(input):hover, .contact-page .contact-form input[type=submit]:not(.no-icon):not(.btn.circle):not(input):hover {
   padding-left: 40px;
   padding-right: 70px;
 }
-.btn:not(.no-icon):not(.btn.circle):hover::after, .contact-page .contact-form input[type=submit]:not(.no-icon):not(.btn.circle):hover::after {
+.btn:not(.no-icon):not(.btn.circle):not(input):hover::after, .contact-page .contact-form input[type=submit]:not(.no-icon):not(.btn.circle):not(input):hover::after {
   right: 30px;
   opacity: 1;
 }
@@ -4486,6 +4486,7 @@ body.menu-open #header #menu-toggle:hover span {
   color: #FAB900;
   cursor: pointer;
   transition: all 0.3s ease;
+  height: 60px;
 }
 #menu #primary-menu li a.secondary-link::after, #menu #primary-menu li .secondary-menu a.back.secondary-link::after {
   position: relative;
@@ -4522,6 +4523,7 @@ body.menu-open #header #menu-toggle:hover span {
   line-height: 1.875rem;
   letter-spacing: -0.3px;
   color: white;
+  height: auto;
 }
 #menu #primary-menu li .secondary-menu a.back {
   display: none;
@@ -4694,11 +4696,18 @@ body.menu-open #header #menu-toggle:hover span {
     line-height: 50px;
     line-height: 3.125rem;
     letter-spacing: normal;
+    height: 40px;
+  }
+  #menu #primary-menu li a.secondary-link::after {
+    top: 0px;
   }
   #menu #primary-menu li .secondary-menu {
     margin-top: 170px;
     width: 50%;
     right: 0;
+  }
+  #menu #primary-menu li .secondary-menu a {
+    height: auto;
   }
   #menu #menu-footer {
     display: none;
@@ -5199,7 +5208,8 @@ body.menu-open #header #menu-toggle:hover span {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 30px;
   flex-wrap: wrap;
   min-height: 350px;
   padding: 40px;
@@ -5242,9 +5252,6 @@ body.menu-open #header #menu-toggle:hover span {
   line-height: 1.625rem;
   letter-spacing: normal;
 }
-.contact-offices #office-info .address {
-  flex-basis: 50%;
-}
 .contact-offices #office-info .address p {
   margin: 0;
   font-size: 16px;
@@ -5263,12 +5270,20 @@ body.menu-open #header #menu-toggle:hover span {
   letter-spacing: normal;
 }
 @media (max-width: 768px) {
+  .contact-offices {
+    gap: 0;
+  }
   .contact-offices .lists-ctn {
     flex-direction: column;
     gap: 0;
   }
   .contact-offices ul {
     width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  .contact-offices {
+    display: block;
   }
 }
 
@@ -6166,6 +6181,13 @@ body.menu-open #header #menu-toggle:hover span {
 .contact-page .contact-form input[type=submit] {
   margin: 20px auto;
 }
+@media (max-width: 500px) {
+  .contact-page .grey.wrapper::after {
+    top: -100px;
+    width: 200px;
+    height: 200px;
+  }
+}
 
 .expertises-page {
   position: relative;
@@ -6174,11 +6196,12 @@ body.menu-open #header #menu-toggle:hover span {
 .front-page .wrapper.bg-icon::after {
   left: -40px;
   right: auto;
-  top: 50%;
+  top: 350px;
   bottom: 0;
   font-size: 200px;
 }
 .front-page .news-ctn {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
@@ -6294,6 +6317,19 @@ body.menu-open #header #menu-toggle:hover span {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
+}
+@media (max-width: 768px) {
+  .search-page .block-hero .search-field input {
+    font-size: 40px;
+    font-size: 2.5rem;
+    font-weight: initial;
+    line-height: 40px;
+    line-height: 2.5rem;
+    letter-spacing: normal;
+  }
+  .search-page .results {
+    grid-template-columns: 1fr;
+  }
 }
 
 .case-study-ctn .content-key-data-ctn {

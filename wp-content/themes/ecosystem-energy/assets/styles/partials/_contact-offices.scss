@@ -44,7 +44,8 @@
 
   #office-info {
     flex: 1 1 auto;
-    @include flex(flex-start, center);
+    @include flex(flex-start, flex-start);
+    gap: 30px;
     flex-wrap: wrap;
     min-height: 350px;
     padding: 40px;
@@ -82,8 +83,6 @@
     }
 
     .address {
-      flex-basis: 50%;
-      
       p { 
         margin: 0;
         @include fontSize(16, 24, 400);
@@ -96,10 +95,17 @@
   }
 
   @media (max-width: $tablet) {
+    gap: 0;
+
     .lists-ctn { 
       flex-direction: column; 
       gap: 0;
     }
+
     ul { width: 100%; }
+  }
+
+  @media (max-width: $mobile-large) {
+    display: block;
   }
 }

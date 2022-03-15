@@ -89,7 +89,7 @@
     }
   }
 
-  &:not(.no-icon):hover {
+  &:not(.no-icon):not(input):hover {
     padding-left: 40px;
     padding-right: 70px;
 

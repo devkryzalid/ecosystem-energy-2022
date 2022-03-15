@@ -76,6 +76,7 @@ $text-open-transition-delay: 0ms;
         color: $yellow;
         cursor: pointer;
         transition: all 0.3s ease;
+        height: 60px;
 
         &.secondary-link::after {
           position: relative;
@@ -109,6 +110,7 @@ $text-open-transition-delay: 0ms;
           display: block;
           @include fontSize(22, 30, 500, -0.3);
           color: white;
+          height: auto;
 
           &.back { 
             display: none;
@@ -294,12 +296,17 @@ $text-open-transition-delay: 0ms;
       li {
         padding-left: 40px;
 
-        a { @include fontSize(30, 50, 500); }
+        a { 
+          @include fontSize(30, 50, 500); 
+          height: 40px;
+          &.secondary-link::after { top: 0px; }
+        }
 
         .secondary-menu {
           margin-top: $header-height-tablet;
           width: 50%;
           right: 0;
+          a { height: auto; }
         }
       }
     }

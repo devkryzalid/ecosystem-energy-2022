@@ -34,4 +34,17 @@
     grid-template-columns: 1fr 1fr;
     gap: 40px;
   }
+
+  @media (max-width: $tablet) {
+    .block-hero {
+      .search-field {
+        input {
+          @include fontSize(40, 40);
+        }
+      }
+    }
+    .results {
+      grid-template-columns: 1fr;
+    }
+  }
 }
