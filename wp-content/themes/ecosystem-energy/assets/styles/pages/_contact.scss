@@ -1,6 +1,13 @@
 .contact-page {
   .grey.wrapper {
     padding: 100px 0;
+
+    &::after {
+      right: auto;
+      bottom: auto;
+      top: -150px;
+      left: -100px;
+    }
   }
 
   .contact-form {
@@ -52,6 +59,10 @@
 
     textarea { height: 230px; }
     .gform_footer { text-align: center; }
-    input[type="submit"] { @extend .btn; }
+
+    input[type="submit"] { 
+      @extend .btn; 
+      margin: 20px auto;
+    }
   }
 }

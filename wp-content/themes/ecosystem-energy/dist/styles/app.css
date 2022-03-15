@@ -635,8 +635,8 @@ template {
 
 @font-face {
   font-family: "icomoon";
-  src: url(../fonts/icomoon.5c2b76d29bda8bf9825a.eot?yhu72h);
-  src: url(../fonts/icomoon.5c2b76d29bda8bf9825a.eot?yhu72h#iefix) format("embedded-opentype"), url(../fonts/icomoon.244f470aa94885232914.ttf?yhu72h) format("truetype"), url(../fonts/icomoon.2d5f8ef0419337f8ed3d.woff?yhu72h) format("woff"), url(../fonts/icomoon.dd6541a8f51ac31fc411.svg?yhu72h#icomoon) format("svg");
+  src: url(../fonts/icomoon.0feaedb9aeaff2abf446.eot?p0fx7a);
+  src: url(../fonts/icomoon.0feaedb9aeaff2abf446.eot?p0fx7a#iefix) format("embedded-opentype"), url(../fonts/icomoon.6529d8163a09ef1f1117.ttf?p0fx7a) format("truetype"), url(../fonts/icomoon.e070c38b23d212e12259.woff?p0fx7a) format("woff"), url(../fonts/icomoon.d8ffa0904c4861c187a6.svg?p0fx7a#icomoon) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -646,7 +646,7 @@ template {
   font-family: "icomoon" !important;
   speak: never;
   font-style: normal;
-  font-weight: 400 !important;
+  font-weight: normal;
   font-variant: normal;
   text-transform: none;
   line-height: 1;
@@ -2427,12 +2427,15 @@ ul li {
   background-color: #FCF9F0;
 }
 .wrapper.bg-icon::after {
+  content: " ";
   position: absolute;
   right: -150px;
-  bottom: 50px;
-  content: "\e902";
-  font-size: 300px;
-  color: #FAB900;
+  bottom: -50px;
+  width: 300px;
+  height: 300px;
+  background-image: url(../images/ui/symbol-eco.64bf48f21d68d1aa1529.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 @media (max-width: 992px) {
   .wrapper.bg-icon::after {
@@ -2440,7 +2443,7 @@ ul li {
   }
 }
 
-.icomoon, .sectors-ctn .content-column a::after, .contact-offices #office-info .phones .phone::before, .block-hero.post-hero .title-ctn .category::after, .block-item.featured .content::after, .block-item .content .surtitle::before, .block-item .image::after, a.link::after, a.link::before, .slider .swiper-navigation div, .industry-cs-slider .swiper-navigation div, .content-slider-multiple-ctn .swiper-navigation div, .content-slider-ctn .swiper-navigation div, .wrapper.bg-icon::after {
+.icomoon, .sectors-ctn .content-column a::after, .contact-offices #office-info .phones .phone::before, .block-hero.post-hero .title-ctn .category::after, .block-item.featured .content::after, .block-item .content .surtitle::before, .block-item .image::after, a.link::after, a.link::before, .slider .swiper-navigation div, .industry-cs-slider .swiper-navigation div, .content-slider-multiple-ctn .swiper-navigation div, .content-slider-ctn .swiper-navigation div {
   font-family: "icomoon" !important;
   font-weight: 400 !important;
 }
@@ -6090,6 +6093,12 @@ body.menu-open #header #menu-toggle:hover span {
 .contact-page .grey.wrapper {
   padding: 100px 0;
 }
+.contact-page .grey.wrapper::after {
+  right: auto;
+  bottom: auto;
+  top: -150px;
+  left: -100px;
+}
 .contact-page .contact-form {
   max-width: 1000px;
   margin: auto;
@@ -6154,6 +6163,10 @@ body.menu-open #header #menu-toggle:hover span {
 .contact-page .contact-form .gform_footer {
   text-align: center;
 }
+.contact-page .contact-form input[type=submit] {
+  margin: 20px auto;
+}
+
 .expertises-page {
   position: relative;
 }

@@ -112,13 +112,15 @@ ul {
 
   // Yellow icon in background
   &.bg-icon::after { 
+    content: ' ';
     position: absolute;
     right: -150px;
-    bottom: 50px;
-    @extend .icomoon;
-    content: "\e902";
-    font-size: 300px;
-    color: $yellow;
+    bottom: -50px;
+    width: 300px;
+    height: 300px;
+    background-image: url('/assets/images/ui/symbol-eco.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
 
     @media (max-width: $tablet-large) {
       bottom: -100px;
