@@ -1,4 +1,7 @@
 <?php
+/*
+ *	Template Name: Archive Perspective
+ */
 
 // Get params
 $limit      = empty($_GET['limit']) ? 9 : $_GET['limit'];
@@ -66,5 +69,6 @@ if (empty($featured)) {
 }
 // Get Post
 $context['posts'] = new Timber\PostQuery($args);
+dd($context['posts']);
 
 Timber::render('pages/index.twig', $context);
