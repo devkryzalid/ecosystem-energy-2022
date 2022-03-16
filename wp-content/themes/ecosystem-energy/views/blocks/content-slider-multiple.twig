@@ -1,35 +1,11 @@
-{% set images = fields["slider_images"] %}
+{# Since this component is full-width, the previous container tag must be closed beforehand #}
+</div> 
 
-{% if images %}
-  {# Since this component is full-width, the previous container tag must be closed beforehand #}
+<div class="gutenberg-slider-multiple">
+  <div class="container">
+    {% include 'blocks/content-slider-multiple-inner.twig' %}
   </div>
+</div>
 
-	<div class="content-slider-multiple-ctn">
-		<div class="container">
-      {% if fields.title %} <h2>{{ fields.title }}</h2> {% endif %}
-
-      <div class="swiper-container">
-        <div class="swiper-wrapper">
-        
-          {% for image in images %}
-            <div class="swiper-slide">
-              <img src="{{image['sizes']['slider-large']}}" alt="">
-              {% if image.caption %}<div class="caption">{{ image.caption }}</div> {% endif %}
-            </div>
-          {% endfor %}
-
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-
-      <div class="swiper-navigation">
-        <div class="prev"></div>
-        <div class="next"></div>
-      </div>
-
-    </div>
-	</div>
-
-  {# The regular container tag is re-opened afterwards #}
-	<div class="container">
-{% endif %}
+{# The regular container tag is re-opened afterwards #}
+<div class="container">

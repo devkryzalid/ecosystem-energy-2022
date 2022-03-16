@@ -8,7 +8,6 @@
 @import "configs/grid";
 
 @import "commons/global";
-// @import "commons/hamburger";
 @import "commons/print";
 
 @import "commons/buttons";
@@ -21,8 +20,8 @@
 @import "blocks/cta-block";
 @import "blocks/general";
 @import "blocks/key-data";
-@import "blocks/slider";
 @import "blocks/slider-multiple";
+@import "blocks/slider-single";
 
 // Common elements
 @import "partials/common/ajax";
@@ -40,6 +39,7 @@
 @import "partials/common/post-hero";
 @import "partials/common/share";
 @import "partials/common/side-panel";
+@import "partials/common/slider";
 
 // Page-specific elements
 @import "partials/perspective-author";

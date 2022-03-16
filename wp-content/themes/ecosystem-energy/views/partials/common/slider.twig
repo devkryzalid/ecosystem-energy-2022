@@ -1,0 +1,23 @@
+<div class="slider-ctn {% block cls %}{% endblock %}">
+  <div class="slider-title">
+    {% block title %}{% endblock %}
+  </div>
+
+  <div class="slider-slides">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">{% block slides %}{% endblock %}</div>
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="swiper-navigation">
+      <div class="prev-container" data-aos="fade-right" data-aos-delay="800">
+        <div class="prev"></div>
+      </div>
+      <div class="next-container" data-aos="fade-left" data-aos-delay="950">
+        <div class="next"></div>
+      </div>
+    </div>
+  </div>
+  
+  {% block footer %}{% endblock %}
+</div>

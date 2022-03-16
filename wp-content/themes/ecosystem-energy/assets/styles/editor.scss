@@ -4,13 +4,11 @@
 @import "configs/reset";
 @import "configs/mixins";
 @import "configs/variables";
-
-// $primaryFont: 'Manrope';
-// Helvetica,
-// Arial,
-// sans-serif;
-// $textColor: black;
-// $complementaryColor: black;
+@import "configs/icons";
+@import "configs/grid";
+@import "commons/global";
+@import "commons/buttons";
+@import "commons/links";
 
 .editor-post-title {
   .editor-post-title__input {
@@ -29,6 +27,14 @@
   font-size: 19px;
   line-height: normal;
 
+  hr { width: 100% !important; }
+
+  .color-block {
+    padding: 20px;
+    &.yellow { background-color: $yellow; }
+    &.blue { background-color: $blue; color: white; }
+  }
+
 //   h1,
 //   h2,
 //   h3,
@@ -42,29 +48,6 @@
 
 //   .wp-block-button__link {}
 
-
-//   /*** Block Google Maps ***/
-
-//   .gmap-wrapper {
-//     width: 100%;
-//     height: 200px;
-//     background-color: rgba(45, 162, 183, 0.2);
-
-//     .acf-map {
-//       width: 100%;
-//       height: 100%;
-//       position: relative;
-
-//       &:after {
-//         position: absolute;
-//         content: "Google Maps";
-//         width: 100px;
-//         top: 50%;
-//         left: 50%;
-//         transform: translate(-50%, -50%);
-//       }
-//     }
-//   }
 
 //   /*** Block Custom Gallery ***/
 

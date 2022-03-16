@@ -1,15 +1,17 @@
-.content-slider-multiple-ctn {
-  @extend .slider;
-  background-color: $blue;
-  padding: 70px 0 60px;
+.gutenberg-slider-multiple {
+  @extend .wrapper;
+  @extend .blue;
+  padding: 100px 0;
 
-  h2 { color: white; }
+  .slider-ctn { @extend .no-overflow; }
 
-  .swiper-container { position: relative; }
+  h2 {
+    margin: 0 0 50px;
+    @include fontSize(42, 38);
+    color: white;
+  }
 
   .swiper-slide {
-    max-height: 600px;
-
     .caption {
       padding: 10px 0;
       color: white;

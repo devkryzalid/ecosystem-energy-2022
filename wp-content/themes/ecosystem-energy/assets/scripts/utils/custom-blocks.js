@@ -2,8 +2,8 @@ import Swiper, { Navigation } from 'swiper';
 
 Swiper.use([Navigation]);
 
-// Apply Swiper mechanics to all image sliders
-document.querySelectorAll('.content-slider-ctn').forEach((el, index) => {
+// Apply Swiper mechanics to all single-image sliders
+document.querySelectorAll('.gutenberg-slider-single').forEach((el, index) => {
   const id = 'slider-' + index;
   el.setAttribute('id', id);
   const swiperContainer = el.querySelector('.swiper-container');
@@ -15,16 +15,20 @@ document.querySelectorAll('.content-slider-ctn').forEach((el, index) => {
 });
 
 // Apply Swiper mechanics to all multiple-image sliders
-document.querySelectorAll('.content-slider-multiple-ctn').forEach((el, index) => {
+document.querySelectorAll('.gutenberg-slider-multiple').forEach((el, index) => {
   const id = 'slider-multiple-' + index;
   el.setAttribute('id', id);
   const swiperContainer = el.querySelector('.swiper-container');
   const slider = new Swiper(swiperContainer, {
       speed: 300,
-      loop: true,
-      slidesPerView: 3,
-      spaceBetween: 40,
-      navigation: { nextEl: `#${id} .next`, prevEl: `#${id} .prev` }
+      loop: false,
+      slidesPerView: 1,
+      spaceBetween: 30,
+      navigation: { nextEl: `#${id} .next`, prevEl: `#${id} .prev` },
+      breakpoints: {
+        768: { slidesPerView: 3 },
+        500: { slidesPerView: 2 },
+      }
   });
 });
 

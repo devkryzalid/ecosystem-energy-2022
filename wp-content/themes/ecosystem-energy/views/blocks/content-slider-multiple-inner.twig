@@ -1,7 +1,5 @@
 {% extends 'partials/common/slider.twig' %}
 
-{% block cls %} gutenberg-slider-single {% endblock %}
-
 {% if fields.title %} 
   {% block title %} <h2>{{ fields.title }}</h2> {% endblock %}
 {% endif %}
@@ -9,8 +7,8 @@
 {% block slides %}
   {% for image in fields.slider_images %}
     <div class="static swiper-slide">
-      <img src="{{ image['sizes']['slider-large'] }}" alt="">
-      {% if image.caption %}<div class="caption"><p>{{ image.caption }}</p></div> {% endif %}
+      <img src="{{image['sizes']['slider-large']}}" alt="">
+      {% if image.caption %}<div class="caption">{{ image.caption }}</div> {% endif %}
     </div>
   {% endfor %}
 {% endblock %}

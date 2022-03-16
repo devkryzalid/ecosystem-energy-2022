@@ -1,6 +1,7 @@
 .case-study-slider {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  @extend .wrapper;
+  @extend .blue;
+  padding: 100px 0;
 
   h2 {
     margin: 0 0 50px;
@@ -11,17 +12,28 @@
   .category {
     position: absolute;
     right: 0;
-    top: 140px;
+    top: 24px;
     color: white;
   }
 
   @media (max-width: $tablet-large) {
-    h2 { margin-bottom: 0; }
+    padding: 50px 0;
+
+    h2 { margin-bottom: 20px; }
 
     .category {
       position: relative;
       top: 0;
       margin-bottom: 60px;
     }
+  }
+
+  @media (max-width: $tablet) {
+    h2 { 
+      @include fontSize(36, 42, 600);
+      text-align: center; 
+    }
+
+    .category { text-align: center; }
   }
 }

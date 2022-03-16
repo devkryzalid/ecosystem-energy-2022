@@ -1,0 +1,132 @@
+// JS swiper
+$image-height: 240px;
+
+.slider-ctn {
+  position: relative;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($blue, 0.8);
+    z-index: 2;
+  }
+
+  &::after {
+    left: auto;
+    right: -100%;
+  }
+
+  .slider-title, .slider-slides { position: relative; }
+  .slider-title { z-index: 9; }
+
+  .swiper-slide {
+    height: auto;
+
+    .surtitle {
+      margin-top: 10px;
+      @include fontSize(14, 19);
+      color: $yellow;
+    }
+
+    .title {
+      margin-top: 20px;
+      @include fontSize(24, 30);
+      color: white;
+      transition: $basicTransition; 
+    }
+    
+    img { 
+      width: 100%;
+      height: $image-height;
+      object-fit: cover;
+      transition: $basicTransition;
+      opacity: 1;
+    }
+
+    &:not(.static):hover {
+      img { opacity: 0.5; }
+      .title { color: $yellow !important; }
+    }
+  }
+
+  .swiper-navigation {
+    @include flex();
+    position: absolute;
+    top: calc($image-height / 2);
+    width: 100%;
+    height: 0;
+    z-index: 3;
+    pointer-events: none;
+
+    & > div {
+      @include flex();
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+      pointer-events: all !important;
+      transition: all 0.5s ease-out;
+
+      & > div {
+        @include flex();
+        @extend .icomoon;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: $yellow;
+        border-radius: 50%;
+        transition: all 0.5s ease-out;
+
+        &:hover { 
+          background-color: $blue;
+          color: white;
+        }  
+      }
+    }
+
+    .prev-container {
+      left: -100px;
+      .prev { @extend .icon-small-arrow-left; }
+    } 
+
+    .next-container {
+      right: -100px;
+      .next { @extend .icon-small-arrow-right; }
+    }
+
+    .swiper-button-disabled, .swiper-button-disabled:hover { 
+      background-color: $darkblue; 
+      pointer-events: none !important; 
+    }
+  }
+
+  &.no-overflow { 
+    &::before, &::after { display: none; }
+    .swiper-container { overflow: hidden; } 
+  }
+
+  @media (max-width: 1360px) {
+    .swiper-navigation { 
+      .prev-container { left: 20px; }
+      .next-container { right: 20px; }
+    }
+  }
+
+  @media (max-width: $tablet) {
+    &::before { left: -93%; }
+    &::after { right: -93%; }
+
+    .swiper-container { margin: 0 40px; }
+
+    .swiper-navigation { 
+      div { @include size(50px); }
+      .prev-container { left: 0; }
+      .next-container { right: 0; }
+    }
+  }
+}

@@ -1,6 +1,7 @@
 .home-slider {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  @extend .wrapper;
+  @extend .blue;
+  padding: 100px 0;
 
   h2 {
     margin: 0 0 50px;
@@ -8,23 +9,55 @@
     color: white;
   }
 
-  .link {
-    position: absolute;
-    right: 0;
-    top: 140px;
+  .surtitle::before {
+    margin-right: 10px;
+    @extend .icomoon;
+    content: "\e90e";
+    font-size: 10px;
+  }
+
+  .desktop-link, .mobile-link {
     color: $yellow;
+    z-index: 15;
+  }
+
+  .desktop-link { 
+    position: absolute; 
+    top: 25px;
+    right: 0;
+  }
+
+  .mobile-link { 
+    display: none;
+    margin: 30px 60px 120px;
+    text-align: center; 
   }
 
   @media (max-width: $tablet-large) {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: 50px 0;
 
     h2 { margin-bottom: 20px; }
 
-    .link {
+    .desktop-link {
       position: relative;
       top: 0;
       margin-bottom: 50px;
     }
+  }
+
+  @media (max-width: $tablet) {
+    h2 { 
+      margin: 120px 60px 60px;
+      @include fontSize(36, 42, 600);
+      text-align: center; 
+    }
+
+    .desktop-link { display: none; }
+    .mobile-link { display: block; }
+  }
+
+  @media (max-width: $mobile-large) {
+    h2 { margin: 100px 20px 40px; }
+    .mobile-link { margin: 40px 0 80px; }
   }
 }
