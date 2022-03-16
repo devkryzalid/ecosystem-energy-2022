@@ -83,7 +83,7 @@ ul {
   }
 }
 
-@keyframes rotate { to { transform: rotate(360deg); } }
+@keyframes rotate { to { transform: rotate(-360deg); } }
 
 // CUSTOM
 

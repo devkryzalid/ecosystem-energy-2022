@@ -25,7 +25,7 @@ if (spinner) {
   let rotation = 0;
 
   setInterval(() => {
-    rotation = rotation > 360 ? 0 : (rotation + speed);
+    rotation = rotation < -360 ? 0 : (rotation - speed);
     spinner.style.transform = 'rotate(' + rotation + 'deg)'; 
   }, timer)
 }

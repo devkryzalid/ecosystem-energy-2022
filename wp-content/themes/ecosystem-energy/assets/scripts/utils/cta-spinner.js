@@ -7,7 +7,7 @@ if (image) {
   let rotation = 0;
 
   setInterval(() => {
-    rotation = rotation > 360 ? 0 : (rotation + speed);
+    rotation = rotation < -360 ? 0 : (rotation - speed);
     image.style.transform = 'rotate(' + rotation + 'deg)'; 
   }, timer)
 }
