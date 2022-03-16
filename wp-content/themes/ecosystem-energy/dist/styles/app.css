@@ -5485,6 +5485,7 @@ body.menu-open #header #menu-toggle:hover span {
 }
 .expertises-list .grid-list .link-item {
   position: relative;
+  height: 300px;
   overflow: hidden;
   cursor: pointer;
 }
@@ -5536,6 +5537,9 @@ body.menu-open #header #menu-toggle:hover span {
   .expertises-list .grid-list {
     grid-template-columns: 1fr 1fr;
   }
+  .expertises-list .grid-list .link-item {
+    height: 200px;
+  }
   .expertises-list .grid-list .link-item h3 {
     padding: 18px;
     font-size: 18px;
@@ -5544,6 +5548,11 @@ body.menu-open #header #menu-toggle:hover span {
     line-height: 24px;
     line-height: 1.5rem;
     letter-spacing: normal;
+  }
+}
+@media (max-width: 350px) {
+  .expertises-list .grid-list {
+    grid-template-columns: 1fr;
   }
 }
 
