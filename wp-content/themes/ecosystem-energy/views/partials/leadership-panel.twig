@@ -1,15 +1,12 @@
+<div id="side-panel-ctn">
+  <div id="panel-overlay"></div>
 
-            {# <div>
-              <p>{{ leader.content }}</p>
-              {% if leader.social_link|length > 0%}
-                <ul>
-                  {% for social_link in leader.social_link %}
-                    <li>
-                      <a href="{{ social_link.link }}">{{ social_link.type.value }}
-                        -
-                        {{ social_link.type.label }}</a>
-                    </li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-            </div> #}
+  <div id="panel-content">
+    <div id="panel-header">
+      <a id="panel-prev" data-id="1" class="small circle btn"><i class="icon-small-arrow-left"></i></a>
+      <a id="panel-next" data-id="2" class="small circle btn"><i class="icon-small-arrow-right"></i></a>
+      <a id="panel-close" class=""><i class="icon-close-medium"></i></a>
+    </div>
+    <div id="panel-body"></div>
+  </div>
+</div>

@@ -2,71 +2,8 @@
   position: relative;
   background-color: $blue;
 
-  .leadership-list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 50px;
-
-    .block-item {
-      cursor: pointer;
-      
-      .content {
-        background-color: $altblue;
-  
-        .title {
-          margin: 0;
-          padding-bottom: 0;
-          @include fontSize(24, 36, 500);
-          color: white;
-        }
-  
-        .description {
-          margin: 0;
-          padding-bottom: 30px;
-          @include fontSize(16, 22);
-          color: $yellow;
-        }
-      }
-
-      &:hover {
-        .title, .description { color: $darkgrey; }
-      }
-    }
-  }
-
-  .leader-content {
-    display: none;
-  }
-
-  #panel-body {
-    .block-hero {
-      padding-top: 0;
-
-      .status {
-        opacity: 0.6;
-      }
-
-      .social-link {
-        margin-top: 20px;
-        margin-right: 20px;
-      }
-    }
-  }
-
   .contact-cta {
     margin-top: 180px;
     .title { color: white; }
-  }
-
-  @media (max-width: $tablet) {
-    .leadership-list {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  @media (max-width: $mobile-large) {
-    .leadership-list {
-      grid-template-columns: 1fr;
-    }
   }
 }

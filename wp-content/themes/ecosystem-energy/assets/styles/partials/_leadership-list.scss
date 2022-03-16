@@ -1,0 +1,41 @@
+.leadership-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+
+  .block-item {
+    cursor: pointer;
+    
+    .content {
+      background-color: $altblue;
+      padding-bottom: 30px;
+
+      .title {
+        margin: 0;
+        padding-bottom: 0;
+        @include fontSize(24, 36, 500);
+        color: white;
+      }
+
+      .description {
+        margin: 0;
+        @include fontSize(16, 22);
+        color: $yellow;
+      }
+    }
+
+    &:hover {
+      .title, .description { color: $darkgrey; }
+    }
+  }
+
+  .leader-content { display: none; }  
+
+  @media (max-width: $tablet) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: $mobile-large) {
+    grid-template-columns: 1fr;
+  }
+}

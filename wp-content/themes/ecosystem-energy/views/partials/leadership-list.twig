@@ -1,0 +1,35 @@
+<div class="leadership-list">
+  {% for leader in leaders_list %}
+
+    {% include 'partials/common/block-item.twig' with { 
+      title: leader.title,
+      description: leader.status,
+      image: leader.image,
+      url: '#',
+      class: 'text-padding invert auto-height link-item',
+      data_id: loop.index
+    } %}
+
+    <div class="leader-content" data-id="{{ loop.index }}" id="content-{{ loop.index }}">
+      <div class="block-hero v-centered-title reverse">
+        <div class="title-ctn">
+          <h1 class="title" data-aos="fade-up" data-aos-delay="100">{{ leader.title }}</h1>
+          <p class="status">{{ leader.status }}</p>
+          <div class="social">
+            {% for s in leader.social_link %}
+              <a class="social-link" href="{{ s.link }}">{{ s.type.label }}</a>
+            {% endfor %}
+          </div>
+        </div>
+
+        {% set tImage = TimberImage(leader.image) %}
+        <div class="image-ctn" data-aos="fade-up" data-aos-delay="200">
+          <img src="{{ tImage.src('large') }}" alt="{{ tImage.title }}">
+        </div>
+
+        <div class="text">{{ leader.content }}</div>
+      </div>
+    </div>
+
+  {% endfor %}
+</div>
