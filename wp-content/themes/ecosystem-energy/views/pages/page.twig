@@ -4,6 +4,7 @@
 
 {% block content %}
   <div class="container">
+    {% include 'partials/common/block-hero.twig' with { title: title } %}
     {{ post.content }}
   </div>
 {% endblock %}
