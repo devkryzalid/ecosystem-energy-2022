@@ -51,10 +51,12 @@
 
         .content {
           @include flex(flex-start, space-between);
+          gap: 30px;
           width: 100%;
         }
 
         .title {
+          flex: 0 0 50%;
           margin: 0 auto 0 0;
 
           h3 { 
@@ -70,7 +72,12 @@
 
         .link-ctn {
           flex-basis: 50%;
-          a { @include fontSize(18, 24, 600); }
+
+          a { 
+            &::after { color: $darkgrey; }
+            &:hover::after { color: $yellow; };
+            @include fontSize(18, 24, 600); 
+          }
         }
       }
     }
@@ -107,6 +114,14 @@
         .content { flex-direction: column; }
         .title p { margin-top: 0; }
         .link-ctn { margin-top: 10px; }
+      }
+    }
+  }
+
+  @media (max-width: $mobile) {
+    .award-group {
+      ul li {
+        flex-direction: column;
       }
     }
   }

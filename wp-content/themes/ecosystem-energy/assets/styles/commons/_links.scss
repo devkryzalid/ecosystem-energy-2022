@@ -40,7 +40,8 @@ a.link {
 
   &.external {
     &::after {
-      content: "\e910";
+      content: "\e914";
+      font-size: 12px;
     }
   }
 

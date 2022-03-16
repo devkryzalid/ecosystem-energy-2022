@@ -2430,7 +2430,8 @@ a.link.internal:hover::after {
   font-size: 20px;
 }
 a.link.external::after {
-  content: "\e910";
+  content: "\e914";
+  font-size: 12px;
 }
 a.link.download::after {
   content: "\e90f";

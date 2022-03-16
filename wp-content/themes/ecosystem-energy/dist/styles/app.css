@@ -3060,7 +3060,8 @@ a.link.internal:hover::after {
   font-size: 20px;
 }
 a.link.external::after {
-  content: "\e910";
+  content: "\e914";
+  font-size: 12px;
 }
 a.link.download::after {
   content: "\e90f";
@@ -6251,9 +6252,11 @@ body.menu-open #header #menu-toggle:hover span {
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
+  gap: 30px;
   width: 100%;
 }
 .awards-page .award-group ul li .title {
+  flex: 0 0 50%;
   margin: 0 auto 0 0;
 }
 .awards-page .award-group ul li .title h3 {
@@ -6284,6 +6287,12 @@ body.menu-open #header #menu-toggle:hover span {
   line-height: 24px;
   line-height: 1.5rem;
   letter-spacing: normal;
+}
+.awards-page .award-group ul li .link-ctn a::after {
+  color: #494843;
+}
+.awards-page .award-group ul li .link-ctn a:hover::after {
+  color: #FAB900;
 }
 @media (max-width: 992px) {
   .awards-page .award-group {
@@ -6327,6 +6336,11 @@ body.menu-open #header #menu-toggle:hover span {
   }
   .awards-page .award-group ul li .link-ctn {
     margin-top: 10px;
+  }
+}
+@media (max-width: 425px) {
+  .awards-page .award-group ul li {
+    flex-direction: column;
   }
 }
 

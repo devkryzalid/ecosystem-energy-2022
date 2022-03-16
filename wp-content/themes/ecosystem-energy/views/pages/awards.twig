@@ -15,7 +15,11 @@
 
             <li data-aos="fade-up">
               <div class="logo">
-                <img class="" src="{{ award.award.thumbnail.src('medium') }}" alt="{{ award.award.thumbnail.title }}">
+                {% if award.award.thumbnail %}
+                  <img class="" src="{{ award.award.thumbnail.src('medium') }}" alt="{{ award.award.thumbnail.title }}">
+                {% else %}
+                  {{ award.award.title }}
+                {% endif %}
               </div>
 
               <div class="content">
