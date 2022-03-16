@@ -3540,7 +3540,7 @@ a.link.video::after {
 .block-hero.offset-image {
   position: relative;
   bottom: -70px;
-  margin-bottom: 70px;
+  margin-bottom: 100px;
   margin-top: -70px;
   padding-bottom: 0;
 }
@@ -4025,7 +4025,7 @@ a.link.video::after {
   justify-content: space-between;
   flex-basis: 100%;
   margin-top: 40px;
-  padding: 20px 0 50px;
+  padding: 20px 0 70px;
   border-top: 1px solid rgba(73, 72, 67, 0.2);
 }
 #footer .sub-footer div {
@@ -4052,7 +4052,7 @@ a.link.video::after {
   background-color: #F6F6F4;
 }
 
-.page-container.blue-head #footer div, .page-container.blue-head #footer a:not(:hover) {
+.page-container.blue-footer #footer div, .page-container.blue-footer #footer a:not(:hover) {
   color: white;
 }
 

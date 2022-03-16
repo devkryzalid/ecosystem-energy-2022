@@ -24,7 +24,7 @@
     @include flex(center, space-between);
     flex-basis: 100%;
     margin-top: 40px;
-    padding: 20px 0 50px;
+    padding: 20px 0 70px;
     border-top: 1px solid $borderColor;
 
     div { 
@@ -46,7 +46,7 @@
 }
 
 // Set link color to white if blue background
-.page-container.blue-head #footer {
+.page-container.blue-footer #footer {
   div, a:not(:hover) { color: white; }
 }
 
