@@ -3119,6 +3119,7 @@ a.link.video::after {
   top: 0;
   right: 0;
   padding: 30px 40px;
+  pointer-events: none;
 }
 .content-accordion-ctn i.minus {
   display: none;
