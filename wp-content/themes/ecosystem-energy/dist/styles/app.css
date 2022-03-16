@@ -2994,7 +2994,7 @@ h3 {
   border-radius: 50%;
 }
 .btn.circle:hover, .contact-page .contact-form input.circle[type=submit]:hover {
-  scale: 1.1;
+  transform: scale(1.1);
   background-color: #FAB900;
   color: #242C3E;
 }
@@ -3435,15 +3435,19 @@ a.link.video::after {
 .block-cta .image {
   max-height: none !important;
 }
-.block-cta .btn, .block-cta .contact-page .contact-form input[type=submit], .contact-page .contact-form .block-cta input[type=submit] {
+.block-cta .btn-ctn {
   position: absolute;
   left: 50%;
   bottom: 30%;
-  transform: translateX(-50%) translateY(-80%);
-  width: 180px;
-  height: 180px;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 200px;
   padding: 15px;
   z-index: 9;
+}
+.block-cta .btn-ctn .btn, .block-cta .btn-ctn .contact-page .contact-form input[type=submit], .contact-page .contact-form .block-cta .btn-ctn input[type=submit] {
+  width: 100%;
+  height: 100%;
 }
 .block-cta.mirror .content {
   padding: 75px 0 75px 100px;
@@ -3453,9 +3457,8 @@ a.link.video::after {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
-  .block-cta .btn, .block-cta .contact-page .contact-form input[type=submit], .contact-page .contact-form .block-cta input[type=submit] {
-    bottom: -60px;
-    translate: -50% 0px;
+  .block-cta .btn-ctn {
+    bottom: 40px;
   }
 }
 
@@ -3892,11 +3895,12 @@ a.link.video::after {
   margin: auto;
 }
 @media (max-width: 768px) {
-  .contact-cta .container img {
+  .contact-cta .container #cta-spinner {
     height: 300px;
     width: 300px;
   }
   .contact-cta .container .title {
+    padding-top: 0;
     font-size: 38px;
     font-size: 2.375rem;
     font-weight: 600;

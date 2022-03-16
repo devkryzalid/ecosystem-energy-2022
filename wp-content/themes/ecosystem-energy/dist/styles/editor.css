@@ -2364,7 +2364,7 @@ ul li {
   border-radius: 50%;
 }
 .btn.circle:hover {
-  scale: 1.1;
+  transform: scale(1.1);
   background-color: #FAB900;
   color: #242C3E;
 }

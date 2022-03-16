@@ -31,19 +31,20 @@
       text-align: center;
     }
 
-    .btn {
-      margin: auto;
-    }
+    .btn { margin: auto; }
   }
 
   @media (max-width: $tablet) {
     .container {
-      img {
+      #cta-spinner {
         height: 300px;
         width: 300px;
       }
 
-      .title { @include fontSize(38, 46, 600); }
+      .title { 
+        padding-top: 0;
+        @include fontSize(38, 46, 600); 
+      }
     }
   }
 }
