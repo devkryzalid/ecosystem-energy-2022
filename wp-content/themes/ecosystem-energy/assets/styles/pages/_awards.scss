@@ -36,17 +36,15 @@
       list-style: none;
 
       li {
-        @include flex(center, space-between);
+        @include flex(flex-start, space-between);
         padding: 50px 0;
         border-top: 1px solid rgba($darkgrey, 0.2);
 
         &:first-child { border-top: 2px solid $darkgrey; }
 
         .logo {
-          img { 
-            width: 110px;
-            margin-right: 120px;
-          }
+          width: 180px;
+          img { width: 110px; }
         }
 
         .content {

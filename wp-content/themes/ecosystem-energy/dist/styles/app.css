@@ -2969,6 +2969,7 @@ h3 {
   content: "\e907";
   right: 30px;
   opacity: 1;
+  font-size: 16px;
 }
 .btn.filters.open::after, .contact-page .contact-form input.filters.open[type=submit]::after {
   content: "\e901";
@@ -3844,7 +3845,7 @@ a.link.video::after {
 .block-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 50px;
+  gap: 60px;
 }
 @media (max-width: 992px) {
   .block-list {
@@ -6235,7 +6236,7 @@ body.menu-open #header #menu-toggle:hover span {
 .awards-page .award-group ul li {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding: 50px 0;
   border-top: 1px solid rgba(73, 72, 67, 0.2);
@@ -6243,9 +6244,11 @@ body.menu-open #header #menu-toggle:hover span {
 .awards-page .award-group ul li:first-child {
   border-top: 2px solid #494843;
 }
+.awards-page .award-group ul li .logo {
+  width: 180px;
+}
 .awards-page .award-group ul li .logo img {
   width: 110px;
-  margin-right: 120px;
 }
 .awards-page .award-group ul li .content {
   display: flex;

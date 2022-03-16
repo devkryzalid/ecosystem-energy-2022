@@ -245,7 +245,7 @@ export default class AjaxForm {
     else this.currentPage = +value;
   
     // Reload ajax content
-    this.scrollToTop();
+    this.scrollToContent();
     this.onFormChange();
   }
 
@@ -254,13 +254,8 @@ export default class AjaxForm {
   }
 
   // 
-  scrollToTop = () => {
-    setTimeout(() => { window.scrollTo({ top: 0, behavior: 'smooth' }); }, 10); 
-  }
-
-  // 
   scrollToContent = () => {
-    setTimeout(() => { this.contentContainer.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'start' }); }, 10); 
+    setTimeout(() => { window.scroll({ top: this.formContainer.offsetTop - 150, behavior: 'smooth' }); }, 10); 
   }
   
   //

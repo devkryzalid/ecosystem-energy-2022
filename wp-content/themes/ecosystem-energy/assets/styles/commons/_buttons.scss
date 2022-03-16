@@ -39,6 +39,7 @@
       content: "\e907";
       right: 30px;
       opacity: 1;
+      font-size: 16px;
     }
 
     &.open::after { content: "\e901"; }
@@ -72,7 +73,6 @@
     border-radius: 50%;
 
     &:hover {
-      // scale: 1.1;
       transform: scale(1.1);
       background-color: $yellow;
       color: $blue;

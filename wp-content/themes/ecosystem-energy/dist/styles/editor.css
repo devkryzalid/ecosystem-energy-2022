@@ -2339,6 +2339,7 @@ ul li {
   content: "\e907";
   right: 30px;
   opacity: 1;
+  font-size: 16px;
 }
 .btn.filters.open::after {
   content: "\e901";
