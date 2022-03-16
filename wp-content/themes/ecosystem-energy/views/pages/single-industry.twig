@@ -36,7 +36,7 @@
   {% endif %}
 
   {# Information blocks #}
-  {% if informations_blocks|length > 0%}
+  {% if informations_blocks|length %}
     <div class="container">
       {% include 'partials/industry-info-blocks.twig' %}
     </div>
@@ -45,8 +45,8 @@
   {# Case studies featured and slider #}
   <div class="industry-cs-slider">
     <div class="container">
-      {% include 'partials/industry-cs-featured.twig' %}
-      {% include 'partials/industry-cs-slider.twig' %}
+      {% if featured_case_study %} {% include 'partials/industry-cs-featured.twig' %} {% endif %}
+      {% if case_studies|length %}{% include 'partials/industry-cs-slider.twig' %} {% endif %}
     </div>
   </div>
 
