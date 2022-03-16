@@ -1,5 +1,5 @@
 // Initialize rotating animation for contact-cta
-const image = document.getElementById('cta-spinner').querySelector('img');
+const image = document.querySelector('#cta-spinner img');
 if (image) {
   const speed = 0.1;
   const timer = 10;

@@ -81,7 +81,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var aos_
   \*********************************************/
 /***/ (function() {
 
-eval("// Initialize rotating animation for contact-cta\nconst image = document.getElementById('cta-spinner').querySelector('img');\nif (image) {\n  const speed = 0.1;\n  const timer = 10;\n\n  let rotation = 0;\n\n  setInterval(() => {\n    rotation = rotation < -360 ? 0 : (rotation - speed);\n    image.style.transform = 'rotate(' + rotation + 'deg)'; \n  }, timer)\n}\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/utils/cta-spinner.js?");
+eval("// Initialize rotating animation for contact-cta\nconst image = document.querySelector('#cta-spinner img');\nif (image) {\n  const speed = 0.1;\n  const timer = 10;\n\n  let rotation = 0;\n\n  setInterval(() => {\n    rotation = rotation < -360 ? 0 : (rotation - speed);\n    image.style.transform = 'rotate(' + rotation + 'deg)'; \n  }, timer)\n}\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/utils/cta-spinner.js?");
 
 /***/ }),
 
