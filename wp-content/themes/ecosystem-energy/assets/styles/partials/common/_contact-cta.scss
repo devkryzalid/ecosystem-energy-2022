@@ -7,19 +7,26 @@
   .container {
     position: relative;
 
-    img {
+    #cta-spinner {
       position: absolute;
-      height: 600px;
-      width: 600px;
       left: 50%;
       top: -40%;
-      translate: -50%;
+      height: 600px;
+      width: 600px;
+      transform: translateX(-50%);
       opacity: 0.2;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      transform: rotate(0deg);
     }
 
     .title { 
       max-width: 600px;
-      margin: 0 auto 80px;
+      margin: 0 auto 30px;
+      padding-top: 70px;
       @include fontSize(60, 70, 500, -1);
       text-align: center;
     }

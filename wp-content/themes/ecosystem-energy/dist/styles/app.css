@@ -3862,18 +3862,24 @@ a.link.video::after {
 .contact-cta .container {
   position: relative;
 }
-.contact-cta .container img {
+.contact-cta .container #cta-spinner {
   position: absolute;
-  height: 600px;
-  width: 600px;
   left: 50%;
   top: -40%;
-  translate: -50%;
+  height: 600px;
+  width: 600px;
+  transform: translateX(-50%);
   opacity: 0.2;
+}
+.contact-cta .container img {
+  height: 100%;
+  width: 100%;
+  transform: rotate(0deg);
 }
 .contact-cta .container .title {
   max-width: 600px;
-  margin: 0 auto 80px;
+  margin: 0 auto 30px;
+  padding-top: 70px;
   font-size: 60px;
   font-size: 3.75rem;
   font-weight: 500;
