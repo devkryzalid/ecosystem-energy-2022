@@ -1,16 +1,16 @@
 <div class="home-hero-ctn">
   <div class="title-ctn">
-    <h1 class="title" data-aos="fade-up">{{ title }}</h1>
-    <div data-aos="fade-up" data-aos-delay="300">
+    <h1 class="title" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000" data-aos-easing="ease-out">{{ title }}</h1>
+    <div data-aos="fade-up" data-aos-delay="2400">
       <a class="internal link" href="{{ button.url }}" target="{{ button.target }}">{{ button.title }}</a>
     </div>
   </div>
 
-	<div class="spinner-ctn">
+	<div class="spinner-ctn" data-aos="zoom-out" data-aos-delay="1200" data-aos-duration="1400">
     <img id="home-spinner" src="{{ theme.link }}/assets/images/ui/spinner.png" alt="">
     <div class="content">
-      <div class="text-ctn" data-aos="fade-up" data-aos-delay="600">{{ content }}</div>
-      <div class="btn-ctn" data-aos="fade-up" data-aos-delay="800">
+      <div class="text-ctn" data-aos="fade" data-aos-delay="2300">{{ content }}</div>
+      <div class="btn-ctn" data-aos="fade-down" data-aos-delay="2700" data-aos-duration="1400">
         <a class="circle btn" id="scroll-to-content"><i class="icon-arrow-up"></i></a>
       </div>
     </div>

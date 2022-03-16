@@ -139,19 +139,16 @@ $text-open-transition-delay: 0ms;
 
   #menu-footer {
     position: absolute;
-    bottom: 0;
+    bottom: -40px;
     left: 0;
     right: 0;
     @include flex(center, space-between);
     transition: $basicTransition;
-    transition-delay: 1000ms;
     opacity: 0;
     z-index: 99;
     overflow: hidden;
 
-    .menu-footer-link { display: inline-block; }
-    
-    a { 
+    .menu-footer-link { 
       @include fontSize(16, 22, 500);
       color: white;
       &:hover { color: $yellow; }
@@ -160,12 +157,12 @@ $text-open-transition-delay: 0ms;
     .contact { 
       padding: 40px 20px;
       text-align: right;
-      a { padding: 0 20px; }
+      .menu-footer-link { padding: 0 20px; }
     }
 
     .ms {
       padding: 40px 20px;
-      a { padding: 0 10px; }
+      .menu-footer-link { padding: 0 10px; }
     }
   }
 
@@ -189,7 +186,8 @@ $text-open-transition-delay: 0ms;
       }
     }
 
-    #menu-footer { 
+    #menu-footer {
+      bottom: 0; 
       opacity: 1; 
       transition-delay: 0ms;
     }
@@ -200,6 +198,8 @@ $text-open-transition-delay: 0ms;
         transition: $basicTransition;
         transition-delay: 0ms !important; 
       } 
+
+      #menu-footer { transition-delay: 800ms; }
     }  
   }
 
@@ -214,13 +214,8 @@ $text-open-transition-delay: 0ms;
 // Adjust top margin with top yellow panel height
 #header.show-search-pane, 
 #header.show-country-pane {
-  #menu-image {
-    margin-top: calc($upper-header-height);
-  }
-
-  #primary-menu, #primary-menu li .secondary-menu {
-    padding-top: calc($header-height + $upper-header-height);
-  }
+  #menu-image { margin-top: calc($upper-header-height); }
+  #primary-menu, #primary-menu li .secondary-menu { padding-top: calc($header-height + $upper-header-height); }
 }
 
 

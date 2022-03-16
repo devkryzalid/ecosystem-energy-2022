@@ -27,29 +27,25 @@
   <div id="menu-footer">
     <div class="ms">
       {% if social_networks.linkedin_link %} 
-        <div class="menu-footer-link" data-aos="fade-up" data-aos-delay="600"><a href="{{ social_networks.linkedin_link }}">LinkedIn</a></div>
+        <a class="menu-footer-link" href="{{ social_networks.linkedin_link }}">LinkedIn</a>
       {% endif %}
       {% if social_networks.youtube_link %} 
-        <div class="menu-footer-link" data-aos="fade-up" data-aos-delay="700"><a href="{{ social_networks.youtube_link }}">YouTube</a></div>
+        <a class="menu-footer-link" href="{{ social_networks.youtube_link }}">YouTube</a>
       {% endif %}
       {% if social_networks.facebook_link %} 
-        <div class="menu-footer-link" data-aos="fade-up" data-aos-delay="800"><a href="{{ social_networks.facebook_link }}">Facebook</a></div>
+        <a class="menu-footer-link" href="{{ social_networks.facebook_link }}">Facebook</a>
       {% endif %}
       {% if social_networks.twitter_link %} 
-        <div class="menu-footer-link" data-aos="fade-up" data-aos-delay="900"><a href="{{ social_networks.twitter_link }}">Twitter</a></div>
+        <a class="menu-footer-link" href="{{ social_networks.twitter_link }}">Twitter</a>
       {% endif %}
     </div>
 
     <div class="contact">
       {% if theme_infos.email %} 
-        <div class="menu-footer-link" data-aos="fade-up" data-aos-delay="1100">
-          <a href="mailto:{{ theme_infos.email }}">{{ theme_infos.email }}</a> 
-        </div>
+        <a class="menu-footer-link" href="mailto:{{ theme_infos.email }}">{{ theme_infos.email }}</a> 
       {% endif %}
       {% if theme_infos.phone %} 
-        <div class="menu-footer-link" data-aos="fade-up" data-aos-delay="1200">
-          <a href="tel:{{ theme_infos.phone }}">{{ theme_infos.phone }}</a> 
-        </div>
+        <a class="menu-footer-link" href="tel:{{ theme_infos.phone }}">{{ theme_infos.phone }}</a> 
       {% endif %}
     </div>
   </div>

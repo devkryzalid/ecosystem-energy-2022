@@ -53,7 +53,6 @@ export default class Menu {
     this.container.classList.add('show');
     this.primaryMenu.addEventListener('transitionend', this.onMenuComplete);
     this.body.classList.add('menu-open');
-    document.querySelectorAll('.menu-footer-link').forEach(i => i.classList.add('aos-animate'))
   }
 
   // Hide primary menu
@@ -62,7 +61,6 @@ export default class Menu {
     this.container.classList.remove('show');
     this.container.addEventListener('transitionend', this.onMenuClosed);
     this.body.classList.remove('menu-open');
-    document.querySelectorAll('.menu-footer-link').forEach(i => i.classList.remove('aos-animate'))
   }
 
   // Switch on opened status (on transition end)
