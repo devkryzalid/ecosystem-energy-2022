@@ -5971,6 +5971,10 @@ body.menu-open #header #menu-toggle:hover span {
   line-height: 1.875rem;
   letter-spacing: normal;
 }
+.industry-featured .featured-list .featured-block img {
+  margin-top: 40px;
+  height: 200px;
+}
 .industry-featured .featured-list .featured-block .hover-ctn {
   position: absolute;
   display: flex;

@@ -31,8 +31,11 @@
         transition: $basicTransition;
       }
 
-      h3 { 
-        @include fontSize(22, 30, 600);
+      h3 { @include fontSize(22, 30, 600); }
+
+      img { 
+        margin-top: 40px; 
+        height: 200px;
       }
 
       // White text content shown on hover
