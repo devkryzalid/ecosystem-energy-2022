@@ -149,10 +149,12 @@ $text-open-transition-delay: 0ms;
     z-index: 99;
     overflow: hidden;
 
+    .menu-footer-link { display: inline-block; }
+    
     a { 
       @include fontSize(16, 22, 500);
       color: white;
-      &:hover { color:$yellow; }
+      &:hover { color: $yellow; }
     }
     
     .contact { 
