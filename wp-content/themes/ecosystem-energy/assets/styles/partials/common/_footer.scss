@@ -15,7 +15,10 @@
     }
   }
 
-  a:hover { color: $yellow; }
+  a {
+    // transition: $basicTransition;
+    &:hover { color: $yellow; }
+  }
 
   .sub-footer {
     @include flex(center, space-between);

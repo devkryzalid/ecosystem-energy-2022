@@ -2,18 +2,42 @@
   <div class="large container">
 
     <nav class="social">
-      {% if social_networks.linkedin_link %} <a href="{{ social_networks.linkedin_link }}">LinkedIn</a> {% endif %}
-      {% if social_networks.youtube_link %} <a href="{{ social_networks.youtube_link }}">YouTube</a> {% endif %}
-      {% if social_networks.facebook_link %} <a href="{{ social_networks.facebook_link }}">Facebook</a> {% endif %}
-      {% if social_networks.twitter_link %} <a href="{{ social_networks.twitter_link }}">Twitter</a> {% endif %}
+      {% if social_networks.linkedin_link %}
+        <div data-aos="fade-up" data-aos-delay="100">
+          <a href="{{ social_networks.linkedin_link }}">LinkedIn</a> 
+        </div>
+      {% endif %}
+      {% if social_networks.youtube_link %}
+        <div data-aos="fade-up" data-aos-delay="200">
+          <a href="{{ social_networks.youtube_link }}">YouTube</a> 
+        </div>
+      {% endif %}
+      {% if social_networks.facebook_link %}
+        <div data-aos="fade-up" data-aos-delay="300">
+          <a href="{{ social_networks.facebook_link }}">Facebook</a> 
+        </div>
+      {% endif %}
+      {% if social_networks.twitter_link %}
+        <div data-aos="fade-up" data-aos-delay="400">
+          <a href="{{ social_networks.twitter_link }}">Twitter</a> 
+        </div>
+      {% endif %}
     </nav>
 
     <nav class="contact">
-      {% if theme_infos.email %} <a href="mailto:{{ theme_infos.email }}">{{ theme_infos.email }}</a> {% endif %}
-      {% if theme_infos.phone %} <a href="tel:{{ theme_infos.phone }}">{{ theme_infos.phone }}</a> {% endif %}
+      {% if theme_infos.email %} 
+        <div data-aos="fade-up" data-aos-delay="600">
+          <a href="mailto:{{ theme_infos.email }}">{{ theme_infos.email }}</a> 
+        </div>
+      {% endif %}
+      {% if theme_infos.phone %} 
+        <div data-aos="fade-up" data-aos-delay="700">
+          <a href="tel:{{ theme_infos.phone }}">{{ theme_infos.phone }}</a> 
+        </div>
+      {% endif %}
     </nav>
 
-    <div class="sub-footer">
+    <div class="sub-footer" data-aos="fade-up" data-aos-delay="800">
       <div class="copyright">Ecosystem © 2022</div>
       <div class="kryzalid">{{ __('Web conception by', 'ecosystem-energy') }} <a href="https://www.kryzalid.net/">Kryzalid</a></div>
     </div>
