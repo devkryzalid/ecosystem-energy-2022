@@ -4,7 +4,7 @@
     <h2 class="related-title">{{ __('Related articles', 'ecosystem-energy') }}</h2>
 
     <div class="block-list">
-      {% for post in posts %}
+      {% for post in related_posts %}
         {% include 'partials/common/block-item.twig' with { 
           title: post.title,
           surtitle: post.meta('related_industry')[0].title,

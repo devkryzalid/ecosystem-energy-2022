@@ -58,27 +58,26 @@
     }
 
     .default-content {
+      margin: auto;
       text-align: center;
     }
 
-    .phones {
-      flex-basis: 50%;
+    .phones { flex-basis: 50%; }
 
-      .phone {
-        @include fontSize(22, 26, 600);
-        &::before {
-          margin-right: 20px;
-          @extend .icomoon;
-          content: "\e912";
-          font-size: 18px;
-        }
+    .phone {
+      @include fontSize(22, 26, 600);
+      &::before {
+        margin-right: 20px;
+        @extend .icomoon;
+        content: "\e912";
+        font-size: 18px;
       }
+    }
 
-      .fax {
-        @include fontSize(18, 26, 400);
-        &::before {
-          // Printer icon
-        }
+    .fax {
+      @include fontSize(18, 26, 400);
+      &::before {
+        // Printer icon
       }
     }
 

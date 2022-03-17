@@ -28,9 +28,11 @@
                   <p>{{ award.award.organization }}</p>
                 </div>
 
-                <div class="link-ctn">
-                  <a class="external link" href="{{ award.case_study.link }}">{{ award.case_study.title }}</a>
-                </div>
+                {% if award.case_study.link %}
+                  <div class="link-ctn">
+                    <a class="external link" href="{{ award.case_study.link }}">{{ award.case_study.title }}</a>
+                  </div>
+                {% endif %}
               </div>
             </li>
 
