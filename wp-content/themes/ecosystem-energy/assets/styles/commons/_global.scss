@@ -26,6 +26,7 @@ h1 {
 }
 
 h2 {
+  margin-top: 20px;
   @include fontSize(42, 48);
 }
 

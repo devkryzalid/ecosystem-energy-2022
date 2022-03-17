@@ -2139,6 +2139,7 @@ h1.inverted {
 }
 
 h2 {
+  margin-top: 20px;
   font-size: 42px;
   font-size: 2.625rem;
   font-weight: initial;

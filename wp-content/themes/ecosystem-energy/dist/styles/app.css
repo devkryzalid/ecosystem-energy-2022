@@ -2303,6 +2303,7 @@ h1.inverted, .block-hero.invert .title-ctn h1.title {
 }
 
 h2 {
+  margin-top: 20px;
   font-size: 42px;
   font-size: 2.625rem;
   font-weight: initial;
@@ -5169,7 +5170,7 @@ body.menu-open #header #menu-toggle:hover span {
 .case-study-awards-ctn li {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding: 20px 0;
   font-size: 18px;
@@ -5397,6 +5398,9 @@ body.menu-open #header #menu-toggle:hover span {
   line-height: 1.625rem;
   letter-spacing: normal;
 }
+.contact-offices #office-info .address {
+  flex-basis: 40%;
+}
 .contact-offices #office-info .address p {
   margin: 0;
   font-size: 16px;
@@ -5413,6 +5417,11 @@ body.menu-open #header #menu-toggle:hover span {
   line-height: 26px;
   line-height: 1.625rem;
   letter-spacing: normal;
+}
+@media (max-width: 992px) {
+  .contact-offices #office-info .address {
+    flex-basis: 100%;
+  }
 }
 @media (max-width: 768px) {
   .contact-offices {
