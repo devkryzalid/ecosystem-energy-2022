@@ -39,7 +39,9 @@
 
             <div class="address">
               {{ office.address }}
-              <a class="itinerary" href="">{{ __('See itinerary', 'ecosystem-energy') }}</a>
+              <a class="itinerary" href="https://maps.google.com/?q={{ office.address|replace({ '<br />': ' ', '<br>': ' ', '<p>': ' ', '</p>': ' ' })|striptags }}" target="_blank">
+                {{ __('See itinerary', 'ecosystem-energy') }}
+              </a>
             </div>
           </div>
         </li>
