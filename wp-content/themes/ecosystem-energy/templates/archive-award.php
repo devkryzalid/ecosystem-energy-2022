@@ -36,13 +36,17 @@ foreach ($awards as $award) {
     if (!isset($awardByYears[$award->year])) {
         $awardByYears[$award->year] = [];
     }
-    $caseStudy = new Timber\PostQuery([
-        'post__in'    => $award->case_study,
-        'post_type'   => 'case_study',
-        'post_status' => 'publish',
-    ]);
-    if (count($caseStudy) > 0) {
-        $caseStudy = $caseStudy[0];
+    if (empty($award->case_study) || !isset($award->case_study)) {
+        $caseStudy = null;
+    } else {
+        $caseStudy = new Timber\PostQuery([
+            'post__in'    => $award->case_study,
+            'post_type'   => 'case_study',
+            'post_status' => 'publish',
+        ]);
+        if (count($caseStudy) > 0) {
+            $caseStudy = $caseStudy[0];
+        }
     }
     array_push($awardByYears[$award->year], ['award' => $award, 'case_study' => $caseStudy]);
 }
