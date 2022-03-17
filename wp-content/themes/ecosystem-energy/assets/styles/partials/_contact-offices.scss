@@ -83,6 +83,8 @@
     }
 
     .address {
+      flex-basis: 40%;
+
       p { 
         margin: 0;
         @include fontSize(16, 24, 400);
@@ -91,6 +93,12 @@
       .itinerary {
         @include fontSize(14, 26, 700);
       }
+    }
+  }
+
+  @media (max-width: $tablet-large) {
+    #office-info .address {
+      flex-basis: 100%;
     }
   }
 

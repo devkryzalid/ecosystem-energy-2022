@@ -5398,6 +5398,9 @@ body.menu-open #header #menu-toggle:hover span {
   line-height: 1.625rem;
   letter-spacing: normal;
 }
+.contact-offices #office-info .address {
+  flex-basis: 40%;
+}
 .contact-offices #office-info .address p {
   margin: 0;
   font-size: 16px;
@@ -5414,6 +5417,11 @@ body.menu-open #header #menu-toggle:hover span {
   line-height: 26px;
   line-height: 1.625rem;
   letter-spacing: normal;
+}
+@media (max-width: 992px) {
+  .contact-offices #office-info .address {
+    flex-basis: 100%;
+  }
 }
 @media (max-width: 768px) {
   .contact-offices {
