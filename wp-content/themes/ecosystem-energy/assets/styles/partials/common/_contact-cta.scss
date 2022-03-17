@@ -35,6 +35,8 @@
   }
 
   @media (max-width: $tablet) {
+    height: 380px;
+    
     .container {
       #cta-spinner {
         height: 300px;

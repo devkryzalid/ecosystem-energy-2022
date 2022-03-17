@@ -3898,6 +3898,9 @@ a.link.video::after {
   margin: auto;
 }
 @media (max-width: 768px) {
+  .contact-cta {
+    height: 380px;
+  }
   .contact-cta .container #cta-spinner {
     height: 300px;
     width: 300px;
@@ -4039,6 +4042,11 @@ a.link.video::after {
   letter-spacing: normal;
 }
 @media (max-width: 500px) {
+  #footer .contact {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 24px;
+  }
   #footer nav a {
     font-size: 14px;
     font-size: 0.875rem;
@@ -4752,6 +4760,7 @@ body.menu-open #header #menu-toggle:hover span {
   height: 100vh;
   transition: all 0.5s ease-out;
   z-index: 99999;
+  overflow: hidden;
 }
 #page-overlay img {
   width: 300px;
