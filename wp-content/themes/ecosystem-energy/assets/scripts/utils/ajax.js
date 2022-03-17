@@ -205,6 +205,14 @@ export default class AjaxForm {
   // Un-check all boxes and reload data
   clearFilters = () => {
     this.formContainer.querySelectorAll('input:checked').forEach(i => { i.checked = false; });
+
+    // Check the current locale
+    const locale = document.querySelector('#header .countries input:checked');
+    if (locale) {
+      const cb = this.formContainer.querySelector('#locale-' + locale.value);
+      if (cb) cb.checked = true;
+    }
+
     this.onFormChange();
   }
 
