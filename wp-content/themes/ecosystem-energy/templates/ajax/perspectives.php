@@ -4,7 +4,7 @@ do_action('wpml_switch_language', $params['lang']);
 // set the query strings
 $limit      = empty($params['limit']) ? 9 : $params['limit'];
 $paged      = empty($params['paged']) ? 1 : $params['paged'];
-$categories = empty($params['category']) ? [] : $params['category'];
+$categories = empty($params['categories']) ? [] : $params['categories'];
 
 $context = Timber::context();
 $locales = empty($params['filter_locale']) ? $context['current_locale'] : $params['filter_locale'];
@@ -45,6 +45,7 @@ if (!empty($categories) && $categories != '') {
  * Get post and render view (return)
  */
 $posts = new Timber\PostQuery($args);
+// dd($categories);
 
 if ($posts->found_posts > 0) {
     $response = '';

@@ -6,7 +6,7 @@
 // Get params
 $limit      = empty($_GET['limit']) ? 9 : $_GET['limit'];
 $paged      = empty($_GET['paged']) ? 1 : $_GET['paged'];
-$categories = empty($_GET['category']) ? [] : $_GET['category'];
+$categories = empty($_GET['categories']) ? [] : $_GET['categories'];
 $featured   = empty($_GET['featured']) ? [] : $_GET['featured'];
 
 $context = Timber::context();
@@ -69,4 +69,5 @@ if (empty($featured)) {
 }
 // Get Post
 $context['posts'] = new Timber\PostQuery($args);
+// dd($context['posts']);
 Timber::render('pages/index.twig', $context);

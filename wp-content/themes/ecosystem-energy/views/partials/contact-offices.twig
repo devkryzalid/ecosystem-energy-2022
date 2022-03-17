@@ -1,56 +1,40 @@
 <div class="contact-offices">
   <div class="lists-ctn">
-    <ul class="list-canada">
-      {% for office in offices_list_ca %}
-        <li data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
-          <a class="office-link">{{ office.title }}</a>
-          <div class="info">
-            <h3>{{ office.title }}</h3>
+    {% set countries = ['canada', 'us'] %}
+    {% for offices in [offices_list_ca, offices_list_us] %}
+      <ul class="list-{{ countries[loop.index] }}">
+        {% for office in offices %}
 
-            <div class="phones">
-              <a class="phone" href="tel:{{ office.phone }}">{{ office.phone }}</a>
-              <p class="fax">{{ office.fax }}</p>
-            </div>
+          <li data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+            <a class="office-link">{{ office.title }}</a>
+            <div class="info">
+              <h3>{{ office.title }}</h3>
 
-            {% if office.address %}
-              <div class="address">
-                {{ office.address }}
-                <a class="itinerary" href="https://maps.google.com/?q={{ office.address|replace({ '<br />': ' ', '<br>': ' ', '<p>': ' ', '</p>': ' ' })|striptags }}" target="_blank">
-                  {{ __('See itinerary', 'ecosystem-energy') }}
-                </a>
+              <div class="phones">
+                <a class="phone" href="tel:{{ office.phone }}">{{ office.phone }}</a>
+                <p class="fax">{{ office.fax }}</p>
               </div>
-            {% endif %}
-          </div>
-        </li>
-      {% endfor %}
-    </ul>
 
-    <ul class="list-us">
-      {% for office in offices_list_us %}
-        <li data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
-          <a class="office-link">{{ office.title }}</a>
-          <div class="info">
-            <h3>{{ office.title }}</h3>
-
-            <div class="phones">
-              <a class="phone" href="tel:{{ office.phone }}">{{ office.phone }}</a>
-              <p class="fax">{{ office.fax }}</p>
+              {% if office.address %}
+                <div class="address">
+                  {{ office.address }}
+                  <a class="itinerary" href="https://maps.google.com/?q={{ office.address|replace({ '<br />': ' ', '<br>': ' ', '<p>': ' ', '</p>': ' ' })|striptags }}" target="_blank">
+                    {{ __('See itinerary', 'ecosystem-energy') }}
+                  </a>
+                </div>
+              {% endif %}
             </div>
+          </li>
 
-            <div class="address">
-              {{ office.address }}
-              <a class="itinerary" href="https://maps.google.com/?q={{ office.address|replace({ '<br />': ' ', '<br>': ' ', '<p>': ' ', '</p>': ' ' })|striptags }}" target="_blank">
-            </div>
-          </div>
-        </li>
-      {% endfor %}
-    </ul>
+        {% endfor %}
+      </ul>
+    {% endfor %}
   </div>
 
   <div id="office-info" data-aos="fade-up">
-    <div class="default-content phones">
-      <a href="tel:{{ theme_infos.phone }}">{{ theme_infos.phone }}</a>
-      <p>{{ theme_infos.email }}</p>
+    <div class="default-content">
+      <a class="phone" href="tel:{{ theme_infos.phone }}">{{ theme_infos.phone }}</a>
+      <p><a href="mailto:{{ theme_infos.email }}">{{ theme_infos.email }}</a></p>
     </div>
   </div>
 </div>

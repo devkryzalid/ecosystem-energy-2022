@@ -18,14 +18,13 @@
     large: true,
     url: 'case-studies',
     fields: { industries: industries },
-    labels: { industries: __('Sectors', 'ecosystem-energy') },
-    limit: 2
+    labels: { industries: __('Sectors', 'ecosystem-energy') }
   } %}
  
   <div id="ajax-content">
     {% include 'partials/common/loading.twig' %}
     <div class="inner">
-      {% if case_studies|length %} 
+      {% if case_studies|length or featured %} 
         {% include 'partials/case-studies-list.twig' with { items: case_studies, featured: featured } %}
       {% else %} 
         {% include 'partials/common/no-results.twig' %} {% endif %}

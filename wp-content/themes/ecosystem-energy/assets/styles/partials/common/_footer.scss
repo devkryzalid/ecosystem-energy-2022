@@ -34,6 +34,12 @@
   }
 
   @media (max-width: $mobile-large) {
+    .contact { 
+      align-items: flex-start;
+      flex-direction: column; 
+      margin-top: 24px;
+    }
+
     nav a {
       @include fontSize(14, 20, 400);
     }

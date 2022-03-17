@@ -2444,7 +2444,7 @@ ul li {
   }
 }
 
-.icomoon, .home-slider .surtitle::before, .sectors-ctn .content-column a::after, .contact-offices #office-info .phones .phone::before, .slider-ctn .swiper-navigation > div > div, .block-hero.post-hero .title-ctn .category::after, .block-item.featured .content::after, .block-item .content .surtitle::before, .block-item .image::after, a.link::after, a.link::before {
+.icomoon, .home-slider .surtitle::before, .sectors-ctn .content-column a::after, .contact-offices #office-info .phone::before, .slider-ctn .swiper-navigation > div > div, .block-hero.post-hero .title-ctn .category::after, .block-item.featured .content::after, .block-item .content .surtitle::before, .block-item .image::after, a.link::after, a.link::before {
   font-family: "icomoon" !important;
   font-weight: 400 !important;
 }
@@ -3898,6 +3898,9 @@ a.link.video::after {
   margin: auto;
 }
 @media (max-width: 768px) {
+  .contact-cta {
+    height: 380px;
+  }
   .contact-cta .container #cta-spinner {
     height: 300px;
     width: 300px;
@@ -4039,6 +4042,11 @@ a.link.video::after {
   letter-spacing: normal;
 }
 @media (max-width: 500px) {
+  #footer .contact {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 24px;
+  }
   #footer nav a {
     font-size: 14px;
     font-size: 0.875rem;
@@ -4752,6 +4760,7 @@ body.menu-open #header #menu-toggle:hover span {
   height: 100vh;
   transition: all 0.5s ease-out;
   z-index: 99999;
+  overflow: hidden;
 }
 #page-overlay img {
   width: 300px;
@@ -5372,12 +5381,13 @@ body.menu-open #header #menu-toggle:hover span {
   letter-spacing: -0.45px;
 }
 .contact-offices #office-info .default-content {
+  margin: auto;
   text-align: center;
 }
 .contact-offices #office-info .phones {
   flex-basis: 50%;
 }
-.contact-offices #office-info .phones .phone {
+.contact-offices #office-info .phone {
   font-size: 22px;
   font-size: 1.375rem;
   font-weight: 600;
@@ -5385,12 +5395,12 @@ body.menu-open #header #menu-toggle:hover span {
   line-height: 1.625rem;
   letter-spacing: normal;
 }
-.contact-offices #office-info .phones .phone::before {
+.contact-offices #office-info .phone::before {
   margin-right: 20px;
   content: "\e912";
   font-size: 18px;
 }
-.contact-offices #office-info .phones .fax {
+.contact-offices #office-info .fax {
   font-size: 18px;
   font-size: 1.125rem;
   font-weight: 400;
