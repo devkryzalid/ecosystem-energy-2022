@@ -1,10 +1,10 @@
-<div class="contact-cta">
+<div class="contact-cta {{ invert ? 'invert' : '' }}">
   <div class="container">
     <div id="cta-spinner">
-      <img src="{{ theme.link }}/assets/images/ui/spinner.png" alt="">
+      <img src="{{ theme.link }}/assets/images/ui/spinner{{ invert ? '-white' : '' }}.png" alt="">
     </div>
 
-    <div class="title" data-aos="fade-up" data-aos-delay="300">
+    <div class="title" data-aos="fade-up" data-aos-delay="200">
       {{ cta_contact.title }}
     </div>
 

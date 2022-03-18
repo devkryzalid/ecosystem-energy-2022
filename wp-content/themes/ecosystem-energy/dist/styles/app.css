@@ -3897,6 +3897,9 @@ a.link.video::after {
 .contact-cta .container .btn, .contact-cta .container .contact-page .contact-form input[type=submit], .contact-page .contact-form .contact-cta .container input[type=submit] {
   margin: auto;
 }
+.contact-cta.invert img {
+  opacity: 0.5;
+}
 @media (max-width: 768px) {
   .contact-cta {
     height: 380px;
