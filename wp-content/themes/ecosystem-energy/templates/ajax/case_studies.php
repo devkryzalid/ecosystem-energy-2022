@@ -3,7 +3,7 @@ global $params;
 do_action('wpml_switch_language', $params['lang']);
 // set the query strings
 $limit      = empty($params['limit']) ? 9 : $params['limit'];
-$paged      = empty($params['paged']) ? 1 : $params['paged'];
+$paged      = empty($params['pg']) ? 1 : $params['pg'];
 $industries = empty($params['industries']) ? [] : $params['industries'];
 $featured   = empty($params['featured']) ? '' : $params['featured'];
 

@@ -4,8 +4,8 @@
  */
 
 // Get params
-$limit      = empty($_GET['limit']) ? 9 : $_GET['limit'];
-$paged      = empty($_GET['paged']) ? 1 : $_GET['paged'];
+$limit      = 1;//empty($_GET['limit']) ? 9 : $_GET['limit'];
+$paged      = empty($_GET['pg']) ? 1 : $_GET['pg'];
 $industries = empty($_GET['industries']) ? [] : $_GET['industries'];
 $featured   = empty($_GET['featured']) ? [] : $_GET['featured'];
 

@@ -5,7 +5,7 @@ do_action('wpml_switch_language', $params['lang']);
 
 $search = (!empty($params['s'])) ? $params['s'] : null;
 $limit  = empty($params['limit']) ? 10 : $params['limit'];
-$paged  = empty($params['paged']) ? 1 : $params['paged'];
+$paged  = empty($params['pg']) ? 1 : $params['pg'];
 
 $args = [
     'post_type'      => ['post', 'page', 'award', 'case_study', 'expertise', 'industry', 'news'],

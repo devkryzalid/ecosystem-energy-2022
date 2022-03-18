@@ -67,7 +67,6 @@ export default class AjaxForm {
     // Get form settings from hidden input
     const { url, limit = 9, page = 1 } = document.getElementById(settingsId).dataset || {};
     this.limit = limit;
-    this.currentPage = page;
 
     this.url = url;
     if (!this.url) console.log('Error - Ajax url not found');
@@ -134,17 +133,22 @@ export default class AjaxForm {
     this.previousParams = jsonParams;
     
     // Add paged param if needed
-    if (this.currentPage > 1) params.paged = this.currentPage;
+    if (this.currentPage > 1) params.pg = this.currentPage;
     return { ...params, limit: this.limit };
   }
 
   // Parse current url and check all checkboxes accordingly
   applyFiltersFromUrl = () => {
     new URL(window.location.href).searchParams.forEach((values, param) => {
-      values.split(',').forEach(id => {
-        const el = document.getElementById(`${param}-${id}`);
-        if (el) el.checked = true;
-      });
+      // Change page if in params
+      if (param === 'pg') this.currentPage = values;
+      // Checkbox management
+      else {
+        values.split(',').forEach(id => {
+          const el = document.getElementById(`${param}-${id}`);
+          if (el) el.checked = true;
+        });
+      }
     })
   }
 
