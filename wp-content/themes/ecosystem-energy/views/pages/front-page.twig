@@ -56,11 +56,13 @@
 	{% endif %}
 
   {# Slider #}
-  <div class="home-slider">
-    <div class="container">
-      {% include 'partials/home-slider.twig' %}
+  {% if case_studies|length %}
+    <div class="home-slider">
+      <div class="container">
+        {% include 'partials/home-slider.twig' %}
+      </div>
     </div>
-  </div>
+  {% endif %}
 
   {# Career CTA #}
 	{% if career_block %}

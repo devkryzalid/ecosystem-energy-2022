@@ -14,7 +14,7 @@
       <div class="countries">
         <label for="country-all">
           <input id="country-all" type="radio" name="set_locale" value="-1" {% if current_locale == -1 %} checked {% endif %} />
-          All
+          {{ __('All', 'ecosystem-energy') }}
         </label>
 
         {% for locale in locales %}
@@ -32,7 +32,7 @@
 
   {# LOGO AND TOP NAV #}
   <div id="main-pane">
-    <a id="logo" href="/">
+    <a id="logo" href="{{ site.link }}">
       <img class="normal" src="{{ theme.link }}/assets/images/logos/logo-ecosystem.svg" alt="">
       <img class="invert" src="{{ theme.link }}/assets/images/logos/logo-ecosystem-invert.svg" alt="">
     </a>
