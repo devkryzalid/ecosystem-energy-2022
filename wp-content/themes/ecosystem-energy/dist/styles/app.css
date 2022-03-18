@@ -4277,6 +4277,12 @@ a.link.video::after {
 #header #menu-toggle:hover span {
   background-color: #FAB900;
 }
+#header.sticky #main-pane {
+  height: 86px;
+}
+#header.sticky #menu-toggle {
+  top: 26px;
+}
 @media (max-width: 992px) {
   #header #country-pane p, #header #country-pane label {
     font-size: 16px;
@@ -4386,22 +4392,22 @@ body.menu-open #header #menu-toggle:hover span {
   background-color: #F6F6F4;
 }
 
-.page-container.blue-head #header #main-pane {
+.page-container.blue-head #header:not(.sticky) #main-pane {
   background-color: #242C3E;
 }
-.page-container.blue-head #header #main-pane a, .page-container.blue-head #header #main-pane .wpml-ls-legacy-list-horizontal .wpml-ls-link span, .page-container.blue-head #header #main-pane a i {
+.page-container.blue-head #header:not(.sticky) #main-pane a, .page-container.blue-head #header:not(.sticky) #main-pane .wpml-ls-legacy-list-horizontal .wpml-ls-link span, .page-container.blue-head #header:not(.sticky) #main-pane a i {
   color: white;
 }
-.page-container.blue-head #header #main-pane #logo img.normal {
+.page-container.blue-head #header:not(.sticky) #main-pane #logo img.normal {
   display: none;
 }
-.page-container.blue-head #header #main-pane #logo img.invert {
+.page-container.blue-head #header:not(.sticky) #main-pane #logo img.invert {
   display: block;
 }
-.page-container.blue-head #header #menu-toggle span {
+.page-container.blue-head #header:not(.sticky) #main-pane #menu-toggle span {
   background-color: white;
 }
-.page-container.blue-head #header #menu-toggle:hover span {
+.page-container.blue-head #header:not(.sticky) #main-pane #menu-toggle:hover span {
   background-color: #FAB900;
 }
 

@@ -182,6 +182,11 @@
     &:hover span { background-color: $yellow; }
   }
 
+  &.sticky {
+    #main-pane { height: 86px; }
+    #menu-toggle { top: 26px; }
+  }
+
   @media (max-width: $tablet-large) {
     #country-pane {
       p, label { @include fontSize(16, 20); }
@@ -292,7 +297,7 @@ body.menu-open #header {
 
 // Set background to blue / text to white if set by body class
 .page-container.blue-head #header {
-  #main-pane {
+  &:not(.sticky) #main-pane {
     background-color: $blue;
     a, .wpml-ls-legacy-list-horizontal .wpml-ls-link span, a i { color: white; }
     
@@ -300,10 +305,10 @@ body.menu-open #header {
       img.normal { display: none; }
       img.invert { display: block; }
     }
-  }
 
-  #menu-toggle {
-    span { background-color: white; }
-    &:hover span { background-color: $yellow; }
+    #menu-toggle {
+      span { background-color: white; }
+      &:hover span { background-color: $yellow; }
+    }
   }
 }

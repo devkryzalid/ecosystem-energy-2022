@@ -3,6 +3,7 @@ import Search from './search';
 import Country from './country';
 
 export default class Header {
+  // DOM elements
   headerElement = document.getElementById('header');
   mainElement = document.getElementById('main-pane');
 
@@ -11,6 +12,7 @@ export default class Header {
   search;
   country;
 
+  // Scroll controls
   previousScrollPosition = window.scrollY;
   scrollOffset = 70;
 
@@ -22,24 +24,28 @@ export default class Header {
 
     // Change menu display on scroll
     document.addEventListener('scroll', () => {
-      const { scrollY: pos } = window;
+      const { scrollY: y } = window;
       
-      // Show header if on top of the page
-      if (pos <= this.scrollOffset) this.showHeader();
-
-      // Else determine if it is shown or hidden, depending on scroll position
-      else {
-        if (this.previousScrollPosition <= pos) this.hideHeader();
-        else this.showHeader();
-      }
+      // Hide header if scrolling down
+      if (!this.onTopOfPage() && this.previousScrollPosition <= y) this.hideHeader();
+      else this.showHeader();
       
-      this.previousScrollPosition = pos;
+      this.previousScrollPosition = y;
     });
   }
 
-  // Display management
-  showHeader = () => { this.headerElement.classList.add('show-main-pane'); }
-  hideHeader = () => { this.headerElement.classList.remove('show-main-pane'); }
+  // Show header main panel, and add sticky if not scrolled up
+  showHeader = () => { 
+    this.headerElement.classList.add('show-main-pane'); 
+    if (!this.onTopOfPage()) this.headerElement.classList.add('sticky'); 
+    else this.headerElement.classList.remove('sticky'); 
+  }
+
+  // Hide header main panel and sticky classes
+  hideHeader = () => { this.headerElement.classList.remove('show-main-pane', 'sticky'); }
+
+  // Check if the current window scroll is within header height threshold
+  onTopOfPage = () => window.scrollY <= this.scrollOffset;
 
   // Callback from children element to manage panels display
   hideAllPanels = () => { 
