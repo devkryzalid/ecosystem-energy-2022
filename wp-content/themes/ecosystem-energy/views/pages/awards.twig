@@ -15,11 +15,8 @@
 
             <li data-aos="fade-up">
               <div class="logo">
-                {% if award.award.thumbnail %}
-                  <img class="" src="{{ award.award.thumbnail.src('medium') }}" alt="{{ award.award.thumbnail.title }}">
-                {% else %}
-                  {{ award.award.title }}
-                {% endif %}
+                {% set img = award.award.thumbnail ? award.award.thumbnail.src('medium') : theme.link ~ '/assets/images/ui/awards-placeholder.jpg' %}
+                <img src="{{ img }}" alt="{{ award.award.thumbnail.title }}">
               </div>
 
               <div class="content">
