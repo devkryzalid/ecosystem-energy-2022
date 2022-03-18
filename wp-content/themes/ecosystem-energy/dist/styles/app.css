@@ -6494,6 +6494,19 @@ body.menu-open #header #menu-toggle:hover span {
   }
 }
 
+.default-page .block-hero {
+  padding-bottom: 20px;
+}
+.default-page .wp-block-quote {
+  margin-left: 20px;
+  padding: 30px 0;
+  font-style: italic;
+  opacity: 0.7;
+}
+.default-page .wp-block-quote p {
+  font-size: 115%;
+}
+
 .expertises-page {
   position: relative;
 }
