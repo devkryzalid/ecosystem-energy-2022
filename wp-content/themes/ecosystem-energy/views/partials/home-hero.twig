@@ -1,9 +1,11 @@
 <div class="home-hero-ctn">
   <div class="title-ctn">
     <h1 class="title" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000" data-aos-easing="ease-out">{{ title }}</h1>
-    <div data-aos="fade-up" data-aos-delay="2400">
-      <a class="internal link" href="{{ button.url }}" target="{{ button.target }}">{{ button.title }}</a>
-    </div>
+    {% if button %}
+      <div data-aos="fade-up" data-aos-delay="2400">
+        <a class="internal link" href="{{ button.url }}" target="{{ button.target }}">{{ button.title }}</a>
+      </div>
+    {% endif %}
   </div>
 
 	<div class="spinner-ctn" data-aos="zoom-out" data-aos-delay="1200" data-aos-duration="1400">
