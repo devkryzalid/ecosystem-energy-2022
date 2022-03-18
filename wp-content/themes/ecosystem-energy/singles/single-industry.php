@@ -28,7 +28,6 @@ $nb = count($clients) <= $max_per_row ? $max_per_row : ceil(count($clients) / 2)
 $context['clients_block']['clients_list'] = array_chunk($clients, $nb);
 
 // Get Featured Case study
-// TODO Add local
 $args = [
    'post_type'       => 'case_study',
    'post_status'     => 'publish',
