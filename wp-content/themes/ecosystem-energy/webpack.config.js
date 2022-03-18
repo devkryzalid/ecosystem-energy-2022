@@ -1,5 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 var path = require('path');
 
@@ -46,6 +47,10 @@ module.exports = {
       injectCss: true, 
       open: false,
     }, { reload: false }),
+    // Copy favicons
+    new CopyPlugin({
+      patterns: [{ from: "./assets/favicon", to: "./favicon" },],
+    }),
   ],
   module: {
     rules: [
