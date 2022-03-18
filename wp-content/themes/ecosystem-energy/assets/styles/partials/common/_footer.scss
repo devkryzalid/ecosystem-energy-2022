@@ -1,10 +1,10 @@
 #footer {
   padding-top: 100px;
+  @include flex(center, space-between);
+  flex-wrap: wrap;
+  padding: 0 40px;
   
-  .container {
-    @include flex(center, space-between);
-    flex-wrap: wrap;
-  }
+  a:hover { color: $yellow; }
 
   nav {
     @include flex(center);
@@ -13,11 +13,6 @@
       padding: 10px;
       @include fontSize(18, 24, 500);
     }
-  }
-
-  a {
-    // transition: $basicTransition;
-    &:hover { color: $yellow; }
   }
 
   .sub-footer {
@@ -56,10 +51,12 @@
   div, a:not(:hover) { color: white; }
 }
 
+// Special beige background on case study detail page
 .page-container.case-study-ctn #footer {
   background-color: $beige;
 }
 
+// Special blue background on leadership page
 .page-container.leadership-ctn #footer {
   background-color: $blue;
   * { color: white !important; }

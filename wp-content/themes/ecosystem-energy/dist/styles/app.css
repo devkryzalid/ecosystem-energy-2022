@@ -3996,13 +3996,15 @@ a.link.video::after {
 
 #footer {
   padding-top: 100px;
-}
-#footer .container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  padding: 0 40px;
+}
+#footer a:hover {
+  color: #FAB900;
 }
 #footer nav {
   display: flex;
@@ -4018,9 +4020,6 @@ a.link.video::after {
   line-height: 24px;
   line-height: 1.5rem;
   letter-spacing: normal;
-}
-#footer a:hover {
-  color: #FAB900;
 }
 #footer .sub-footer {
   display: flex;
