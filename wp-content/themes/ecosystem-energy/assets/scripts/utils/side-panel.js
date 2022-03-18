@@ -46,6 +46,10 @@ export default class SidePanel {
 
   // Load data and render template with event listeners
   loadData = async id => {
+    this.container.classList.add('loading');
+    await this.timeout(500);
+
+    // Fetch ajax if url is supplied, else clone DOM node
     const { data } = this.url 
       ? await this.fetchData(id)
       : this.fetchHtml(id);
@@ -53,13 +57,16 @@ export default class SidePanel {
     this.innerContainer.innerHTML = data;
     this.onDataLoaded(id);
     
+    await this.timeout(200);
+    this.container.classList.remove('loading');
+
     document.getElementById('panel-prev').addEventListener('click', this.replaceData);
     document.getElementById('panel-next').addEventListener('click', this.replaceData);
     document.getElementById('panel-close').addEventListener('click', () => this.togglePanel(false));
   }
 
   fetchHtml = id => {
-    const data = document.getElementById('content-' + id).innerHTML;
+    const data = document.getElementById('content-' + id).cloneNode(true).innerHTML;
     return { data }
   }
 
@@ -67,7 +74,7 @@ export default class SidePanel {
   fetchData = async id => {
     return await axios.post(`${ this.url }/${ id }`)
       .then(response => {
-        console.log('AJAX RESPONSE:', response);
+        // console.log('AJAX RESPONSE:', response);
         return response;
       })
       .catch(error => {
@@ -77,11 +84,13 @@ export default class SidePanel {
   }
 
   // Open panel and load data when grid item clicked
-  openSidePanel = event => {
+  openSidePanel = async event => {
     this.togglePanel(true);
     const id = event.target.dataset.id;
+    window.scrollTo({ top: 0 });
+
+    await this.timeout(700);
     this.loadData(id);
-    window.scrollTo({ top: 0 })
   }
 
   // Replace data when prev/next button clicked
@@ -93,6 +102,7 @@ export default class SidePanel {
   // Show panel
   showPanel = () => {
     // this.transition = true;
+    this.container.classList.add('loading');
     this.container.classList.add('show');
     this.container.addEventListener('transitionend', this.onPanelShown);
     // this.body.classList.add('menu-open');
@@ -101,6 +111,7 @@ export default class SidePanel {
   // Hide panel
   hidePanel = () => {
     // this.transition = true;
+    this.container.classList.add('loading');
     this.container.classList.remove('show');
     this.container.addEventListener('transitionend', this.onPanelHidden);
     // this.body.classList.remove('menu-open');

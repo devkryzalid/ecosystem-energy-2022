@@ -11,6 +11,7 @@
   transition-delay: 0ms;
   opacity: 1;
 
+  // Blue overlay
   #panel-overlay {
     position: absolute;
     top: 0;
@@ -22,6 +23,7 @@
     transition-delay: 100ms;
   }
 
+  // White panel
   #panel-content {
     position: absolute;
     top: 0;
@@ -30,9 +32,9 @@
     height: 100%;
     padding: 40px 60px;
     background-color: white;
-    transition: all 0.6s ease-out;
-    transition-delay: 600ms;
+    transition: all 0.6s ease-out 500ms;
 
+    // Top controls
     #panel-header {
       @include flex(center, space-between);
       margin-bottom: 40px;
@@ -49,7 +51,11 @@
       }
     }
 
+    // Content
     #panel-body {
+      opacity: 1;
+      transition: all 0.4s ease-out 0ms;
+
       .case-studies {
         position: relative;
         margin-top: 50px;
@@ -64,18 +70,23 @@
     }
   }
 
+  // Hide panel when not activated
   &:not(.show) {
-    opacity: 0;
     pointer-events: none;
-
     #panel-overlay, #panel-content { right: -100%; }
   }
 
+  // Panel is in place
   &.-shown {
     transition-delay: 600ms;
     #panel-overlay { transition-delay: 200ms; }
     #panel-content { transition-delay: 0ms; }
+    #panel-content #panel-body { transition-delay: 0ms; }
   }
+
+  // Hide body content when loading
+  &.loading #panel-content #panel-body { opacity: 0 !important; }
+
 
   @media (max-width: $tablet-large) {
     #panel-content { width: 100vw; }
