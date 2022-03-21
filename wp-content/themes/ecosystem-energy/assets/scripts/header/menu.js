@@ -17,6 +17,7 @@ export default class Menu {
     
     // Add click listener to burger/close menu button
     this.button.addEventListener('click', () => this.toggle());
+    this.container.querySelector('#menu-image').addEventListener('click', () => this.toggle());
 
     // Add click listener to all secondary menu triggers
     document.querySelectorAll('.secondary-link').forEach(link => {

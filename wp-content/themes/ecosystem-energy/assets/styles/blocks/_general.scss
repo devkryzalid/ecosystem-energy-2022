@@ -1,12 +1,20 @@
+.wp-block-quote {
+  margin-left: 20px;
+  padding: 30px 0;
+  font-style: italic;
+  opacity: 0.7;
+  p { font-size: 115%; }
+}
+  
 .wp-block-image.size-full {
   position: relative;
   margin: 40px 0;
+  display: flex;
+  flex-direction: column-reverse;
 
   img { width: 100%; }
 
   figcaption {
-    position: absolute;
-    top: 0;
     margin: 0;
     padding: 20px 35px;
     background-color: $yellow;

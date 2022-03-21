@@ -117,11 +117,12 @@
   // Top menu Country / Language / Search togglers
   #main-pane {
     position: relative;
+    top: 0;
     @include flex();
     height: $header-height;
     padding: 0 40px;
     background-color: white;
-    transition: $basicTransition;
+    transition: top 0.5s ease-out 0ms;
     overflow: hidden;
 
     #logo { 
@@ -131,7 +132,7 @@
 
     #top-menu {
       position: relative;
-      @include flex();
+      @include flex(center, space-between);
       height: 100%;
       margin-left: auto;
       margin-right: 80px;
@@ -149,13 +150,18 @@
 
         &:hover, &:hover i, &:hover .wpml-ls-link span { color: $yellow; }
       }
+
+      #search-toggle i {
+        position: relative;
+        top: 2px;
+      }
     }
   }
 
   // Hide panels by default
   &:not(.show-search-pane) #search-pane { height: 0 !important; }
   &:not(.show-country-pane) #country-pane { height: 0 !important; }
-  &:not(.show-main-pane) #main-pane { height: 0 !important; }
+  &:not(.show-main-pane) #main-pane { top: calc($header-height * -1) !important; }
 
   // Burger / Close menu icon
   #menu-toggle {
@@ -165,6 +171,7 @@
     width: 50px;
     height: 50px;
     z-index: 899;
+    transition: $basicTransition;
 
     span {
       position: absolute;
@@ -173,8 +180,7 @@
       height: 3px;
       background-color: $darkgrey;
       transform: rotate(0deg);
-      transition: transform 0.2s ease-out, top 0.2s ease-out, background-color 0.2s ease-out;
-      transition-delay: 600ms, 600ms, 0ms;
+      transition: transform 0.3s ease-out 600ms, top 0.3s ease-out 600ms, background-color 0.3s ease-out 450ms;
 
       &.bar1 { top: 14px; }
       &.bar2 { top: 22px; }
@@ -264,7 +270,6 @@ body.menu-open #header {
   // Switch logo version when menu is open
   #main-pane {
     a, .wpml-ls-legacy-list-horizontal .wpml-ls-link span, a i { color: white; }
-
     #logo { 
       img.normal { display: none; }
       img.invert { display: block; }
@@ -286,19 +291,21 @@ body.menu-open #header {
   @media (max-width: $tablet) {
     #main-pane { 
       height: $header-height-tablet;
+
       #top-menu { display: flex; }
+      #search-toggle { padding-right: 8px; }
+      .wpml-ls-legacy-list-horizontal { margin: 0 0 0 auto; }
     }
   }
 }
 
 // Set background to grey if set by body class
-.page-container.grey #header #main-pane {
-  background-color: $lightgrey;
-}
+.page-container.grey #header #main-pane { background-color: $lightgrey; }
 
 // Set background to blue / text to white if set by body class
 .page-container.blue-head #header {
   &:not(.sticky) #main-pane {
+    transition: all 0.3s ease-out 500ms, top 0.5s ease-out 0ms, background-color 0.3s ease-out 300ms;
     background-color: $blue;
     a, .wpml-ls-legacy-list-horizontal .wpml-ls-link span, a i { color: white; }
     

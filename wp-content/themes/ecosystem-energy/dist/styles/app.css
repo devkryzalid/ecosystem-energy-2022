@@ -3194,16 +3194,26 @@ a.link.video::after {
   letter-spacing: -0.32px;
 }
 
+.wp-block-quote {
+  margin-left: 20px;
+  padding: 30px 0;
+  font-style: italic;
+  opacity: 0.7;
+}
+.wp-block-quote p {
+  font-size: 115%;
+}
+
 .wp-block-image.size-full {
   position: relative;
   margin: 40px 0;
+  display: flex;
+  flex-direction: column-reverse;
 }
 .wp-block-image.size-full img {
   width: 100%;
 }
 .wp-block-image.size-full figcaption {
-  position: absolute;
-  top: 0;
   margin: 0;
   padding: 20px 35px;
   background-color: #FAB900;
@@ -4242,6 +4252,7 @@ a.link.video::after {
 }
 #header #main-pane {
   position: relative;
+  top: 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -4249,7 +4260,7 @@ a.link.video::after {
   height: 125px;
   padding: 0 40px;
   background-color: white;
-  transition: all 0.4s ease;
+  transition: top 0.5s ease-out 0ms;
   overflow: hidden;
 }
 #header #main-pane #logo {
@@ -4263,7 +4274,7 @@ a.link.video::after {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   height: 100%;
   margin-left: auto;
   margin-right: 80px;
@@ -4288,6 +4299,10 @@ a.link.video::after {
 #header #main-pane #top-menu a:hover, #header #main-pane #top-menu a:hover i, #header #main-pane #top-menu a:hover .wpml-ls-link span, #header #main-pane #top-menu .wpml-ls-legacy-list-horizontal:hover, #header #main-pane #top-menu .wpml-ls-legacy-list-horizontal:hover i, #header #main-pane #top-menu .wpml-ls-legacy-list-horizontal:hover .wpml-ls-link span {
   color: #FAB900;
 }
+#header #main-pane #top-menu #search-toggle i {
+  position: relative;
+  top: 2px;
+}
 #header:not(.show-search-pane) #search-pane {
   height: 0 !important;
 }
@@ -4295,7 +4310,7 @@ a.link.video::after {
   height: 0 !important;
 }
 #header:not(.show-main-pane) #main-pane {
-  height: 0 !important;
+  top: -125px !important;
 }
 #header #menu-toggle {
   position: absolute;
@@ -4304,6 +4319,7 @@ a.link.video::after {
   width: 50px;
   height: 50px;
   z-index: 899;
+  transition: all 0.4s ease;
 }
 #header #menu-toggle span {
   position: absolute;
@@ -4312,8 +4328,7 @@ a.link.video::after {
   height: 3px;
   background-color: #494843;
   transform: rotate(0deg);
-  transition: transform 0.2s ease-out, top 0.2s ease-out, background-color 0.2s ease-out;
-  transition-delay: 600ms, 600ms, 0ms;
+  transition: transform 0.3s ease-out 600ms, top 0.3s ease-out 600ms, background-color 0.3s ease-out 450ms;
 }
 #header #menu-toggle span.bar1 {
   top: 14px;
@@ -4433,6 +4448,12 @@ body.menu-open #header #menu-toggle:hover span {
   body.menu-open #header #main-pane #top-menu {
     display: flex;
   }
+  body.menu-open #header #main-pane #search-toggle {
+    padding-right: 8px;
+  }
+  body.menu-open #header #main-pane .wpml-ls-legacy-list-horizontal {
+    margin: 0 0 0 auto;
+  }
 }
 
 .page-container.grey #header #main-pane {
@@ -4440,6 +4461,7 @@ body.menu-open #header #menu-toggle:hover span {
 }
 
 .page-container.blue-head #header:not(.sticky) #main-pane {
+  transition: all 0.3s ease-out 500ms, top 0.5s ease-out 0ms, background-color 0.3s ease-out 300ms;
   background-color: #242C3E;
 }
 .page-container.blue-head #header:not(.sticky) #main-pane a, .page-container.blue-head #header:not(.sticky) #main-pane .wpml-ls-legacy-list-horizontal .wpml-ls-link span, .page-container.blue-head #header:not(.sticky) #main-pane a i {
@@ -4470,8 +4492,7 @@ body.menu-open #header #menu-toggle:hover span {
   height: 100vh;
   background-color: #2A3244;
   z-index: 100;
-  transition: all 0.5s ease-out;
-  transition-delay: 0ms;
+  transition: all 0.5s ease-out 0ms;
 }
 #menu ul {
   padding: 0;
@@ -4488,8 +4509,7 @@ body.menu-open #header #menu-toggle:hover span {
   background-position-x: center;
   opacity: 0.25;
   z-index: 1;
-  transition: all 0.5s ease-out;
-  transition-delay: 900ms;
+  transition: all 0.5s ease-out 900ms;
 }
 #menu #primary-menu {
   left: 0;
@@ -4497,8 +4517,7 @@ body.menu-open #header #menu-toggle:hover span {
   height: 100%;
   padding: 130px 0 60px;
   background-color: #242C3E;
-  transition: all 0.4s ease-out;
-  transition-delay: 500ms;
+  transition: all 0.4s ease-out 500ms;
   overflow: hidden;
   overflow-y: scroll;
   -ms-overflow-style: none;
@@ -4515,8 +4534,7 @@ body.menu-open #header #menu-toggle:hover span {
   padding-left: calc(24vw + 80px);
   opacity: 1;
   overflow: hidden;
-  transition: all 0.3s ease;
-  transition-delay: 1300ms;
+  transition: all 0.3s ease 1300ms;
 }
 #menu #primary-menu li a, #menu #primary-menu li .secondary-menu a.back {
   display: block;
@@ -4625,20 +4643,16 @@ body.menu-open #header #menu-toggle:hover span {
   padding: 0 10px;
 }
 #menu.-on {
-  transition: all 0.4s ease;
-  transition-delay: 600ms !important;
+  transition: all 0.4s ease 600ms !important;
 }
 #menu.-on #menu-image {
-  transition: all 0.3s ease;
-  transition-delay: 300ms !important;
+  transition: all 0.3s ease 300ms !important;
 }
 #menu.-on #primary-menu {
-  transition: all 0.4s ease;
-  transition-delay: 400ms !important;
+  transition: all 0.4s ease 400ms !important;
 }
 #menu.-on #primary-menu li {
-  transition: all 0.2s ease;
-  transition-delay: 0ms !important;
+  transition: all 0.2s ease 0ms !important;
 }
 #menu.-on #menu-footer {
   bottom: 0;
@@ -4646,8 +4660,7 @@ body.menu-open #header #menu-toggle:hover span {
   transition-delay: 0ms;
 }
 #menu.-on.show #menu-image, #menu.-on.show #primary-menu {
-  transition: all 0.4s ease;
-  transition-delay: 0ms !important;
+  transition: all 0.4s ease 0ms !important;
 }
 #menu.-on.show #menu-footer {
   transition-delay: 800ms;
@@ -5652,6 +5665,7 @@ body.menu-open #header #menu-toggle:hover span {
   align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 100px;
+  padding-left: 25px;
 }
 .home-hero-ctn .title-ctn {
   flex-basis: 55%;
@@ -5747,6 +5761,12 @@ body.menu-open #header #menu-toggle:hover span {
   .home-hero-ctn .spinner-ctn .content {
     top: 0;
     margin: 50px;
+  }
+}
+@media (max-width: 768px) {
+  .home-hero-ctn {
+    padding-left: 5px;
+    padding-right: 5px;
   }
 }
 @media (max-width: 500px) {
@@ -6560,15 +6580,6 @@ body.menu-open #header #menu-toggle:hover span {
 
 .page-default .block-hero {
   padding-bottom: 20px;
-}
-.page-default .wp-block-quote {
-  margin-left: 20px;
-  padding: 30px 0;
-  font-style: italic;
-  opacity: 0.7;
-}
-.page-default .wp-block-quote p {
-  font-size: 115%;
 }
 
 .page-expertises {

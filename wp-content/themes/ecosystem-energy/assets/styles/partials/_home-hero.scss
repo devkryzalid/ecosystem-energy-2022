@@ -2,6 +2,7 @@
   @include top;
   @include flex(flex-start, space-between);
   margin-bottom: 100px;
+  padding-left: 25px;
 
   .title-ctn {
     flex-basis: 55%;
@@ -84,6 +85,11 @@
       img { top: -80px; }
       .content { top: 0; margin: 50px; }
     }
+  }
+
+  @media (max-width: $tablet) {
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
   @media (max-width: $mobile-large) {
