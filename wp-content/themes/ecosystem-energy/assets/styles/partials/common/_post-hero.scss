@@ -1,7 +1,9 @@
 .block-hero.post-hero {
   position: relative;
   min-height: 500px;
+  padding-top: 125px;
   padding-bottom: 60px;
+  z-index: 2;
 
   .title-ctn { 
     padding: 0 100px; 
@@ -13,11 +15,11 @@
       
       &::after {
         position: relative;
-        top: -1px;
+        top: -2px;
         margin: 0 16px;
         @extend .icomoon;
         content: "\e90e";
-        font-size: 10px;
+        font-size: 6px;
         opacity: 0.6;
       }
     }

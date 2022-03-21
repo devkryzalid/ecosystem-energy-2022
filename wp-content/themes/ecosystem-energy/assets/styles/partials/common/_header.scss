@@ -21,7 +21,7 @@
     @include flex();
     width: 100%;
     height: $upper-header-height;
-    padding: 0 30px;
+    padding: 0 40px;
     background-color: $yellow;
     transition: $basicTransition;
     overflow: hidden;
@@ -32,7 +32,7 @@
     @extend .yellow-pane;
     z-index: 900;
 
-    a { height: 40%; }
+    a { @include flex(); }
 
     input {
       width: 100%;
@@ -43,6 +43,7 @@
       @include fontSize(62, 85);
 
       &:focus, &:focus-visible { outline: none; }
+      &::placeholder { color: rgba($darkgrey, 0.5); }
     }
   }
 

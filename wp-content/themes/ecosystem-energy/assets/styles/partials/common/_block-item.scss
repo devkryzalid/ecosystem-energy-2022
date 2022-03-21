@@ -93,9 +93,9 @@ $bloc-content-height: 260px;
 
       &::before {
         position: relative;
-        top: 0;
+        top: -1px;
         margin-right: 20px;
-        font-size: 14px; 
+        font-size: 10px; 
         @extend .icomoon;
         content: "\e90e";
         color: $yellow;
@@ -265,6 +265,13 @@ $bloc-content-height: 260px;
         }
       }
     }
+
+    &.invert {
+      .content { 
+        .surtitle, .title, .description { color: $darkgrey; }
+      }
+    }
+  
   }
 
   @media (max-width: $tablet) {

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Ecosystem\n"
-"POT-Creation-Date: 2022-03-18 15:03-0400\n"
+"POT-Creation-Date: 2022-03-18 17:11-0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -148,13 +148,13 @@ msgstr "Annuler"
 msgid "Web conception by"
 msgstr "Conception web par"
 
-#: views/partials/common/header.twig:8
-msgid "Search"
-msgstr "Rechercher"
-
 #: views/partials/common/header.twig:12
 msgid "To read the appropriate content, please select your country:"
 msgstr "Pour du contenu approprié, veuillez choisir votre pays:"
+
+#: views/partials/common/header.twig:17
+msgid "All"
+msgstr "Tous"
 
 #: views/partials/common/header.twig:29
 msgid "Confirm"
@@ -477,6 +477,9 @@ msgstr ""
 #: inc/taxonomies/localization_taxonomy.php:15
 msgid "localizations"
 msgstr ""
+
+#~ msgid "Search"
+#~ msgstr "Rechercher"
 
 #~ msgid "Voir la vidéo"
 #~ msgstr "See the video"

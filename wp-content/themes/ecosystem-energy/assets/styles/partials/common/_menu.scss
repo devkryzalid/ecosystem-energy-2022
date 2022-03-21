@@ -42,7 +42,7 @@ $text-open-transition-delay: 0ms;
     left: 0;
     width: $menu-image-width;
     height: 100%;
-    background-image: url('/assets/images/ui/menu-image.jpg');
+    background-image: url('/assets/images/menu/default.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position-x: center;
@@ -223,6 +223,11 @@ $text-open-transition-delay: 0ms;
 #header.show-country-pane {
   #menu-image { margin-top: calc($upper-header-height); }
   #primary-menu, #primary-menu li .secondary-menu { padding-top: calc($header-height + $upper-header-height); }
+}
+
+// Custom page-specific images 
+.page-container {
+  .page-contact #menu #menu-image { background-image: url('/assets/images/menu/contact.jpg') !important; }
 }
 
 

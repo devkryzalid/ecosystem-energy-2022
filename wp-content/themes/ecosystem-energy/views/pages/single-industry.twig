@@ -1,19 +1,19 @@
 {% extends 'base.twig' %}
 
-{% block pageClass %}blue-head industry-page{% endblock %}
+{% block pageClass %}blue-head page-industry{% endblock %}
 
 {% block content %}
 
   {# Hero #}
   <div class="blue wrapper">
-    <div class="large container">
+    {# <div class="large container"> #}
       {% include 'partials/common/block-hero.twig' with { 
         surtitle: __('Markets', 'ecosystem-energy'),
         title: post.title,
         image: post.thumbnail,
         class: 'invert offset-image'
       } %}
-    </div>
+    {# </div> #}
   </div>
 
   {# Gutenberg content #}

@@ -28,36 +28,46 @@
     }
   }
 
-  @media (max-width: $mobile-large) {
-    .contact { 
-      align-items: flex-start;
-      flex-direction: column; 
-      margin-top: 24px;
-    }
+  @media (max-width: $tablet) {
+    display: block;
+    padding: 20px;
 
-    nav a {
-      @include fontSize(14, 20, 400);
+    .social { padding-bottom: 30px; }
+
+    .contact { 
+      display: block;
+      padding-top: 40px; 
+      text-align: center;
+      border-top: 1px solid $borderColor;
+      a { @include fontSize(18, 24, 500); }
+      div:first-child { padding-bottom: 16px; }
     }
   }
+
+  @media (max-width: $mobile-large) {
+    .social a { @include fontSize(14, 20, 400); }
+    .sub-footer div { @include fontSize(12, 16, 400); }
+  }
+
 }
 
 // Set background to grey if set by body class
-.page-container.grey #footer {
-  background-color: $lightgrey;
-}
+.page-container.grey #footer { background-color: $lightgrey; }
 
 // Set link color to white if blue background
 .page-container.blue-footer #footer {
   div, a:not(:hover) { color: white; }
+  .sub-footer { border-color: white; }
 }
 
 // Special beige background on case study detail page
-.page-container.case-study-ctn #footer {
-  background-color: $beige;
-}
+.page-container.page-case-study #footer { background-color: $beige; }
 
 // Special blue background on leadership page
-.page-container.leadership-ctn #footer {
+.page-container.page-leadership #footer {
   background-color: $blue;
   * { color: white !important; }
 }
+
+// Special grey background on contact page
+.page-container.page-contact #footer { background-color: $lightgrey; }

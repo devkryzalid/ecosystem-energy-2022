@@ -1,4 +1,4 @@
-.contact-page {
+.page-contact {
   .grey.wrapper {
     padding: 100px 0;
 
@@ -51,9 +51,10 @@
       &::after {
         position: absolute;
         right: 30px;
-        top: 10px;
+        top: 15px;
         font-family: 'icomoon';
-        content: "\e903";
+        content: "\e90a";
+        transform: rotate(-90deg);
       }
     }
 
@@ -62,6 +63,7 @@
 
     input[type="submit"] { 
       @extend .btn; 
+      // font-weight: 600;
       margin: 20px auto;
     }
   }

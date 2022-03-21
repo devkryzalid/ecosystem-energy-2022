@@ -4,37 +4,34 @@
   padding-top: 100px;
   padding-bottom: 100px;
 
-  .container {
-    position: relative;
+  .container { position: relative; }
 
-    #cta-spinner {
-      position: absolute;
-      left: 50%;
-      top: -40%;
-      height: 600px;
-      width: 600px;
-      transform: translateX(-50%);
-      opacity: 0.2;
-    }
-
-    img {
-      height: 100%;
-      width: 100%;
-      transform: rotate(0deg);
-    }
-
-    .title { 
-      max-width: 600px;
-      margin: 0 auto 30px;
-      padding-top: 70px;
-      @include fontSize(60, 70, 500, -1);
-      text-align: center;
-    }
-
-    .btn { margin: auto; }
+  #cta-spinner {
+    position: absolute;
+    left: 50%;
+    top: -40%;
+    height: 600px;
+    width: 600px;
+    transform: translateX(-50%);
+    opacity: 0.2;
   }
 
-  &.invert img { opacity: 0.5; }
+  img {
+    height: 100%;
+    width: 100%;
+    transform: rotate(0deg);
+    opacity: 0.6;
+  }
+
+  .title { 
+    max-width: 600px;
+    margin: 0 auto 30px;
+    padding-top: 70px;
+    @include fontSize(60, 70, 500, -1);
+    text-align: center;
+  }
+
+  .btn { margin: auto; }
 
   @media (max-width: $tablet) {
     height: 380px;
