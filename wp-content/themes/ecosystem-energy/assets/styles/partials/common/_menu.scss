@@ -227,7 +227,7 @@ $text-open-transition-delay: 0ms;
 
 // Custom page-specific images 
 .page-container {
-  .page-contact #menu #menu-image { background-image: url('/assets/images/menu/contact.jpg') !important; }
+  &.page-contact #menu #menu-image { background-image: url('/assets/images/menu/contact.jpg') !important; }
 }
 
 

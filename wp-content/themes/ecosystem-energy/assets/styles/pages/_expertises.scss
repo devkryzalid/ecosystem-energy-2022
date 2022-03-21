@@ -1,3 +1,22 @@
 .page-expertises {
   position: relative;
+  
+  #panel-body {
+    .case-studies {
+      position: relative;
+      margin-top: 50px;
+      border-top: 1px solid $borderColor;
+
+      .featured-title { 
+        margin-top: 50px;
+        @include fontSize(36, 44);
+      }
+
+      .link { 
+        position: absolute;
+        right: 0px;
+        top: 65px;
+      }
+    }
+  }
 }

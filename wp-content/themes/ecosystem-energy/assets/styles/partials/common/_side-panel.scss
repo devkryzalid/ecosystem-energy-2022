@@ -55,18 +55,6 @@
     #panel-body {
       opacity: 1;
       transition: all 0.4s ease-out 0ms;
-
-      .case-studies {
-        position: relative;
-        margin-top: 50px;
-        border-top: 1px solid $borderColor;
-
-        .link { 
-          position: absolute;
-          right: 0px;
-          top: 45px;
-        }
-      }
     }
   }
 

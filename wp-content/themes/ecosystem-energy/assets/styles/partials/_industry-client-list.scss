@@ -1,4 +1,6 @@
 .industry-client-list {
+  padding-bottom: 120px;
+
   .clients-head {
     @include flex(flex-start, space-between);
     padding-top: 60px;
@@ -27,6 +29,8 @@
   }
 
   @media (max-width: $tablet) {
+    padding-bottom: 80px;
+
     .clients-head {
       flex-direction: column;
     }

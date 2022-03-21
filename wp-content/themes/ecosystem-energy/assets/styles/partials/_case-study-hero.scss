@@ -18,8 +18,8 @@
         right: 0;
         padding: 4px 20px;
         background-color: $yellow;
-        @include fontSize(20, 22, 600);
-        color: $blue;
+        @include fontSize(16, 22, 600);
+        color: $darkgrey;
       }
 
       li {

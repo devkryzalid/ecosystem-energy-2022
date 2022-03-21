@@ -8,7 +8,7 @@
     .surtitle {
       padding: 0;
       @include fontSize(20, 27, 500);
-      color: rgba($darkgrey, 0.7);
+      color: rgba($darkgrey, 0.7) !important;
       &::before { display: none; }
     }
 
