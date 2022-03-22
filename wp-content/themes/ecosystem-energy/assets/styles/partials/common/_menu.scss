@@ -57,14 +57,20 @@ $text-closing-transition: all 0.2s ease 0ms;
   }
 
   #primary-menu {
+    @include flex(center, flex-start);
     left: 0;
     width: 100%;
     height: 100%;
-    padding: $menu-top-padding 0 60px;
+    padding: $menu-top-padding 0 110px;
     background-color: $blue;
     transition: $primary-opening-transition;
     overflow: hidden;
     overflow-y: scroll;
+
+    .primary-inner {
+      margin: auto 0;
+      height: max-content;
+    }
     
     // Hide scrollbar
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
@@ -106,7 +112,7 @@ $text-closing-transition: all 0.2s ease 0ms;
         height: 100vh;
         padding: $menu-top-padding 0 0;
         background-color: $altblue;
-        transition: $basicTransition;
+        transition: $basicTransition, padding-top 0s;
         overflow: hidden;
 
         li { 

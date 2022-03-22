@@ -82,23 +82,17 @@ export default class Menu {
     this.container.removeEventListener('transitionend', this.onMenuClosed);
   }
 
-  // toggleMenu = open => {
-  //   this.open = !!open;
-  //   if (this.open) this.body.classList.add('menu-open');
-  //   else this.body.classList.remove('menu-open');
-  // }
-
-  // toggleTransition = enable => {
-  //   this.transition = !!enable;
-  //   if (this.transition) this.body.classList.add('menu-transition');
-  //   else this.body.classList.remove('menu-transition');
-  // }
-
   // Secondary menu controls
   openSecondaryMenu = event => {
     this.closeAllSecondaryMenus();
     const itemContainingMenu = event.target.parentNode;
-    itemContainingMenu.classList.add('show')
+    itemContainingMenu.classList.add('show');
+
+    // Set secondary-menu top padding based on the position of the first main menu item
+    if (window.innerWidth > 991) {
+      const top = itemContainingMenu.offsetTop;
+      itemContainingMenu.querySelector('.secondary-menu').style.paddingTop = top + 'px';
+    }
   }
 
   closeAllSecondaryMenus = () => {
