@@ -27,4 +27,12 @@
       pointer-events: none;
     }
   }
+
+  @media (max-width: $mobile-large) {
+    .ajax-page {
+      width: 40px;
+      height: 40px;
+      a { @include fontSize(16, 22); }
+    }
+  }
 }

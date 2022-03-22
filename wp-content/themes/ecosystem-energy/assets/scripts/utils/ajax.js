@@ -232,11 +232,11 @@ export default class AjaxForm {
     if (!container) return false;
 
     const pageButtons = container.querySelectorAll('.ajax-page');
-    this.nbPages = pageButtons.length - 2;  // Exclude prev/next buttons
+    this.nbPages = parseInt(pageButtons[pageButtons.length - 2].innerText);
 
     // Set disabled class on prev/next if needed
     if (this.currentPage === 1) container.querySelector('.prev').classList.add('disabled');
-    if (this.currentPage === this.nbPages) container.querySelector('.next').classList.add('disabled');
+    if (this.currentPage == this.nbPages) container.querySelector('.next').classList.add('disabled');
     
     // Set click listener on page buttons
     pageButtons.forEach(page => { page.addEventListener('click', e => this.pageChange(e.target)); });
@@ -244,12 +244,16 @@ export default class AjaxForm {
 
   // Change current page and trigger ajax fetch
   pageChange = pageElement => {
+    const value = pageElement.getAttribute('value');
+
+    // Ignore '...' buttons
+    if (!['prev', 'next', 'prec', 'suiv'].includes(value) && isNaN(parseInt(value))) return;
+    
     // Toggle selected classes
     document.querySelector('.ajax-page.current').classList.remove('current');
     pageElement.classList.add('current');
 
     // Set current page
-    const value = pageElement.getAttribute('value');
     if (value === 'prev') 
       this.currentPage = this.currentPage > 1 ? this.currentPage - 1 : 1;
     else if (value === 'next') 

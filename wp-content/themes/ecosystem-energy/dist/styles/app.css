@@ -2411,7 +2411,13 @@ ul li {
 }
 
 .page {
+  padding: 0 30px;
   overflow: hidden;
+}
+@media (max-width: 768px) {
+  .page {
+    padding: 0 5px;
+  }
 }
 
 .wrapper, .industry-cs-slider, .home-slider, .case-study-slider, .gutenberg-slider-multiple {
@@ -4897,6 +4903,20 @@ body.menu-open #header #menu-toggle:hover span {
   text-align: center;
   pointer-events: none;
 }
+@media (max-width: 500px) {
+  #ajax-pagination .ajax-page {
+    width: 40px;
+    height: 40px;
+  }
+  #ajax-pagination .ajax-page a {
+    font-size: 16px;
+    font-size: 1rem;
+    font-weight: initial;
+    line-height: 22px;
+    line-height: 1.375rem;
+    letter-spacing: normal;
+  }
+}
 
 .block-hero.post-hero {
   position: relative;
@@ -5405,10 +5425,8 @@ body.menu-open #header #menu-toggle:hover span {
 }
 .contact-offices .lists-ctn {
   flex: 0 0 50%;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 30px;
 }
 .contact-offices ul {
@@ -5519,7 +5537,7 @@ body.menu-open #header #menu-toggle:hover span {
     gap: 0;
   }
   .contact-offices .lists-ctn {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 0;
   }
   .contact-offices ul {
@@ -6722,7 +6740,6 @@ body.menu-open #header #menu-toggle:hover span {
 
 .page-industry .block-hero .title-ctn {
   margin: 0;
-  padding: 0 30px;
 }
 .page-industry .block-hero .title-ctn .surtitle {
   padding-top: 40px;
@@ -6731,6 +6748,5 @@ body.menu-open #header #menu-toggle:hover span {
   .page-industry .block-hero .title-ctn {
     max-width: 800px;
     margin: 0 30px 0 auto;
-    padding: 0;
   }
 }
