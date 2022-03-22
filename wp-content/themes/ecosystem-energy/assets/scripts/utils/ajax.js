@@ -65,7 +65,7 @@ export default class AjaxForm {
     if (!this.innerContainer) console.log('Error - Ajax content container .' + innerClass + ' not found');
 
     // Get form settings from hidden input
-    const { url, limit = 9, page = 1 } = document.getElementById(settingsId).dataset || {};
+    const { url, limit = 9 } = document.getElementById(settingsId).dataset || {};
     this.limit = limit;
 
     this.url = url;
@@ -91,7 +91,7 @@ export default class AjaxForm {
     // Set clear button visibility
     this.toggleClearButton();
     
-    // Set filters counter
+    // Set filters counter on button
     this.setActiveFiltersCount();
   }
 
@@ -265,16 +265,17 @@ export default class AjaxForm {
     this.onFormChange();
   }
 
+  // Count total active filters
   countActiveFilters = () => {
     return this.formContainer.querySelectorAll('input:checked').length;
   }
 
-  // 
+  // Scroll to loaded ajax content
   scrollToContent = () => {
     setTimeout(() => { window.scroll({ top: this.formContainer.offsetTop - 150, behavior: 'smooth' }); }, 10); 
   }
   
-  //
+  // Delay helper
   timeout = async ms => {
     return new Promise(resolve => setTimeout(resolve, ms));
   }

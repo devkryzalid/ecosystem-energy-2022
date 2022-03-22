@@ -15,7 +15,7 @@ export default class Menu {
   constructor (headerRef) {
     this.header = headerRef;
     
-    // Add click listener to burger/close menu button
+    // Add click listener to burger/close menu button and image
     this.button.addEventListener('click', () => this.toggle());
     this.container.querySelector('#menu-image').addEventListener('click', () => this.toggle());
 
@@ -32,6 +32,7 @@ export default class Menu {
 
   // Menu display toggler
   toggle = (forcedValue = null) => {
+    // 
     if (this.transition) {
       if (this.open) this.onMenuClosed();
       else this.onMenuComplete();
