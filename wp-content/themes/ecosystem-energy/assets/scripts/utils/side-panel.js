@@ -65,6 +65,7 @@ export default class SidePanel {
     document.getElementById('panel-close').addEventListener('click', () => this.togglePanel(false));
   }
 
+  // Clone target DOM node to the panel
   fetchHtml = id => {
     const data = document.getElementById('content-' + id).cloneNode(true).innerHTML;
     return { data }
@@ -119,7 +120,7 @@ export default class SidePanel {
 
   // Switch on opened status (on transition end)
   onPanelShown = () => {
-    console.log('shown');
+    // console.log('shown');
     // this.open = true;
     this.transition = false;
     this.container.classList.add('-shown');
@@ -128,7 +129,7 @@ export default class SidePanel {
 
   // Switch on closed status (on transition end)
   onPanelHidden = () => {
-    console.log('hidden');
+    // console.log('hidden');
     // this.open = false;
     this.transition = false;
     this.container.classList.remove('-shown');
