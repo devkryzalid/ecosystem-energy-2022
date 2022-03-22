@@ -4266,14 +4266,22 @@ a.link.video::after {
   height: 125px;
   padding: 0 40px;
   background-color: white;
-  transition: top 0.5s ease-out 0ms;
+  transition: all 0.3s ease-out 0ms, background-color 0.3s ease-out 300ms;
   overflow: hidden;
 }
 #header #main-pane #logo {
+  position: relative;
+  width: 240px;
+  height: 62px;
   z-index: 120;
 }
+#header #main-pane #logo img {
+  position: absolute;
+  transition: all 0.3s ease-out 300ms;
+  opacity: 1;
+}
 #header #main-pane #logo img.invert {
-  display: none;
+  opacity: 0;
 }
 #header #main-pane #top-menu {
   position: relative;
@@ -4309,23 +4317,20 @@ a.link.video::after {
   position: relative;
   top: 2px;
 }
-#header:not(.show-search-pane) #search-pane {
-  height: 0 !important;
-}
-#header:not(.show-country-pane) #country-pane {
-  height: 0 !important;
-}
-#header:not(.show-main-pane) #main-pane {
-  top: -125px !important;
-}
 #header #menu-toggle {
+  position: relative;
+  right: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+#header #menu-toggle .bars {
   position: absolute;
-  top: 45px;
-  right: 50px;
   width: 50px;
-  height: 50px;
+  height: 40px;
+  margin: auto;
   z-index: 899;
-  transition: all 0.4s ease;
 }
 #header #menu-toggle span {
   position: absolute;
@@ -4334,7 +4339,7 @@ a.link.video::after {
   height: 3px;
   background-color: #494843;
   transform: rotate(0deg);
-  transition: transform 0.3s ease-out 600ms, top 0.3s ease-out 600ms, background-color 0.3s ease-out 450ms;
+  transition: transform 0.3s ease-out 600ms, top 0.3s ease-out 600ms, background-color 0.3s ease-out 0ms;
 }
 #header #menu-toggle span.bar1 {
   top: 14px;
@@ -4348,8 +4353,17 @@ a.link.video::after {
 #header.sticky #main-pane {
   height: 86px;
 }
-#header.sticky #menu-toggle {
-  top: 26px;
+#header.sticky #main-pane #logo img {
+  transition-delay: 0ms;
+}
+#header:not(.show-search-pane) #search-pane {
+  height: 0 !important;
+}
+#header:not(.show-country-pane) #country-pane {
+  height: 0 !important;
+}
+#header:not(.show-main-pane) #main-pane {
+  top: -125px !important;
 }
 @media (max-width: 992px) {
   #header #country-pane p, #header #country-pane label {
@@ -4411,8 +4425,8 @@ a.link.video::after {
     flex-wrap: wrap;
   }
   #header #menu-toggle {
-    top: 21px;
-    right: 21px;
+    position: absolute;
+    top: 40px;
   }
 }
 @media (max-width: 425px) {
@@ -4425,27 +4439,58 @@ a.link.video::after {
   }
 }
 
-body.menu-open #header #main-pane a, body.menu-open #header #main-pane .wpml-ls-legacy-list-horizontal .wpml-ls-link span, body.menu-open #header #main-pane a i {
+.page-container.grey #header #main-pane {
+  background-color: #F6F6F4;
+}
+
+.page-container.blue-head #header:not(.sticky) #main-pane {
+  transition: all 0.3s ease-out 0ms, background-color 200ms ease-out 300ms;
+  background-color: #242C3E;
+}
+.page-container.blue-head #header:not(.sticky) #main-pane a, .page-container.blue-head #header:not(.sticky) #main-pane .wpml-ls-legacy-list-horizontal .wpml-ls-link span, .page-container.blue-head #header:not(.sticky) #main-pane a i {
   color: white;
 }
-body.menu-open #header #main-pane #logo img.normal {
-  display: none;
+.page-container.blue-head #header:not(.sticky) #main-pane #logo img {
+  opacity: 0;
 }
-body.menu-open #header #main-pane #logo img.invert {
-  display: block;
+.page-container.blue-head #header:not(.sticky) #main-pane #logo img.invert {
+  opacity: 1;
 }
-body.menu-open #header #menu-toggle span {
-  top: 18px;
+.page-container.blue-head #header:not(.sticky) #main-pane #menu-toggle .bars span {
+  background-color: white;
+}
+.page-container.blue-head #header:not(.sticky) #main-pane #menu-toggle .bars:hover span {
   background-color: #FAB900;
 }
-body.menu-open #header #menu-toggle span.bar1 {
+.page-container.blue-head #header.sticky #main-pane {
+  transition: all 0.3s ease-out 0ms, background-color 0s ease-out 0ms;
+}
+
+body.menu-open #header #main-pane a, body.menu-open #header #main-pane .wpml-ls-legacy-list-horizontal .wpml-ls-link span, body.menu-open #header #main-pane a i, body.menu-opening #header #main-pane a, body.menu-opening #header #main-pane .wpml-ls-legacy-list-horizontal .wpml-ls-link span, body.menu-opening #header #main-pane a i {
+  color: white;
+}
+body.menu-open #header #main-pane #logo img, body.menu-opening #header #main-pane #logo img {
+  opacity: 0;
+}
+body.menu-open #header #main-pane #logo img.invert, body.menu-opening #header #main-pane #logo img.invert {
+  opacity: 1;
+}
+body.menu-open #header #main-pane #menu-toggle span, body.menu-opening #header #main-pane #menu-toggle span {
+  top: 18px;
+  background-color: #FAB900 !important;
+}
+body.menu-open #header #main-pane #menu-toggle span.bar1, body.menu-opening #header #main-pane #menu-toggle span.bar1 {
   transform: rotate(45deg);
 }
-body.menu-open #header #menu-toggle span.bar2 {
+body.menu-open #header #main-pane #menu-toggle span.bar2, body.menu-opening #header #main-pane #menu-toggle span.bar2 {
   transform: rotate(-45deg);
 }
-body.menu-open #header #menu-toggle:hover span {
-  background-color: white;
+body.menu-open #header #main-pane #menu-toggle:hover span, body.menu-opening #header #main-pane #menu-toggle:hover span {
+  background-color: white !important;
+}
+
+body.menu-open #header #main-pane a, body.menu-open #header #main-pane .wpml-ls-legacy-list-horizontal .wpml-ls-link span, body.menu-open #header #main-pane a i {
+  transition-delay: 0ms !important;
 }
 @media (max-width: 768px) {
   body.menu-open #header #main-pane {
@@ -4462,28 +4507,15 @@ body.menu-open #header #menu-toggle:hover span {
   }
 }
 
-.page-container.grey #header #main-pane {
-  background-color: #F6F6F4;
+body.menu-opening #header #main-pane a, body.menu-opening #header #main-pane .wpml-ls-legacy-list-horizontal .wpml-ls-link span, body.menu-opening #header #main-pane a i {
+  transition-delay: 300ms !important;
 }
 
-.page-container.blue-head #header:not(.sticky) #main-pane {
-  transition: all 0.3s ease-out 500ms, top 0.5s ease-out 0ms, background-color 0.3s ease-out 300ms;
-  background-color: #242C3E;
+body.menu-closing #header #main-pane a, body.menu-closing #header #main-pane .wpml-ls-legacy-list-horizontal .wpml-ls-link span, body.menu-closing #header #main-pane a i {
+  transition-delay: 600ms !important;
 }
-.page-container.blue-head #header:not(.sticky) #main-pane a, .page-container.blue-head #header:not(.sticky) #main-pane .wpml-ls-legacy-list-horizontal .wpml-ls-link span, .page-container.blue-head #header:not(.sticky) #main-pane a i {
-  color: white;
-}
-.page-container.blue-head #header:not(.sticky) #main-pane #logo img.normal {
-  display: none;
-}
-.page-container.blue-head #header:not(.sticky) #main-pane #logo img.invert {
-  display: block;
-}
-.page-container.blue-head #header:not(.sticky) #main-pane #menu-toggle span {
-  background-color: white;
-}
-.page-container.blue-head #header:not(.sticky) #main-pane #menu-toggle:hover span {
-  background-color: #FAB900;
+body.menu-closing #header #main-pane #menu-toggle span {
+  transition: transform 0.3s ease-out 100ms, top 0.3s ease-out 100ms, background-color 0.3s ease-out 500ms;
 }
 
 #menu {
@@ -4509,13 +4541,22 @@ body.menu-open #header #menu-toggle:hover span {
   left: 0;
   width: 24vw;
   height: 100%;
+  z-index: 1;
+  transition: all 0.4s ease-out 500ms;
+  background-color: #242C3E;
+}
+#menu #menu-image::before, #menu #menu-image::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#menu #menu-image::before {
   background-image: url(../images/menu/default.79fe574396a4827c0495.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: center;
   opacity: 0.25;
-  z-index: 1;
-  transition: all 0.5s ease-out 900ms;
 }
 #menu #primary-menu {
   left: 0;
@@ -4523,7 +4564,7 @@ body.menu-open #header #menu-toggle:hover span {
   height: 100%;
   padding: 130px 0 60px;
   background-color: #242C3E;
-  transition: all 0.4s ease-out 500ms;
+  transition: all 0.5s ease-out 300ms;
   overflow: hidden;
   overflow-y: scroll;
   -ms-overflow-style: none;
@@ -4540,7 +4581,7 @@ body.menu-open #header #menu-toggle:hover span {
   padding-left: calc(24vw + 80px);
   opacity: 1;
   overflow: hidden;
-  transition: all 0.3s ease 1300ms;
+  transition: all 0.4s ease 1000ms;
 }
 #menu #primary-menu li a, #menu #primary-menu li .secondary-menu a.back {
   display: block;
@@ -4601,9 +4642,6 @@ body.menu-open #header #menu-toggle:hover span {
   margin-right: 10px;
   font-size: 22px;
 }
-#menu #primary-menu li.show a {
-  color: white;
-}
 #menu #primary-menu li:not(.show) .secondary-menu {
   right: calc((100% - 24vw) / -2);
 }
@@ -4648,36 +4686,48 @@ body.menu-open #header #menu-toggle:hover span {
 #menu #menu-footer .ms .menu-footer-link {
   padding: 0 10px;
 }
-#menu.-on {
-  transition: all 0.4s ease 600ms !important;
+
+body.menu-open #menu {
+  transition: all 0.3s ease 0ms !important;
 }
-#menu.-on #menu-image {
-  transition: all 0.3s ease 300ms !important;
+body.menu-open #menu #menu-image {
+  transition: all 0.3s ease 0ms !important;
 }
-#menu.-on #primary-menu {
-  transition: all 0.4s ease 400ms !important;
+body.menu-open #menu #primary-menu {
+  transition: all 0.3s ease 0ms !important;
 }
-#menu.-on #primary-menu li {
-  transition: all 0.2s ease 0ms !important;
+body.menu-open #menu #primary-menu li {
+  transition: all 0.3s ease 0ms !important;
 }
-#menu.-on #menu-footer {
+body.menu-open #menu #menu-footer {
   bottom: 0;
   opacity: 1;
   transition-delay: 0ms;
 }
-#menu.-on.show #menu-image, #menu.-on.show #primary-menu {
-  transition: all 0.4s ease 0ms !important;
+
+body.menu-closing #menu {
+  transition: all 0.4s ease 600ms !important;
 }
-#menu.-on.show #menu-footer {
-  transition-delay: 800ms;
+body.menu-closing #menu #menu-image {
+  transition: all 0.3s ease 300ms !important;
 }
-#menu:not(.show) {
+body.menu-closing #menu #primary-menu {
+  transition: all 0.4s ease 400ms !important;
+}
+body.menu-closing #menu #primary-menu li {
+  transition: all 0.2s ease 0ms !important;
+}
+
+body:not(.menu-open):not(.menu-opening) #menu {
   width: 0 !important;
 }
-#menu:not(.show) #menu-image, #menu:not(.show) #primary-menu, #menu:not(.show) .secondary-menu {
+body:not(.menu-open):not(.menu-opening) #menu #menu-image {
+  left: -100vw;
+}
+body:not(.menu-open):not(.menu-opening) #menu #primary-menu, body:not(.menu-open):not(.menu-opening) #menu .secondary-menu {
   width: 0 !important;
 }
-#menu:not(.show) li {
+body:not(.menu-open):not(.menu-opening) #menu li {
   opacity: 0 !important;
 }
 
@@ -4704,8 +4754,15 @@ body.menu-open #header #menu-toggle:hover span {
   #menu #menu-image {
     width: 100%;
     height: 125px;
+    transition-delay: 0ms;
+  }
+  #menu #menu-image::before {
     background-position-y: 50%;
-    background-position-x: 0;
+  }
+  #menu #menu-image::after {
+    background-color: #242C3E;
+    transition: all 0.5s ease-out 340ms;
+    right: 0;
   }
   #menu #primary-menu {
     padding-top: 155px;
@@ -4723,6 +4780,16 @@ body.menu-open #header #menu-toggle:hover span {
   #menu #primary-menu li:not(.show) .secondary-menu {
     right: -50%;
   }
+  #menu #menu-footer {
+    align-items: flex-end;
+    flex-direction: column;
+  }
+  #menu #menu-footer .ms {
+    padding-bottom: 0px;
+  }
+  #menu #menu-footer .contact {
+    padding-top: 10px;
+  }
   #menu #menu-footer a {
     font-size: 13px;
     font-size: 0.8125rem;
@@ -4731,14 +4798,10 @@ body.menu-open #header #menu-toggle:hover span {
     line-height: 1.25rem;
     letter-spacing: normal;
   }
-  #menu:not(.show) #menu-image {
-    width: 100% !important;
-    background-position-x: -140vh;
-  }
 
   #header.show-search-pane #menu #menu-image,
 #header.show-country-pane #menu #menu-image {
-    transition-delay: 100ms;
+    transition-delay: 0ms !important;
   }
   #header.show-search-pane #menu #primary-menu,
 #header.show-country-pane #menu #primary-menu {
@@ -4748,6 +4811,10 @@ body.menu-open #header #menu-toggle:hover span {
 #header.show-country-pane #menu #primary-menu li .secondary-menu {
     padding-top: 30px;
     margin-top: 215px;
+  }
+
+  body.menu-open #menu #menu-image::after {
+    right: -100vw;
   }
 }
 @media (max-width: 768px) {

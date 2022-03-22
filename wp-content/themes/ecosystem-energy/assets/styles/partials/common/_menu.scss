@@ -2,15 +2,20 @@ $menu-image-width: 24vw;
 $menu-top-padding: 130px;
 $menu-top-padding-mobile: 30px;
 
-$menu-transition: all 0.5s ease-out 0ms;
-$image-transition: all 0.5s ease-out 900ms;
-$primary-transition: all 0.4s ease-out 500ms;
-$text-transition: all 0.3s ease 1300ms;
+$menu-opening-transition: all 0.5s ease-out 0ms;
+$primary-opening-transition: all 0.5s ease-out 300ms;
+$image-opening-transition: all 0.4s ease-out 500ms;
+$text-opening-transition: all 0.4s ease 1000ms;
 
-$menu-open-transition: all 0.4s ease 600ms;
-$image-open-transition: all 0.3s ease 300ms;
-$primary-open-transition: all 0.4s ease 400ms;
-$text-open-transition: all 0.2s ease 0ms;
+$menu-open-transition: all 0.3s ease 0ms;
+$image-open-transition: all 0.3s ease 0ms;
+$primary-open-transition: all 0.3s ease 0ms;
+$text-open-transition: all 0.3s ease 0ms;
+
+$menu-closing-transition: all 0.4s ease 600ms;
+$image-closing-transition: all 0.3s ease 300ms;
+$primary-closing-transition: all 0.4s ease 400ms;
+$text-closing-transition: all 0.2s ease 0ms;
 
 #menu {
   @include flex(center, flex-start);
@@ -21,7 +26,7 @@ $text-open-transition: all 0.2s ease 0ms;
   height: 100vh;
   background-color: $altblue;
   z-index: 100;
-  transition: $menu-transition;
+  transition: $menu-opening-transition;
 
   ul { padding: 0; }
 
@@ -31,13 +36,24 @@ $text-open-transition: all 0.2s ease 0ms;
     left: 0;
     width: $menu-image-width;
     height: 100%;
-    background-image: url('/assets/images/menu/default.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position-x: center;
-    opacity: 0.25;
     z-index: 1;
-    transition: $image-transition;
+    transition: $image-opening-transition;
+    background-color: $blue;
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    &::before {
+      background-image: url('/assets/images/menu/default.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position-x: center;
+      opacity: 0.25;
+    }
   }
 
   #primary-menu {
@@ -46,10 +62,11 @@ $text-open-transition: all 0.2s ease 0ms;
     height: 100%;
     padding: $menu-top-padding 0 60px;
     background-color: $blue;
-    transition: $primary-transition;
+    transition: $primary-opening-transition;
     overflow: hidden;
     overflow-y: scroll;
     
+    // Hide scrollbar
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
     &::-webkit-scrollbar { display: none;  /* Safari and Chrome */ }
@@ -59,7 +76,7 @@ $text-open-transition: all 0.2s ease 0ms;
       padding-left: calc($menu-image-width + 80px);
       opacity: 1;
       overflow: hidden;
-      transition: $text-transition;
+      transition: $text-opening-transition;
 
       a, .secondary-menu a.back {
         display: block;
@@ -116,7 +133,7 @@ $text-open-transition: all 0.2s ease 0ms;
         }
       }
 
-      &.show a { color: white; }
+      // &.show a { color: white; }
 
       &:not(.show) { 
         .secondary-menu { right: calc((100% - $menu-image-width) / (-2)); }
@@ -154,37 +171,36 @@ $text-open-transition: all 0.2s ease 0ms;
       .menu-footer-link { padding: 0 10px; }
     }
   }
+}
 
-  // Menu is either fully opened or closing
-  &.-on {
-    transition: $menu-open-transition !important;
+// Hide menu when not shown nor triggered
+body.menu-open #menu {
+  transition: $menu-open-transition !important;
+  #menu-image { transition: $image-open-transition !important; }
+  #primary-menu { transition: $primary-open-transition !important; }
+  #primary-menu li { transition: $text-open-transition !important; }
 
-    #menu-image { transition: $image-open-transition !important; }
-
-    #primary-menu { 
-      transition: $primary-open-transition !important;
-      li { transition: $text-open-transition !important; }
-    }
-
-    #menu-footer {
-      bottom: 0; 
-      opacity: 1; 
-      transition-delay: 0ms;
-    }
-
-    // Disable transition delays when menu is open AND not closing
-    &.show { 
-      #menu-image, #primary-menu { transition: $basicTransition 0ms !important; } 
-      #menu-footer { transition-delay: 800ms; }
-    }  
+  #menu-footer {
+    bottom: 0; 
+    opacity: 1; 
+    transition-delay: 0ms;
   }
+}
 
-  // Menu is not triggered, so hide everything
-  &:not(.show) {
-    width: 0 !important;
-    #menu-image, #primary-menu, .secondary-menu { width: 0 !important; }
-    li { opacity: 0 !important; }
-  }
+// Hide menu when not shown nor triggered
+body.menu-closing #menu {
+  transition: $menu-closing-transition !important;
+  #menu-image { transition: $image-closing-transition !important; }
+  #primary-menu { transition: $primary-closing-transition !important; }
+  #primary-menu li { transition: $text-closing-transition !important; }
+}
+
+// Hide menu when not shown nor triggered
+body:not(.menu-open):not(.menu-opening) #menu {
+  width: 0 !important;
+  #menu-image { left: -100vw; }
+  #primary-menu, .secondary-menu { width: 0 !important; }
+  li { opacity: 0 !important; }
 }
 
 // Adjust top margin with top yellow panel height
@@ -202,9 +218,7 @@ $text-open-transition: all 0.2s ease 0ms;
 
 @media (max-width: 1100px) {
   #menu {
-    #primary-menu {
-      li { padding-left: calc($menu-image-width + 40px); }
-    }
+    #primary-menu li { padding-left: calc($menu-image-width + 40px); }
   }
 }
 
@@ -213,8 +227,15 @@ $text-open-transition: all 0.2s ease 0ms;
     #menu-image {
       width: 100%;
       height: $header-height;
-      background-position-y: 50%;
-      background-position-x: 0;
+      transition-delay: 0ms;
+
+      &::before { background-position-y: 50%; }
+
+      &::after {
+        background-color: $blue;
+        transition: all 0.5s ease-out 340ms;
+        right: 0;
+      }
     }
 
     #primary-menu {
@@ -238,20 +259,19 @@ $text-open-transition: all 0.2s ease 0ms;
     }
 
     #menu-footer { 
+      align-items: flex-end;
+      flex-direction: column;
+
+      .ms { padding-bottom: 0px; }
+      .contact { padding-top: 10px; }
+
       a { @include fontSize(13, 20); }
-    }
-  
-    &:not(.show) {
-      #menu-image {
-        width: 100% !important;
-        background-position-x: -140vh;
-      }
     }
   }
 
   #header.show-search-pane #menu, 
   #header.show-country-pane #menu {
-    #menu-image { transition-delay: 100ms; }
+    #menu-image { transition-delay: 0ms !important; }
 
     #primary-menu {
       padding-top: calc($header-height + $upper-header-height + $menu-top-padding-mobile);
@@ -261,6 +281,10 @@ $text-open-transition: all 0.2s ease 0ms;
         margin-top: calc($header-height + $upper-header-height);
       }
     }
+  }
+
+  body.menu-open #menu {
+    #menu-image::after { right: -100vw; }
   }
 }
 
