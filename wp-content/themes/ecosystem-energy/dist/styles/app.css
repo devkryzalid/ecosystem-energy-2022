@@ -4159,7 +4159,7 @@ a.link.video::after {
   height: 90px;
   padding: 0 40px;
   background-color: #FAB900;
-  transition: all 0.4s ease;
+  transition: all 0.2s ease-out;
   overflow: hidden;
 }
 #header #search-pane {
@@ -4741,7 +4741,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   padding-top: 215px;
 }
 
-.page-container.page-contact #menu #menu-image {
+.page-container.page-contact #menu #menu-image::before {
   background-image: url(../images/menu/contact.35cc9c292389d25a2280.jpg) !important;
 }
 

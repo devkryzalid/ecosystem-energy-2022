@@ -212,7 +212,7 @@ body:not(.menu-open):not(.menu-opening) #menu {
 
 // Custom page-specific images 
 .page-container {
-  &.page-contact #menu #menu-image { background-image: url('/assets/images/menu/contact.jpg') !important; }
+  &.page-contact #menu #menu-image::before { background-image: url('/assets/images/menu/contact.jpg') !important; }
 }
 
 
