@@ -16,28 +16,7 @@
     z-index: 1;
 
     .block-item {
-      .content {
-        .title { @include fontSize(32, 40, 500); }
-        .footer { 
-          position: relative;
-          border-top-color: $borderColor !important; 
-          
-          &::before {
-            content: '';
-            position: absolute;
-            top: -1px;
-            left: 0;
-            width: 0%;
-            height: 1px;
-            background-color: $darkgrey;
-            transition: $basicTransition;
-          }
-        }
-      }
-
-      &:hover {
-        .footer::before { width: 100%; }
-      }
+      .content .title { @include fontSize(32, 40, 500); }
     }
   }
 

@@ -33,6 +33,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
+    min-height: 250px;
   }
 
   @media (max-width: $tablet) {

@@ -68,6 +68,7 @@ export default class AjaxForm {
     const { url, limit = 9 } = document.getElementById(settingsId).dataset || {};
     this.limit = limit;
     this.url = url;
+    
     if (!this.url) {
       console.log('Error - Ajax url not found');
       return;

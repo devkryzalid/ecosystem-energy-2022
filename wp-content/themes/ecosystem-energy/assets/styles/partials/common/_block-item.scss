@@ -116,12 +116,24 @@ $bloc-content-height: 260px;
     }
 
     .footer {
+      position: relative;
       margin-top: auto;
       padding: 20px 0;
       border-top: 1px solid $borderColor;
       @include fontSize(16, 22, 600);
       opacity: 0.6;
       transition: $basicTransition;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -2px;
+        left: 0;
+        width: 0%;
+        height: 1px;
+        background-color: $darkgrey;
+        transition: $basicTransition;
+      }
     }
   }
 
@@ -240,15 +252,8 @@ $bloc-content-height: 260px;
 
         .content {
           &::before { height: 100%; }
-
-          .surtitle, .surtitle::before {
-            color: $darkgrey;
-          }
-
-          .footer { 
-            opacity: 1; 
-            border-color: $darkgrey;
-          }
+          .surtitle, .surtitle::before { color: $darkgrey; }
+          .footer { opacity: 1; }
         }
       }
 
@@ -264,12 +269,12 @@ $bloc-content-height: 260px;
           .surtitle::before { color: $darkgrey; }
         }
       }
+
+      .content .footer::before { width: 100%; }
     }
 
     &.invert {
-      .content { 
-        .surtitle, .title, .description { color: $darkgrey; }
-      }
+      .content .surtitle, .title, .description { color: $darkgrey; }
     }
   
   }
