@@ -3304,6 +3304,9 @@ a.link.video::after {
   opacity: 0.7;
 }
 
+.slider-ctn.gutenberg-slider-single {
+  padding: 100px 0;
+}
 .slider-ctn.gutenberg-slider-single .swiper-slide {
   max-height: 600px;
 }

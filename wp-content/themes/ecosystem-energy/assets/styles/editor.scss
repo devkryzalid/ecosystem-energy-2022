@@ -1,25 +1,17 @@
 /**
 * Style only call in Administration
 */
-// @import "configs/reset";
+
+.icomoon {
+  font-family: 'icomoon' !important;
+  font-weight: 400 !important;
+}
+
 @import "configs/mixins";
 @import "configs/variables";
 @import "configs/icons";
-// @import "configs/grid";
-// @import "commons/global";
-// @import "commons/buttons";
-// @import "commons/links";
-
-.editor-post-title {
-  .editor-post-title__input {
-    font-family: $primaryFont !important;
-    color: $textColor !important;
-  }
-}
-
-.wp-block {
-  max-width: 80% !important;
-}
+@import "commons/buttons";
+@import "commons/links";
 
 .editor-styles-wrapper {
   font-family: $primaryFont !important;
@@ -27,7 +19,23 @@
   font-size: 19px;
   line-height: normal;
 
+  .wp-block {
+    max-width: 80% !important;
+  }
+
+  .btn, .link {
+    color: $darkgrey !important;
+    text-decoration: none !important;
+  }
+
   hr { width: 100% !important; }
+
+  .editor-post-title {
+    .editor-post-title__input {
+      font-family: $primaryFont !important;
+      color: $textColor !important;
+    }
+  }
 
   .color-block {
     padding: 20px;
@@ -35,111 +43,82 @@
     &.blue { background-color: $blue; color: white; }
   }
 
-//   h1,
-//   h2,
-//   h3,
-//   h4,
-//   h5 {
-//     font-weight: bold !important;
-//     color: $textColor !important;
-//   }
+  .wp-block-quote {
+    padding-top: 30px;
+    @include fontSize(24, 30);
+    font-style: italic;
+    color: rgba($darkgrey, 0.6);
+  }
 
-//   /*** Block Boutons ***/
+  .wp-block-image {
+    @include flex();
+    flex-direction: column-reverse;
+    margin: 60px auto;
 
-//   .wp-block-button__link {}
+    &.size-full > div { width: 100% !important; }
 
+    figcaption {
+      margin: 0;
+      padding: 20px;
+      background-color: $yellow;
+      @include fontSize(18, 24, 500);
+      text-align: left;
+      color: $blue;
+    }
+  }
 
-//   /*** Block Custom Gallery ***/
+  // Data blocks
+  .content-key-data-ctn {
+    @include flex(center, space-between);
+    .title { @include fontSize(22, 30); }
+    .value { @include fontSize(35, 48, 500); }
+  }
 
-//   .custom-gallery-ctn {
-//     max-width: 100%;
-//     display: flex;
-//     flex-wrap: wrap;
-//     align-items: center;
-//     margin: 20px 0;
+  // Sliders
+  .gutenberg-slider-single {
+    margin: 60px auto;
 
-//     .part-gallery {
-//       width: calc(50% - 20px);
+    .slider-slides {
+      .swiper-wrapper {
+        .swiper-slide:not(:first-child) { display: none; }
+      }
+    }
+  }
+  .gutenberg-slider-multiple {
+    background-color: $blue;
+    margin: 60px auto;
+    padding: 70px 30px;
 
-//       .img-ctn {
-//         width: 100%;
+    * { color: white; }
 
-//         img {
-//           width: 100%;
-//         }
-//       }
+    .slider-slides {
+      .swiper-wrapper {
+        @include flex(flex-start, space-between);
 
-//       &.part-2 {
-//         margin-left: 40px;
+        .swiper-slide { 
+          flex: 0 0 30%; 
 
-//         .img-ctn:first-child {
-//           margin-bottom: 40px;
-//         }
-//       }
-//     }
+          img { 
+            width: 100%;
+            height: 240px; 
+            object-fit: cover;
+          }
+        }
 
-//   }
+        .swiper-slide:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) { display: none; }
+      }
+    }
+  }
 
-//   /*** Block Slider ***/
+  // Accordion
+  .content-accordion-ctn {
+    background-color: $lightgrey;
+    padding: 20px 30px;
 
-//   .content-slider-ctn, .content-slider-multiple-ctn {
-//     .swiper-wrapper {
-//       display: flex;
-//       flex-wrap: wrap;
-
-//       .swiper-slide {
-//         margin-right: 15px;
-//         width: calc(100% / 3 - 10px);
-
-//         &:nth-child(3n) {
-//           margin-right: 0;
-//         }
-//       }
-//     }
-//   }
-
-//   /*** Block Accordion ***/
-
-//   .content-accordion-ctn {
-//     background-color: #E7F0F4;
-//     padding: 20px 30px;
-//     transition: all 0.5s ease;
-
-//     .title {
-//       font-size: 18px;
-//       font-weight: 800;
-//       color: $textColor;
-//       margin: 0;
-//       padding-right: 40px;
-//       position: relative
-//     }
-
-//     .inner {
-//       height: 100%;
-//       overflow: hidden;
-//       transition: all 0.5s ease;
-
-//       div {
-//         padding: 15px 0;
-//       }
-//     }
-//   }
-
-
-//   /*** Block Block ***/
-
-//   .wp-block-quote {}
-
-//   /*** Block File ***/
-
-//   .wp-block-file {
-//     display: flex;
-//     align-items: center;
-//     margin: 20px auto;
-
-
-//     .wp-block-file__button {}
-//   }
-
-
+    .title {
+      display: flex;
+      @include fontSize(22, 34, 500);
+      .plus { margin: 0 20px 0 auto; }
+    }
+  }
 }
