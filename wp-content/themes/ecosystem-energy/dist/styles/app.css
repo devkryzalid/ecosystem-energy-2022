@@ -2411,7 +2411,6 @@ ul li {
 }
 
 .page {
-  padding: 0 30px;
   overflow: hidden;
 }
 @media (max-width: 768px) {
