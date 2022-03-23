@@ -7,10 +7,9 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
+    cursor: pointer;
 
-    &.current {
-      border: 1px solid $yellow;
-    }
+    &.current { border: 1px solid $yellow; }
 
     &.prev { margin-right: 16px; }
     &.next { margin-left: 16px; }
@@ -20,6 +19,8 @@
       opacity: 0.4;
       pointer-events: none;
     }
+
+    &.dots { pointer-events: none; }
 
     a {   
       @include fontSize(25, 35);

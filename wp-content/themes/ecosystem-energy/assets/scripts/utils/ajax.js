@@ -67,9 +67,11 @@ export default class AjaxForm {
     // Get form settings from hidden input
     const { url, limit = 9 } = document.getElementById(settingsId).dataset || {};
     this.limit = limit;
-
     this.url = url;
-    if (!this.url) console.log('Error - Ajax url not found');
+    if (!this.url) {
+      console.log('Error - Ajax url not found');
+      return;
+    }
 
     // Attach callback functions if available
     if (onDataChangeCallback) this.onDataChange = onDataChangeCallback; // Called when ajax data is changed
@@ -228,9 +230,14 @@ export default class AjaxForm {
 
   // Set event listeners on pagination elements
   initPagination = () => {
+    // Ignore if no pagination
     const container = document.getElementById(paginationId);
     if (!container) return false;
 
+    // Set default page
+    if (!this.currentPage) this.currentPage = 1;
+
+    // Count number of pages based on the last button
     const pageButtons = container.querySelectorAll('.ajax-page');
     this.nbPages = parseInt(pageButtons[pageButtons.length - 2].innerText);
 

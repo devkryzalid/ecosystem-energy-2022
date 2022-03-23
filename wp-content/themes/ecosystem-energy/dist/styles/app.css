@@ -4953,6 +4953,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+  cursor: pointer;
 }
 #ajax-pagination .ajax-page.current {
   border: 1px solid #FAB900;
@@ -4966,6 +4967,9 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 #ajax-pagination .ajax-page.disabled {
   text-decoration: line-through;
   opacity: 0.4;
+  pointer-events: none;
+}
+#ajax-pagination .ajax-page.dots {
   pointer-events: none;
 }
 #ajax-pagination .ajax-page a {
