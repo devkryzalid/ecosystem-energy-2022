@@ -13,10 +13,7 @@ $context = Timber::context();
 
 // Create ou change current_locale cookie and get local for request
 $newLocale = empty($_GET['set_locale']) ? null : $_GET['set_locale'];
-if (isset($newLocale)) {
-    $context = set_current_locale_cookie($newLocale, $context);
-}
-
+if (isset($newLocale)) { $context = set_current_locale_cookie($newLocale, $context); }
 $locales = empty($_GET['filter_locale']) ? $context['current_locale'] : $_GET['filter_locale'];
 
 // Set base informations for context
@@ -69,6 +66,7 @@ if (empty($featured)) {
     }
     $args['posts_per_page'] = $limit;
 }
-$context['case_studies'] = new Timber\PostQuery($args);
 
+// Get Post
+$context['case_studies'] = new Timber\PostQuery($args);
 Timber::render( array( 'pages/case_studies.twig' ), $context );

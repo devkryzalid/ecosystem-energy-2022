@@ -8,7 +8,8 @@
         footer: featured.post_date|date("F d, Y"),
         url: featured.link,
         image: featured.thumbnail,
-        class: 'featured text-padding no-plus-hover'
+        class: 'featured text-padding no-plus-hover',
+        delay: 100
       } %}
     </div>
   {% endif %}
@@ -23,7 +24,8 @@
           footer: p.post_date|date("F d, Y"),
           url: p.link,
           image: p.thumbnail,
-          class: 'text-padding white-bg'
+          class: 'text-padding white-bg',
+          delay: 200
         } %}
 
       {% endfor %}
