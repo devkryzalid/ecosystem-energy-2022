@@ -2451,6 +2451,17 @@ ul li {
   font-weight: 400 !important;
 }
 
+.gform_confirmation_message {
+  padding: 40px 20px;
+  font-size: 28px;
+  font-size: 1.75rem;
+  font-weight: initial;
+  line-height: 36px;
+  line-height: 2.25rem;
+  letter-spacing: normal;
+  text-align: center;
+}
+
 #wpadminbar {
   display: none !important;
 }

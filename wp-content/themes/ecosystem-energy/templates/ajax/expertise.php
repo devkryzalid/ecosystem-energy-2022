@@ -46,6 +46,7 @@ if ($currentPost) {
         'case_studies'  => $case_studies,
         'next'          => $next,
         'previous'      => $previous,
+        'cs_link'       => $context['static_links']['case-studies_link']['url']
     ]);
     $message = $response;
 } else {

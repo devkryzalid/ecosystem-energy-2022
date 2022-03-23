@@ -137,5 +137,12 @@ ul {
   font-weight: 400 !important;
 }
 
+//
+.gform_confirmation_message {
+  padding: 40px 20px;
+  @include fontSize(28, 36);
+  text-align: center;
+}
+
 // TEMP - Hide annoying WP top bar
 #wpadminbar { display: none !important; }
