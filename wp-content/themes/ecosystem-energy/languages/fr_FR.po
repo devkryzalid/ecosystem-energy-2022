@@ -174,11 +174,11 @@ msgstr "SVP ré-essayez avec d’autres filtres"
 
 #: views/partials/common/pagination.twig:5
 msgid "Prev"
-msgstr "Precédent"
+msgstr "Prec"
 
 #: views/partials/common/pagination.twig:15 views/partials/news-nav.twig:11
 msgid "Next"
-msgstr "Suivant"
+msgstr "Suiv"
 
 #: views/partials/common/share.twig:2
 msgid "Share"
