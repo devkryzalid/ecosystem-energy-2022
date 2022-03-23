@@ -3883,16 +3883,20 @@ a.link.video::after {
 .contact-cta {
   height: 600px;
   margin-top: 100px;
-  padding-top: 100px;
-  padding-bottom: 100px;
 }
 .contact-cta .container {
   position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
 }
 .contact-cta #cta-spinner {
   position: absolute;
   left: 50%;
-  top: -40%;
+  top: 0;
   height: 600px;
   width: 600px;
   transform: translateX(-50%);
@@ -3906,8 +3910,8 @@ a.link.video::after {
 }
 .contact-cta .title {
   max-width: 600px;
-  margin: 0 auto 30px;
-  padding-top: 70px;
+  margin: auto auto 0 auto;
+  padding: 0;
   font-size: 60px;
   font-size: 3.75rem;
   font-weight: 500;
@@ -3916,8 +3920,8 @@ a.link.video::after {
   letter-spacing: -1px;
   text-align: center;
 }
-.contact-cta .btn, .contact-cta .page-contact .contact-form input[type=submit], .page-contact .contact-form .contact-cta input[type=submit] {
-  margin: auto;
+.contact-cta .btn-ctn {
+  margin: 40px 0 auto 0;
 }
 @media (max-width: 768px) {
   .contact-cta {
@@ -3928,7 +3932,6 @@ a.link.video::after {
     width: 300px;
   }
   .contact-cta .container .title {
-    padding-top: 0;
     font-size: 38px;
     font-size: 2.375rem;
     font-weight: 600;
