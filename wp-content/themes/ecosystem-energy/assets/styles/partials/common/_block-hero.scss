@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   @include top(50); // Page padding
   padding-bottom: 60px;
+  padding-left: 25px;
 
   // 50/50 width for root elements by default
   .title-ctn, .image-ctn, .text-ctn { flex: 0 0 48% }
@@ -99,5 +100,9 @@
 
     .text-ctn:not(.no-text), .image-ctn { flex: 1 0 100% !important; }
     .image-ctn { margin-bottom: 30px; }
+  }
+
+  @media (max-width: $tablet) {
+    padding-left: 5px;
   }
 }
