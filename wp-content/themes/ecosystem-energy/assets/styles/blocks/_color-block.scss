@@ -17,3 +17,10 @@
   padding-right: 30px;
   padding-left: 30px;
 }
+
+@media (max-width: $tablet-large) {
+  .wp-block-columns {
+    flex-direction: column;
+    .wp-block-column { margin: 0 !important; }
+  }
+}
