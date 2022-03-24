@@ -33,11 +33,8 @@ export default class Menu {
 
   // Menu display toggler
   toggle = (forcedValue = null) => {
-    // 
-    if (this.transition) {
-      if (this.open) this.onMenuClosed();
-      else this.onMenuComplete();
-    }
+    // Complete animation if currently in transition
+    if (this.transition) this[this.open ? 'onMenuClosed' : 'onMenuComplete']();
 
     this.closeAllSecondaryMenus();
 
@@ -46,12 +43,12 @@ export default class Menu {
       ? !this.visible
       : !!forcedValue;
 
-    if (this.visible) this.openMainMenu();
-    else this.closeMainMenu();
+    this[this.visible ? 'openMainMenu' : 'closeMainMenu']();
   }
 
   // Start menu opening animation
   openMainMenu = () => {
+    this.header.toggleSticky(false);
     this.transition = true;
     this.body.classList.add('menu-opening');
     this.image.addEventListener('transitionend', this.onMenuComplete);
@@ -68,6 +65,7 @@ export default class Menu {
 
   // Hide primary menu
   closeMainMenu = () => {
+    if (!this.header.onTopOfPage()) this.header.toggleSticky(true);
     this.open = false;
     this.transition = true;
     this.body.classList.remove('menu-open');
@@ -96,8 +94,6 @@ export default class Menu {
   }
 
   closeAllSecondaryMenus = () => {
-    document.querySelectorAll('li.show').forEach(menu => {
-      menu.classList.remove('show');
-    })
+    document.querySelectorAll('li.show').forEach(menu => menu.classList.remove('show'))
   }
 }

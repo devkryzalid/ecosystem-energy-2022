@@ -37,12 +37,13 @@ export default class Header {
   // Show header main panel, and add sticky if not scrolled up
   showHeader = () => { 
     this.headerElement.classList.add('show-main-pane'); 
-    if (!this.onTopOfPage()) this.headerElement.classList.add('sticky'); 
-    else this.headerElement.classList.remove('sticky'); 
+    this.toggleSticky(!this.onTopOfPage());
   }
 
   // Hide header main panel and sticky classes
-  hideHeader = () => { this.headerElement.classList.remove('show-main-pane', 'sticky'); }
+  hideHeader = () => { 
+    this.headerElement.classList.remove('show-main-pane', 'sticky'); 
+  }
 
   // Check if the current window scroll is within header height threshold
   onTopOfPage = () => window.scrollY <= this.scrollOffset;
@@ -52,5 +53,9 @@ export default class Header {
     this.search.hideSearch();
     this.country.hideCountry();
   }
-
+  
+  //
+  toggleSticky = visible => {
+    this.headerElement.classList[visible ? 'add' : 'remove']('sticky');
+  }
 }
