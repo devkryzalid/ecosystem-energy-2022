@@ -3356,6 +3356,10 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   #menu #primary-menu {
     padding-top: 155px;
     padding-bottom: 0;
+    align-items: flex-start;
+  }
+  #menu #primary-menu .primary-inner {
+    margin: 0;
   }
   #menu #primary-menu li {
     padding-left: 40px;

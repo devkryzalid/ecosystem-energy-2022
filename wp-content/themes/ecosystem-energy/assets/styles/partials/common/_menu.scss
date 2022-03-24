@@ -247,6 +247,9 @@ body:not(.menu-open):not(.menu-opening) #menu {
     #primary-menu {
       padding-top: calc($header-height + $menu-top-padding-mobile);
       padding-bottom: 0;
+      align-items: flex-start;
+      
+      .primary-inner { margin: 0; }
 
       li {
         padding-left: 40px;
