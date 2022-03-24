@@ -90,7 +90,7 @@ export default class Menu {
 
     // Set secondary-menu top padding based on the position of the first main menu item
     if (window.innerWidth > 991) {
-      const top = itemContainingMenu.offsetTop;
+      const top = document.querySelector('.primary-inner').offsetTop;
       itemContainingMenu.querySelector('.secondary-menu').style.paddingTop = top + 'px';
     }
   }
