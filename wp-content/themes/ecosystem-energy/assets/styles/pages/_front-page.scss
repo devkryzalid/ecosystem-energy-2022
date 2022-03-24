@@ -1,9 +1,9 @@
 .page-home {
   .wrapper.bg-icon::after {
-    left: -40px;
+    left: 0;
     right: auto;
     top: auto;
-    bottom: 150px;
+    bottom: 380px;
     font-size: 200px;
   }
 
@@ -24,6 +24,14 @@
         }
       }
     }
+  }
+
+  @media (max-width: 1550px) {
+    .wrapper.bg-icon::after { left: -120px; }
+  }
+
+  @media (max-width: 1350px) {
+    .wrapper.bg-icon::after { left: -210px; }
   }
 
   @media (max-width: $tablet-large) {
