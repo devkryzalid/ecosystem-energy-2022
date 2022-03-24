@@ -16,7 +16,13 @@
     z-index: 1;
 
     .block-item {
-      .content .title { @include fontSize(32, 40, 500); }
+      .content {
+        .title { @include fontSize(32, 40, 500); }
+        .surtitle { 
+          @include fontSize(22, 30, 500); 
+          &::before { top: -3px; }
+        }
+      }
     }
   }
 
