@@ -50,6 +50,7 @@ $bloc-content-height: 260px;
       z-index: 2;
       opacity: 0;
       transition: $basicTransition;
+      color: $darkergrey;
     }
 
     img { 
@@ -252,8 +253,10 @@ $bloc-content-height: 260px;
 
         .content {
           &::before { height: 100%; }
-          .surtitle, .surtitle::before { color: $darkgrey; }
-          .footer { opacity: 1; }
+
+          .title, .surtitle, .surtitle::before { color: $darkergrey; }
+
+          // .footer { opacity: 1; }
         }
       }
 
@@ -266,7 +269,8 @@ $bloc-content-height: 260px;
       &.featured {
         .content {
           &::after { opacity: 1; }
-          .surtitle::before { color: $darkgrey; }
+          .title { color: $darkergrey; }
+          .surtitle::before { color: $darkergrey; }
         }
       }
 
@@ -274,7 +278,7 @@ $bloc-content-height: 260px;
     }
 
     &.invert {
-      .content .surtitle, .title, .description { color: $darkgrey; }
+      .content .surtitle, .title, .description { color: $darkergrey; }
     }
   
   }

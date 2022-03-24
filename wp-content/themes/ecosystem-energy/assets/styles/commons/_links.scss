@@ -29,12 +29,15 @@ a.link {
   // ----- Specific link types
 
   &.internal {
-    &::after {
-      content: "\e90e";
-    }
-    &:hover::after {
-      top: 3px;
-      font-size: 20px;
+    &::after { content: "\e90e"; }
+
+    &:hover {
+      color: $darkergrey;
+
+      &::after {
+        top: 3px;
+        font-size: 20px;
+      }
     }
   }
 
@@ -46,14 +49,10 @@ a.link {
   }
 
   &.download {
-    &::after {
-      content: "\e90f";
-    }
+    &::after { content: "\e90f"; }
   }
 
   &.video {
-    &::after {
-      content: "\e911";
-    }
+    &::after { content: "\e911"; }
   }
 }

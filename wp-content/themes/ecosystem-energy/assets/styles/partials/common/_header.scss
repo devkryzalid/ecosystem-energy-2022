@@ -28,6 +28,7 @@ $logo-transition: all 0.3s ease-out 300ms;
     background-color: $yellow;
     transition: all 0.2s ease-out;
     overflow: hidden;
+    color: $darkergrey;
   }
 
   // Top yellow search field
@@ -283,6 +284,10 @@ $logo-transition: all 0.3s ease-out 300ms;
   }
 }
 
+// Set background to grey if set by body class
+.page-container.grey #header {
+  &:not(.sticky) #main-pane { background-color: $lightgrey; }
+}
 
 // Set background to blue / text to white if set by body class
 .page-container.blue-head #header {
@@ -300,11 +305,6 @@ $logo-transition: all 0.3s ease-out 300ms;
       &:hover span { background-color: $yellow; }
     }
   }
-}
-
-// Set background to grey if set by body class
-.page-container.grey #header {
-  &:not(.sticky) #main-pane { background-color: $lightgrey; }
 }
 
 // ----- Menu-dependant styles -----

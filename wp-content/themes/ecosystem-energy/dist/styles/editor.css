@@ -137,7 +137,7 @@
   line-height: 27px;
   line-height: 1.6875rem;
   letter-spacing: normal;
-  color: #494843;
+  color: #2A2926;
   transition: all 0.4s ease;
   cursor: pointer;
 }
@@ -198,7 +198,7 @@
 .btn.circle:hover {
   transform: scale(1.1);
   background-color: #FAB900;
-  color: #242C3E;
+  color: #2A2926;
 }
 .btn.circle:hover::after {
   display: none;
@@ -256,6 +256,9 @@ a.link:hover, a.link:hover::after, a.link:hover::before {
 }
 a.link.internal::after {
   content: "\e90e";
+}
+a.link.internal:hover {
+  color: #2A2926;
 }
 a.link.internal:hover::after {
   top: 3px;

@@ -13,9 +13,6 @@
 
   &.selected {
     background-color: $yellow;
+    color: $darkergrey;
   }
-
-  // &:hover {
-  //   background-color: $yellow;
-  // }
 }

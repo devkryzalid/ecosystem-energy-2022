@@ -8,7 +8,7 @@
   border: 0px none;
   border-radius: 28.5px;
   @include fontSize(20, 27, 600);
-  color: $darkgrey;
+  color: $darkergrey;
   transition: $buttonTransition;
   cursor: pointer;
 
@@ -52,10 +52,7 @@
   &.blue {
     background-color: $blue;
     color: white;
-    &:hover { 
-      color: $yellow;
-      // &::after { }
-    }
+    &:hover { color: $yellow; }
   }
 
   // Border only
@@ -75,7 +72,7 @@
     &:hover {
       transform: scale(1.1);
       background-color: $yellow;
-      color: $blue;
+      color: $darkergrey;
       &::after { display: none; }
     }
 

@@ -12,9 +12,11 @@
     {% include 'partials/perspective-author.twig' %}
   </div>
 
-  <div class="grey wrapper">
-    {% include 'partials/perspective-related.twig' %}
-  </div>
+  {% if related_posts|length %}
+    <div class="grey wrapper">
+      {% include 'partials/perspective-related.twig' %}
+    </div>
+  {% endif %}
 
   {% include 'partials/common/contact-cta.twig' %}
   </div>

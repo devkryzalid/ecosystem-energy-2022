@@ -37,6 +37,7 @@
       display: none;
       &:checked + label { 
         background-color: $yellow; 
+        color: $darkergrey;
         &::after {
           content: 'x';
           margin-left: 8px;
