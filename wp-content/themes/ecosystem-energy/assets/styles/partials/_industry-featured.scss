@@ -55,6 +55,7 @@
           color: white; 
           @include fontSize(18, 22, 600);
           text-align: left;
+          a { color: $yellow; }
         }
       }
     

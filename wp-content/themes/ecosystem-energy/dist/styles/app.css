@@ -6330,6 +6330,9 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   letter-spacing: normal;
   text-align: left;
 }
+.industry-featured .featured-list .featured-block .hover-ctn p a {
+  color: #FAB900;
+}
 .industry-featured .featured-list .featured-block:hover::after {
   height: 100%;
 }

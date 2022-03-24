@@ -4,11 +4,11 @@
   <div class="featured-list">
     {% for bloc in featured_blocks.block_list %}
 
-      <a class="featured-block" data-aos="fade-up" data-aos-delay="{{ loop.index * 200 + 100 }}">
+      <div class="featured-block" data-aos="fade-up" data-aos-delay="{{ loop.index * 200 + 100 }}">
         <img class="" src="{{ bloc.image.url }}" alt="{{ bloc.image.title }}">
         <h3>{{ bloc.title }}</h3>
         <div class="hover-ctn">{{ bloc.content }}</div>
-      </a>
+      </div>
       
     {% endfor %}
   </div>
