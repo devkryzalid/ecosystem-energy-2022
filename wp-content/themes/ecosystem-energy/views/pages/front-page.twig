@@ -2,8 +2,18 @@
 
 {% block pageClass %}page-home overlay{% endblock %}
 
-{% block content %}
+{% block structuredData %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "url": "{{ site.url }}",
+      "logo": "{{ theme.link }}/logo.png"
+    }
+  </script>
+{% endblock %}
 
+{% block content %}
   {% include 'partials/common/page-overlay.twig' %}
 
   {# Hero #}

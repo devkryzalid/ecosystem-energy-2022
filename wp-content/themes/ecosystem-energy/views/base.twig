@@ -16,6 +16,7 @@
 		<link rel="manifest" href="{{ theme.link }}/dist/favicon/site.webmanifest">
 		<link rel="mask-icon"href="{{ theme.link }}/dist/favicon/safari-pinned-tab.svg" color="#5bbad5">
     <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=62153f9c4d759f0019eaa837&product=sop' async='async'></script>
+    {% block structuredData %}{% endblock %}
     {{ function('wp_head') }}
   </head>
 

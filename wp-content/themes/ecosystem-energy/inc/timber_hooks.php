@@ -21,6 +21,7 @@ function add_to_context( $context ) {
 	$context['current_locale']      = !empty($_COOKIE['es_current_locale']) ? $_COOKIE['es_current_locale'] : '-1';
 	$context['current_locale_name'] = $context['current_locale'] != '-1' ? get_term($context['current_locale'])->name : '';
 	$context['locales']             = get_terms( [ 'taxonomy' => 'localization' ] );
+	$context['current_url']         = Timber\URLHelper::get_current_url();
 
 	/*
      * Create a custom breadcrumb

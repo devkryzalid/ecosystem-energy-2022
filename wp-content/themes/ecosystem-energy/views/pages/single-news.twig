@@ -2,6 +2,35 @@
 
 {% block pageClass %}grey page-news{% endblock %}
 
+{% block structuredData %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ current_url }}"
+      },
+      "headline": "{{ post.title }}",
+      "image": ["{{ post.thumbnail.src }}"],
+      "datePublished": "{{ post.post_date }}",
+      "author": {
+        "@type": "Organization",
+        "name": "Ecosystem",
+        "url": "{{ site.url }}"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Ecosystem",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "{{ theme.link }}/logo.png"
+        }
+      }
+    }
+  </script>
+{% endblock %}
+
 {% block content %}
 
   {% include 'partials/common/post-hero.twig' with { post: post } %}

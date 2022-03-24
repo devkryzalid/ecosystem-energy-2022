@@ -6,14 +6,12 @@
 
   {# Hero #}
   <div class="blue wrapper">
-    {# <div class="large container"> #}
-      {% include 'partials/common/block-hero.twig' with { 
-        surtitle: __('Markets', 'ecosystem-energy'),
-        title: post.title,
-        image: post.thumbnail,
-        class: 'invert offset-image'
-      } %}
-    {# </div> #}
+    {% include 'partials/common/block-hero.twig' with { 
+      surtitle: __('Markets', 'ecosystem-energy'),
+      title: post.title,
+      image: post.thumbnail,
+      class: 'invert offset-image'
+    } %}
   </div>
 
   {# Gutenberg content #}
