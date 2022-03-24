@@ -10,64 +10,6 @@
     }
   }
 
-  .contact-form {
-    max-width: 1000px;
-    margin: auto;
-
-    h2 {
-      @include fontSize(52, 56, 600);
-      text-align: center;
-    }
-
-    & > p {
-      margin: 0 auto 60px;
-      max-width: 550px;
-      @include fontSize(18, 28);
-      text-align: center;
-    }
-
-    input:not([type="submit"]), select, textarea {
-      height: 56px;
-      padding: 10px 20px !important;
-      border: 0 none;
-      border-bottom: 2px solid $yellow;
-      border-radius: 0;
-      background-color: white;
-      font-family: $primaryFont;
-      @include fontSize(18, 24, 400, -0.25);
-      color: $darkgrey;
-
-      &:focus, &:active, &:focus-visible {
-        border: 1px solid $yellow;
-        border-bottom-width: 2px;
-        outline: none;
-      }
-    }
-
-    .ginput_container_select {
-      position: relative;
-      select { appearance: none; }
-      
-      &::after {
-        position: absolute;
-        right: 30px;
-        top: 15px;
-        font-family: 'icomoon';
-        content: "\e90a";
-        transform: rotate(-90deg);
-      }
-    }
-
-    textarea { height: 230px; }
-    .gform_footer { text-align: center; }
-
-    input[type="submit"] { 
-      @extend .btn; 
-      // font-weight: 600;
-      margin: 20px auto;
-    }
-  }
-
   @media (max-width: $mobile-large) {
     .grey.wrapper::after {
       top: -100px;

@@ -14,15 +14,7 @@
   </div>
 
   <div class="grey wrapper bg-icon">
-    <div class="container contact-form">
-      <h2 data-aos="fade-up">{{ __('Send us a message', 'ecosystem-energy') }}</h2>
-      <p data-aos="fade-up" data-aos-delay="200">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tempor tellus vitae rhoncus odio ullamcorper.</p>
-      <div class="form" data-aos="fade-up">
-        {% filter shortcodes %}
-          [gravityform id="{{ 'en' in site.language ? 2 : 1 }}" title="false" description="false" ajax="true"][/gravityform]
-        {% endfilter %} 
-      </div>
-    </div>
+    {% include 'partials/contact-form.twig' %}
   </div>
     
 {% endblock %}
