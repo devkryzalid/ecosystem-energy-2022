@@ -5631,21 +5631,27 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   padding: 0;
   border-top: 1px solid rgba(73, 72, 67, 0.2);
 }
-.contact-offices ul li a {
+.contact-offices ul li .office-link {
   position: relative;
   display: block;
   padding: 20px;
   cursor: pointer;
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 24px;
+  line-height: 1.5rem;
+  letter-spacing: -0.25px;
 }
-.contact-offices ul li a::after {
+.contact-offices ul li .office-link.selected, .contact-offices ul li .office-link:hover {
+  background-color: #FAB900;
+  color: #2A2926;
+}
+.contact-offices ul li .office-link::after {
   position: absolute;
   right: 20px;
   font-family: "icomoon";
   content: "\e90b";
-}
-.contact-offices ul li a:hover {
-  background-color: #FAB900;
-  color: #2A2926;
 }
 .contact-offices ul li .info {
   display: none;
