@@ -6309,8 +6309,9 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   position: absolute;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  flex-direction: column;
   top: 0;
   width: 100%;
   height: 100%;
@@ -6319,9 +6320,15 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   transition: all 0.4s ease;
 }
 .industry-featured .featured-list .featured-block .hover-ctn p {
-  margin: auto 40px;
-  text-align: left;
+  margin: 8px 40px;
   color: white;
+  font-size: 18px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 22px;
+  line-height: 1.375rem;
+  letter-spacing: normal;
+  text-align: left;
 }
 .industry-featured .featured-list .featured-block:hover::after {
   height: 100%;
@@ -6332,6 +6339,23 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 @media (max-width: 768px) {
   .industry-featured .featured-list {
     grid-template-columns: 1fr;
+  }
+  .industry-featured .featured-list .featured-block::after {
+    content: none;
+  }
+  .industry-featured .featured-list .featured-block img {
+    height: 150px;
+  }
+  .industry-featured .featured-list .featured-block .hover-ctn {
+    position: relative;
+    height: auto;
+    align-items: center;
+    padding: 10px 40px 40px;
+    clip-path: none;
+  }
+  .industry-featured .featured-list .featured-block .hover-ctn p {
+    color: #494843;
+    text-align: center;
   }
 }
 
