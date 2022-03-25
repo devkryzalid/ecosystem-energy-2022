@@ -1,7 +1,7 @@
 .home-hero-ctn {
   @include top;
   @include flex(flex-start, space-between);
-  margin-bottom: 100px;
+  margin-bottom: 140px;
   padding-left: 25px;
 
   .title-ctn {
@@ -19,7 +19,7 @@
       flex-direction: column;
       position: absolute;
       top: 36%;
-      margin: 0 200px;
+      margin: 0 180px;
 
       .btn-ctn {
         position: relative;

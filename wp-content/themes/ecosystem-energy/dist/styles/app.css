@@ -1571,6 +1571,17 @@ h3 {
 .btn.filters:hover::after, .contact-form input.filters[type=submit]:hover::after {
   font-size: 18px;
 }
+@media (max-width: 768px) {
+  .btn.filters, .contact-form input.filters[type=submit], .btn.filters:hover {
+    height: 50px;
+    min-height: auto;
+    padding: 0 40px 0 20px !important;
+  }
+  .btn.filters::after, .contact-form input.filters[type=submit]::after, .btn.filters:hover::after {
+    right: 20px !important;
+    font-size: 16px;
+  }
+}
 
 a.link {
   position: relative;
@@ -1977,6 +1988,14 @@ a.link.video::after {
   padding-top: 100px;
   padding-bottom: 100px;
 }
+.block-cta .block-item.horizontal .content .title, .block-cta .block-item.featured .content .title {
+  font-size: 52px;
+  font-size: 3.25rem;
+  font-weight: 600;
+  line-height: 56px;
+  line-height: 3.5rem;
+  letter-spacing: -1.08px;
+}
 .block-cta .content {
   padding: 75px 100px 75px 0;
 }
@@ -2034,6 +2053,14 @@ a.link.video::after {
   .block-cta .content {
     padding-left: 0 !important;
     padding-right: 0 !important;
+  }
+  .block-cta .block-item.horizontal .content .title, .block-cta .block-item.featured .content .title {
+    font-size: 36px;
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 44px;
+    line-height: 2.75rem;
+    letter-spacing: normal;
   }
   .block-cta .btn-ctn {
     bottom: 40px;
@@ -2172,7 +2199,6 @@ a.link.video::after {
 @media (max-width: 768px) {
   .block-hero {
     padding-top: 125px;
-    padding-left: 5px;
   }
 }
 @media (max-width: 768px) and (max-width: 992px) {
@@ -2183,6 +2209,26 @@ a.link.video::after {
 @media (max-width: 768px) and (max-width: 768px) {
   .block-hero {
     padding-top: 95px;
+  }
+}
+@media (max-width: 768px) {
+  .block-hero .title {
+    font-size: 46px;
+    font-size: 2.875rem;
+    font-weight: 600;
+    line-height: 50px;
+    line-height: 3.125rem;
+    letter-spacing: -1pxpx;
+  }
+}
+@media (max-width: 768px) {
+  .block-hero .surtitle {
+    font-size: 16px;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 24px;
+    line-height: 1.5rem;
+    letter-spacing: normal;
   }
 }
 
@@ -2650,7 +2696,7 @@ a.link.video::after {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 0 40px;
+  padding: 20px 40px;
 }
 #footer a:hover {
   color: #FAB900;
@@ -2677,7 +2723,7 @@ a.link.video::after {
   justify-content: space-between;
   flex-basis: 100%;
   margin-top: 40px;
-  padding: 20px 0 70px;
+  padding: 20px 0 0;
   border-top: 1px solid rgba(73, 72, 67, 0.2);
 }
 #footer .sub-footer div {
@@ -2765,10 +2811,12 @@ a.link.video::after {
   top: 0;
   width: 100%;
   z-index: 10;
+  pointer-events: none;
 }
 #header a, #header a i {
   cursor: pointer;
   transition: all 0.4s ease;
+  pointer-events: all;
 }
 #header a[id$=-close], #header a i[id$=-close] {
   opacity: 1;
@@ -3415,6 +3463,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
     padding-top: 30px;
     width: 50%;
     right: 0;
+    z-index: 1;
   }
   #menu #primary-menu li:not(.show) .secondary-menu {
     right: -50%;
@@ -4272,6 +4321,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   display: none;
 }
 .contact-offices #office-info {
+  position: relative;
   flex: 1 1 auto;
   display: flex;
   flex-direction: row;
@@ -4280,6 +4330,8 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   flex-wrap: wrap;
   padding: 40px;
   border: 1px solid rgba(151, 151, 151, 0.4);
+  background-color: white;
+  z-index: 1;
 }
 .contact-offices #office-info h3 {
   margin: 0 0 60px;
@@ -4358,9 +4410,12 @@ body:not(.menu-open):not(.menu-opening) #menu li {
     width: 100%;
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 575px) {
   .contact-offices {
     display: block;
+  }
+  .contact-offices #office-info {
+    margin-top: 40px;
   }
 }
 
@@ -4496,7 +4551,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 100px;
+  margin-bottom: 140px;
   padding-left: 25px;
 }
 @media (max-width: 992px) {
@@ -4533,7 +4588,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   flex-direction: column;
   position: absolute;
   top: 36%;
-  margin: 0 200px;
+  margin: 0 180px;
 }
 .home-hero-ctn .spinner-ctn .content .btn-ctn {
   position: relative;
@@ -4718,8 +4773,24 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   }
 }
 @media (max-width: 768px) {
+  .sectors-ctn .title-column h2 {
+    font-size: 36px;
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 44px;
+    line-height: 2.75rem;
+    letter-spacing: normal;
+  }
   .sectors-ctn .content-column {
     display: block;
+  }
+  .sectors-ctn .content-column a {
+    font-size: 22px;
+    font-size: 1.375rem;
+    font-weight: 600;
+    line-height: 28px;
+    line-height: 1.75rem;
+    letter-spacing: -0.35px;
   }
 }
 
@@ -4770,7 +4841,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 }
 @media (max-width: 768px) {
   .home-slider h2 {
-    margin: 120px 60px 60px;
+    margin: 60px;
     font-size: 36px;
     font-size: 2.25rem;
     font-weight: 600;
@@ -4788,7 +4859,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 }
 @media (max-width: 500px) {
   .home-slider h2 {
-    margin: 100px 20px 40px;
+    margin: 40px 20px 40px;
   }
   .home-slider .mobile-link {
     margin: 40px 0 80px;
@@ -5372,7 +5443,8 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 }
 
 .page-contact .grey.wrapper, .page-contact .grey.gutenberg-slider-multiple, .page-contact .grey.case-study-slider, .page-contact .grey.home-slider, .page-contact .grey.industry-cs-slider {
-  padding: 100px 0;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 .page-contact .grey.wrapper::after, .page-contact .grey.gutenberg-slider-multiple::after, .page-contact .grey.case-study-slider::after, .page-contact .grey.home-slider::after, .page-contact .grey.industry-cs-slider::after {
   right: auto;
@@ -5465,6 +5537,24 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   }
   .page-home .news-ctn {
     grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .page-home .news-ctn .block-item .content .title {
+    font-size: 26px;
+    font-size: 1.625rem;
+    font-weight: 500;
+    line-height: 32px;
+    line-height: 2rem;
+    letter-spacing: normal;
+  }
+  .page-home .news-ctn .block-item .content .surtitle {
+    font-size: 18px;
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 24px;
+    line-height: 1.5rem;
+    letter-spacing: normal;
   }
 }
 

@@ -47,7 +47,7 @@
 
   @media (max-width: $tablet) {
     h2 { 
-      margin: 120px 60px 60px;
+      margin: 60px;
       @include fontSize(36, 42, 600);
       text-align: center; 
     }
@@ -57,7 +57,7 @@
   }
 
   @media (max-width: $mobile-large) {
-    h2 { margin: 100px 20px 40px; }
+    h2 { margin: 40px 20px 40px; }
     .mobile-link { margin: 40px 0 80px; }
   }
 }

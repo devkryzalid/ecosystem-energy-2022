@@ -2,6 +2,8 @@
   padding-top: 100px;
   padding-bottom: 100px;
 
+  .block-item.horizontal .content .title { @include fontSize(52, 56, 600, -1.08); }
+
   .content {
     padding: 75px 100px 75px 0;
 
@@ -11,7 +13,7 @@
       color: rgba($darkgrey, 0.7) !important;
       &::before { display: none; }
     }
-
+    
     .title {
       margin-top: 20px;
       @include fontSize(52, 56, 600, -1.08);
@@ -51,6 +53,8 @@
       padding-left: 0 !important; 
       padding-right: 0 !important; 
     }
+
+    .block-item.horizontal .content .title { @include fontSize(36, 44, 600); }
 
     .btn-ctn { bottom: 40px; }
   }

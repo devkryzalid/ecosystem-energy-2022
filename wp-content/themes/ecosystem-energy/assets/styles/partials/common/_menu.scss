@@ -259,6 +259,7 @@ body:not(.menu-open):not(.menu-opening) #menu {
           padding-top: $menu-top-padding-mobile;
           width: 50%;
           right: 0;
+          z-index: 1;
         }
 
         &:not(.show) {

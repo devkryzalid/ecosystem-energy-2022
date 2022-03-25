@@ -46,11 +46,14 @@
   }
 
   #office-info {
+    position: relative;
     flex: 1 1 auto;
     @include flex(flex-start, flex-start);
     flex-wrap: wrap;
     padding: 40px;
     border: 1px solid rgba(#979797, 0.4);
+    background-color: white;
+    z-index: 1;
 
     h3 {
       margin: 0 0 60px;
@@ -117,7 +120,8 @@
     ul { width: 100%; }
   }
 
-  @media (max-width: $mobile-large) {
+  @media (max-width: 575px) {
     display: block;
+    #office-info { margin-top: 40px; }
   }
 }

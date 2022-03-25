@@ -222,6 +222,17 @@
 .btn.filters:hover::after {
   font-size: 18px;
 }
+@media (max-width: 768px) {
+  .btn.filters, .btn.filters:hover {
+    height: 50px;
+    min-height: auto;
+    padding: 0 40px 0 20px !important;
+  }
+  .btn.filters::after, .btn.filters:hover::after {
+    right: 20px !important;
+    font-size: 16px;
+  }
+}
 
 a.link {
   position: relative;

@@ -108,6 +108,9 @@
 
   @media (max-width: $tablet) {
     @include top();
-    padding-left: 5px;
+    // padding-left: 5px;
+
+    .title { @include fontSize(46, 50, 600, -1px); }
+    .surtitle { @include fontSize(16, 24, 500); }
   }
 }

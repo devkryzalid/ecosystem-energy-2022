@@ -15,7 +15,7 @@
   \*****************************************/
 /***/ (function() {
 
-eval("document.querySelectorAll('.office-link').forEach(link => {\n  link.addEventListener('click', ({ target }) => {\n\n    // Toggle selected state\n    document.querySelectorAll('.office-link.selected').forEach(el => el.classList.remove('selected'));\n    target.classList.add('selected');\n\n    // Change office-info content\n    const content = target.nextElementSibling.innerHTML;\n    document.getElementById('office-info').innerHTML = content;\n\n    // Select office in form\n    const option = document.querySelector(`.office-field option[value=\"${ target.text }\"]`);\n    if (option) option.selected = true;\n\n  })\n});\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/pages/contact.js?");
+eval("document.querySelectorAll('.office-link').forEach(link => {\n  link.addEventListener('click', ({ target }) => {\n\n    // Toggle selected state\n    document.querySelectorAll('.office-link.selected').forEach(el => el.classList.remove('selected'));\n    target.classList.add('selected');\n\n    // Change office-info content\n    const infoBox = document.getElementById('office-info');\n    const content = target.nextElementSibling.innerHTML;\n    infoBox.innerHTML = content;\n\n    // Scroll to office info box\n  //  infoBox.scrollIntoView({ behavior: 'smooth', block: 'start' });\n  const y = infoBox.getBoundingClientRect().top + window.pageYOffset - 50;\n  window.scrollTo({top: y, behavior: 'smooth'});\n\n    // Select office in form\n    const option = document.querySelector(`.office-field option[value=\"${ target.text }\"]`);\n    if (option) option.selected = true;\n  })\n});\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/pages/contact.js?");
 
 /***/ })
 
