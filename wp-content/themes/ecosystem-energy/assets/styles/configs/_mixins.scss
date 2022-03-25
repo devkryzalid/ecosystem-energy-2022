@@ -84,4 +84,12 @@
 
 @mixin top($offset: 0) {
   padding-top: $header-height + $offset;
+
+  @media (max-width: $tablet-large) {
+    padding-top: 125px + $offset;
+  }
+
+  @media (max-width: $tablet) {
+    padding-top: 95px + $offset;
+  }
 }

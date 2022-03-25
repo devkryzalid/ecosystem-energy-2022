@@ -236,8 +236,8 @@ $logo-transition: all 0.3s ease-out 300ms;
     #main-pane { 
       @include flex(flex-start, flex-start);
       flex-direction: column;
-      height: 80px;
-      padding: 0 20px;
+      height: 95px;
+      padding: 7px 20px 0 20px;
 
       #logo { margin-top: 8px; }
 
@@ -267,7 +267,7 @@ $logo-transition: all 0.3s ease-out 300ms;
 
     #menu-toggle { 
       position: absolute;
-      top: 40px;
+      top: 47px;
       right: 44px;
     }
   }
