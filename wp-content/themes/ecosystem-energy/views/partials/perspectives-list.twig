@@ -4,7 +4,7 @@
     <div class="large container">
       {% include 'partials/common/block-item.twig' with { 
         title: featured.title,
-        surtitle: featured.meta('related_industry')[0].post_title,
+        surtitle: featured.terms('category')[0].name,
         footer: featured.post_date|date("F d, Y"),
         url: featured.link,
         image: featured.thumbnail,
@@ -17,10 +17,9 @@
   <div class="large container">
 	  <div class="block-list">
       {% for perspective in posts %}
-      
         {% include 'partials/common/block-item.twig' with { 
           title: perspective.title,
-          surtitle: perspective.meta('related_industry')[0].post_title,
+          surtitle: perspective.terms('category')[0].name,
           footer: perspective.post_date|date("F d, Y"),
           url: perspective.link,
           image: perspective.thumbnail,
