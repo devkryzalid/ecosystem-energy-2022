@@ -5488,7 +5488,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 }
 
 .page-home .wrapper.bg-icon::after, .page-home .bg-icon.gutenberg-slider-multiple::after, .page-home .bg-icon.case-study-slider::after, .page-home .bg-icon.home-slider::after, .page-home .bg-icon.industry-cs-slider::after {
-  left: 0;
+  left: -80px;
   right: auto;
   top: auto;
   bottom: 380px;
