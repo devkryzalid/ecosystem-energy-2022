@@ -27,6 +27,7 @@ $text-closing-transition: all 0.2s ease 0ms;
   background-color: $altblue;
   z-index: 100;
   transition: $menu-opening-transition;
+  pointer-events: all;
 
   ul { padding: 0; }
 
@@ -219,6 +220,14 @@ body:not(.menu-open):not(.menu-opening) #menu {
 // Custom page-specific images 
 .page-container {
   &.page-contact #menu #menu-image::before { background-image: url('/assets/images/menu/contact.jpg') !important; }
+  &.page-news #menu #menu-image::before { background-image: url('/assets/images/menu/news.jpg') !important; }
+  &.page-case-studies #menu #menu-image::before { background-image: url('/assets/images/menu/case-studies.jpg') !important; }
+  &.page-home #menu #menu-image::before { background-image: url('/assets/images/menu/home.jpg') !important; }
+  &.page-industry #menu #menu-image::before { background-image: url('/assets/images/menu/industries.jpg') !important; }
+  &.page-perspectives #menu #menu-image::before { background-image: url('/assets/images/menu/perspectives.jpg') !important; }
+  &.page-perspective #menu #menu-image::before { background-image: url('/assets/images/menu/perspectives.jpg') !important; }
+  &.page-expertises #menu #menu-image::before { background-image: url('/assets/images/menu/expertises.jpg') !important; }
+  // About, career, untitled
 }
 
 
