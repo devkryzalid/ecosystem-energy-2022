@@ -12,7 +12,6 @@ $logo-transition: all 0.3s ease-out 300ms;
   a, a i {
     cursor: pointer;
     transition: $basicTransition;
-    pointer-events: all;
 
     &[id$="-close"] {
       opacity: 1;
@@ -37,6 +36,7 @@ $logo-transition: all 0.3s ease-out 300ms;
   #search-pane {
     @extend .yellow-pane;
     z-index: 900;
+    pointer-events: all;
 
     a { @include flex(); }
 
@@ -58,6 +58,7 @@ $logo-transition: all 0.3s ease-out 300ms;
     @extend .yellow-pane;
     justify-content: space-between;
     z-index: 901;
+    pointer-events: all;
 
     p { 
       margin: 0;
@@ -130,6 +131,7 @@ $logo-transition: all 0.3s ease-out 300ms;
     background-color: white;
     transition: all 0.3s ease-out 0ms, background-color 200ms ease-out 300ms;
     overflow: hidden;
+    pointer-events: all;
 
     #logo { 
       position: relative;
@@ -178,6 +180,7 @@ $logo-transition: all 0.3s ease-out 300ms;
     position: relative;
     right: 26px;
     @include flex();
+    pointer-events: all;
 
     .bars {
       position: absolute;

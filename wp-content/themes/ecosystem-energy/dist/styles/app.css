@@ -2816,7 +2816,6 @@ a.link.video::after {
 #header a, #header a i {
   cursor: pointer;
   transition: all 0.4s ease;
-  pointer-events: all;
 }
 #header a[id$=-close], #header a i[id$=-close] {
   opacity: 1;
@@ -2840,6 +2839,7 @@ a.link.video::after {
 }
 #header #search-pane {
   z-index: 900;
+  pointer-events: all;
 }
 #header #search-pane a {
   display: flex;
@@ -2869,6 +2869,7 @@ a.link.video::after {
 #header #country-pane {
   justify-content: space-between;
   z-index: 901;
+  pointer-events: all;
 }
 #header #country-pane p {
   margin: 0;
@@ -2944,6 +2945,7 @@ a.link.video::after {
   background-color: white;
   transition: all 0.3s ease-out 0ms, background-color 200ms ease-out 300ms;
   overflow: hidden;
+  pointer-events: all;
 }
 #header #main-pane #logo {
   position: relative;
@@ -3000,6 +3002,7 @@ a.link.video::after {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  pointer-events: all;
 }
 #header #menu-toggle .bars {
   position: absolute;
