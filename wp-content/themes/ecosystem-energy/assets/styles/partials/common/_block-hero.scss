@@ -1,8 +1,7 @@
 .block-hero {
-  @include flex(flex-start, space-between);//stretch
+  @include flex(flex-start, space-between);
   flex-wrap: wrap;
-  @include top(50); // Page padding
-  padding-bottom: 60px;
+  padding: $header-height 0 60px;
 
   // 50/50 width for root elements by default
   .title-ctn, .image-ctn, .text-ctn { flex: 0 0 48% }
@@ -14,7 +13,7 @@
   .surtitle {
     margin-bottom: 30px;
     @include fontSize(22, 30, 500);
-  }
+  } 
 
   .title-ctn {
     .title { margin: 0 0 30px; }
@@ -85,8 +84,8 @@
   }
 
   @media (max-width: $tablet-large) {
-    @include top();
     flex-wrap: wrap !important;
+    padding-top: 170px;
     padding-bottom: 20px;
 
     // Put image on top
@@ -107,9 +106,7 @@
   }
 
   @media (max-width: $tablet) {
-    @include top();
-    // padding-left: 5px;
-
+    padding-top: 120px;
     .title { @include fontSize(46, 50, 600, -1px); }
     .surtitle { @include fontSize(16, 24, 500); }
   }

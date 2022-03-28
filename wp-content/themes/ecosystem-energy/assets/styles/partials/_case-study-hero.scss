@@ -1,4 +1,5 @@
 .case-study-hero {
+  padding-top: $header-height;
   padding-bottom: 140px;
 
   .title-ctn {
@@ -51,6 +52,8 @@
   }
 
   @media (max-width: $tablet) {
+    padding-top: $header-height-sticky;
+
     .title-ctn {
       padding: 0 20px;
     }

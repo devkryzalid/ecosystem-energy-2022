@@ -213,8 +213,8 @@ body:not(.menu-open):not(.menu-opening) #menu {
 // Adjust top margin with top yellow panel height
 #header.show-search-pane, 
 #header.show-country-pane {
-  #menu-image { margin-top: calc($upper-header-height); }
-  #primary-menu, #primary-menu li .secondary-menu { padding-top: calc($header-height + $upper-header-height); }
+  #menu-image { margin-top: calc($yellow-header-height); }
+  #primary-menu, #primary-menu li .secondary-menu { padding-top: calc($header-height + $yellow-header-height); }
 }
 
 // Custom page-specific images 
@@ -293,11 +293,11 @@ body:not(.menu-open):not(.menu-opening) #menu {
     #menu-image { transition-delay: 0ms !important; }
 
     #primary-menu {
-      padding-top: calc($header-height + $upper-header-height + $menu-top-padding-mobile);
+      padding-top: calc($header-height + $yellow-header-height + $menu-top-padding-mobile);
 
       li .secondary-menu {
         padding-top: $menu-top-padding-mobile;
-        margin-top: calc($header-height + $upper-header-height);
+        margin-top: calc($header-height + $yellow-header-height);
       }
     }
   }
@@ -337,25 +337,25 @@ body:not(.menu-open):not(.menu-opening) #menu {
 
   #header.show-search-pane #menu {
     #primary-menu {
-      padding-top: calc($header-height-tablet + $upper-header-height + $menu-top-padding-mobile);
+      padding-top: calc($header-height-tablet + $yellow-header-height + $menu-top-padding-mobile);
 
       li .secondary-menu {
-        margin-top: calc($header-height-tablet + $upper-header-height);
+        margin-top: calc($header-height-tablet + $yellow-header-height);
       }
     }
   }
   // On mobile, the country pane is wider than search
   #header.show-country-pane #menu {
     #menu-image {
-      margin-top: $upper-header-height-tablet;
+      margin-top: $yellow-header-height-tablet;
       height: $header-height-tablet;
     }
 
     #primary-menu {
-      padding-top: calc($header-height-tablet + $upper-header-height-tablet + $menu-top-padding-mobile);
+      padding-top: calc($header-height-tablet + $yellow-header-height-tablet + $menu-top-padding-mobile);
 
       li .secondary-menu {
-        margin-top: calc($header-height-tablet + $upper-header-height-tablet);
+        margin-top: calc($header-height-tablet + $yellow-header-height-tablet);
       }
     }
   }

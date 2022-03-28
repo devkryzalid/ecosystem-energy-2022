@@ -24,7 +24,7 @@ $logo-transition: all 0.3s ease-out 300ms;
     position: relative;
     @include flex();
     width: 100%;
-    height: $upper-header-height;
+    height: $yellow-header-height;
     padding: 0 40px;
     background-color: $yellow;
     transition: all 0.2s ease-out;
@@ -129,7 +129,7 @@ $logo-transition: all 0.3s ease-out 300ms;
     height: $header-height;
     padding: 0 40px;
     background-color: white;
-    transition: all 0.3s ease-out 0ms, background-color 200ms ease-out 300ms;
+    transition: all 550ms ease 0ms, background-color 350ms ease-out 350ms;
     overflow: hidden;
     pointer-events: all;
 
@@ -209,7 +209,7 @@ $logo-transition: all 0.3s ease-out 300ms;
   // Sticky header
   &.sticky {
     #main-pane { 
-      height: 86px; 
+      height: $header-height-sticky; 
       background-color: white !important;
       transition: all 0.3s ease-out 0ms, background-color 0s ease-out 0ms;
 
@@ -241,7 +241,7 @@ $logo-transition: all 0.3s ease-out 300ms;
     #main-pane { 
       @include flex(flex-start, flex-start);
       flex-direction: column;
-      height: 95px;
+      height: $header-height-sticky;
       padding: 7px 20px 0 20px;
 
       #logo { margin-top: 8px; }
@@ -259,7 +259,7 @@ $logo-transition: all 0.3s ease-out 300ms;
     #country-pane {
       @include flex(flex-start, space-evenly);
       flex-direction: column;
-      height: $upper-header-height-tablet;
+      height: $yellow-header-height-tablet;
 
       .btn { margin-right: 0; }
       .content { margin-right: 30px; }

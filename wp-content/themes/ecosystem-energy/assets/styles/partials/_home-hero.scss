@@ -1,7 +1,7 @@
 .home-hero-ctn {
-  @include top;
   @include flex(flex-start, space-between);
   margin-bottom: 140px;
+  padding-top: $header-height;
   padding-left: 25px;
 
   .title-ctn {
