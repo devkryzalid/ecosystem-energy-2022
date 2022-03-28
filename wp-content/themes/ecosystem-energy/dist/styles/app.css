@@ -5656,12 +5656,14 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 }
 
 .page-industry .block-hero {
+  align-items: center;
   padding-left: 0;
 }
 .page-industry .block-hero .title-ctn {
   margin: 0;
   padding-left: 40px;
   padding-right: 40px;
+  padding-bottom: 120px;
 }
 .page-industry .block-hero .title-ctn .surtitle {
   padding-top: 40px;
@@ -5676,6 +5678,9 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   }
 }
 @media (max-width: 992px) {
+  .page-industry .block-hero .title-ctn {
+    padding-bottom: 0;
+  }
   .page-industry .block-hero .title-ctn .title {
     margin-bottom: 50px;
   }

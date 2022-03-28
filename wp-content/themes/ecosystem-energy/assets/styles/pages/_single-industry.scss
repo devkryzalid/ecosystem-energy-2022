@@ -1,11 +1,13 @@
 .page-industry {
   .block-hero {
+    align-items: center;
     padding-left: 0;
 
     .title-ctn {
       margin: 0;
       padding-left: 40px;
       padding-right: 40px;
+      padding-bottom: 120px;
       .surtitle { padding-top: 40px; }
     }
 
@@ -20,8 +22,9 @@
   }
 
   @media (max-width: $tablet-large) {
-    .block-hero .title-ctn .title {
-      margin-bottom: 50px;
+    .block-hero .title-ctn {
+      padding-bottom: 0;
+      .title { margin-bottom: 50px; }
     }
   }
 
