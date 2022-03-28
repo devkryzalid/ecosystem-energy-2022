@@ -1541,8 +1541,9 @@ h3 {
 .btn.circle, .contact-form input.circle[type=submit] {
   width: 120px;
   height: 120px;
-  padding: 0;
+  padding: 10px;
   border-radius: 50%;
+  text-align: center;
 }
 .btn.circle:hover, .contact-form input.circle[type=submit]:hover {
   transform: scale(1.1);
@@ -1555,6 +1556,7 @@ h3 {
 .btn.circle.small, .contact-form input.circle.small[type=submit] {
   width: 60px;
   height: 60px;
+  padding: 0;
 }
 .btn.circle.disabled, .contact-form input.circle.disabled[type=submit] {
   background-color: #F6F6F4;
