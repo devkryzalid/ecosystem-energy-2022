@@ -2,6 +2,8 @@
   position: relative;
   background-color: $blue;
 
+  .leadership-details { display: none; }  
+
   .contact-cta {
     margin-top: 180px;
     .title { color: white; }

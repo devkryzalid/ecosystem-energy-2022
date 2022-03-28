@@ -29,8 +29,6 @@
     }
   }
 
-  .leader-content { display: none; }  
-
   @media (max-width: $tablet) {
     grid-template-columns: 1fr 1fr;
   }

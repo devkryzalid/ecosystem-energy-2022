@@ -5163,9 +5163,6 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 .leadership-list .block-item:hover .title, .leadership-list .block-item:hover .description {
   color: #494843;
 }
-.leadership-list .leader-content {
-  display: none;
-}
 @media (max-width: 768px) {
   .leadership-list {
     grid-template-columns: 1fr 1fr;
@@ -5485,6 +5482,9 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   }
 }
 
+.page-default h2 {
+  margin-top: 60px;
+}
 .page-default .block-hero {
   padding-bottom: 20px;
 }
@@ -5586,6 +5586,9 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 .page-leadership {
   position: relative;
   background-color: #242C3E;
+}
+.page-leadership .leadership-details {
+  display: none;
 }
 .page-leadership .contact-cta {
   margin-top: 180px;
