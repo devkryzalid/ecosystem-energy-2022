@@ -3333,6 +3333,31 @@ body.menu-closing #header #main-pane #menu-toggle span {
   padding: 0 10px;
 }
 
+.page-container.page-contact #menu #menu-image::before {
+  background-image: url(../images/menu/contact.fecd6d308630d3eb916f.jpg);
+}
+.page-container.page-news #menu #menu-image::before {
+  background-image: url(../images/menu/news.8494b46e3b53c4dbfed1.jpg);
+}
+.page-container.page-case-studies #menu #menu-image::before {
+  background-image: url(../images/menu/case-studies.86fe98ae5ddee809923f.jpg);
+}
+.page-container.page-home #menu #menu-image::before {
+  background-image: url(../images/menu/home.8d0dadd20425c5c8e089.jpg);
+}
+.page-container.page-industry #menu #menu-image::before {
+  background-image: url(../images/menu/industries.aad26227be3b2008a11c.jpg);
+}
+.page-container.page-perspectives #menu #menu-image::before {
+  background-image: url(../images/menu/perspectives.a210f97cd0c87ea1da9b.jpg);
+}
+.page-container.page-perspective #menu #menu-image::before {
+  background-image: url(../images/menu/perspectives.a210f97cd0c87ea1da9b.jpg);
+}
+.page-container.page-expertises #menu #menu-image::before {
+  background-image: url(../images/menu/expertises.9995e261dec1a49b0dc4.jpg);
+}
+
 body.menu-open #menu {
   transition: all 0.3s ease 0ms !important;
 }

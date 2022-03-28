@@ -180,6 +180,20 @@ $text-closing-transition: all 0.2s ease 0ms;
   }
 }
 
+// Custom page-specific images 
+// Can be overridden with the menu-image ACF
+.page-container {
+  &.page-contact #menu #menu-image::before { background-image: url('/assets/images/menu/contact.jpg'); }
+  &.page-news #menu #menu-image::before { background-image: url('/assets/images/menu/news.jpg'); }
+  &.page-case-studies #menu #menu-image::before { background-image: url('/assets/images/menu/case-studies.jpg'); }
+  &.page-home #menu #menu-image::before { background-image: url('/assets/images/menu/home.jpg'); }
+  &.page-industry #menu #menu-image::before { background-image: url('/assets/images/menu/industries.jpg'); }
+  &.page-perspectives #menu #menu-image::before { background-image: url('/assets/images/menu/perspectives.jpg'); }
+  &.page-perspective #menu #menu-image::before { background-image: url('/assets/images/menu/perspectives.jpg'); }
+  &.page-expertises #menu #menu-image::before { background-image: url('/assets/images/menu/expertises.jpg'); }
+  // About, career
+}
+
 // Hide menu when not shown nor triggered
 body.menu-open #menu {
   transition: $menu-open-transition !important;
