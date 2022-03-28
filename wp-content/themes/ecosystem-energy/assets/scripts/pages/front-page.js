@@ -2,8 +2,9 @@ import Swiper, { Navigation } from 'swiper';
 
 Swiper.use([Navigation]);
 
-const container = document.querySelector('.home-slider').querySelector('.swiper-container');
-const slider = new Swiper(container, {
+const container = document.querySelector('.home-slider');
+if (container) {
+  const slider = new Swiper(container.querySelector('.swiper-container'), {
     speed: 300,
     loop: false,
     slidesPerView: 1,
@@ -14,7 +15,8 @@ const slider = new Swiper(container, {
       768: { slidesPerView: 3 },
       500: { slidesPerView: 2 },
     }
-});
+  });
+}
 
 // Initialize rotating animation for hero
 const spinner = document.getElementById('home-spinner');
