@@ -3,6 +3,25 @@
     "title": "Template - Équipe de Direction",
     "fields": [
         {
+            "key": "field_6241ed10b2df2",
+            "label": "Texte",
+            "name": "text",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_620c1ce654a6b",
             "label": "Membres",
             "name": "leaders_list",
@@ -187,5 +206,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1644962299
+    "modified": 1648487731
 }
