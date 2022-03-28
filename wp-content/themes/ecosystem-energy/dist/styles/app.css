@@ -3190,7 +3190,7 @@ body.menu-closing #header #main-pane #menu-toggle span {
   height: 100%;
 }
 #menu #menu-image::before {
-  background-image: url(../images/menu/default.79fe574396a4827c0495.jpg);
+  background-image: url(../images/menu/default-bg.79fe574396a4827c0495.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: center;
@@ -3385,31 +3385,6 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 #header.show-country-pane #primary-menu,
 #header.show-country-pane #primary-menu li .secondary-menu {
   padding-top: 230px;
-}
-
-.page-container.page-contact #menu #menu-image::before {
-  background-image: url(../images/menu/contact.fecd6d308630d3eb916f.jpg) !important;
-}
-.page-container.page-news #menu #menu-image::before {
-  background-image: url(../images/menu/news.8494b46e3b53c4dbfed1.jpg) !important;
-}
-.page-container.page-case-studies #menu #menu-image::before {
-  background-image: url(../images/menu/case-studies.86fe98ae5ddee809923f.jpg) !important;
-}
-.page-container.page-home #menu #menu-image::before {
-  background-image: url(../images/menu/home.8d0dadd20425c5c8e089.jpg) !important;
-}
-.page-container.page-industry #menu #menu-image::before {
-  background-image: url(../images/menu/industries.aad26227be3b2008a11c.jpg) !important;
-}
-.page-container.page-perspectives #menu #menu-image::before {
-  background-image: url(../images/menu/perspectives.a210f97cd0c87ea1da9b.jpg) !important;
-}
-.page-container.page-perspective #menu #menu-image::before {
-  background-image: url(../images/menu/perspectives.a210f97cd0c87ea1da9b.jpg) !important;
-}
-.page-container.page-expertises #menu #menu-image::before {
-  background-image: url(../images/menu/expertises.9995e261dec1a49b0dc4.jpg) !important;
 }
 
 @media (max-width: 1100px) {

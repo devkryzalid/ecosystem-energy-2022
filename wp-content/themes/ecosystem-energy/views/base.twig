@@ -18,12 +18,18 @@
     <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=62153f9c4d759f0019eaa837&product=sop' async='async'></script>
     {% block structuredData %}{% endblock %}
     {{ function('wp_head') }}
+
+    {% if post.meta('menu_image') %} 
+      <style type="text/css">
+        #menu-image::before { background-image: url("{{ post.meta('menu_image').url }}") !important; }
+      </style>
+    {% endif %}
   </head>
 
   <body {{ body_class }} ?>
 
     <div class="page-container {% block pageClass %}{% endblock %}">
-      {% include 'partials/common/header.twig'%}
+      {% include 'partials/common/header.twig' %}
 
       <div class="page">
         {% block content %}{% endblock %}
