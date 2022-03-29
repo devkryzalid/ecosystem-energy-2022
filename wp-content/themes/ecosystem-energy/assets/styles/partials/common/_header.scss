@@ -159,6 +159,8 @@ $logo-transition: all 0.3s ease-out 300ms;
       a, .wpml-ls-legacy-list-horizontal {
         padding: 20px;
         @include fontSize(16, 22, 600);
+
+        &#country-toggle { @include fontSize(14, 19, 600); }
         
         .wpml-ls-link { 
           padding: 0; 
@@ -178,6 +180,7 @@ $logo-transition: all 0.3s ease-out 300ms;
   // Burger / Close menu icon
   #menu-toggle {
     position: relative;
+    top: 1px;
     right: 26px;
     @include flex();
     pointer-events: all;

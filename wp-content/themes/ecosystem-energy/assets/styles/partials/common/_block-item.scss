@@ -132,7 +132,7 @@ $bloc-content-height: 260px;
         left: 0;
         width: 0%;
         height: 1px;
-        background-color: $darkgrey;
+        background-color: $darkergrey;
         transition: $basicTransition;
       }
     }
@@ -183,7 +183,10 @@ $bloc-content-height: 260px;
 
   // White background behind text content
   &.white-bg {
-    .content { background-color: white; }
+    .content { 
+      background-color: white;
+      .surtitle { color: $darkyellow; }
+    }
   }
 
   // White text
@@ -253,10 +256,7 @@ $bloc-content-height: 260px;
 
         .content {
           &::before { height: 100%; }
-
           .title, .surtitle, .surtitle::before { color: $darkergrey; }
-
-          // .footer { opacity: 1; }
         }
       }
 
@@ -274,7 +274,11 @@ $bloc-content-height: 260px;
         }
       }
 
-      .content .footer::before { width: 100%; }
+      .content .footer { 
+        color: $darkergrey;
+        opacity: 1;
+        &::before { width: 100%; }
+      }
     }
 
     &.invert {
@@ -286,7 +290,11 @@ $bloc-content-height: 260px;
   @media (max-width: $tablet) {
     .image { height: 170px; }
 
-    .content { min-height: 210px; }
+    .content, &.featured .content { 
+      padding-top: 20px !important;
+      min-height: 210px;
+      .surtitle { @include fontSize(18, 24); }
+    }
 
     &.text-padding {
       .content {

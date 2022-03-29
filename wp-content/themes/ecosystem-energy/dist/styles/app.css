@@ -2328,7 +2328,7 @@ a.link.video::after {
   left: 0;
   width: 0%;
   height: 1px;
-  background-color: #494843;
+  background-color: #2A2926;
   transition: all 0.4s ease;
 }
 .block-item.text-padding .content .surtitle, .block-item.featured .content .surtitle, .block-item.text-padding .content .title, .block-item.featured .content .title, .block-item.text-padding .content .description, .block-item.featured .content .description, .block-item.text-padding .content .footer, .block-item.featured .content .footer {
@@ -2381,6 +2381,9 @@ a.link.video::after {
 }
 .block-item.white-bg .content, .block-item.featured .content {
   background-color: white;
+}
+.block-item.white-bg .content .surtitle, .block-item.featured .content .surtitle {
+  color: #E7AD09;
 }
 .block-item.invert .content .surtitle, .block-item.invert .content .title, .block-item.invert .content .description {
   color: white;
@@ -2453,6 +2456,10 @@ a.link.video::after {
 .block-item:hover:not(.static).featured .content .surtitle::before {
   color: #2A2926;
 }
+.block-item:hover:not(.static) .content .footer {
+  color: #2A2926;
+  opacity: 1;
+}
 .block-item:hover:not(.static) .content .footer::before {
   width: 100%;
 }
@@ -2463,8 +2470,17 @@ a.link.video::after {
   .block-item .image {
     height: 170px;
   }
-  .block-item .content {
+  .block-item .content, .block-item.featured .content {
+    padding-top: 20px !important;
     min-height: 210px;
+  }
+  .block-item .content .surtitle, .block-item.featured .content .surtitle {
+    font-size: 18px;
+    font-size: 1.125rem;
+    font-weight: initial;
+    line-height: 24px;
+    line-height: 1.5rem;
+    letter-spacing: normal;
   }
   .block-item.text-padding .content .surtitle, .block-item.featured .content .surtitle, .block-item.text-padding .content .title, .block-item.featured .content .title, .block-item.text-padding .content .description, .block-item.featured .content .description, .block-item.text-padding .content .footer, .block-item.featured .content .footer {
     padding-left: 20px;
@@ -2947,6 +2963,14 @@ a.link.video::after {
   line-height: 1.375rem;
   letter-spacing: normal;
 }
+#header #main-pane #top-menu a#country-toggle, #header #main-pane #top-menu .wpml-ls-legacy-list-horizontal#country-toggle {
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 19px;
+  line-height: 1.1875rem;
+  letter-spacing: normal;
+}
 #header #main-pane #top-menu a .wpml-ls-link, #header #main-pane #top-menu .wpml-ls-legacy-list-horizontal .wpml-ls-link {
   padding: 0;
 }
@@ -2962,6 +2986,7 @@ a.link.video::after {
 }
 #header #menu-toggle {
   position: relative;
+  top: 1px;
   right: 26px;
   display: flex;
   flex-direction: row;
@@ -3670,7 +3695,6 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 .block-hero.post-hero {
   position: relative;
   min-height: 500px;
-  padding-top: 125px;
   padding-bottom: 60px;
   padding-left: 0;
   z-index: 2;
