@@ -8,7 +8,10 @@
   .title-ctn { 
     padding: 0 100px; 
 
-    .title { padding: 50px 0 40px; }
+    .title { 
+      margin-bottom: 0;
+      padding: 50px 0 40px; 
+    }
 
     .category {  
       @include fontSize(18, 24, 500, 0.36);
@@ -34,5 +37,9 @@
 
   @media (max-width: 1300px) {
     .title-ctn { padding: 0 20px; }
+  }
+
+  @media (max-width: $tablet-large) {
+    padding-bottom: 20px;
   }
 }

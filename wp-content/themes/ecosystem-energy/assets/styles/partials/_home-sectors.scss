@@ -75,6 +75,7 @@
 
     .content-column { 
       display: block; 
+      width: 100%;
       a { @include fontSize(22, 28, 600, -0.35); }
     }
   }

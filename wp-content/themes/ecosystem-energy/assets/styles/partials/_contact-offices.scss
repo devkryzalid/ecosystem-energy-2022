@@ -122,6 +122,9 @@
 
   @media (max-width: 575px) {
     display: block;
-    #office-info { margin-top: 40px; }
+    #office-info { 
+      margin-top: 40px;
+      .phones { flex-basis: 100%; }
+    }
   }
 }

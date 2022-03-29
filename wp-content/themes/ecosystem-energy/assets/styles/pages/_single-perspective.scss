@@ -1,2 +1,5 @@
 .page-perspective {
+  @media (max-width: 600px) {
+    .bg-icon.wrapper::after { display: none; }
+  }
 }

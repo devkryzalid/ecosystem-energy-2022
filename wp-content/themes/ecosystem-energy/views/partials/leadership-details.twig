@@ -7,7 +7,7 @@
 
       <div class="social">
         {% for s in leader.social_link %}
-          <a class="social-link" href="{{ s.link }}">{{ s.type.label }}</a>
+          <a class="social-link" href="{{ s.link }}"><i class="icon-{{ s.type.value }}"></i></a>
         {% endfor %}
       </div>
     </div>

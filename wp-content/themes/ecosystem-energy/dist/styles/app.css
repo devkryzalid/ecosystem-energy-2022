@@ -635,8 +635,8 @@ template {
 
 @font-face {
   font-family: "icomoon";
-  src: url(../fonts/icomoon.0feaedb9aeaff2abf446.eot?p0fx7a);
-  src: url(../fonts/icomoon.0feaedb9aeaff2abf446.eot?p0fx7a#iefix) format("embedded-opentype"), url(../fonts/icomoon.6529d8163a09ef1f1117.ttf?p0fx7a) format("truetype"), url(../fonts/icomoon.e070c38b23d212e12259.woff?p0fx7a) format("woff"), url(../fonts/icomoon.d8ffa0904c4861c187a6.svg?p0fx7a#icomoon) format("svg");
+  src: url(../fonts/icomoon.5125ce7c93105d00ba37.eot?ppqjc6);
+  src: url(../fonts/icomoon.5125ce7c93105d00ba37.eot?ppqjc6#iefix) format("embedded-opentype"), url(../fonts/icomoon.2a456596cb10a52e7f13.ttf?ppqjc6) format("truetype"), url(../fonts/icomoon.b66e1a6dec0804b409fb.woff?ppqjc6) format("woff"), url(../fonts/icomoon.57464da10c54c3f94ec5.svg?ppqjc6#icomoon) format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -737,6 +737,26 @@ template {
 
 .icon-small-arrow-right:before, .slider-ctn .swiper-navigation .next-container .next:before {
   content: "\e90b";
+}
+
+.icon-facebook:before {
+  content: "\ea90";
+}
+
+.icon-instagram:before {
+  content: "\ea92";
+}
+
+.icon-twitter:before {
+  content: "\ea96";
+}
+
+.icon-youtube:before {
+  content: "\ea9d";
+}
+
+.icon-linkedin:before {
+  content: "\eaca";
 }
 
 @-ms-viewport {
@@ -888,11 +908,11 @@ p {
   }
 
   h2 {
-    font-size: 24px;
-    font-size: 1.5rem;
+    font-size: 30px;
+    font-size: 1.875rem;
     font-weight: initial;
-    line-height: 29px;
-    line-height: 1.8125rem;
+    line-height: 36px;
+    line-height: 2.25rem;
     letter-spacing: normal;
   }
 
@@ -3703,6 +3723,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   padding: 0 100px;
 }
 .block-hero.post-hero .title-ctn .title {
+  margin-bottom: 0;
   padding: 50px 0 40px;
 }
 .block-hero.post-hero .title-ctn .category {
@@ -3739,6 +3760,11 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 @media (max-width: 1300px) {
   .block-hero.post-hero .title-ctn {
     padding: 0 20px;
+  }
+}
+@media (max-width: 992px) {
+  .block-hero.post-hero {
+    padding-bottom: 20px;
   }
 }
 
@@ -4404,6 +4430,9 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   .contact-offices #office-info {
     margin-top: 40px;
   }
+  .contact-offices #office-info .phones {
+    flex-basis: 100%;
+  }
 }
 
 .expertises-featured {
@@ -4760,6 +4789,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   }
   .sectors-ctn .content-column {
     display: block;
+    width: 100%;
   }
   .sectors-ctn .content-column a {
     font-size: 22px;
@@ -4876,7 +4906,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   padding: 12px;
   object-fit: contain;
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .industry-client-list {
     padding-bottom: 80px;
   }
@@ -4885,6 +4915,8 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   }
   .industry-client-list .clients-list {
     flex-wrap: wrap;
+    padding: 0;
+    border: 0px none;
   }
 }
 
@@ -4948,6 +4980,11 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 @media (max-width: 992px) {
   .industry-cs-featured {
     flex-wrap: wrap;
+  }
+}
+@media (max-width: 768px) {
+  .industry-cs-featured .cs-featured {
+    margin-top: 30px;
   }
 }
 
@@ -5132,9 +5169,19 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 #panel-body .block-hero .status {
   opacity: 0.6;
 }
+#panel-body .block-hero .social {
+  margin-top: 30px;
+}
 #panel-body .block-hero .social-link {
   margin-top: 20px;
   margin-right: 20px;
+  font-size: 26px;
+}
+#panel-body .block-hero .social-link i {
+  transition: all 0.4s ease;
+}
+#panel-body .block-hero .social-link:hover i {
+  color: #FAB900;
 }
 
 .news-nav {
@@ -5671,5 +5718,11 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   .page-industry .block-hero .title-ctn {
     padding-left: 20px;
     padding-right: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-perspective .bg-icon.wrapper::after, .page-perspective .bg-icon.gutenberg-slider-multiple::after, .page-perspective .bg-icon.case-study-slider::after, .page-perspective .bg-icon.home-slider::after, .page-perspective .bg-icon.industry-cs-slider::after {
+    display: none;
   }
 }

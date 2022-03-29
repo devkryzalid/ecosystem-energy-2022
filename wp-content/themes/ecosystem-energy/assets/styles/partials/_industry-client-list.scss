@@ -28,7 +28,7 @@
     }
   }
 
-  @media (max-width: $tablet) {
+  @media (max-width: $mobile-max) {
     padding-bottom: 80px;
 
     .clients-head {
@@ -37,6 +37,8 @@
 
     .clients-list {
       flex-wrap: wrap;
+      padding: 0;
+      border: 0px none;
     }
   }
 }
