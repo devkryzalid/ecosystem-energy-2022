@@ -2148,6 +2148,9 @@ a.link.video::after {
   margin-top: -70px;
   padding-bottom: 0;
 }
+.block-hero.with-margin {
+  margin-top: 60px;
+}
 @media (max-width: 992px) {
   .block-hero {
     flex-wrap: wrap !important;
@@ -2188,6 +2191,9 @@ a.link.video::after {
     line-height: 24px;
     line-height: 1.5rem;
     letter-spacing: normal;
+  }
+  .block-hero.with-margin {
+    margin-top: 20px;
   }
 }
 
@@ -3982,37 +3988,6 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   }
 }
 
-.author-ctn {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 40px;
-  padding: 60px 0;
-  border-top: 2px solid #494843;
-}
-.author-ctn .image {
-  min-width: 200px;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: #494843;
-}
-.author-ctn .content .name {
-  margin-bottom: 30px;
-  font-size: 30px;
-  font-size: 1.875rem;
-  font-weight: initial;
-  line-height: 38px;
-  line-height: 2.375rem;
-  letter-spacing: normal;
-}
-@media (max-width: 500px) {
-  .author-ctn {
-    flex-direction: column;
-  }
-}
-
 .case-study-awards-ctn {
   margin: -50px auto 80px;
   padding: 40px 100px 40px 200px;
@@ -5164,6 +5139,37 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   text-align: right;
 }
 
+.author-ctn {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 40px;
+  padding: 60px 0;
+  border-top: 2px solid #494843;
+}
+.author-ctn .image {
+  min-width: 200px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-color: #494843;
+}
+.author-ctn .content .name {
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-size: 1.875rem;
+  font-weight: initial;
+  line-height: 38px;
+  line-height: 2.375rem;
+  letter-spacing: normal;
+}
+@media (max-width: 500px) {
+  .author-ctn {
+    flex-direction: column;
+  }
+}
+
 .perspective-related {
   padding-top: 50px;
   padding-bottom: 60px;
@@ -5498,6 +5504,10 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 }
 .page-home .news-ctn .block-item .content .surtitle::before {
   top: -3px;
+}
+.page-home .contact-cta {
+  margin-top: 0;
+  margin-bottom: 50px;
 }
 @media (max-width: 1550px) {
   .page-home .wrapper.bg-icon::after, .page-home .bg-icon.gutenberg-slider-multiple::after, .page-home .bg-icon.case-study-slider::after, .page-home .bg-icon.home-slider::after, .page-home .bg-icon.industry-cs-slider::after {

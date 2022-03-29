@@ -83,6 +83,11 @@
     padding-bottom: 0;
   }
 
+  // Additionnal margin
+  &.with-margin {
+    margin-top: 60px;
+  }
+
   @media (max-width: $tablet-large) {
     flex-wrap: wrap !important;
     padding-top: 170px;
@@ -109,5 +114,7 @@
     padding-top: 120px;
     .title { @include fontSize(46, 50, 600, -1px); }
     .surtitle { @include fontSize(16, 24, 500); }
+
+    &.with-margin { margin-top: 20px; }
   }
 }

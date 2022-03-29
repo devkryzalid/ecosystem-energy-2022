@@ -5,7 +5,7 @@
 {% block content %}
 
   <div class="large container">
-    {% include 'partials/common/block-hero.twig' with { title: post.title, filters: true } %}
+    {% include 'partials/common/block-hero.twig' with { title: post.title, filters: true, class: 'with-margin' } %}
   </div>
 
   {% include 'partials/common/filters.twig' with { 

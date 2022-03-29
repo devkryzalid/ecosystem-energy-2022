@@ -42,7 +42,6 @@
 @import "partials/common/slider";
 
 // Page-specific elements
-@import "partials/perspective-author";
 @import "partials/case-study-awards";
 @import "partials/case-study-hero";
 @import "partials/case-study-slider";
@@ -61,6 +60,7 @@
 @import "partials/leadership-list";
 @import "partials/leadership-panel";
 @import "partials/news-nav";
+@import "partials/perspective-author";
 @import "partials/perspective-related";
 
 // Pages
@@ -72,6 +72,8 @@
 @import "pages/expertises";
 @import "pages/front-page";
 @import "pages/leadership";
+@import "pages/news";
+@import "pages/perspectives";
 @import "pages/search";
 @import "pages/single-case-study";
 @import "pages/single-industry";

@@ -26,6 +26,11 @@
     }
   }
 
+  .contact-cta { 
+    margin-top: 0;
+    margin-bottom: 50px;
+  }
+
   @media (max-width: 1550px) {
     .wrapper.bg-icon::after { left: -120px; }
   }
