@@ -2860,9 +2860,7 @@ a.link.video::after {
   line-height: 85px;
   line-height: 5.3125rem;
   letter-spacing: normal;
-}
-#header #search-pane input:focus, #header #search-pane input:focus-visible {
-  outline: none;
+  outline: none !important;
 }
 #header #search-pane input::placeholder {
   color: rgba(73, 72, 67, 0.5);
@@ -2908,6 +2906,8 @@ a.link.video::after {
 #header #country-pane .countries label input {
   position: relative;
   appearance: none;
+  width: 40px;
+  height: 27px;
 }
 #header #country-pane .countries label input::before, #header #country-pane .countries label input:checked::after {
   content: "";

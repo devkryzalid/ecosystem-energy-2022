@@ -47,8 +47,8 @@ $logo-transition: all 0.3s ease-out 300ms;
       border: 0 none;
       background: none;
       @include fontSize(62, 85);
+      outline: none !important;
 
-      &:focus, &:focus-visible { outline: none; }
       &::placeholder { color: rgba($darkgrey, 0.5); }
     }
   }
@@ -87,6 +87,10 @@ $logo-transition: all 0.3s ease-out 300ms;
         input { 
           position: relative;
           appearance: none;
+
+          // Safarfi fix
+          width: 40px;
+          height: 27px;
 
           &::before, &:checked::after {
             content: '';
