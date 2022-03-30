@@ -1853,6 +1853,7 @@ a.link.video::after {
   line-height: 48px;
   line-height: 3rem;
   letter-spacing: normal;
+  text-align: right;
 }
 @media (max-width: 500px) {
   .content-key-data-ctn {

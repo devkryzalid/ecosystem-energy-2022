@@ -10,6 +10,7 @@
 
   .value {
     @include fontSize(35, 48, 500);
+    text-align: right;
   }
 
   @media (max-width: $mobile-large) {
