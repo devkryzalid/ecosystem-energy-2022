@@ -17,6 +17,15 @@
 
   .title-ctn {
     .title { margin: 0 0 30px; }
+
+    // Center main page title (from title_position ACF)
+    &.title-centered { 
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    // Hide main page title (from title_position ACF)
+    &.title-hidden { display: none; }
   }
 
   .image-ctn {

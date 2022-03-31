@@ -2130,6 +2130,13 @@ a.link.video::after {
 .block-hero .title-ctn .title {
   margin: 0 0 30px;
 }
+.block-hero .title-ctn.title-centered {
+  flex-grow: 1;
+  text-align: center;
+}
+.block-hero .title-ctn.title-hidden {
+  display: none;
+}
 .block-hero .image-ctn img {
   width: 100%;
   height: 100%;
@@ -5531,6 +5538,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   margin-top: 60px;
 }
 .page-default .block-hero {
+  margin-top: 50px;
   padding-bottom: 20px;
 }
 
