@@ -53,11 +53,10 @@
 
   input[type="submit"] { 
     @extend .btn; 
-    // font-weight: 600;
     margin: 20px auto;
 
     &:hover {
-      background-color: $blue;
+      background-color: $darkgrey;
       color: $yellow;
     }
   }

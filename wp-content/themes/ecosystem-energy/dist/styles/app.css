@@ -4294,7 +4294,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   margin: 20px auto;
 }
 .contact-form input[type=submit]:hover {
-  background-color: #242C3E;
+  background-color: #494843;
   color: #FAB900;
 }
 
