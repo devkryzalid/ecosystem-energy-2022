@@ -5541,6 +5541,9 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   margin-top: 50px;
   padding-bottom: 20px;
 }
+.page-default .block-hero .title-ctn {
+  flex-grow: 1;
+}
 
 .page-expertises {
   position: relative;
