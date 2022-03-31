@@ -37,9 +37,9 @@ function gutenberg_allowed_block_types( $allowed_blocks ) {
 		'core/text-columns',
 		'core/media-text',
 		'core/separator',
-		'core-embed/youtube',
 		'core/spacer',
 		'core/shortcode',
+    'core/embed',
 
 		'acf/accordion',
 		'acf/button',

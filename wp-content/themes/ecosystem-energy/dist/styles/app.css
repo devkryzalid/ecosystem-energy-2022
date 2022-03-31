@@ -1829,6 +1829,20 @@ a.link.video::after {
   }
 }
 
+.wp-block-embed__wrapper {
+  position: relative;
+  margin: 50px auto;
+  padding-bottom: 56.25%;
+  /* 16:9, for an aspect ratio of 1:1 change to this value to 100% */
+}
+.wp-block-embed__wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .content-key-data-ctn {
   display: flex;
   flex-direction: row;
