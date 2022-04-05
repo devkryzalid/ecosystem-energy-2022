@@ -5,7 +5,8 @@
     surtitle: surtitle,
     title: title,
     description: description,
-    image: tImage,
+    image: image ? tImage : null,
+    video: video,
     class: 'horizontal static ' ~ (mirror ? 'reverse' : ''),
     delay: 200
   } %}

@@ -2338,6 +2338,10 @@ body.modal-open .gutenberg-slider-modal .slider-ctn .swiper-slide .caption {
   object-fit: cover;
   transition: all 0.4s ease;
 }
+.block-item .image video {
+  width: 100%;
+  height: 100%;
+}
 .block-item .content {
   position: relative;
   display: flex;
