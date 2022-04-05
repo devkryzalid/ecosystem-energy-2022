@@ -8,28 +8,52 @@ document.querySelectorAll('.gutenberg-slider-single').forEach((el, index) => {
   el.setAttribute('id', id);
   const swiperContainer = el.querySelector('.swiper-container');
   const slider = new Swiper(swiperContainer, {
-      speed: 300,
-      loop: true,
-      navigation: { nextEl: `#${id} .next`, prevEl: `#${id} .prev`, }
+    speed: 300,
+    loop: true,
+    navigation: { nextEl: `#${id} .next`, prevEl: `#${id} .prev`, }
   });
 });
 
-// Apply Swiper mechanics to all multiple-image sliders
+// Apply Swiper mechanics to all multiple-image sliders 
 document.querySelectorAll('.gutenberg-slider-multiple').forEach((el, index) => {
+  const innerContainer = el.querySelector('.slider-container');
   const id = 'slider-multiple-' + index;
-  el.setAttribute('id', id);
-  const swiperContainer = el.querySelector('.swiper-container');
+  innerContainer.setAttribute('id', id);
+  const swiperContainer = innerContainer.querySelector('.swiper-container');
   const slider = new Swiper(swiperContainer, {
-      speed: 300,
-      loop: false,
-      slidesPerView: 1,
-      spaceBetween: 30,
-      navigation: { nextEl: `#${id} .next`, prevEl: `#${id} .prev` },
-      breakpoints: {
-        768: { slidesPerView: 3 },
-        500: { slidesPerView: 2 },
-      }
+    speed: 300,
+    loop: false,
+    slidesPerView: 1,
+    spaceBetween: 30,
+    navigation: { nextEl: `#${id} .next`, prevEl: `#${id} .prev` },
+    breakpoints: {
+      768: { slidesPerView: 3 },
+      500: { slidesPerView: 2 },
+    }
   });
+
+  const modal = el.querySelector('.gutenberg-slider-modal');
+  const modalId = 'modal-slider-' + index;
+  modal.setAttribute('id', modalId);
+
+  modal.querySelector('.overlay').addEventListener('click', () => document.body.classList.remove('modal-open'));
+  
+  const modalSwiperContainer = modal.querySelector('.swiper-container');
+  const modalSlider = new Swiper(modalSwiperContainer, {
+    speed: 300,
+    loop: false,
+    slidesPerView: 1,
+    spaceBetween: 60,
+    navigation: { nextEl: `#${modalId} .next`, prevEl: `#${modalId} .prev` }
+  });
+
+  swiperContainer.querySelectorAll('.swiper-slide.static').forEach(e => {
+    e.addEventListener('click', () => {
+      document.body.classList.add('modal-open');
+    })
+  });
+
+  slider.on('click', e => { modalSlider.slideTo(e.clickedIndex); });
 });
 
 // Apply accordion mechanics to all Accordions

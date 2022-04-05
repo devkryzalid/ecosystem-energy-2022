@@ -20,3 +20,49 @@
     }
   }
 }
+
+.gutenberg-slider-modal { display: none; }
+
+body.modal-open {
+  overflow: hidden;
+
+  .gutenberg-slider-modal {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    padding: 150px;
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(black, 0.5);
+    }
+
+    .slider-ctn {
+      height: 100%;
+
+      .slider-slides, .swiper-container { height: 100%; }
+      .swiper-navigation { top: 50%; }
+
+      .swiper-slide {
+        img { height: 100%; }
+
+        .caption { 
+          position: relative;
+          top: -6px;
+          padding: 20px;
+          background-color: $yellow;
+        }
+      }
+    }
+  }
+}

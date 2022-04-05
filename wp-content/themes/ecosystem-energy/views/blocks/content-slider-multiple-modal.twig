@@ -1,14 +1,10 @@
 {% extends 'partials/common/slider.twig' %}
 
-{% if fields.title %} 
-  {% block title %} <h2>{{ fields.title }}</h2> {% endblock %}
-{% endif %}
-
 {% block slides %}
   {% for image in fields.slider_images %}
-    <a class="static swiper-slide">
+    <div class="static swiper-slide">
       <img src="{{image['sizes']['slider-large']}}" alt="">
       {% if image.caption %}<div class="caption">{{ image.caption }}</div> {% endif %}
-    </a>
+    </div>
   {% endfor %}
 {% endblock %}
