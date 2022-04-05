@@ -1902,9 +1902,9 @@ a.link.video::after {
 }
 .gutenberg-slider-multiple .slider-container .swiper-slide::after {
   position: absolute;
-  top: 30%;
+  top: 110px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   content: "\e90c";
   font-size: 50px;
   z-index: 2;

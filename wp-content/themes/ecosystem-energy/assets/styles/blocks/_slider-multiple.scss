@@ -25,9 +25,9 @@
     .swiper-slide {
       &::after { 
         position: absolute;
-        top: 30%;
+        top: 110px;
         left: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, 0);
         @extend .icomoon;
         content: "\e90c";
         font-size: 50px;
