@@ -37,6 +37,7 @@ document.querySelectorAll('.gutenberg-slider-multiple').forEach((el, index) => {
   modal.setAttribute('id', modalId);
 
   modal.querySelector('.overlay').addEventListener('click', () => document.body.classList.remove('modal-open'));
+  modal.querySelector('.slider-close').addEventListener('click', () => document.body.classList.remove('modal-open'));
   
   const modalSwiperContainer = modal.querySelector('.swiper-container');
   const modalSlider = new Swiper(modalSwiperContainer, {

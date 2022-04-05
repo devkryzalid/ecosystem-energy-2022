@@ -23,6 +23,8 @@
   // Non-modal
   .slider-container {
     .swiper-slide {
+      cursor: pointer;
+
       &::after { 
         position: absolute;
         top: 110px;
@@ -45,59 +47,83 @@
   }
 }
 
-.gutenberg-slider-modal { display: none; }
+.gutenberg-slider-modal { 
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 9999;
+  padding: 150px;
+  pointer-events: none;
+  opacity: 0;
+  transition: $basicTransition;
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($blue, 0.7);
+  }
+
+  .slider-ctn {
+    height: 100%;
+
+    .slider-slides, .swiper-container { height: 100%; }
+    .swiper-navigation { top: 50%; }
+
+    .swiper-slide {
+      img { height: 100%; }
+
+      .caption { 
+        position: relative;
+        top: -6px;
+        padding: 20px;
+        background-color: $yellow;
+      }
+    }
+  }
+
+  .slider-close {
+    position: absolute;
+    top: 110px;
+    right: 110px;
+    z-index: 1;
+    cursor: pointer;
+
+    &::after {
+      @extend .icomoon;
+      content: "\e904";
+      font-size: 30px;
+      color: $yellow;
+      transition: $basicTransition;
+    }
+
+    &:hover::after { color: white; }
+  }
+
+  @media (max-width: $tablet-large) {
+    padding: 150px 50px;
+    .slider-close { right: 50px; }
+    .slider-ctn { max-height: 450px; }
+  }
+
+  @media (max-width: 575px) {
+    padding-left: 20px;
+    padding-right: 20px;
+    .slider-ctn { max-height: 300px; }
+  }
+}
 
 body.modal-open {
   overflow: hidden;
 
   .gutenberg-slider-modal {
-    display: block;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 9999;
-    padding: 150px;
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(black, 0.5);
-    }
-
-    .slider-ctn {
-      height: 100%;
-
-      .slider-slides, .swiper-container { height: 100%; }
-      .swiper-navigation { top: 50%; }
-
-      .swiper-slide {
-        img { height: 100%; }
-
-        .caption { 
-          position: relative;
-          top: -6px;
-          padding: 20px;
-          background-color: $yellow;
-        }
-      }
-    }
-
-    @media (max-width: $tablet-large) {
-      padding: 150px 50px;
-      .slider-ctn { max-height: 450px; }
-    }
-
-    @media (max-width: 575px) {
-      padding-left: 20px;
-      padding-right: 20px;
-      .slider-ctn { max-height: 300px; }
-    }
+    opacity: 1;
+    pointer-events: all;
   }
 }
