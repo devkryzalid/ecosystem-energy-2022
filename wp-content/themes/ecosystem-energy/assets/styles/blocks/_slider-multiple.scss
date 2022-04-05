@@ -19,6 +19,30 @@
       opacity: 0.7;
     }
   }
+
+  // Non-modal
+  .slider-container {
+    .swiper-slide {
+      &::after { 
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @extend .icomoon;
+        content: "\e90c";
+        font-size: 50px;
+        z-index: 2;
+        opacity: 0;
+        transition: $basicTransition;
+        color: white;
+      }
+
+      &:hover {
+        img { opacity: 0.5; }
+        &::after { opacity: 1; }
+      }
+    }
+  }
 }
 
 .gutenberg-slider-modal { display: none; }
@@ -63,6 +87,17 @@ body.modal-open {
           background-color: $yellow;
         }
       }
+    }
+
+    @media (max-width: $tablet-large) {
+      padding: 150px 50px;
+      .slider-ctn { max-height: 450px; }
+    }
+
+    @media (max-width: 575px) {
+      padding-left: 20px;
+      padding-right: 20px;
+      .slider-ctn { max-height: 300px; }
     }
   }
 }

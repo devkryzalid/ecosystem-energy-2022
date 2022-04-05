@@ -1002,7 +1002,7 @@ ul li {
   }
 }
 
-.icomoon, .home-slider .surtitle::before, .sectors-ctn .content-column a::after, .contact-offices #office-info .phone::before, .slider-ctn .swiper-navigation > div > div, .block-hero.post-hero .title-ctn .category::after, .block-item.featured .content::after, .block-item .content .surtitle::before, .block-item .image::after, a.link::after, a.link::before {
+.icomoon, .home-slider .surtitle::before, .sectors-ctn .content-column a::after, .contact-offices #office-info .phone::before, .slider-ctn .swiper-navigation > div > div, .block-hero.post-hero .title-ctn .category::after, .block-item.featured .content::after, .block-item .content .surtitle::before, .block-item .image::after, .gutenberg-slider-multiple .slider-container .swiper-slide::after, a.link::after, a.link::before {
   font-family: "icomoon" !important;
   font-weight: 400 !important;
 }
@@ -1900,6 +1900,24 @@ a.link.video::after {
   letter-spacing: -0.28px;
   opacity: 0.7;
 }
+.gutenberg-slider-multiple .slider-container .swiper-slide::after {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: "\e90c";
+  font-size: 50px;
+  z-index: 2;
+  opacity: 0;
+  transition: all 0.4s ease;
+  color: white;
+}
+.gutenberg-slider-multiple .slider-container .swiper-slide:hover img {
+  opacity: 0.5;
+}
+.gutenberg-slider-multiple .slider-container .swiper-slide:hover::after {
+  opacity: 1;
+}
 
 .gutenberg-slider-modal {
   display: none;
@@ -1945,6 +1963,23 @@ body.modal-open .gutenberg-slider-modal .slider-ctn .swiper-slide .caption {
   top: -6px;
   padding: 20px;
   background-color: #FAB900;
+}
+@media (max-width: 992px) {
+  body.modal-open .gutenberg-slider-modal {
+    padding: 150px 50px;
+  }
+  body.modal-open .gutenberg-slider-modal .slider-ctn {
+    max-height: 450px;
+  }
+}
+@media (max-width: 575px) {
+  body.modal-open .gutenberg-slider-modal {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  body.modal-open .gutenberg-slider-modal .slider-ctn {
+    max-height: 300px;
+  }
 }
 
 .slider-ctn.gutenberg-slider-single {
