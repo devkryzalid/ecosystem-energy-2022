@@ -110,6 +110,7 @@ ul {
   &.grey { background-color: $lightgrey; }
   &.blue { background-color: $blue; }
   &.beige { background-color: $beige; }
+  &.white { background-color: white; }
 
   // Yellow icon in background
   &.bg-icon::after { 

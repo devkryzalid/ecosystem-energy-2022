@@ -1,16 +1,19 @@
 .industry-info-blocks {
   .content-block {
-    @include flex(flex-start, space-between);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
     padding: 100px 0 70px;
 
     &:not(:last-child) { border-bottom: 1px solid $borderColor; }
 
-    & > h2, & > div { flex-basis: 30%; }
+    &.two-cols { grid-template-columns: 30% 1fr; }
   }
 
   @media (max-width: $tablet) {
     .content-block {
-      flex-direction: column;
+      grid-template-columns: 1fr !important;
+      gap: 20px; 
     }
   }
 }

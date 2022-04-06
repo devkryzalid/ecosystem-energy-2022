@@ -1,10 +1,10 @@
 <div class="industry-info-blocks">
   {% for bloc in informations_blocks %}
 
-    <div class="content-block">
+    <div class="content-block {{ bloc.column_2 ? '' : ' two-cols' }}">
       <h2 data-aos="fade-up" data-aos-delay="{{ loop.index * 200 + 100 }}">{{ bloc.title }}</h2>
       <div data-aos="fade-up" data-aos-delay="{{ loop.index * 200 + 200 }}">{{ bloc.column_1 }}</div>
-      <div data-aos="fade-up" data-aos-delay="{{ loop.index * 200 + 300 }}">{{ bloc.column_2 }}</div>
+      {% if bloc.column_2 %} <div data-aos="fade-up" data-aos-delay="{{ loop.index * 200 + 300 }}">{{ bloc.column_2 }}</div> {% endif %}
     </div>
 
   {% endfor %}

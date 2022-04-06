@@ -50,6 +50,10 @@
     }
   }
 
+  @media (max-width: $tablet-large) {
+    .content .title { word-break: break-word; }
+  }
+
   @media (max-width: $tablet) {
     .content { 
       padding-left: 0 !important; 
@@ -58,6 +62,10 @@
 
     .block-item.horizontal .content .title { @include fontSize(36, 44, 600); }
 
-    .btn-ctn { bottom: 40px; }
+    .btn-ctn { 
+      bottom: 20px; 
+      width: 160px;
+      height: 160px;
+    }
   }
 }

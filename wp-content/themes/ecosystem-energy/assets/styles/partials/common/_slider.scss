@@ -102,6 +102,7 @@ $image-height: 240px;
 
     .swiper-button-disabled, .swiper-button-disabled:hover { 
       background-color: $darkblue; 
+      color: rgba(255, 255, 255, 0.15);
       pointer-events: none !important; 
     }
   }

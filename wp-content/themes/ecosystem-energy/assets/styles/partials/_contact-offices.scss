@@ -73,6 +73,8 @@
 
     .phone {
       @include fontSize(22, 26, 600);
+      white-space: nowrap;
+
       &::before {
         margin-right: 20px;
         @extend .icomoon;
@@ -111,6 +113,7 @@
 
   @media (max-width: $tablet) {
     gap: 0;
+    padding-bottom: 60px;
 
     .lists-ctn { 
       grid-template-columns: 1fr;
@@ -118,6 +121,15 @@
     }
 
     ul { width: 100%; }
+
+    #office-info {
+      h3 { margin-bottom: 30px; }
+
+      .phones {
+        flex-basis: 100%;
+        padding: 0;
+      }
+    }
   }
 
   @media (max-width: 575px) {

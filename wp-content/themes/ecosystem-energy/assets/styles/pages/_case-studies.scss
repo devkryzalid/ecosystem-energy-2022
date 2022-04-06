@@ -1,15 +1,23 @@
 .page-case-studies {
+  .bloc-list {
+    gap: 30px 60px;
+  }
+
   .block-item {
     &.featured .content .title {
       @include fontSize(46, 53, 500);
     }
 
-    .content .title {
-      @include fontSize(30, 38, 400);
-    }
+    .content {
+      min-height: auto;
 
-    .content .surtitle { 
-      color: $darkgrey; 
+      .title { @include fontSize(30, 38, 400); }
+
+      .surtitle { 
+        color: $darkgrey; 
+        font-weight: 500;
+        line-height: 21px;
+      }
     }
   }
 }

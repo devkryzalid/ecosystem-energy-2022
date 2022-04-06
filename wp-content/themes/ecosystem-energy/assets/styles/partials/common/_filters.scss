@@ -55,7 +55,7 @@
     font-size: 14px;
   }
 
-  @media (max-width: $mobile-large) {
+  @media (max-width: $tablet-large) {
     .filters { flex-direction: column; }
     .filter-group .title { margin: 10px 0 10px; }
   }
