@@ -9,14 +9,14 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./assets/scripts/pages/ajax-content.js":
-/*!**********************************************!*\
-  !*** ./assets/scripts/pages/ajax-content.js ***!
-  \**********************************************/
+/***/ "./assets/scripts/pages/search.js":
+/*!****************************************!*\
+  !*** ./assets/scripts/pages/search.js ***!
+  \****************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_ajax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/ajax */ \"./assets/scripts/utils/ajax.js\");\n\n\n// Initialize ajax form \nconst ajaxForm = new _utils_ajax__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n\n// Filters DOM elements\nconst formContainer = document.getElementById('ajax-form');\nconst toggleButton = document.getElementById('toggle-filters');\n\n// Assign toggle function to button and window resize\nconst toggleFilter = () => {\n  if (formContainer.classList.contains('show')) {\n    formContainer.classList.remove('show');\n    toggleButton.classList.remove('open');\n    formContainer.style.height = 0;\n  }\n  else {\n    formContainer.classList.add('show');\n    toggleButton.classList.add('open');\n    formContainer.style.height = formContainer.scrollHeight + 'px';\n  }\n}\n\ntoggleButton.addEventListener('click', toggleFilter);\nwindow.addEventListener('resize', toggleFilter);\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/pages/ajax-content.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _utils_ajax__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/ajax */ \"./assets/scripts/utils/ajax.js\");\n\n\n// Initialize ajax form \nconst ajaxForm = new _utils_ajax__WEBPACK_IMPORTED_MODULE_0__[\"default\"]();\n\n\n//# sourceURL=webpack://ecosystem/./assets/scripts/pages/search.js?");
 
 /***/ }),
 
@@ -420,7 +420,7 @@ eval("\n\nvar bind = __webpack_require__(/*! ./helpers/bind */ \"./node_modules/
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./assets/scripts/pages/ajax-content.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./assets/scripts/pages/search.js");
 /******/ 	
 /******/ })()
 ;

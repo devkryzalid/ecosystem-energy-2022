@@ -2,6 +2,7 @@
   .block-hero {
     flex-direction: column;
     margin-bottom: 120px;
+    padding-top: 200px;
     padding-bottom: 40px;
     border-bottom: 1px solid $darkgrey;
 
@@ -29,12 +30,15 @@
     }
   }
 
+  .search-list { 
+    min-height: 250px;
+    margin-bottom: 100px; 
+  }
+
   .results {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    min-height: 250px;
-    margin-bottom: 100px;
   }
 
   @media (max-width: $tablet) {

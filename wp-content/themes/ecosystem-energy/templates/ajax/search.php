@@ -4,7 +4,7 @@ global $params;
 do_action('wpml_switch_language', $params['lang']);
 
 $search = (!empty($params['s'])) ? $params['s'] : null;
-$limit  = empty($params['limit']) ? 10 : $params['limit'];
+$limit  = empty($params['limit']) ? 12 : $params['limit'];
 $paged  = empty($params['pg']) ? 1 : $params['pg'];
 
 $args = [
@@ -21,10 +21,10 @@ $results = new Timber\PostQuery($args);
 if ($results->found_posts > 0) {
     $response   = '';
     $context    = Timber::context();
-    $response   .= Timber::compile('partials/lists/list-search.twig', ['results' => $results]);
+    $response   .= Timber::compile('partials/search-list.twig', ['posts' => $results]);
     $message    = $response;
 } else {
-    $message = Timber::compile('partials/lists/no-result-item.twig');
+    $message = Timber::compile('partials/no-results.twig');
 }
 
 wp_reset_query();

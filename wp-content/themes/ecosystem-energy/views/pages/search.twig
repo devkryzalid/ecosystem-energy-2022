@@ -1,14 +1,13 @@
 {% extends 'base.twig' %}
 
 {% block pageClass %}grey page-search{% endblock %}
-{% set n = posts|length %}
 
 {% block content %}
   <div class="container">
     <div class="block-hero">
-      <div class="results-str"><span id="nb-results">{{ n }}</span> {{ __('result', 'ecosystem-energy') ~ (n > 1 ? 's ' : ' ') ~ __('for', 'ecosystem-energy') }}</div>
+      <div class="results-str"><span id="nb-results">{{ total }}</span> {{ __('result', 'ecosystem-energy') ~ (n > 1 ? 's ' : ' ') ~ __('for', 'ecosystem-energy') }}</div>
 
-      <form class="search-field">
+      <form class="search-field" id="ajax-form">
         <input type="hidden" id="ajax-settings" data-url="/ajax/{{ current_lang }}/search" data-limit="2">
         <input type="text" name="s" id="s" value="{{ s }}">
         <a class="search-clear" onClick="document.getElementById('s').value=''"><i class="icon-close-medium"></i></a>
@@ -16,7 +15,14 @@
     </div>
   </div>
 
-	<div class="container">
-    {% include 'partials/search-list.twig' %}
+	<div class="container" id="ajax-content">
+    {% include 'partials/common/loading.twig' %}
+    <div class="inner">
+      {% include 'partials/search-list.twig' %}
+    </div>
 	</div>
+{% endblock %}
+
+{% block specific_script %}
+	<script src="{{ theme.link }}/dist/scripts/pages/search.js"></script>
 {% endblock %}

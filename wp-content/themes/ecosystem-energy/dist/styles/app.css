@@ -2692,7 +2692,7 @@ body.modal-open .gutenberg-slider-modal {
 }
 
 .contact-cta {
-  height: 700px;
+  height: 600px;
 }
 .contact-cta .container {
   position: relative;
@@ -2719,7 +2719,7 @@ body.modal-open .gutenberg-slider-modal {
   opacity: 0.6;
 }
 .contact-cta .title {
-  max-width: 600px;
+  max-width: 700px;
   margin: auto auto 0 auto;
   padding: 0;
   font-size: 60px;
@@ -5782,6 +5782,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 .page-search .block-hero {
   flex-direction: column;
   margin-bottom: 120px;
+  padding-top: 200px;
   padding-bottom: 40px;
   border-bottom: 1px solid #494843;
 }
@@ -5811,12 +5812,14 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   right: 0;
   top: 50px;
 }
+.page-search .search-list {
+  min-height: 250px;
+  margin-bottom: 100px;
+}
 .page-search .results {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  min-height: 250px;
-  margin-bottom: 100px;
 }
 @media (max-width: 768px) {
   .page-search .block-hero .search-field input {

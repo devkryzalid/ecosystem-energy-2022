@@ -119,6 +119,7 @@ export default class AjaxForm {
   //
   setActiveFiltersCount = () => {
     const counter = document.getElementById('filters-count');
+    if (!counter) return false;
     counter.innerHTML = '';
     const nb = this.countActiveFilters();
     if (counter && nb) counter.innerHTML = `(${ nb })`;
@@ -191,8 +192,10 @@ export default class AjaxForm {
   
   // Show/hide clear button depending on checked filters
   toggleClearButton = () => {
+    const btn = document.getElementById('clear-filters');
+    if (!btn) return false;
     const filtersActive = !![...this.formContainer.querySelectorAll('input:checked')].length;
-    document.getElementById('clear-filters').style.display = filtersActive ? 'block' : 'none';
+    btn.style.display = filtersActive ? 'block' : 'none';
   }
 
   // Replace current url param string with new params
@@ -235,12 +238,15 @@ export default class AjaxForm {
     const container = document.getElementById(paginationId);
     if (!container) return false;
 
-    // Set default page
-    if (!this.currentPage) this.currentPage = 1;
-
     // Count number of pages based on the last button
     const pageButtons = container.querySelectorAll('.ajax-page');
     this.nbPages = parseInt(pageButtons[pageButtons.length - 2].innerText);
+    pageButtons.forEach(e => e.classList.remove('current'));
+
+    // Set default page and select current
+    if (!this.currentPage) this.currentPage = 1;
+    const current = [...pageButtons].find(e => e.getAttribute('value') == this.currentPage);
+    if (current) current.classList.add('current');
 
     // Set disabled class on prev/next if needed
     if (this.currentPage === 1) container.querySelector('.prev').classList.add('disabled');
