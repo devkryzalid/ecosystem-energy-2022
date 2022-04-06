@@ -30,9 +30,16 @@
     "location": [
         [
             {
-                "param": "current_user",
+                "param": "post_type",
                 "operator": "==",
-                "value": "logged_in"
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "post"
             }
         ]
     ],
@@ -45,5 +52,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1648502743
+    "modified": 1649267538
 }
