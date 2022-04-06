@@ -1,11 +1,15 @@
 .case-study-awards-ctn {
-  margin: -50px auto 80px;
-  padding: 40px 100px 40px 200px;
-  background-color: white;
-  background-image: url('/assets/images/ui/award_banner.svg');
-  background-repeat: no-repeat;
-  background-position: 70px 0;
-  list-style: none;
+  background: linear-gradient(0deg, $lightgrey 60%, $blue 60%);
+
+  .case-study-awards-list {
+    margin: 0;
+    padding: 40px 100px 40px 200px;
+    background-color: white;
+    background-image: url('/assets/images/ui/award_banner.svg');
+    background-repeat: no-repeat;
+    background-position: 70px 0;
+    list-style: none;
+  }
 
   li {
     @include flex(flex-start, space-between);
@@ -26,8 +30,10 @@
   }
   
   @media (max-width: $tablet) {
-    padding: 20px 30px 20px 110px;
-    background-position: 20px 0;
+    .case-study-awards-list {
+      padding: 20px 30px 20px 110px;
+      background-position: 20px 0;
+    }
 
     li {
       flex-wrap: wrap;

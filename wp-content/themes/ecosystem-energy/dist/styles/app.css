@@ -2116,7 +2116,6 @@ body.modal-open .gutenberg-slider-modal {
   width: 100%;
   height: 100%;
   z-index: 100;
-  background-color: rgba(255, 255, 255, 0.4);
   opacity: 1;
   transition: all 0.8s ease;
   pointer-events: all;
@@ -4179,7 +4178,10 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 }
 
 .case-study-awards-ctn {
-  margin: -50px auto 80px;
+  background: linear-gradient(0deg, #F6F6F4 60%, #242C3E 60%);
+}
+.case-study-awards-ctn .case-study-awards-list {
+  margin: 0;
   padding: 40px 100px 40px 200px;
   background-color: white;
   background-image: url(../images/ui/award_banner.9440f5e89aa2d22989f1.svg);
@@ -4212,7 +4214,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   font-size: 16px;
 }
 @media (max-width: 768px) {
-  .case-study-awards-ctn {
+  .case-study-awards-ctn .case-study-awards-list {
     padding: 20px 30px 20px 110px;
     background-position: 20px 0;
   }
@@ -4229,7 +4231,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 
 .case-study-hero {
   padding-top: 140px;
-  padding-bottom: 140px;
+  padding-bottom: 90px;
 }
 .case-study-hero .title-ctn {
   margin-right: auto;
@@ -5838,8 +5840,8 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 .page-case-study .content-key-data-ctn {
   background-color: white;
 }
-.page-case-study .awards-container {
-  min-height: 100px;
+.page-case-study .gutenber-content {
+  margin-top: 60px;
 }
 
 .page-industry .block-hero {

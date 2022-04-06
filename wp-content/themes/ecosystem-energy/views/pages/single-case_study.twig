@@ -10,14 +10,16 @@
   </div>
 
   {# Awards list #}
-  <div class="container awards-container">
-    {% if awards_list|length > 0%}
-      {% include 'partials/case-study-awards.twig' %}
-    {% endif %}
-  </div>
+  {% if awards_list|length > 0%}
+    <div class="case-study-awards-ctn">
+      <div class="container">
+        {% include 'partials/case-study-awards.twig' %}
+      </div>
+    </div>
+  {% endif %}
 
   {# Gutenberg post content #}
-  <div class="container" data-aos="fade-up" data-aos-delay="200">
+  <div class="container gutenber-content" data-aos="fade-up" data-aos-delay="200">
     {{ post.content }}
   </div>
 
