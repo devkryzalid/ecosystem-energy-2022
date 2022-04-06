@@ -61,6 +61,7 @@
   pointer-events: none;
   opacity: 0;
   transition: $basicTransition;
+  visibility: hidden;
 
   .overlay {
     position: absolute;
@@ -126,5 +127,6 @@ body.modal-open {
   .gutenberg-slider-modal {
     opacity: 1;
     pointer-events: all;
+    visibility: visible;
   }
 }

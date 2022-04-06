@@ -1943,6 +1943,7 @@ a.link.video::after {
   pointer-events: none;
   opacity: 0;
   transition: all 0.4s ease;
+  visibility: hidden;
 }
 .gutenberg-slider-modal .overlay {
   position: absolute;
@@ -2013,6 +2014,7 @@ body.modal-open {
 body.modal-open .gutenberg-slider-modal {
   opacity: 1;
   pointer-events: all;
+  visibility: visible;
 }
 
 .slider-ctn.gutenberg-slider-single {
@@ -4446,7 +4448,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   margin-bottom: 100px;
 }
 .contact-offices .lists-ctn {
-  flex: 0 0 50%;
+  width: 50%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 30px;
@@ -4488,7 +4490,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 }
 .contact-offices #office-info {
   position: relative;
-  flex: 1 1 auto;
+  width: 50%;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
@@ -4561,6 +4563,9 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   letter-spacing: normal;
 }
 @media (max-width: 992px) {
+  .contact-offices #office-info {
+    padding: 40px 30px;
+  }
   .contact-offices #office-info .address {
     flex-basis: 100%;
   }
@@ -4588,6 +4593,9 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 @media (max-width: 575px) {
   .contact-offices {
     display: block;
+  }
+  .contact-offices .lists-ctn, .contact-offices #office-info {
+    width: 100%;
   }
   .contact-offices #office-info {
     margin-top: 40px;
@@ -5703,6 +5711,9 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 
 .page-expertises {
   position: relative;
+}
+.page-expertises #panel-body .block-hero .surtitle {
+  color: rgba(73, 72, 67, 0.7);
 }
 .page-expertises #panel-body .case-studies {
   position: relative;
