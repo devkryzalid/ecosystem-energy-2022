@@ -4572,15 +4572,18 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 }
 @media (max-width: 768px) {
   .contact-offices {
-    gap: 0;
+    display: block;
     padding-bottom: 60px;
   }
   .contact-offices .lists-ctn {
     grid-template-columns: 1fr;
     gap: 0;
   }
-  .contact-offices ul {
+  .contact-offices .lists-ctn, .contact-offices #office-info, .contact-offices ul {
     width: 100%;
+  }
+  .contact-offices #office-info {
+    margin-top: 40px;
   }
   .contact-offices #office-info h3 {
     margin-bottom: 30px;
@@ -4588,20 +4591,6 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   .contact-offices #office-info .phones {
     flex-basis: 100%;
     padding: 0;
-  }
-}
-@media (max-width: 575px) {
-  .contact-offices {
-    display: block;
-  }
-  .contact-offices .lists-ctn, .contact-offices #office-info {
-    width: 100%;
-  }
-  .contact-offices #office-info {
-    margin-top: 40px;
-  }
-  .contact-offices #office-info .phones {
-    flex-basis: 100%;
   }
 }
 

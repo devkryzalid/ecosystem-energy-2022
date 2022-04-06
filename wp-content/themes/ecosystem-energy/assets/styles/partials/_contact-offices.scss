@@ -113,7 +113,7 @@
   }
 
   @media (max-width: $tablet) {
-    gap: 0;
+    display: block;
     padding-bottom: 60px;
 
     .lists-ctn { 
@@ -121,26 +121,17 @@
       gap: 0;
     }
 
-    ul { width: 100%; }
+    .lists-ctn, #office-info, ul { width: 100%; }
 
     #office-info {
+      margin-top: 40px;
+
       h3 { margin-bottom: 30px; }
 
       .phones {
         flex-basis: 100%;
         padding: 0;
       }
-    }
-  }
-
-  @media (max-width: 575px) {
-    display: block;
-
-    .lists-ctn, #office-info { width: 100%; }
-
-    #office-info { 
-      margin-top: 40px;
-      .phones { flex-basis: 100%; }
     }
   }
 }
