@@ -1,9 +1,11 @@
 .block-cta { 
   padding-top: 100px;
-  padding-bottom: 100px;
+  padding-bottom: 120px;
 
   .block-item.horizontal .content .title { @include fontSize(52, 56, 600, -1.08); }
 
+  .block-item { margin-bottom: 0 !important; }
+  
   .content {
     padding: 75px 100px 75px 0;
 

@@ -1,6 +1,7 @@
 .slider-ctn.gutenberg-slider-single {
   @extend .no-overflow;
-  padding: 100px 0;
+  margin: 70px 0;
+  padding: 0;
   
   .swiper-slide {
     max-height: 600px;

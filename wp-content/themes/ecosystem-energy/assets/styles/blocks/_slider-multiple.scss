@@ -1,12 +1,13 @@
 .gutenberg-slider-multiple {
   @extend .wrapper;
   @extend .blue;
-  padding: 100px 0;
+  margin: 60px 0;
+  padding: 80px 0;
 
   .slider-ctn { @extend .no-overflow; }
 
   h2 {
-    margin: 0 0 50px;
+    margin: 0 0 50px !important;
     @include fontSize(42, 38);
     color: white;
   }

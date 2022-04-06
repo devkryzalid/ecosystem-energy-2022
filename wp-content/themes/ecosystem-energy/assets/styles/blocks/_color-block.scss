@@ -19,6 +19,8 @@
 }
 
 @media (max-width: $tablet-large) {
+  .color-block { margin: 40px 0; }
+  
   .wp-block-columns {
     flex-direction: column;
     .wp-block-column { margin: 0 !important; }

@@ -1,11 +1,12 @@
 .industry-cs-featured {
-  @include flex(flex-start);
+  @include flex(flex-start, stretch);
   gap: 25px;
   padding-top: 100px;
 
   .cs-title {
     @include flex(flex-start, flex-start);
     flex-direction: column;
+    padding-bottom: 50px;
     
     & > h2, & > p { color: white; }
     & > p { opacity: 0.7; }
@@ -43,6 +44,7 @@
 
   @media (max-width: $tablet-large) {
     flex-wrap: wrap;
+    .cs-title { padding-bottom: 20px; }
   }
 
   @media (max-width: $tablet) {
