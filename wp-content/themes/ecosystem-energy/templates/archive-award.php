@@ -24,7 +24,7 @@ $awards = new Timber\PostQuery([
    'post_type'       => 'award',
    'post_status'     => 'publish',
    'orderby'         => 'year',
-   'order'           => 'DESC',
+   'order'           => 'ASC',
    'suppress_filter' => true,
    'paged'           => $paged,
    'posts_per_page'  => $limit,
@@ -50,6 +50,8 @@ foreach ($awards as $award) {
     }
     array_push($awardByYears[$award->year], ['award' => $award, 'case_study' => $caseStudy]);
 }
-$context['awards'] = $awardByYears;
+
+ksort($awardByYears);
+$context['awards'] = array_reverse($awardByYears, true);
 
 Timber::render( array( 'pages/awards.twig' ), $context );
