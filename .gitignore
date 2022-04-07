@@ -19,6 +19,7 @@ wp-content/node_modules
 wp-content/themes/twentytwentyone
 .DS_Store
 *.DS_Store
+srdb
 
 .htaccess
 

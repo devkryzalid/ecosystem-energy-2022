@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Ecosystem\n"
-"POT-Creation-Date: 2022-03-18 17:11-0400\n"
+"POT-Creation-Date: 2022-04-07 10:55-0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.0\n"
+"X-Generator: Poedit 3.0.1\n"
 "X-Poedit-KeywordsList: __;__e\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -37,7 +37,7 @@ msgstr ""
 msgid "home page"
 msgstr "page d’accueil"
 
-#: views/pages/archive-news.twig:8 views/pages/front-page.twig:25
+#: views/pages/archive-news.twig:8 views/pages/front-page.twig:37
 #: inc/post_types/news.php:9 inc/post_types/news.php:10
 #: inc/post_types/news.php:20
 msgid "News"
@@ -70,9 +70,9 @@ msgstr ""
 "la construction et la mise en service. Ainsi chaque décision que nous "
 "prenons dans un projet contribue aux meilleurs résultats."
 
-#: views/pages/case_studies.twig:21
+#: views/pages/case_studies.twig:22
 msgid "Sectors"
-msgstr "Industries"
+msgstr "Secteurs"
 
 #: views/pages/contact.twig:9
 msgid ""
@@ -85,10 +85,6 @@ msgstr ""
 "particulier? Peu importe votre besoin, vous trouverez chez nous un "
 "interlocuteur attentif et heureux de vous aider."
 
-#: views/pages/contact.twig:18
-msgid "Send us a message"
-msgstr "Envoyez-nous un message"
-
 #: views/pages/expertises.twig:10
 msgid ""
 "Ecosystem seeks out the inherent efficiency in every system and makes the "
@@ -100,27 +96,27 @@ msgstr ""
 "fonctionnent ensemble pour fournir les résultats que nos clients souhaitent "
 "et dont ils ont besoin."
 
-#: views/pages/front-page.twig:34
+#: views/pages/front-page.twig:48
 msgid "Perspectives"
 msgstr "Perspectives"
 
-#: views/pages/search.twig:9
+#: views/pages/search.twig:8
 msgid "result"
 msgstr "résultat"
 
-#: views/pages/search.twig:9
+#: views/pages/search.twig:8
 msgid "for"
 msgstr "pour"
 
-#: views/pages/single-case_study.twig:33
+#: views/pages/single-case_study.twig:37
 msgid "Your industry"
 msgstr "Votre secteur"
 
-#: views/pages/single-case_study.twig:38
+#: views/pages/single-case_study.twig:42
 msgid "Learn more"
 msgstr "En savoir plus"
 
-#: views/pages/single-industry.twig:11
+#: views/pages/single-industry.twig:10
 msgid "Markets"
 msgstr "Secteurs"
 
@@ -183,6 +179,10 @@ msgstr "Suiv"
 #: views/partials/common/share.twig:2
 msgid "Share"
 msgstr "Partager"
+
+#: views/partials/contact-form.twig:3
+msgid "Send us a message"
+msgstr "Envoyez-nous un message"
 
 #: views/partials/contact-offices.twig:22
 msgid "See itinerary"
@@ -383,15 +383,15 @@ msgstr "Trouver un projet"
 
 #: inc/post_types/case_study.php:43
 msgid "case-studies"
-msgstr ""
+msgstr "projets"
 
 #: inc/post_types/expertise.php:9 inc/post_types/expertise.php:20
 msgid "Expertises"
-msgstr ""
+msgstr "Expertises"
 
 #: inc/post_types/expertise.php:10
 msgid "Expertise"
-msgstr ""
+msgstr "Expertise"
 
 #: inc/post_types/expertise.php:11
 msgid "All expertises"
@@ -407,32 +407,32 @@ msgstr "Trouver une expertise"
 
 #: inc/post_types/expertise.php:43
 msgid "expertises"
-msgstr ""
+msgstr "expertises"
 
 #: inc/post_types/industry.php:9 inc/post_types/industry.php:20
 #: inc/taxonomies/industry_taxonomy.php:11
 msgid "Industries"
-msgstr ""
+msgstr "Secteurs"
 
 #: inc/post_types/industry.php:10
 msgid "Industry"
-msgstr "Industrie"
+msgstr "Secteur"
 
 #: inc/post_types/industry.php:11
 msgid "All industries"
-msgstr "Toutes les industries"
+msgstr "Tous les secteurs"
 
 #: inc/post_types/industry.php:16
 msgid "See industry"
-msgstr "Voir l’industrie"
+msgstr "Voir le secteur"
 
 #: inc/post_types/industry.php:17
 msgid "Find industry"
-msgstr "Trouver une industrie"
+msgstr "Trouver un secteur"
 
 #: inc/post_types/industry.php:43
 msgid "industries"
-msgstr ""
+msgstr "secteurs"
 
 #: inc/post_types/news.php:11
 msgid "All news"
@@ -468,15 +468,15 @@ msgstr ""
 
 #: inc/taxonomies/industry_taxonomy.php:15
 msgid "case-studies-industries"
-msgstr ""
+msgstr "secteurs-de-projets"
 
 #: inc/taxonomies/localization_taxonomy.php:11
 msgid "Localizations"
-msgstr ""
+msgstr "Pays"
 
 #: inc/taxonomies/localization_taxonomy.php:15
 msgid "localizations"
-msgstr ""
+msgstr "pays"
 
 #~ msgid "Search"
 #~ msgstr "Rechercher"
