@@ -3,6 +3,25 @@
     "title": "Template - Contact",
     "fields": [
         {
+            "key": "field_624f3dc25b6bf",
+            "label": "Texte d'intro",
+            "name": "intro",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_620c171d4b174",
             "label": "Liste des bureaux - Canada",
             "name": "offices_list_ca",
@@ -195,6 +214,25 @@
                     "delay": 0
                 }
             ]
+        },
+        {
+            "key": "field_624f3de45b6c0",
+            "label": "Texte de formulaire",
+            "name": "form_text",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -215,5 +253,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1647525764
+    "modified": 1649360378
 }
