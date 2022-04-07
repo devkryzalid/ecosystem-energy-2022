@@ -50,4 +50,8 @@
       .surtitle { @include fontSize(18, 24, 500); }
     }
   }
+
+  @media (max-width: 400px) {
+    .wrapper { margin-top: 160px; }
+  }
 }

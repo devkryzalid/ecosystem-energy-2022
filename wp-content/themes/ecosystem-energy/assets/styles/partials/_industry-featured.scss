@@ -68,6 +68,10 @@
   }
 
   @media (max-width: $tablet) {
+    h2 {
+      max-width: 100%;
+    }
+
     .featured-list { 
       grid-template-columns: 1fr;
 

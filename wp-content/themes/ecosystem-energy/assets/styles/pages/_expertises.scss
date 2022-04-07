@@ -21,4 +21,8 @@
       }
     }
   }
+
+  @media (max-width: $mobile-large) {
+    .block-item .content .title { padding-bottom: 14px; }
+  }
 }

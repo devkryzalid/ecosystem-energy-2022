@@ -46,7 +46,7 @@ msgstr "Nouvelles"
 #: views/pages/awards.twig:8 inc/post_types/award.php:9
 #: inc/post_types/award.php:20
 msgid "Awards"
-msgstr "Récompenses"
+msgstr "Distinctions"
 
 #: views/pages/case_studies.twig:9 views/partials/expertise.twig:18
 #: views/partials/industry-cs-featured.twig:3 inc/post_types/case_study.php:9
@@ -114,7 +114,7 @@ msgstr "pour"
 
 #: views/pages/single-case_study.twig:33
 msgid "Your industry"
-msgstr "Votre industrie"
+msgstr "Votre secteur"
 
 #: views/pages/single-case_study.twig:38
 msgid "Learn more"
@@ -122,7 +122,7 @@ msgstr "En savoir plus"
 
 #: views/pages/single-industry.twig:11
 msgid "Markets"
-msgstr "Marchés"
+msgstr "Secteurs"
 
 #: views/partials/case-study-hero.twig:12
 msgid "Outcomes"
@@ -299,7 +299,7 @@ msgstr "Récompense"
 
 #: inc/post_types/award.php:11
 msgid "All awards"
-msgstr "Toutes les récompenses"
+msgstr "Toutes les distinctions"
 
 #: inc/post_types/award.php:12 inc/post_types/award.php:13
 #: inc/post_types/case_study.php:12 inc/post_types/case_study.php:13
@@ -323,7 +323,7 @@ msgstr "Nouveau"
 
 #: inc/post_types/award.php:16
 msgid "See awards"
-msgstr "Voir les récompenses"
+msgstr "Voir les distinctions"
 
 #: inc/post_types/award.php:17 inc/post_types/news.php:17
 msgid "Find news"
@@ -363,7 +363,7 @@ msgstr ""
 
 #: inc/post_types/award.php:43
 msgid "awards"
-msgstr "récompenses"
+msgstr "Distinctions"
 
 #: inc/post_types/case_study.php:10
 msgid "Case study"

@@ -41,4 +41,8 @@
       border: 0px none;
     }
   }
+
+  @media (max-width: 425px) {
+    .clients-list .image { width: 130px; }
+  }
 }

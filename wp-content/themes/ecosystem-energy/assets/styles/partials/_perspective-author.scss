@@ -23,6 +23,7 @@
 
   @media (max-width: $mobile-large) {
     flex-direction: column;
-    
+    text-align: center;
+    .image { margin: auto; }
   }
 }
