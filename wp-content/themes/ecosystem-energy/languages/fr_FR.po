@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.0\n"
 "X-Poedit-KeywordsList: __;__e\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -363,7 +363,7 @@ msgstr ""
 
 #: inc/post_types/award.php:43
 msgid "awards"
-msgstr "Distinctions"
+msgstr "distinctions"
 
 #: inc/post_types/case_study.php:10
 msgid "Case study"
