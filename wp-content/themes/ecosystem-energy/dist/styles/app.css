@@ -5416,7 +5416,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
     flex-direction: column;
     text-align: center;
   }
-  .author-ctn .image {
+  .author-ctn .image, .author-ctn .content {
     margin: auto;
   }
 }
