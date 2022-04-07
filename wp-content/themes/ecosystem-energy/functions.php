@@ -133,8 +133,9 @@ foreach ( $hooks_filters as $hook => $functions ) {
 /**
  * Commands
  */
-if ( class_exists( 'WP_CLI' ) ) { // this condition is important, ad WP_CLI class does not exist in admin.
-	WP_CLI::add_command( 'duplicate_post', 'DuplicatePost' );
+if (class_exists('WP_CLI')) { // this condition is important, ad WP_CLI class does not exist in admin.
+	WP_CLI::add_command('duplicate_post', 'DuplicatePost');
+	WP_CLI::add_command('import_old_data', 'ImportOldData');
 }
 
 /**
