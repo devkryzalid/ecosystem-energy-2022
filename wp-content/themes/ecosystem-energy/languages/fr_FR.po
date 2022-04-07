@@ -432,7 +432,7 @@ msgstr "Trouver un secteur"
 
 #: inc/post_types/industry.php:43
 msgid "industries"
-msgstr "Secteurs"
+msgstr "secteurs"
 
 #: inc/post_types/news.php:11
 msgid "All news"
