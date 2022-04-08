@@ -119,7 +119,7 @@ $image-height: 240px;
     }
   }
 
-  @media (max-width: $tablet) {
+  @media (max-width: $mobile-max) {
     &::before { left: -93%; }
     &::after { right: -93%; }
 

@@ -4168,7 +4168,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
     right: 20px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .slider-ctn::before {
     left: -93%;
   }
@@ -4364,6 +4364,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 }
 
 .contact-form {
+  width: 100%;
   max-width: 1000px;
   margin: auto;
 }
