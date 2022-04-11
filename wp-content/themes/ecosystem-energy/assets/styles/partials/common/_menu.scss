@@ -93,6 +93,8 @@ $text-closing-transition: all 0.2s ease 0ms;
         transition: all 0.3s ease;
         height: 60px;
 
+        &.selected { color: white !important; }
+
         &.secondary-link::after {
           position: relative;
           top: -4px;

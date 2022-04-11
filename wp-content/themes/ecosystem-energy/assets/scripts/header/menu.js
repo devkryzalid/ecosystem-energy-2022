@@ -29,6 +29,16 @@ export default class Menu {
     document.querySelectorAll('.secondary-menu .back').forEach(link => {
       link.addEventListener('click', this.closeAllSecondaryMenus)
     })
+
+    // Get current section from URL, and select corresponding menu item
+    const section = window.location.pathname
+      .split('/')
+      .filter(p => p !== '' && p !== 'fr')[0];
+      
+    if (section) {
+      const selectedMenuItem = document.querySelector(`.primary-link[href*="/${ section }"]`);
+      if (selectedMenuItem) selectedMenuItem.classList.add('selected');
+    }
   }
 
   // Menu display toggler

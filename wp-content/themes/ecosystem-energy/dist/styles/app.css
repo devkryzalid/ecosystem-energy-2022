@@ -3444,6 +3444,9 @@ body.menu-closing #header #main-pane #menu-toggle span {
   transition: all 0.3s ease;
   height: 60px;
 }
+#menu #primary-menu li a.selected, #menu #primary-menu li .secondary-menu a.back.selected {
+  color: white !important;
+}
 #menu #primary-menu li a.secondary-link::after, #menu #primary-menu li .secondary-menu a.back.secondary-link::after {
   position: relative;
   top: -4px;

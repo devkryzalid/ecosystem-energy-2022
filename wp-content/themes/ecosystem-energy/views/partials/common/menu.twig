@@ -7,7 +7,7 @@
       {% for item in items %}
         <li>
 
-          <a class="{{ item.children ? 'secondary-link' : '' }}" href="{{ item.link }}">{{ item }}</a>
+          <a class="primary-link {{ item.children ? 'secondary-link' : '' }}" href="{{ item.link }}">{{ item }}</a>
           {% if item.children %}
             <ul class="secondary-menu">
               <a class="back" href="{{ item.link }}">{{ item }}</a>
