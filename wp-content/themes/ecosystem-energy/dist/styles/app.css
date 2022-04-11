@@ -5940,6 +5940,9 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   }
 }
 
+.page-perspective .grey.wrapper, .page-perspective .grey.gutenberg-slider-multiple, .page-perspective .grey.case-study-slider, .page-perspective .grey.home-slider, .page-perspective .grey.industry-cs-slider {
+  margin-bottom: 70px;
+}
 @media (max-width: 600px) {
   .page-perspective .bg-icon.wrapper::after, .page-perspective .bg-icon.gutenberg-slider-multiple::after, .page-perspective .bg-icon.case-study-slider::after, .page-perspective .bg-icon.home-slider::after, .page-perspective .bg-icon.industry-cs-slider::after {
     display: none;

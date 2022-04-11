@@ -1,7 +1,9 @@
-<div class="author-ctn">
-  <div class="image"><img src="{{ author.user_avatar }}" alt=""></div>
-  <div class="content">
-    <div class="name">{{ author.user_firstname }} {{ author.user_lastname }}</div>
-    <div class="bio">{{ author.user_description }}</div>
+{% if author %}
+  <div class="author-ctn">
+    <div class="image"><img src="{{ author.user_avatar }}" alt=""></div>
+    <div class="content">
+      <div class="name">{{ author.user_firstname }} {{ author.user_lastname }}</div>
+      <div class="bio">{{ author.user_description }}</div>
+    </div>
   </div>
-</div>
+{% endif %}

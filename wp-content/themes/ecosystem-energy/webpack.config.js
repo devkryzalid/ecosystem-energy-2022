@@ -2,7 +2,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 
-var path = require('path');
+const path = require('path');
 
 // Used for hot-reload css
 const localDomain = 'http://localhost';

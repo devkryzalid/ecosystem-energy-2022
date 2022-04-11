@@ -1,4 +1,6 @@
 .page-perspective {
+  .grey.wrapper { margin-bottom: 70px; }
+
   @media (max-width: 600px) {
     .bg-icon.wrapper::after { display: none; }
   }
