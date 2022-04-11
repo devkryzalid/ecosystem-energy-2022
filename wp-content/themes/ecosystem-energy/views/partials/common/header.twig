@@ -2,7 +2,7 @@
 
   {# SEARCH FIELD #}
   <form id="search-pane" action="{{ site.url }}" role="search" method="get">
-    <input type="text" name="s" placeholder="{{ __('Search', 'ecosystem-energy') }}..." />
+    <input type="text" name="s" placeholder="{{ current_lang == 'en' ? 'Search' : 'Rechercher' }}..." />
     <a id="search-close"><i class="icon-close-medium"></i></a>
   </form>
 
