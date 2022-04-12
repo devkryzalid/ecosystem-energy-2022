@@ -67,7 +67,16 @@ $hooks_actions = [
     ],
 	'generate_rewrite_rules' => [
 		10 => ['name' => 'add_rewrite_rules', 'args' => 1]
-	]
+	],
+	'user_register' => [
+		10 => ['name' => 'add_custom_user_meta', 'args' => 1],
+	],
+	'edit_user_profile_update' => [
+		10 => ['name' => 'add_custom_user_meta', 'args' => 1],
+	],
+	'personal_options_update' => [
+		10 => ['name' => 'add_custom_user_meta', 'args' => 1],
+	],
 ];
 foreach ( $hooks_actions as $hook => $functions ) {
 	foreach ($functions as $priority => $function) {
@@ -120,9 +129,6 @@ $hooks_filters = [
  	'register_post_type_args' =>
 	 	[20 => ['name' => 'customize_default_wp_post_type', 'args' => 2]
 	],
-	// 'acf/fields/google_map/api' => [
-		// 10 => ['name' => 'google_map_api', 'args' => 1],
-	// ],
 ];
 foreach ( $hooks_filters as $hook => $functions ) {
 	foreach ($functions as $priority => $function) {
@@ -214,4 +220,24 @@ if (function_exists('acf_add_options_page')) {
 		 'menu_title'  => 'Paramètres Global',
 		 'parent_slug' => 'theme-general-settings',
 	));
+}
+
+/**
+ * IT'S FUNCTION IT'S JUSTE FOR OVERWRITE WPML MANAGER TRANSLATOR FUNCTION
+ */
+function add_custom_user_meta($user_id)
+{
+	global $wpdb;
+	$default = ["fr" => ["en" => 1], "en" => ["fr" => 1]];
+	$user_meta = get_user_meta(
+		$user_id,
+		$wpdb->prefix . 'language_pairs',
+		true
+	);
+
+	if (empty($user_meta)) {
+		add_user_meta($user_id, $wpdb->prefix . 'language_pairs', $default);
+	} elseif ($default !== $user_meta) {
+		update_user_meta($user_id, $wpdb->prefix . 'language_pairs', $default);
+	}
 }
