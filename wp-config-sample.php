@@ -80,6 +80,8 @@ $table_prefix = 'wp_';
  * @link https://wordpress.org/support/article/debugging-in-wordpress/
  */
 define( 'WP_DEBUG', false );
+define('WP_DEBUG_LOG', true);
+define('WP_DEBUG_DISPLAY', false);
 define('AUTOSAVE_INTERVAL', 500);
 // not important for a standar website
 define('WP_POST_REVISIONS', 3);
@@ -91,10 +93,11 @@ define('WP_AUTO_UPDATE_CORE', false);
 // Admin doesn't modify a code
 define('DISALLOW_FILE_EDIT', true);
 // it's already in htaccess but why not 
-//define('FORCE_SSL_ADMIN', false);
+define('FORCE_SSL_ADMIN', true);
 // Add this line for block ajax are other call in other website
 // define('WP_HTTP_BLOCK_EXTERNAL', true);
-define('GOOGLE_MAP_API_KEY', '');
+// define('GOOGLE_MAP_API_KEY', '');
+
 /* Add any custom values between this line and the "stop editing" line. */
 
 

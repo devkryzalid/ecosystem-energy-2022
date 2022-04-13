@@ -39,8 +39,7 @@ function gutenberg_allowed_block_types( $allowed_blocks ) {
 		'core/separator',
 		'core/spacer',
 		'core/shortcode',
-    'core/embed',
-
+    	'core/embed',
 		'acf/accordion',
 		'acf/button',
 		'acf/color-block',
@@ -49,7 +48,6 @@ function gutenberg_allowed_block_types( $allowed_blocks ) {
 		'acf/link',
 		'acf/slider',
 		'acf/slider-multiple',
-
 	);
 }
 
