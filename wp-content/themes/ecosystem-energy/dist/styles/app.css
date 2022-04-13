@@ -5874,6 +5874,10 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   color: white;
 }
 
+.page-perspectives .block-item .content {
+  min-height: 270px;
+}
+
 .page-search .block-hero {
   flex-direction: column;
   margin-bottom: 120px;
