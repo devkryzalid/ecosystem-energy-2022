@@ -827,11 +827,11 @@ html {
 }
 
 body {
-  font-size: 19px;
-  font-size: 1.1875rem;
+  font-size: 17px;
+  font-size: 1.0625rem;
   font-weight: 400;
-  line-height: 29px;
-  line-height: 1.8125rem;
+  line-height: 27px;
+  line-height: 1.6875rem;
   letter-spacing: -0.4px;
 }
 body.menu-open {
@@ -880,11 +880,11 @@ h3 {
 }
 
 p {
-  font-size: 19px;
-  font-size: 1.1875rem;
+  font-size: 17px;
+  font-size: 1.0625rem;
   font-weight: 400;
-  line-height: 29px;
-  line-height: 1.8125rem;
+  line-height: 27px;
+  line-height: 1.6875rem;
   letter-spacing: -0.38px;
 }
 

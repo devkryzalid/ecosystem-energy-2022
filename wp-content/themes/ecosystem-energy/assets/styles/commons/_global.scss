@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  @include fontSize(19, 29, 400, -0.4);
+  @include fontSize(17, 27, 400, -0.4);
 
   &.menu-open {
     overflow: hidden;
@@ -37,7 +37,7 @@ h3 {
 }
 
 p {
-  @include fontSize(19, 29, 400, -0.38);
+  @include fontSize(17, 27, 400, -0.38);
 }
 
 @media (max-width: $mobile) {
