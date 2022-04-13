@@ -46,6 +46,8 @@
   }
 
   @media (max-width: 1550px) {
+    .title-ctn h1 { @include fontSize(70, 80, 600, -0.85); }
+  
     .spinner-ctn .content {
       top: 28%;
       margin: 0 150px;
@@ -56,6 +58,10 @@
     .spinner-ctn {
       .content { margin: 0 110px; }
     }
+  }
+
+  @media (max-width: 1250px) {
+    .title-ctn h1 { @include fontSize(50, 60, 600, -0.85); }
   }
 
   @media (max-width: 1200px) {

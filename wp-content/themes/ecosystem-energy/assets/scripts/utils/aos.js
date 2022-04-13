@@ -2,7 +2,7 @@ import AOS from 'aos';
 
 AOS.init({
   startEvent: 'load',
-  offset: 200,
+  offset: 100,
   duration: 600,
   easing: 'ease-out-sine',
   delay: 100,

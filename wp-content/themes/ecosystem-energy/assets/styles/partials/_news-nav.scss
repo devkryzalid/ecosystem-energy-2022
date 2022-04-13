@@ -1,20 +1,26 @@
 .news-nav {
   @include flex(center, space-between);
+
   .link {
-    p {
-      @include fontSize(16, 22);
-    }
+    width: 50%;
 
-    a {
-      @include fontSize(24, 30);
-    }
+    p { @include fontSize(16, 22); }
+    a { @include fontSize(24, 30); }
 
-    &.prev {
-
-    }
+    &.prev { padding-right: 50px; }
 
     &.next {
       text-align: right;
+      padding-left: 50px;
+    }
+  }
+
+  @media (max-width: $mobile) {
+    flex-direction: column;
+    
+    .link { 
+      width: 100%;
+      padding: 20px !important; 
     }
   }
 }

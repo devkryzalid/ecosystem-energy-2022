@@ -848,8 +848,8 @@ body.menu-open {
 }
 
 h1 {
-  font-size: 62px;
-  font-size: 3.875rem;
+  font-size: 58px;
+  font-size: 3.625rem;
   font-weight: 600;
   line-height: 62px;
   line-height: 3.875rem;
@@ -862,11 +862,11 @@ h1.inverted, .block-hero.invert .title-ctn h1.title {
 
 h2 {
   margin-top: 20px;
-  font-size: 42px;
-  font-size: 2.625rem;
+  font-size: 38px;
+  font-size: 2.375rem;
   font-weight: initial;
-  line-height: 48px;
-  line-height: 3rem;
+  line-height: 44px;
+  line-height: 2.75rem;
   letter-spacing: normal;
 }
 
@@ -2142,11 +2142,11 @@ body.modal-open .gutenberg-slider-modal {
   padding-bottom: 120px;
 }
 .block-cta .block-item.horizontal .content .title, .block-cta .block-item.featured .content .title {
-  font-size: 52px;
-  font-size: 3.25rem;
+  font-size: 42px;
+  font-size: 2.625rem;
   font-weight: 600;
-  line-height: 56px;
-  line-height: 3.5rem;
+  line-height: 48px;
+  line-height: 3rem;
   letter-spacing: -1.08px;
 }
 .block-cta .block-item {
@@ -2429,7 +2429,7 @@ body.modal-open .gutenberg-slider-modal {
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  min-height: 260px;
+  min-height: 230px;
   padding-top: 30px;
   background: none;
   transition: all 0.4s ease;
@@ -3382,7 +3382,7 @@ body.menu-closing #header #main-pane #menu-toggle span {
   width: 24vw;
   height: 100%;
   z-index: 1;
-  transition: all 0.4s ease-out 500ms;
+  transition: all 0.4s ease-out 400ms;
   background-color: #242C3E;
 }
 #menu #menu-image::before, #menu #menu-image::after {
@@ -3408,7 +3408,7 @@ body.menu-closing #header #main-pane #menu-toggle span {
   height: 100%;
   padding: 130px 0 110px;
   background-color: #242C3E;
-  transition: all 0.5s ease-out 300ms;
+  transition: all 0.5s ease-out 200ms;
   overflow: hidden;
   overflow-y: scroll;
   -ms-overflow-style: none;
@@ -3429,7 +3429,7 @@ body.menu-closing #header #main-pane #menu-toggle span {
   padding-left: calc(24vw + 80px);
   opacity: 1;
   overflow: hidden;
-  transition: all 0.4s ease 1000ms;
+  transition: all 0.4s ease 900ms;
 }
 #menu #primary-menu li a, #menu #primary-menu li .secondary-menu a.back {
   display: block;
@@ -4779,6 +4779,14 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   pointer-events: none;
 }
 @media (max-width: 1550px) {
+  .home-hero-ctn .title-ctn h1 {
+    font-size: 70px;
+    font-size: 4.375rem;
+    font-weight: 600;
+    line-height: 80px;
+    line-height: 5rem;
+    letter-spacing: -0.85px;
+  }
   .home-hero-ctn .spinner-ctn .content {
     top: 28%;
     margin: 0 150px;
@@ -4787,6 +4795,16 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 @media (max-width: 1300px) {
   .home-hero-ctn .spinner-ctn .content {
     margin: 0 110px;
+  }
+}
+@media (max-width: 1250px) {
+  .home-hero-ctn .title-ctn h1 {
+    font-size: 50px;
+    font-size: 3.125rem;
+    font-weight: 600;
+    line-height: 60px;
+    line-height: 3.75rem;
+    letter-spacing: -0.85px;
   }
 }
 @media (max-width: 1200px) {
@@ -4876,11 +4894,11 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 }
 .sectors-ctn .title-column h2 {
   margin-top: 0;
-  font-size: 52px;
-  font-size: 3.25rem;
+  font-size: 44px;
+  font-size: 2.75rem;
   font-weight: 600;
-  line-height: 58px;
-  line-height: 3.625rem;
+  line-height: 50px;
+  line-height: 3.125rem;
   letter-spacing: normal;
 }
 .sectors-ctn .content-column {
@@ -5367,6 +5385,9 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   align-items: center;
   justify-content: space-between;
 }
+.news-nav .link {
+  width: 50%;
+}
 .news-nav .link p {
   font-size: 16px;
   font-size: 1rem;
@@ -5383,8 +5404,21 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   line-height: 1.875rem;
   letter-spacing: normal;
 }
+.news-nav .link.prev {
+  padding-right: 50px;
+}
 .news-nav .link.next {
   text-align: right;
+  padding-left: 50px;
+}
+@media (max-width: 425px) {
+  .news-nav {
+    flex-direction: column;
+  }
+  .news-nav .link {
+    width: 100%;
+    padding: 20px !important;
+  }
 }
 
 .author-ctn {

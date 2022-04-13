@@ -20,7 +20,7 @@ body {
 }
 
 h1 {
-  @include fontSize(62, 62, 600, -0.9);
+  @include fontSize(58, 62, 600, -0.9);
   &.inverted {
     color: white;
     letter-spacing: -1.25px;
@@ -29,7 +29,7 @@ h1 {
 
 h2 {
   margin-top: 20px;
-  @include fontSize(42, 48);
+  @include fontSize(38, 44);
 }
 
 h3 {
