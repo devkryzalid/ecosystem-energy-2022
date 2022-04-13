@@ -5382,7 +5382,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 .news-nav {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 .news-nav .link {

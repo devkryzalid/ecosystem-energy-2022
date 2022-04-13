@@ -1,5 +1,5 @@
 .news-nav {
-  @include flex(center, space-between);
+  @include flex(flex-start, space-between);
 
   .link {
     width: 50%;
