@@ -6,8 +6,10 @@ $timber_post = new Timber\Post();
 /**
  * Timber context assignments
  */
-$context['post']             = $timber_post;
-$industry                    = get_terms(['taxonomy' => 'industry_tax'])[0];
+$context['post']   = $timber_post;
+$term_industries   = get_the_terms($timber_post, 'industry_tax');
+$industry          = (!empty($term_industries)) ? $term_industries[0] : [];
+
 $context['industry']         = $industry;
 $context['industry_url']     = get_term_link($industry);
 $context['local']            = get_terms(['taxonomy' => 'localization']);
