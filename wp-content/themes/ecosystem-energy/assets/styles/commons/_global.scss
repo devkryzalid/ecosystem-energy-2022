@@ -62,6 +62,16 @@ p {
   }
 }
 
+@media (min-width: $desktop-large) {
+  body {
+    @include fontSize(19, 29, 400, -0.4);
+  }
+
+  p {
+  	@include fontSize(19, 29);
+  }
+}
+
 b,
 strong {
   font-weight: 700;

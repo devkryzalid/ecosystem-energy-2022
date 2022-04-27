@@ -25,7 +25,8 @@ composer install
 cd wp-content/themes/ecosystem-energy/
 npm install or yarn
 
-gulp [--watch]
+yarn run dev
+yarn run build
 ```
 
 ## Usage

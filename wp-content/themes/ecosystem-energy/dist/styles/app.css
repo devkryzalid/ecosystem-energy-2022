@@ -934,6 +934,25 @@ p {
     letter-spacing: normal;
   }
 }
+@media (min-width: 1550px) {
+  body {
+    font-size: 19px;
+    font-size: 1.1875rem;
+    font-weight: 400;
+    line-height: 29px;
+    line-height: 1.8125rem;
+    letter-spacing: -0.4px;
+  }
+
+  p {
+    font-size: 19px;
+    font-size: 1.1875rem;
+    font-weight: initial;
+    line-height: 29px;
+    line-height: 1.8125rem;
+    letter-spacing: normal;
+  }
+}
 b,
 strong {
   font-weight: 700;
@@ -5796,6 +5815,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   z-index: 1;
 }
 .page-home .news-ctn .block-item .content .title {
+  min-height: 150px;
   font-size: 32px;
   font-size: 2rem;
   font-weight: 500;
