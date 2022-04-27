@@ -19,13 +19,6 @@
     {{ post.content }}
   </div>
 
-  {# Client list #}
-  {% if clients_block.clients_list|length %}
-    <div class="container">
-      {% include 'partials/industry-client-list.twig' %}
-    </div>
-  {% endif %}
-
   {# Featured blocks #}
   {% if featured_blocks.block_list|length %}
     <div class="grey wrapper">
@@ -37,6 +30,13 @@
   {% if informations_blocks|length %}
     <div class="container">
       {% include 'partials/industry-info-blocks.twig' %}
+    </div>
+  {% endif %}
+
+  {# Client list #}
+  {% if clients_block.clients_list|length %}
+    <div class="container">
+      {% include 'partials/industry-client-list.twig' %}
     </div>
   {% endif %}
 
