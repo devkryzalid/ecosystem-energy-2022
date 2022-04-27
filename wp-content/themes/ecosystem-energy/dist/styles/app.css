@@ -1658,9 +1658,6 @@ a.link.video::after {
 .wrapper.blue, .industry-cs-slider, .home-slider, .case-study-slider, .gutenberg-slider-multiple {
   background-color: #242C3E;
 }
-.wrapper.beige, .beige.industry-cs-slider, .beige.home-slider, .beige.case-study-slider, .beige.gutenberg-slider-multiple {
-  background-color: #FCF9F0;
-}
 .wrapper.white, .white.industry-cs-slider, .white.home-slider, .white.case-study-slider, .white.gutenberg-slider-multiple {
   background-color: white;
 }
