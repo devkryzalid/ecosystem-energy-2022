@@ -62,16 +62,6 @@ p {
   }
 }
 
-@media (min-width: $desktop-large) {
-  body {
-    @include fontSize(19, 29, 400, -0.4);
-  }
-
-  p {
-  	@include fontSize(19, 29);
-  }
-}
-
 b,
 strong {
   font-weight: 700;
@@ -96,62 +86,8 @@ ul {
   }
 }
 
-@keyframes rotate { to { transform: rotate(-360deg); } }
-
-// CUSTOM
-
-// Page overrides
-.page-container.grey {
-  background-color: $lightgrey;
+// Increase global paragraph size on large devices
+@media (min-width: $desktop-large) {
+  body { @include fontSize(19, 29, 400, -0.4); }
+  p { @include fontSize(19, 29); }
 }
-
-.page {
-  // Prevent background logo to push page boundaries
-  overflow: hidden;
-}
-
-// 
-.wrapper {
-  position: relative;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-
-  &.grey { background-color: $lightgrey; }
-  &.blue { background-color: $blue; }
-  &.beige { background-color: $beige; }
-  &.white { background-color: white; }
-
-  // Yellow icon in background
-  &.bg-icon::after { 
-    content: ' ';
-    position: absolute;
-    right: -150px;
-    bottom: -50px;
-    width: 300px;
-    height: 300px;
-    background-image: url('/assets/images/ui/symbol-eco.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-
-    @media (max-width: $tablet-large) {
-      bottom: -100px;
-    }
-  }
-}
-
-// Extendable icomoon
-.icomoon {
-  font-family: 'icomoon' !important;
-  font-weight: 400 !important;
-}
-
-//
-.gform_confirmation_message {
-  padding: 40px 20px;
-  @include fontSize(28, 36);
-  text-align: center;
-}
-
-// TEMP - Hide annoying WP top bar
-#wpadminbar { display: none !important; }

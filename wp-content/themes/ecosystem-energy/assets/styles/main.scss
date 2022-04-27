@@ -14,6 +14,9 @@
 @import "commons/links";
 @import "commons/tags";
 
+// This file contains code that should eventually be re-factored elsewhere
+@import "commons/shame";
+
 // Gutenberg custom blocks
 @import "blocks/accordion";
 @import "blocks/color-block";
@@ -77,5 +80,4 @@
 @import "pages/search";
 @import "pages/single-case-study";
 @import "pages/single-industry";
-@import "pages/single-perspective";
-
+@import "pages/single-perspective"; 

@@ -1,0 +1,64 @@
+// This file contains code that should eventually be re-factored elsewhere
+// TODO: Keep this as empty as possible
+
+// Spinner animation
+// Since most instances use css transform instead, this should be deleted. 
+// Used in 
+//  - assets/styles/partials/common/_ajax.scss
+//  - assets/styles/partials/common/_page-overlay.scss
+@keyframes rotate { to { transform: rotate(-360deg); } }
+
+// Prevent spinners from extending page boundaries
+.page { overflow: hidden; }
+
+// Full-size global wrapper with wrapper and background icon
+.wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  &.grey { background-color: $lightgrey; }
+  &.blue { background-color: $blue; }
+  &.beige { background-color: $beige; }
+  &.white { background-color: white; }
+
+  // Yellow icon in background
+  &.bg-icon::after { 
+    content: ' ';
+    position: absolute;
+    right: -150px;
+    bottom: -50px;
+    width: 300px;
+    height: 300px;
+    background-image: url('/assets/images/ui/symbol-eco.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @media (max-width: $tablet-large) {
+      bottom: -100px;
+    }
+  }
+}
+
+// Extendable icomoon
+// Maybe this is useless
+.icomoon {
+  font-family: 'icomoon' !important;
+  font-weight: 400 !important;
+}
+
+// Why is this here?
+.gform_confirmation_message {
+  padding: 40px 20px;
+  @include fontSize(28, 36);
+  text-align: center;
+}
+
+// ... and also this?
+.page-container.grey {
+  background-color: $lightgrey;
+}
+
+// Hide the site-breaking WP admin top bar
+// #wpadminbar { display: none !important; }
