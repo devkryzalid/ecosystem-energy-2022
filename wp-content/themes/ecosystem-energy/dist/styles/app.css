@@ -2860,7 +2860,7 @@ body.modal-open .gutenberg-slider-modal {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 20px 40px;
+  padding: 70px 40px 20px;
 }
 #footer a:hover {
   color: #FAB900;
@@ -3629,6 +3629,11 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   padding-top: 230px;
 }
 
+@media (min-width: 993px) and (max-width: 1550px) {
+  #menu #primary-menu li {
+    padding-bottom: 0;
+  }
+}
 @media (max-width: 1100px) {
   #menu #primary-menu li {
     padding-left: calc(24vw + 40px);
@@ -5826,10 +5831,6 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 }
 .page-home .news-ctn .block-item .content .surtitle::before {
   top: -3px;
-}
-.page-home .contact-cta {
-  margin-top: 0;
-  margin-bottom: 50px;
 }
 @media (max-width: 1550px) {
   .page-home .wrapper.bg-icon::after, .page-home .bg-icon.gutenberg-slider-multiple::after, .page-home .bg-icon.case-study-slider::after, .page-home .bg-icon.home-slider::after, .page-home .bg-icon.industry-cs-slider::after {

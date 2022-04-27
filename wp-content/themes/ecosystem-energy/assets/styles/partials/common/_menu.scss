@@ -233,6 +233,12 @@ body:not(.menu-open):not(.menu-opening) #menu {
   #primary-menu, #primary-menu li .secondary-menu { padding-top: calc($header-height + $yellow-header-height); }
 }
 
+@media (min-width: calc($tablet-large + 1px)) and (max-width: $desktop-large) {
+  #menu {
+    #primary-menu li { padding-bottom: 0; }
+  }
+}
+
 @media (max-width: 1100px) {
   #menu {
     #primary-menu li { padding-left: calc($menu-image-width + 40px); }
