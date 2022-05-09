@@ -18,8 +18,8 @@ $previous = null;
 $expertises = new Timber\PostQuery([
     'post_type'       => 'expertise',
     'post_status'     => 'publish',
-    'orderby'         => 'title',
-    'order'           => 'ASC',
+    'orderby'         => 'publish_date',
+    'order'           => 'DESC',
     'suppress_filter' => true,
     'posts_per_page'  => -1,
 ]);

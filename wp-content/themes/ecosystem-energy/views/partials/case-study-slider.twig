@@ -7,7 +7,7 @@
 
 {% block slides %}
   {% for item in related_case_studies %}
-    <a class="swiper-slide" href="{{ item.url }}" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 + 600 }}">
+    <a class="swiper-slide" href="{{ item.link }}" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 + 600 }}">
       <img src="{{ item.thumbnail.src('medium') }}" alt="{{ item.thumbnail.title }}">
       <div class="title">{{ item.title }}</div>
     </a>
