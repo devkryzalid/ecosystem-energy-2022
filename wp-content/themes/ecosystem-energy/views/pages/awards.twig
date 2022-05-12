@@ -29,6 +29,11 @@
                   <div class="link-ctn">
                     <a class="external link" href="{{ award.case_study.link }}">{{ award.case_study.title }}</a>
                   </div>
+                {% elseif award.award.meta('external_link') %}
+                  {% set external_link = award.award.meta('external_link') %}
+                  <div class="link-ctn">
+                    <a class="external link" href="{{ external_link.url }}" target="{{external_link.target}}">{{ external_link.title }}</a>
+                  </div>
                 {% endif %}
               </div>
             </li>

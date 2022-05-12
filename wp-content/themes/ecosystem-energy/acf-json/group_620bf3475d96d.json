@@ -65,6 +65,21 @@
             "min": "",
             "max": 1,
             "return_format": "object"
+        },
+        {
+            "key": "field_627d2b0f49d4e",
+            "label": "Lien externe",
+            "name": "external_link",
+            "type": "link",
+            "instructions": "Si aucun projet associé alors ce lien sera utilisé.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array"
         }
     ],
     "location": [
@@ -85,5 +100,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1644950542
+    "modified": 1652370297
 }

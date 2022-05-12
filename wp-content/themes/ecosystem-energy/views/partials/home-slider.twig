@@ -9,7 +9,7 @@
   {% for item in case_studies %}
     <a class="swiper-slide" href="{{ item.case_study.link }}">
       <div data-aos="fade-up" data-aos-delay="{{ loop.index * 100 + 500 }}">
-        <img src="{{ item.case_study.thumbnail.src('medium') }}" alt="{{ item.case_study.thumbnail.title }}">
+        <img src="{{ item.case_study.thumbnail.src('large') }}" alt="{{ item.case_study.thumbnail.title }}">
         <div class="surtitle">{{ item.industry }}</div>
         <div class="title">{{ item.case_study.title }}</div>
       </div>
