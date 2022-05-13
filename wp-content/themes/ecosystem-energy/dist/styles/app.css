@@ -5736,6 +5736,9 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   font-weight: 500;
   line-height: 21px;
 }
+.page-case-studies .block-hero #toggle-filters {
+  margin: 0 0 0 auto;
+}
 
 .page-contact .grey.wrapper, .page-contact .grey.gutenberg-slider-multiple, .page-contact .grey.case-study-slider, .page-contact .grey.home-slider, .page-contact .grey.industry-cs-slider {
   padding-top: 100px;

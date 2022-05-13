@@ -1,24 +1,30 @@
 <div class="block-hero {{ class }}">
 
-  {% if surtitle and not image %} <div class="surtitle" data-aos="fade-up">{{ surtitle }}</div> {% endif %}
+    {% if surtitle and not image %} <div class="surtitle" data-aos="fade-up">{{ surtitle }}</div> {% endif %}
 
-  <div class="title-ctn title-{{ post.meta('title_position') }}">
-    {% if surtitle and image %} <div class="surtitle" data-aos="fade-up">{{ surtitle }}</div> {% endif %}
-    <h1 class="title" data-aos="fade-up" data-aos-delay="100">{{ title }}</h1>
-  </div>
-
-  {% if image %}
-    {% set tImage = TimberImage(image) %}
-    <div class="image-ctn" data-aos="fade-up" data-aos-delay="200">
-      <img src="{{ tImage.src('large') }}" alt="{{ tImage.title }}">
+    <div class="title-ctn title-{{ post.meta('title_position') }}">
+        {% if surtitle and image %} <div class="surtitle" data-aos="fade-up">{{ surtitle }}</div> {% endif %}
+        <h1 class="title" data-aos="fade-up" data-aos-delay="100">{{ title }}</h1>
     </div>
-  {% endif %}
-  
-  {% if text or filters %}
-    <div class="text-ctn {{ text ? '' : 'no-text' }}" data-aos="fade-up" data-aos-delay="200">
-      {% if text %} <p class="text">{{ text }}</p> {% endif %}
-      {% if filters %} <a id="toggle-filters" class="btn filters">{{ __('Filters', 'ecosystem-energy') }} <span id="filters-count"></span> </a> {% endif %}
-    </div>
-  {% endif %}
 
+    {% if image %}
+        {% set tImage = TimberImage(image) %}
+        <div class="image-ctn" data-aos="fade-up" data-aos-delay="200">
+            <img src="{{ tImage.src('large') }}" alt="{{ tImage.title }}">
+        </div>
+    {% endif %}
+    
+    {% if text or filters %}
+        {% if text %}
+            <div class="text-ctn {{ text ? '' : 'no-text' }}" data-aos="fade-up" data-aos-delay="200">
+                {% if text %} <p class="text">{{ text }}</p> {% endif %}
+                {% if filters %} <a id="toggle-filters" class="btn filters">{{ __('Filters', 'ecosystem-energy') }} <span id="filters-count"></span> </a> {% endif %}
+            </div>
+        {% else %}
+            <div data-aos="fade-up" data-aos-delay="200">
+                <div class="text">{{post.content}}</div>
+                {% if filters %} <a id="toggle-filters" class="content-btn btn filters">{{ __('Filters', 'ecosystem-energy') }} <span id="filters-count"></span> </a> {% endif %}
+            </div>
+        {% endif %}
+    {% endif %}
 </div>
