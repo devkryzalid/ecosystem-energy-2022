@@ -241,3 +241,32 @@ function add_custom_user_meta($user_id)
 		update_user_meta($user_id, $wpdb->prefix . 'language_pairs', $default);
 	}
 }
+
+function wpdc_add_custom_gutenberg_color_palette() {
+	add_theme_support(
+		'editor-color-palette',
+		[
+			[
+				'name'  => esc_html__( 'Blue', 'wpdc' ),
+				'slug'  => 'blue',
+				'color' => '#242C3E',
+			],
+			[
+				'name'  => esc_html__( 'Yellow', 'wpdc' ),
+				'slug'  => 'yellow',
+				'color' => '#FAB900',
+			],
+			[
+				'name'  => esc_html__( 'Grey', 'wpdc' ),
+				'slug'  => 'grey',
+				'color' => '#494843',
+			],
+			[
+				'name'  => esc_html__( 'Light', 'wpdc' ),
+				'slug'  => 'light',
+				'color' => '#F6F6F4',
+			],
+		]
+	);
+}
+add_action( 'after_setup_theme', 'wpdc_add_custom_gutenberg_color_palette' );
