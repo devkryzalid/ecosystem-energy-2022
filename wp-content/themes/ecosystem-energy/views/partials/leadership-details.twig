@@ -1,23 +1,23 @@
-<div class="leadership-details" data-id="{{ loop.index }}" id="content-{{ loop.index }}">
+<div class="leadership-details" data-id="{{ data_id }}" id="content-{{ data_id }}">
   <div class="block-hero v-centered-title reverse">
 
     <div class="title-ctn">
-      <h1 class="title" data-aos="fade-up" data-aos-delay="600">{{ leader.title }}</h1>
-      <p class="status">{{ leader.status }}</p>
+      <h1 class="title" data-aos="fade-up" data-aos-delay="600">{{ member.title }}</h1>
+      <p class="status">{{ member.status }}</p>
 
       <div class="social">
-        {% for s in leader.social_link %}
+        {% for s in member.social_link %}
           <a class="social-link" href="{{ s.link }}"><i class="icon-{{ s.type.value }}"></i></a>
         {% endfor %}
       </div>
     </div>
 
-    {% set tImage = TimberImage(leader.image ?: theme.link ~ '/assets/images/ui/leadership-placeholder.jpg') %}
+    {% set tImage = TimberImage(member.image ?: theme.link ~ '/assets/images/ui/leadership-placeholder.jpg') %}
     <div class="image-ctn" data-aos="fade-up" data-aos-delay="500">
       <img src="{{ tImage.src('large') }}" alt="{{ tImage.title }}">
     </div>
 
-    <div class="text">{{ leader.content }}</div>
+    <div class="text">{{ member.content }}</div>
 
   </div>
 </div>

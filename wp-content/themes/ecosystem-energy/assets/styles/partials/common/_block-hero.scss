@@ -73,6 +73,12 @@
     .text-ctn { flex: 0 0 65%; }
   }
 
+  // Full-width title
+  &.title-only {
+    .title-ctn { flex: 0 0 100%; }
+    .text-ctn { flex: 0 0 0%; }
+  }
+
   // Vertically-centered title
   &.v-centered-title {
     .title-ctn { margin: auto 0; }

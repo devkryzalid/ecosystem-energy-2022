@@ -1,12 +1,13 @@
 <div class="leadership-list">
-  {% for leader in leaders_list %}
+  {% for member in list %}
+    {# Prefix is used in both item and details to allow multiple lists with the same ajax mechanics #}
+    {% set data_id = prefix ~ '_' ~ loop.index %}
 
     {% include 'partials/common/block-item.twig' with { 
-      title: leader.title,
-      description: leader.status,
-      image: leader.image ? leader.image : theme.link ~ '/assets/images/ui/leadership-placeholder.jpg',
+      title: member.title,
+      description: member.status,
+      image: member.image ? member.image : theme.link ~ '/assets/images/ui/leadership-placeholder.jpg',
       class: 'text-padding invert auto-height link-item',
-      data_id: loop.index,
       delay: 100
     } %}
 

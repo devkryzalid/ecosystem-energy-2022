@@ -14,6 +14,7 @@ if (isset($newLocale)) {
 // Set base informations for context
 $timber_post = new Timber\Post();
 $context['post'] = $timber_post;
-$context['leaders_list'] = $timber_post->meta('leaders_list');
+$context['leaders'] = $timber_post->meta('leaders_list');
+$context['directors'] = $timber_post->meta('directors_list');
 
 Timber::render( array( 'pages/leadership.twig' ), $context );

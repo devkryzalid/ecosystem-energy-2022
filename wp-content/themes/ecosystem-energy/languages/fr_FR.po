@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Ecosystem\n"
-"POT-Creation-Date: 2022-04-07 10:55-0400\n"
+"POT-Creation-Date: 2022-05-16 10:23-0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -54,36 +54,9 @@ msgstr "Distinctions"
 msgid "Case studies"
 msgstr "Projets"
 
-#: views/pages/case_studies.twig:10
-msgid "Working with energy ecosystems is all we do"
-msgstr ""
-"Travailler avec des écosystèmes énergétiques, c’est ce qu’on fait, "
-"essentiellement et depuis toujours"
-
-#: views/pages/case_studies.twig:11
-msgid ""
-"We have built a business that re-connects engineering design, construction "
-"and commissioning so every choice we make contributes to better project "
-"outcomes."
-msgstr ""
-"Nous avons créé une entreprise qui reconnecte l’ingénierie, la conception, "
-"la construction et la mise en service. Ainsi chaque décision que nous "
-"prenons dans un projet contribue aux meilleurs résultats."
-
-#: views/pages/case_studies.twig:22
+#: views/pages/case_studies.twig:20
 msgid "Sectors"
 msgstr "Secteurs"
-
-#: views/pages/contact.twig:9
-msgid ""
-"Interested in finding out more about what we do and our business model? Do "
-"you want to get in touch with a particular team member? Locate one of our "
-"offices? Whatever you need, please contact us – we’re happy to talk."
-msgstr ""
-"Envie d’en savoir plus sur nos réalisations et sur notre modèle d’affaires? "
-"Besoin de localiser l’un de nos bureaux ou de contacter quelqu’un en "
-"particulier? Peu importe votre besoin, vous trouverez chez nous un "
-"interlocuteur attentif et heureux de vous aider."
 
 #: views/pages/expertises.twig:10
 msgid ""
@@ -99,6 +72,14 @@ msgstr ""
 #: views/pages/front-page.twig:48
 msgid "Perspectives"
 msgstr "Perspectives"
+
+#: views/pages/leadership.twig:10
+msgid "Leadership"
+msgstr "Leadership"
+
+#: views/pages/leadership.twig:18
+msgid "Our regional directors"
+msgstr "Nos directeurs régionaux"
 
 #: views/pages/search.twig:8
 msgid "result"
@@ -128,7 +109,8 @@ msgstr "Résultats"
 msgid "Other case studies"
 msgstr "Autres projets"
 
-#: views/partials/common/block-hero.twig:20
+#: views/partials/common/block-hero.twig:21
+#: views/partials/common/block-hero.twig:26
 msgid "Filters"
 msgstr "Filtres"
 
@@ -477,6 +459,30 @@ msgstr "Pays"
 #: inc/taxonomies/localization_taxonomy.php:15
 msgid "localizations"
 msgstr "pays"
+
+#~ msgid "Working with energy ecosystems is all we do"
+#~ msgstr ""
+#~ "Travailler avec des écosystèmes énergétiques, c’est ce qu’on fait, "
+#~ "essentiellement et depuis toujours"
+
+#~ msgid ""
+#~ "We have built a business that re-connects engineering design, "
+#~ "construction and commissioning so every choice we make contributes to "
+#~ "better project outcomes."
+#~ msgstr ""
+#~ "Nous avons créé une entreprise qui reconnecte l’ingénierie, la "
+#~ "conception, la construction et la mise en service. Ainsi chaque décision "
+#~ "que nous prenons dans un projet contribue aux meilleurs résultats."
+
+#~ msgid ""
+#~ "Interested in finding out more about what we do and our business model? "
+#~ "Do you want to get in touch with a particular team member? Locate one of "
+#~ "our offices? Whatever you need, please contact us – we’re happy to talk."
+#~ msgstr ""
+#~ "Envie d’en savoir plus sur nos réalisations et sur notre modèle "
+#~ "d’affaires? Besoin de localiser l’un de nos bureaux ou de contacter "
+#~ "quelqu’un en particulier? Peu importe votre besoin, vous trouverez chez "
+#~ "nous un interlocuteur attentif et heureux de vous aider."
 
 #~ msgid "Search"
 #~ msgstr "Rechercher"

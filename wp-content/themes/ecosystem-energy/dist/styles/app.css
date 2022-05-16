@@ -2315,6 +2315,12 @@ body.modal-open .gutenberg-slider-modal {
 .block-hero.content-66 .text-ctn {
   flex: 0 0 65%;
 }
+.block-hero.title-only .title-ctn {
+  flex: 0 0 100%;
+}
+.block-hero.title-only .text-ctn {
+  flex: 0 0 0%;
+}
 .block-hero.v-centered-title .title-ctn {
   margin: auto 0;
 }

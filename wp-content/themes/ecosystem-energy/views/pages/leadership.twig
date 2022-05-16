@@ -7,12 +7,20 @@
     <div class="large container">
 
       {% include 'partials/common/block-hero.twig' with {
-        title: post.title,
+        title: __('Leadership', 'ecosystem-energy'),
         text: post.meta('text'),
         class: 'invert with-margin'
       } %}
 
-      {% include 'partials/leadership-list.twig' %}
+      {% include 'partials/leadership-list.twig' with { list: leaders, prefix: 'leader' } %}
+
+      {% include 'partials/common/block-hero.twig' with {
+        title: __('Our regional directors', 'ecosystem-energy'),
+        class: 'invert title-only'
+      } %}
+
+      {% include 'partials/leadership-list.twig' with { list: directors, prefix: 'director' } %}
+
       {% include 'partials/common/contact-cta.twig' with { invert: true } %}
 
     </div>
