@@ -8,6 +8,7 @@
   border-radius: 20px;
   @include fontSize(15, 21, 500, -0.3);
   color: $darkgrey;
+  background-color: white;
   transition: $buttonTransition;
 
   &.selected {
