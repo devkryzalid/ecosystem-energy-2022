@@ -5,6 +5,8 @@
   padding-left: 0;
   z-index: 2;
 
+  .title-ctn, .image-ctn { flex: 0 0 50% }
+
   .title-ctn { 
     padding: 0 100px; 
 
@@ -40,10 +42,15 @@
   }
 
   @media (max-width: 1300px) {
-    .title-ctn { padding: 0 20px; }
+    .title-ctn { padding: 0 40px; }
   }
 
   @media (max-width: $tablet-large) {
     padding-bottom: 20px;
+    
+    .title-ctn { 
+      flex: 1 0 auto;
+      padding: 0 20px;
+    }
   }
 }

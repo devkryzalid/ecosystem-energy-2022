@@ -3896,6 +3896,9 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   padding-left: 0;
   z-index: 2;
 }
+.block-hero.post-hero .title-ctn, .block-hero.post-hero .image-ctn {
+  flex: 0 0 50%;
+}
 .block-hero.post-hero .title-ctn {
   padding: 0 100px;
 }
@@ -3938,12 +3941,16 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 }
 @media (max-width: 1300px) {
   .block-hero.post-hero .title-ctn {
-    padding: 0 20px;
+    padding: 0 40px;
   }
 }
 @media (max-width: 992px) {
   .block-hero.post-hero {
     padding-bottom: 20px;
+  }
+  .block-hero.post-hero .title-ctn {
+    flex: 1 0 auto;
+    padding: 0 20px;
   }
 }
 
