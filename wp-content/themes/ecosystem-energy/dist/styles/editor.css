@@ -317,6 +317,15 @@ a.link.video::after {
 .editor-styles-wrapper .wp-block {
   max-width: 80% !important;
 }
+.editor-styles-wrapper a, .editor-styles-wrapper a span {
+  text-decoration: none;
+  color: #E7AD09;
+  font-weight: 500;
+  transition: all 0.4s ease;
+}
+.editor-styles-wrapper a:hover, .editor-styles-wrapper a span:hover {
+  color: #242C3E;
+}
 .editor-styles-wrapper .btn, .editor-styles-wrapper .link {
   color: #494843 !important;
   text-decoration: none !important;

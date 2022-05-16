@@ -36,7 +36,9 @@
   {% include 'partials/common/post-hero.twig' with { post: post } %}
 
   <div class="small container">
-    {{ post.content }}
+    <div class="gutenberg-content">
+      {{ post.content }}
+    </div>
 
     {% include 'partials/common/share.twig' %}
     {% include 'partials/news-nav.twig' with { next: next, prev: previous } %}

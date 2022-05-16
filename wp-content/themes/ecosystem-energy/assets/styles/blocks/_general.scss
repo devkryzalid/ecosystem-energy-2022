@@ -42,3 +42,15 @@
     height: 100%;
   }
 }
+
+// Regular link
+.gutenberg-content {
+  a, a span {
+    text-decoration: none;
+    color: $darkyellow;
+    font-weight: 500;
+    transition: $basicTransition;
+    
+    &:hover { color: $blue; }
+  }
+}

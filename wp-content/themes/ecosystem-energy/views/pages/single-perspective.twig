@@ -36,7 +36,10 @@
   {% include 'partials/common/post-hero.twig' with { post: post, tags: tags } %}
 
   <div class="small container">
-    {{ post.content }}
+    <div class="gutenberg-content">
+      {{ post.content }}
+    </div>
+    
     {% include 'partials/common/share.twig' %}
     {% include 'partials/perspective-author.twig' %}
   </div>

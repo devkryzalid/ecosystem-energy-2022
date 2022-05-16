@@ -23,6 +23,15 @@
     max-width: 80% !important;
   }
 
+  a, a span {
+    text-decoration: none;
+    color: $darkyellow;
+    font-weight: 500;
+    transition: $basicTransition;
+    
+    &:hover { color: $blue; }
+  }
+
   .btn, .link {
     color: $darkgrey !important;
     text-decoration: none !important;

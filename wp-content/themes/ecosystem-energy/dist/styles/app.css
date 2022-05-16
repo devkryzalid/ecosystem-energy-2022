@@ -1862,6 +1862,16 @@ a.link.video::after {
   height: 100%;
 }
 
+.gutenberg-content a, .gutenberg-content a span {
+  text-decoration: none;
+  color: #E7AD09;
+  font-weight: 500;
+  transition: all 0.4s ease;
+}
+.gutenberg-content a:hover, .gutenberg-content a span:hover {
+  color: #242C3E;
+}
+
 .content-key-data-ctn {
   display: flex;
   flex-direction: row;
