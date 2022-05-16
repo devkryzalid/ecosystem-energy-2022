@@ -32,7 +32,11 @@
       opacity: 0.6;
     }
   
-    .tags { @include flex(center, flex-start); }
+    .tags { 
+      @include flex(center, flex-start);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
   }
 
   @media (max-width: 1300px) {

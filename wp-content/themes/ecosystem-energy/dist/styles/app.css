@@ -1618,7 +1618,6 @@ a.link.video::after {
   justify-content: center;
   width: max-content;
   min-height: 40px;
-  margin-right: 8px;
   padding: 8px 20px;
   background: none;
   border: 1px solid rgba(73, 72, 67, 0.4);
@@ -3927,6 +3926,8 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 @media (max-width: 1300px) {
   .block-hero.post-hero .title-ctn {
