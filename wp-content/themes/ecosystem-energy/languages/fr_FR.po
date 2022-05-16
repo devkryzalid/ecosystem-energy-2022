@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Ecosystem\n"
-"POT-Creation-Date: 2022-05-16 10:23-0400\n"
+"POT-Creation-Date: 2022-05-16 10:39-0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -78,7 +78,7 @@ msgid "Leadership"
 msgstr "Leadership"
 
 #: views/pages/leadership.twig:18
-msgid "Our regional directors"
+msgid "Our regional managers"
 msgstr "Nos directeurs régionaux"
 
 #: views/pages/search.twig:8
