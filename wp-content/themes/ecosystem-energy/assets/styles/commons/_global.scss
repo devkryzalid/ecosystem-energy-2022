@@ -86,6 +86,8 @@ ul {
   }
 }
 
+sup { color: inherit; }
+
 // Increase global paragraph size on large devices
 @media (min-width: $desktop-large) {
   body { @include fontSize(19, 29, 400, -0.4); }

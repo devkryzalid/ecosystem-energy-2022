@@ -43,9 +43,9 @@
   }
 }
 
-// Regular link
 .gutenberg-content {
-  a, a span {
+  // Regular link
+  a:not(.btn), a span {
     text-decoration: none;
     color: $darkyellow;
     font-weight: 500;
@@ -53,4 +53,21 @@
     
     &:hover { color: $blue; }
   }
+
+  .has-yellow-background-color { 
+    background-color: $yellow;
+    a, a span { 
+      color: $blue;
+      text-decoration: underline;
+    }
+  }
+
+  .has-blue-background-color { background-color: $blue; }
+  .has-grey-background-color { background-color: $darkgrey; }
+  .has-light-background-color { background-color: $lightgrey; }
+
+  .has-yellow-color { color: $yellow; }
+  .has-blue-color { color: $blue; }
+  .has-grey-color { color: $darkgrey; }
+  .has-light-color { color: $lightgrey; }
 }

@@ -957,6 +957,10 @@ ul li {
   padding-bottom: 10px;
 }
 
+sup {
+  color: inherit;
+}
+
 @media (min-width: 1550px) {
   body {
     font-size: 19px;
@@ -1862,14 +1866,42 @@ a.link.video::after {
   height: 100%;
 }
 
-.gutenberg-content a, .gutenberg-content a span {
+.gutenberg-content a:not(.btn), .gutenberg-content a span {
   text-decoration: none;
   color: #E7AD09;
   font-weight: 500;
   transition: all 0.4s ease;
 }
-.gutenberg-content a:hover, .gutenberg-content a span:hover {
+.gutenberg-content a:not(.btn):hover, .gutenberg-content a span:hover {
   color: #242C3E;
+}
+.gutenberg-content .has-yellow-background-color {
+  background-color: #FAB900;
+}
+.gutenberg-content .has-yellow-background-color a, .gutenberg-content .has-yellow-background-color a span {
+  color: #242C3E;
+  text-decoration: underline;
+}
+.gutenberg-content .has-blue-background-color {
+  background-color: #242C3E;
+}
+.gutenberg-content .has-grey-background-color {
+  background-color: #494843;
+}
+.gutenberg-content .has-light-background-color {
+  background-color: #F6F6F4;
+}
+.gutenberg-content .has-yellow-color {
+  color: #FAB900;
+}
+.gutenberg-content .has-blue-color {
+  color: #242C3E;
+}
+.gutenberg-content .has-grey-color {
+  color: #494843;
+}
+.gutenberg-content .has-light-color {
+  color: #F6F6F4;
 }
 
 .content-key-data-ctn {
