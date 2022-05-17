@@ -1878,15 +1878,22 @@ a.link.video::after {
 .gutenberg-content .has-yellow-background-color {
   background-color: #FAB900;
 }
-.gutenberg-content .has-yellow-background-color a, .gutenberg-content .has-yellow-background-color a span {
+.gutenberg-content .has-yellow-background-color a:not(.btn), .gutenberg-content .has-yellow-background-color a span {
   color: #242C3E;
-  text-decoration: underline;
+}
+.gutenberg-content .has-yellow-background-color a:not(.btn):hover, .gutenberg-content .has-yellow-background-color a:not(.btn):hover span {
+  color: #F6F6F4;
 }
 .gutenberg-content .has-blue-background-color {
   background-color: #242C3E;
 }
 .gutenberg-content .has-grey-background-color {
   background-color: #494843;
+}
+.gutenberg-content .has-blue-background-color a:not(.btn):hover, .gutenberg-content .has-blue-background-color a:not(.btn):hover span,
+.gutenberg-content .has-grey-background-color a:not(.btn):hover,
+.gutenberg-content .has-grey-background-color a:not(.btn):hover span {
+  color: #F6F6F4;
 }
 .gutenberg-content .has-light-background-color {
   background-color: #F6F6F4;

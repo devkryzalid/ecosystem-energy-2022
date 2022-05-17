@@ -56,14 +56,16 @@
 
   .has-yellow-background-color { 
     background-color: $yellow;
-    a, a span { 
-      color: $blue;
-      text-decoration: underline;
-    }
+    a:not(.btn), a span { color: $blue; }
+    a:not(.btn):hover, a:not(.btn):hover span { color: $lightgrey; }
   }
 
   .has-blue-background-color { background-color: $blue; }
   .has-grey-background-color { background-color: $darkgrey; }
+
+  .has-blue-background-color,
+  .has-grey-background-color { a:not(.btn):hover, a:not(.btn):hover span { color: $lightgrey; } }
+
   .has-light-background-color { background-color: $lightgrey; }
 
   .has-yellow-color { color: $yellow; }
