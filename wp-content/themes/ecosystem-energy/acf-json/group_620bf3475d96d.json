@@ -68,10 +68,10 @@
         },
         {
             "key": "field_627d2b0f49d4e",
-            "label": "Lien externe",
-            "name": "external_link",
-            "type": "link",
-            "instructions": "Si aucun projet associé alors ce lien sera utilisé.",
+            "label": "Projet associé (hors Case studies)",
+            "name": "external_case_study",
+            "type": "text",
+            "instructions": "S'affiche uniquement si aucun projet n'est associé",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -79,7 +79,11 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array"
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -100,5 +104,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1652370297
+    "modified": 1652823333
 }
