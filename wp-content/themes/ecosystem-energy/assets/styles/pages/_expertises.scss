@@ -20,7 +20,8 @@
         top: 65px;
       }
 
-      .block-item .content .description p { margin: 0; }
+      // The h2 tag is kept in the preview and then hidden by css
+      .block-item .content .description h2 { display: none; }
     }
   }
 

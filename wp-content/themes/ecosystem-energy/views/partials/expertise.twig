@@ -22,7 +22,7 @@
       {% for case_study in case_studies %}
         {% include 'partials/common/block-item.twig' with { 
           title: case_study.title,
-          description: case_study.preview.strip('<p>').read_more(false),
+          description: case_study.preview.strip('<h2>').read_more(false),
           url: case_study.link,
           image: case_study.thumbnail,
           class: '',
