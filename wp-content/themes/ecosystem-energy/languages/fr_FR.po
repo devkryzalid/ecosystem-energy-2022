@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Ecosystem\n"
-"POT-Creation-Date: 2022-05-16 10:39-0400\n"
+"POT-Creation-Date: 2022-05-17 16:20-0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -49,8 +49,7 @@ msgid "Awards"
 msgstr "Distinctions"
 
 #: views/pages/case_studies.twig:9 views/partials/expertise.twig:18
-#: views/partials/industry-cs-featured.twig:3 inc/post_types/case_study.php:9
-#: inc/post_types/case_study.php:20
+#: inc/post_types/case_study.php:9 inc/post_types/case_study.php:20
 msgid "Case studies"
 msgstr "Projets"
 
@@ -189,11 +188,16 @@ msgstr "Projets en vedette"
 msgid "See all our Case studies"
 msgstr "Voir tous nos projets"
 
+#: views/partials/industry-cs-featured.twig:3
+msgid "Case Studies"
+msgstr "Projets"
+
 #: views/partials/industry-cs-featured.twig:4
 msgid ""
-"Fermentum sagittis aliquam volutpat maecenas egestas. Pharetra gravida nisi "
-"dui enim dictumst nulla laoreet."
+"In every project, we guarantee the results that are important to our clients."
 msgstr ""
+"Dans tous nos projets, nous garantissons les résultats souhaités par nos "
+"clients."
 
 #: views/partials/industry-cs-featured.twig:5
 msgid "See all projects"
