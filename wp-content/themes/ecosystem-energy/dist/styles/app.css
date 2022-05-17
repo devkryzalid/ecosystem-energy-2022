@@ -5822,6 +5822,9 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   right: 0px;
   top: 65px;
 }
+.page-expertises #panel-body .case-studies .block-item .content .description p {
+  margin: 0;
+}
 @media (max-width: 500px) {
   .page-expertises .block-item .content .title {
     padding-bottom: 14px;
