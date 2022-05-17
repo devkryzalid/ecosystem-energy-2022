@@ -5207,6 +5207,9 @@ body:not(.menu-open):not(.menu-opening) #menu li {
   letter-spacing: normal;
   z-index: 1;
 }
+.industry-cs-featured .cs-featured .fr .image::before {
+  content: "Projet en vedette";
+}
 @media (max-width: 992px) {
   .industry-cs-featured {
     flex-wrap: wrap;

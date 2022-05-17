@@ -40,6 +40,9 @@
         z-index: 1;
       }
     }
+
+    // FR translation for featured tag
+    .fr .image::before { content: 'Projet en vedette' }
   }
 
   @media (max-width: $tablet-large) {
