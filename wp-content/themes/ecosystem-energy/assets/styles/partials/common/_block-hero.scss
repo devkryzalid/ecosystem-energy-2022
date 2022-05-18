@@ -103,6 +103,11 @@
     margin-top: 60px;
   }
 
+  // No text
+  &.no-text {
+    .alt-text-ctn, .text-ctn { display: none; }
+  }
+
   @media (max-width: $tablet-large) {
     flex-wrap: wrap !important;
     padding-top: 170px;
