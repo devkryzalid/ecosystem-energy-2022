@@ -4,11 +4,13 @@
   .case-study-awards-list {
     margin: 0;
     padding: 40px 100px 40px 200px;
+    background-image: url('/assets/images/ui/award_banner_en.svg');
     background-color: white;
-    background-image: url('/assets/images/ui/award_banner.svg');
     background-repeat: no-repeat;
     background-position: 70px 0;
     list-style: none;
+
+    &.fr { background-image: url('/assets/images/ui/award_banner_fr.svg'); }
   }
 
   li {

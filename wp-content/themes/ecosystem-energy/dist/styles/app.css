@@ -4280,11 +4280,14 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 .case-study-awards-ctn .case-study-awards-list {
   margin: 0;
   padding: 40px 100px 40px 200px;
+  background-image: url(../images/ui/award_banner_en.9440f5e89aa2d22989f1.svg);
   background-color: white;
-  background-image: url(../images/ui/award_banner.9440f5e89aa2d22989f1.svg);
   background-repeat: no-repeat;
   background-position: 70px 0;
   list-style: none;
+}
+.case-study-awards-ctn .case-study-awards-list.fr {
+  background-image: url(../images/ui/award_banner_fr.14f2d638f3eeefd7afdd.svg);
 }
 .case-study-awards-ctn li {
   display: flex;
@@ -6024,7 +6027,7 @@ body:not(.menu-open):not(.menu-opening) #menu li {
 .page-case-study .content-key-data-ctn {
   background-color: white;
 }
-.page-case-study .gutenber-content {
+.page-case-study .gutenberg-content {
   margin-top: 60px;
 }
 
