@@ -35,7 +35,8 @@ if (spinner) {
 // Add listener to scroll button
 const scrollToContent = document.getElementById('scroll-to-content');
 const scrollTarget = document.getElementById('scroll-content');
-scrollToContent.addEventListener('click', () => scrollTarget.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'start' }))
+const top = scrollTarget.getBoundingClientRect().top + window.pageYOffset;
+scrollToContent.addEventListener('click', () => window.scrollTo({ top, behavior: 'smooth' }));
 
 // Yellow overlay mechanics
 window.scrollTo({ top: 0 });
