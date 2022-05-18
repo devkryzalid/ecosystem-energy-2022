@@ -76,6 +76,10 @@
             &:hover::after { color: $yellow; };
             @include fontSize(18, 24, 600); 
           }
+
+          span {
+            @include fontSize(18, 24, 600);
+          }
         }
       }
     }

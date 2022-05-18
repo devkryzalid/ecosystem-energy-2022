@@ -14,7 +14,7 @@
         </div>
     {% endif %}
     
-    {% if text or filters %}
+    {% if text or filters or not (text and filters) %}
         {% if text %}
             <div class="text-ctn {{ text ? '' : 'no-text' }}" data-aos="fade-up" data-aos-delay="200">
                 {% if text %} <p class="text">{{ text }}</p> {% endif %}
