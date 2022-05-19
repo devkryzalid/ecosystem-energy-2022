@@ -5,7 +5,7 @@
       {% include 'partials/common/block-item.twig' with { 
         title: featured.title,
         surtitle: featured.terms('category')[0].name,
-        footer: featured.post_date|date("F d, Y"),
+        footer: featured.post_date|date(current_lang == 'en' ? 'F d, Y' : 'd F Y'),
         url: featured.link,
         image: featured.thumbnail,
         class: 'featured no-plus-hover',
@@ -20,7 +20,7 @@
         {% include 'partials/common/block-item.twig' with { 
           title: perspective.title,
           surtitle: perspective.terms('category')[0].name,
-          footer: perspective.post_date|date(currentLang == 'en' ? 'F d, Y' : 'd F Y'),
+          footer: perspective.post_date|date(current_lang == 'en' ? 'F d, Y' : 'd F Y'),
           url: perspective.link,
           image: perspective.thumbnail,
           class: 'text-padding white-bg',

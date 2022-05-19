@@ -8,7 +8,7 @@
     <div class="title-ctn">
       <a class="surtitle">
         {% if category %} <span class="category">{{ category.name }}</span> {% endif %}
-        <span class="date">{{ post.post_date | date(currentLang == 'en' ? "F d, Y" : "d F Y") }}</span>
+        <span class="date">{{ post.post_date | date(current_lang == 'en' ? "F d, Y" : "d F Y") }}</span>
       </a>
 
       <h1 class="title">{{ post.title }}</h1>
