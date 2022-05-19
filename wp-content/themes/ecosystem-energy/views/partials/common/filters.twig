@@ -18,7 +18,7 @@
 
       {% for field, values in fields %}
         <div class="filter-group">
-          <div class="title">{{ labels[field] ?: field|capitalize }}</div>
+          <div class="title">{{ (currentLang == 'fr' and fr_titles[field]) ? fr_titles[field] : field|capitalize }}</div>
           {% for value in values %}
             <div>
               <input id="{{ field }}-{{ value.term_id }}" type="checkbox" name="{{ field }}" value="{{ value.term_id }}" />
