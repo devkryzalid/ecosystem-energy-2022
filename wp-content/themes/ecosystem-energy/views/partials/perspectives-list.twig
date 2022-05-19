@@ -20,7 +20,7 @@
         {% include 'partials/common/block-item.twig' with { 
           title: perspective.title,
           surtitle: perspective.terms('category')[0].name,
-          footer: perspective.post_date|date("F d, Y"),
+          footer: perspective.post_date|date(currentLang == 'en' ? 'F d, Y' : 'd F Y'),
           url: perspective.link,
           image: perspective.thumbnail,
           class: 'text-padding white-bg',
