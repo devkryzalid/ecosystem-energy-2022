@@ -74,6 +74,7 @@ a {
 hr {
   margin: 75px 0;
   color: rgba($darkgrey, 0.2);
+  @media (max-width: $tablet) { margin: 25px 0; }
 }
 
 ul {
