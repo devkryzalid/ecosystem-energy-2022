@@ -61,3 +61,13 @@
 
 // Hide the site-breaking WP admin top bar
 // #wpadminbar { display: none !important; }
+
+// Fix gutenberg columns wrapping bug
+.wp-block-columns {
+  flex-wrap: nowrap;
+}
+
+// Limit gutenberg columns in mobile
+.wp-block-column {
+  max-width: 100%;
+}

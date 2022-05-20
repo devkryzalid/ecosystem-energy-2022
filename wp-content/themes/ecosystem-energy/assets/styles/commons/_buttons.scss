@@ -2,6 +2,7 @@
   position: relative;
   @include flex();
   width: max-content;
+  max-width: 100%;
   min-height: 57px;
   padding: 10px 55px;
   background-color: $yellow;
