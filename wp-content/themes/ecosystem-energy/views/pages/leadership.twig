@@ -8,7 +8,7 @@
 
       {% include 'partials/common/block-hero.twig' with {
         title: __('Leadership', 'ecosystem-energy'),
-        text: post.meta('text'),
+        text: '<p>' ~ post.meta('text') ~ '</p>',
         class: 'invert with-margin'
       } %}
 

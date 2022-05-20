@@ -6,6 +6,8 @@
 
   <div class="large container">
     {% include 'partials/common/block-hero.twig' with { 
+      title: post.title, 
+      text: post.content,
       class: 'content-66 with-margin'
     } %}
   </div>
@@ -24,10 +26,7 @@
 
   <div id="side-panel-ctn">
     <div id="panel-overlay"></div>
-
-    <div id="panel-content">
-      {# {% include 'partials/expertise.twig' %} #}
-    </div>
+    <div id="panel-content"></div>
   </div>
 
 {% endblock %}

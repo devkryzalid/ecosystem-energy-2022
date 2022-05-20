@@ -6,7 +6,7 @@
   <div class="container">
     {% include 'partials/common/block-hero.twig' with { 
       title: post.title,
-      text: post.meta('intro'),
+      text: '<p>' ~ post.meta('intro') ~ '</p>',
       class: 'with-margin'
     } %}
 
