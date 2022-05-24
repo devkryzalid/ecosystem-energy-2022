@@ -1,9 +1,14 @@
 .share-ctn {
-  @include flex(center, flex-start);
-  margin: 140px 0 40px;
+  @include flex(flex-start, flex-start);
+  flex-direction: column;
+  margin: 140px 0 80px;
 
   p {
-    margin-right: 20px;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 6px;
+    border-bottom: 1px solid $borderColor;
+    color: #AAA;
   }
 
   .st-btn {
