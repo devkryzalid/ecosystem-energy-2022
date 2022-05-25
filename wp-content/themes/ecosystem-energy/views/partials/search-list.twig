@@ -1,4 +1,9 @@
 <div class="search-list">
+  <div class="results-str">
+    <span id="nb-results">{{ total }}</span> 
+    {{ __('result', 'ecosystem-energy') ~ (total > 1 ? 's ' : ' ') ~ __('for', 'ecosystem-energy') }} 
+    "{{ s }}"
+  </div>
 
   <div class="results">
     {% for post in posts %}

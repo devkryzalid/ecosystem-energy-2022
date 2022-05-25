@@ -21,10 +21,10 @@ $results = new Timber\PostQuery($args);
 if ($results->found_posts > 0) {
     $response   = '';
     $context    = Timber::context();
-    $response   .= Timber::compile('partials/search-list.twig', ['posts' => $results]);
+    $response   .= Timber::compile('partials/search-list.twig', ['posts' => $results, 'total' => $results->found_posts, 's' => $search]);
     $message    = $response;
 } else {
-    $message = Timber::compile('partials/no-results.twig');
+    $message = Timber::compile('partials/common/no-results.twig');
 }
 
 wp_reset_query();

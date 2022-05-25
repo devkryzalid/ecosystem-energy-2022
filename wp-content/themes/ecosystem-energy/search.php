@@ -21,6 +21,6 @@ $context['posts'] = new Timber\PostQuery($args);
 $context['limit'] = $limit;
 $context['paged'] = $paged;
 $context['s'] = $search;
-$context['total'] = count($args);
+$context['total'] = $context['posts']->found_posts;
 
 Timber::render( array( 'pages/search.twig' ), $context );
