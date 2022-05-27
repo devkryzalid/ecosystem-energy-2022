@@ -1,6 +1,7 @@
 {% block content %}
-
-  {% if featured %}
+  
+  {% if paged == 1 %}
+    {% set featured = items[0] %}
     <div class="large container">
     
       {% include 'partials/common/block-item.twig' with { 
@@ -17,7 +18,8 @@
 
   <div class="large container">
 	  <div class="block-list">
-      {% for cs in items %}
+      {% set allCs = paged == 1 ? items|slice(1) : items %}
+      {% for cs in allCs %}
       
         {% include 'partials/common/block-item.twig' with { 
           title: cs.title,

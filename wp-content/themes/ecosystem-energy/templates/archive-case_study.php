@@ -7,7 +7,6 @@
 $limit      = empty($_GET['limit']) ? 9 : $_GET['limit'];
 $paged      = empty($_GET['pg']) ? 1 : $_GET['pg'];
 $industries = empty($_GET['industries']) ? [] : $_GET['industries'];
-$featured   = empty($_GET['featured']) ? [] : $_GET['featured'];
 
 $context = Timber::context();
 
@@ -19,7 +18,6 @@ $locales = empty($_GET['filter_locale']) ? $context['current_locale'] : $_GET['f
 // Set base informations for context
 $timber_post = new Timber\Post();
 $context['post']     = $timber_post;
-$context['featured'] = null;
 $context['limit']    = $limit;
 $context['paged']    = $paged;
 
@@ -34,7 +32,7 @@ $args = [
    'order'           => 'DESC',
    'suppress_filter' => true,
    'paged'           => $paged,
-   'posts_per_page'  => empty($featured) ? 1 : $limit,
+   'posts_per_page'  => $limit,
 ];
 
 // Filter by local
@@ -55,16 +53,6 @@ if (!empty($industries) && $industries != '') {
         'field'    => 'term_id',
         'terms'    => $industriesTab
     ];
-}
-
-// Get featured
-if (empty($featured)) {
-    $featured = new Timber\PostQuery($args);
-    if (isset($featured[0])) {
-        $context['featured']    = $paged == 1 ? $featured[0] : null;
-        $args['post__not_in']   = [$featured[0]->ID];
-    }
-    $args['posts_per_page'] = $limit;
 }
 
 // Get Post
