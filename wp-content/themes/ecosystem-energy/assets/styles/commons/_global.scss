@@ -94,3 +94,18 @@ sup { color: inherit; }
   body { @include fontSize(19, 29, 400, -0.4); }
   p { @include fontSize(19, 29); }
 }
+
+// TODO: Move this somewhere else
+.addtoany_share_save_container.addtoany_content {
+  margin: 100px 0 60px;
+
+  &::before {
+    content: 'Share';
+    display: block;
+    padding-bottom: 6px;
+    margin-bottom: 7px;
+    color: #AAA;
+    border-bottom: 1px solid $borderColor;
+  }
+}
+.page-container.fr .addtoany_share_save_container::before { content: 'Partager' !important; }

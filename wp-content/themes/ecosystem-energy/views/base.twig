@@ -15,7 +15,6 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="{{ theme.link }}/dist/favicon/favicon-16x16.png">
 		<link rel="manifest" href="{{ theme.link }}/dist/favicon/site.webmanifest">
 		<link rel="mask-icon"href="{{ theme.link }}/dist/favicon/safari-pinned-tab.svg" color="#5bbad5">
-    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=62153f9c4d759f0019eaa837&product=sop' async='async'></script>
     {% block structuredData %}{% endblock %}
     {{ function('wp_head') }}
 
@@ -28,7 +27,7 @@
 
   <body {{ body_class }} ?>
 
-    <div class="page-container {% block pageClass %}{% endblock %}">
+    <div class="page-container {{ current_lang }} {% block pageClass %}{% endblock %}">
       {% include 'partials/common/header.twig' %}
 
       <div class="page">
@@ -41,6 +40,5 @@
     {{ function('wp_footer') }}
 
     {% block specific_script %}{% endblock %}
-
   </body>
 </html>
