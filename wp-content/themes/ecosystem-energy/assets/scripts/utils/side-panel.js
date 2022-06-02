@@ -89,10 +89,10 @@ export default class SidePanel {
   openSidePanel = async event => {
     this.togglePanel(true);
     const id = event.target.dataset.id;
-    // window.scrollTo({ top: 0 });
 
     await this.timeout(700);
     this.loadData(id);
+    this.innerContainer.scrollTo({ top: 0 });
   }
 
   // Replace data when prev/next button clicked
