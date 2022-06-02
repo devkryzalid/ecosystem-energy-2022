@@ -14,21 +14,22 @@
 
   <div class="content" data-aos="fade-up" data-aos-delay="500">{{ expertise.content }}</div>
 
-  <div class="case-studies">
-    <h2 class="featured-title" data-aos="fade-up" data-aos-delay="400">{{ __('Case Studies', 'ecosystem-energy') }}</h2>
-    <a data-aos="fade-up" data-aos-delay="600" class="internal link" href="{{ cs_link }}">{{ __('More case studies', 'ecosystem-energy') }}</a>
+  {% if case_studies|length %}
+    <div class="case-studies">
+      <h2 class="featured-title" data-aos="fade-up" data-aos-delay="400" data-aos-anchor="#panel-body">{{ __('Case Studies', 'ecosystem-energy') }}</h2>
+      <a class="internal link" data-aos="fade-up" data-aos-delay="600" data-aos-anchor="#panel-body" href="{{ cs_link }}">{{ __('More case studies', 'ecosystem-energy') }}</a>
 
-    <div class="block-list">
-      {% for case_study in case_studies %}
-        {% include 'partials/common/block-item.twig' with { 
-          title: case_study.title,
-          description: case_study.preview.strip('<h2>').read_more(false),
-          url: case_study.link,
-          image: case_study.thumbnail,
-          class: '',
-          delay: 100
-        } %}
-      {% endfor %}
+      <div class="block-list" data-aos="fade-up" data-aos-delay="800" data-aos-anchor="#panel-body">
+        {% for case_study in case_studies %}
+          {% include 'partials/common/block-item.twig' with { 
+            title: case_study.title,
+            description: case_study.preview.strip('<h2>').read_more(false),
+            url: case_study.link,
+            image: case_study.thumbnail,
+            class: ''
+          } %}
+        {% endfor %}
+      </div>
     </div>
-  </div>
+  {% endif %}
 </div>

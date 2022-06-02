@@ -8,6 +8,7 @@ import axios from 'axios';
 
 export default class SidePanel {
   container = document.getElementById('side-panel-ctn');
+  body = document.body;
   innerContainer;
 
   transition = false;
@@ -88,7 +89,7 @@ export default class SidePanel {
   openSidePanel = async event => {
     this.togglePanel(true);
     const id = event.target.dataset.id;
-    window.scrollTo({ top: 0 });
+    // window.scrollTo({ top: 0 });
 
     await this.timeout(700);
     this.loadData(id);
@@ -102,26 +103,22 @@ export default class SidePanel {
 
   // Show panel
   showPanel = () => {
-    // this.transition = true;
     this.container.classList.add('loading');
     this.container.classList.add('show');
     this.container.addEventListener('transitionend', this.onPanelShown);
-    // this.body.classList.add('menu-open');
+    this.body.classList.add('panel-open');
   }
 
   // Hide panel
   hidePanel = () => {
-    // this.transition = true;
     this.container.classList.add('loading');
     this.container.classList.remove('show');
     this.container.addEventListener('transitionend', this.onPanelHidden);
-    // this.body.classList.remove('menu-open');
+    this.body.classList.remove('panel-open');
   }
 
   // Switch on opened status (on transition end)
   onPanelShown = () => {
-    // console.log('shown');
-    // this.open = true;
     this.transition = false;
     this.container.classList.add('-shown');
     this.container.removeEventListener('transitionend', this.onPanelShown);
@@ -129,8 +126,6 @@ export default class SidePanel {
 
   // Switch on closed status (on transition end)
   onPanelHidden = () => {
-    // console.log('hidden');
-    // this.open = false;
     this.transition = false;
     this.container.classList.remove('-shown');
     this.container.removeEventListener('transitionend', this.onPanelHidden);
