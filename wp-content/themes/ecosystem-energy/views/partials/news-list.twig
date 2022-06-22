@@ -5,7 +5,7 @@
       {% include 'partials/common/block-item.twig' with { 
         title: featured.title,
         surtitle: featured.meta('related_industry')[0].post_title,
-        footer: featured.post_date|date("F d, Y"),
+        footer: featured.post_date | date(current_lang == 'en' ? "F d, Y" : "d F Y"),
         url: featured.link,
         image: featured.thumbnail,
         class: 'featured text-padding no-plus-hover',
@@ -21,7 +21,7 @@
         {% include 'partials/common/block-item.twig' with { 
           title: p.title,
           surtitle: p.meta('related_industry')[0].post_title,
-          footer: p.post_date|date("F d, Y"),
+          footer: featured.post_date | date(current_lang == 'en' ? "F d, Y" : "d F Y"),
           url: p.link,
           image: p.thumbnail,
           class: 'text-padding white-bg',
