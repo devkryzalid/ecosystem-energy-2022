@@ -21,9 +21,6 @@ $context['post']     = $timber_post;
 $context['limit']    = $limit;
 $context['paged']    = $paged;
 
-// Get industries tax
-$context['industries'] = get_terms( [ 'taxonomy' => 'industry_tax' ] );
-
 // Get cases studies
 $args = [
    'post_type'       => 'case_study',
@@ -55,6 +52,8 @@ if (!empty($industries) && $industries != '') {
     ];
 }
 
+// Get industries tax
+$context['industries'] = get_terms( [ 'taxonomy' => 'industry_tax' ] );
 // Get Post
 $context['case_studies'] = new Timber\PostQuery($args);
 Timber::render( array( 'pages/case_studies.twig' ), $context );

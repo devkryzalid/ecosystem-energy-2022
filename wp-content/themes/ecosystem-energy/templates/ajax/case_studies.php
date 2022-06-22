@@ -1,7 +1,6 @@
 <?php
 global $params;
-// do_action('wpml_switch_language', $params['lang']);
-
+do_action('wpml_switch_language', $params['lang']);
 
 // Params
 $limit      = empty($params['limit']) ? 9 : $params['limit'];
