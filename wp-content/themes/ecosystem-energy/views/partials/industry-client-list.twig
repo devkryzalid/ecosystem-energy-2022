@@ -8,7 +8,7 @@
     <div class="clients-list">
       {% for client in list %}
         <div class="image" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
-          <img class="" src="{{ client.image.link }}" alt="{{ client.image.title }}">
+          <img class="" src="{{ client.image.url }}" alt="{{ client.image.title }}">
         </div>
       {% endfor %}
     </div>
