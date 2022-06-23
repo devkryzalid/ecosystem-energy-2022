@@ -2,7 +2,7 @@
   <div class="container {{ large ? 'large' : '' }}">
     <div class="filters">
 
-      <input type="hidden" id="ajax-settings" data-url="/ajax/{{ current_lang }}/{{ url }}" data-limit="{{ limit ?: 9 }}" data-featured="{{ featured }}">
+      <input type="hidden" id="ajax-settings" data-url="/ajax/{{ current_lang }}/{{ url }}" data-limit="{{ limit ?: 9 }}" data-featured="{{ featured }}" data-lang="{{ current_lang }}">
 
       {% if not hideLocale %}
         <div class="filter-group">

@@ -49,7 +49,7 @@ if ($posts->found_posts > 0) {
     $response = '';
     $response .= Timber::compile(
       'partials/news-list.twig', 
-      ['posts' => $posts, 'featured' => $paged == 1 ? $context['featured'] : null]
+      ['posts' => $posts, 'featured' => $paged == 1 ? $context['featured'] : null, 'lang' => $params['lang']]
     );
     $message = $response;
 

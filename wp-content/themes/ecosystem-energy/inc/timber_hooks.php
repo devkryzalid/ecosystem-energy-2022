@@ -55,6 +55,23 @@ function add_to_twig( $twig ) {
 		)
 	);
 
+  // Translate month name, since ajax locale is kinda fucked up
+	$twig->addFilter(
+		new Twig\TwigFilter(
+			'translate_date',
+			function($date) {
+        $isDateFr = !strpos($date, ',');
+        if ($isDateFr) {
+          $en = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+          $fr = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+          $str = str_replace($en, $fr, $date);
+          return (!$str[0]) ? ltrim($str, '0') : $str; 
+        }
+        else return $date;
+			}
+		)
+	);
+
 	return $twig;
 }
 
